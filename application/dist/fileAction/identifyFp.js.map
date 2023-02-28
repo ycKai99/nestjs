@@ -1,0 +1,1 @@
+{"version":3,"file":"identifyFp.js","sourceRoot":"","sources":["../../src/fileAction/identifyFp.ts"],"names":[],"mappings":";;;AAAO,KAAK,UAAU,UAAU,CAAC,QAAa;IAC5C,IAAI,SAAS,GAAG,EAAE,CAAA;IAClB,QAAQ,CAAC,OAAO,CAAC,OAAO,CAAC,EAAE;QACzB,SAAS,CAAC,IAAI,CAAC,OAAO,CAAC,MAAM,CAAC,CAAC,CAAA;IACjC,CAAC,CAAC,CAAC;IACH,OAAO,SAAS,CAAA;AAClB,CAAC;AAND,gCAMC"}

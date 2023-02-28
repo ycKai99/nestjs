@@ -1,0 +1,32 @@
+[
+    {
+        "fpid": "fp1",
+        "registeredDate": "2023-02-16T07:13:45.226Z",
+        "type": "registeredFingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp2",
+        "registeredDate": "2023-02-16T07:13:45.226Z",
+        "type": "registeredFingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp3",
+        "registeredDate": "2023-02-16T07:13:45.226Z",
+        "type": "registeredFingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp4",
+        "registeredDate": "2023-02-16T07:13:45.226Z",
+        "type": "registeredFingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp5",
+        "registeredDate": "2023-02-16T07:13:45.226Z",
+        "type": "registeredFingerprint",
+        "vendor": "ZKTeco"
+    }
+]
