@@ -5,6 +5,7 @@ import { fingerprintDataInterface } from './fileInterface/fileMessageType.interf
 import fs = require('graceful-fs')
 import jade = require('jade')
 import * as net from 'net'
+const axios = require('axios')
 
 @Controller()
 export class AppController {
@@ -21,14 +22,6 @@ export class AppController {
       socket.destroy();
     });
 
-    // const jadeargument: any = {};
-    // console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-    // let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-    //   encoding: 'utf8',
-    // });
-    // let fpdata = JSON.parse(data);
-    // jadeargument['dataSet1'] = fpdata
-    // return res.send(res_render('statuspage', res, jadeargument));
   }
 
 
@@ -93,6 +86,20 @@ export class AppController {
     jadeargument['dataSet1'] = fpdata
     return res.send(res_render('statuspage', res, jadeargument));
   }
+
+  // display error message
+  @Post('error')
+  errorMessage(@Req() req: Request, @Res() res): string {
+    const jadeargument: any = {};
+    console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
+    let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
+    jadeargument['errorMessage'] = errMessage[0].message;
+    return res.send(res_render('errorMessage', res, errMessage[0].message));
+  }
+
+
+
+
 }
 
 export function res_render(jadefile: any, res: any, jadeargument: any) {

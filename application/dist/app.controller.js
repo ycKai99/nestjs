@@ -18,6 +18,7 @@ const app_service_1 = require("./app.service");
 const fs = require("graceful-fs");
 const jade = require("jade");
 const net = require("net");
+const axios = require('axios');
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -69,6 +70,13 @@ let AppController = class AppController {
         let fpdata = JSON.parse(data);
         jadeargument['dataSet1'] = fpdata;
         return res.send(res_render('statuspage', res, jadeargument));
+    }
+    errorMessage(req, res) {
+        const jadeargument = {};
+        console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
+        let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
+        jadeargument['errorMessage'] = errMessage[0].message;
+        return res.send(res_render('errorMessage', res, errMessage[0].message));
     }
 };
 __decorate([
@@ -126,6 +134,14 @@ __decorate([
     __metadata("design:paramtypes", [Request, Object]),
     __metadata("design:returntype", String)
 ], AppController.prototype, "postStatus", null);
+__decorate([
+    (0, common_1.Post)('error'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request, Object]),
+    __metadata("design:returntype", String)
+], AppController.prototype, "errorMessage", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

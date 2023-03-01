@@ -16,7 +16,6 @@ const readFileSync_1 = require("./fileAction/readFileSync");
 const writeFileSync_1 = require("./fileAction/writeFileSync");
 const postDataToCentral_1 = require("./connectionAction/postDataToCentral");
 const constSetting_1 = require("./fileInterface/constSetting");
-const postDataToLocal_1 = require("./connectionAction/postDataToLocal");
 let AppService = class AppService {
     constructor() {
         this.verifyFpCount = 0;
@@ -25,7 +24,6 @@ let AppService = class AppService {
         this.tempCount = 1;
         this.readFingerprintData();
         this.readMessageData();
-        (0, postDataToLocal_1.postData)(this.fingerprintLocalData, this.tempCount);
     }
     retrieveTesting() {
         (0, postDataToCentral_1.syncData)(this.fingerprintLocalData);

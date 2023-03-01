@@ -11,5 +11,6 @@ export declare class AppController {
     identifyFp(): void;
     getStatus(req: any, res: any): string;
     postStatus(req: Request, res: any): string;
+    errorMessage(req: Request, res: any): string;
 }
 export declare function res_render(jadefile: any, res: any, jadeargument: any): any;
