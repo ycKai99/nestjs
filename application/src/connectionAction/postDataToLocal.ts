@@ -4,7 +4,7 @@ var CryptoJS = require("crypto-js")
 
 var tempCount: number = 1;
 
-export function postData(fileData) {
+export function postData(fileData, tempCount) {
 
   // console.log('data is ',ciphertext)
   // axios.post('http://192.168.100.54:8080', ciphertext)
@@ -25,13 +25,28 @@ export function postData(fileData) {
     }
   });
   socket.on('data', (data) => {
-    if (tempCount < (fileData.length + 1)) {
-      let data = calResult(fileData)
-      socket.write(data.toString());
-    } else {
-      socket.write("done");
+    if (!data.toString().includes('match') || data.toString().includes('continue')) {
+      let fpdata = calResult(fileData);
+      // if (tempCount < (fileData.length + 1)) {
+      if (fpdata.length === 0) {
+        console.log("No data found");
+        socket.write('done');
+      }
+      else {
+        socket.write(fpdata.toString());
+      }
+      // } else {
+      //   console.log('No fingerprint match')
+      //   socket.write("done");
+      //   socket.destroy();
+      // }
+    }
+    else {
+      console.log('match');
+      // socket.write('match');
       socket.destroy();
     }
+
   });
   socket.on('error', (error) => {
     console.log('error is ', error)
