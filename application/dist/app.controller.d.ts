@@ -3,6 +3,7 @@ import { fingerprintDataInterface } from './fileInterface/fileMessageType.interf
 export declare class AppController {
     private readonly appService;
     constructor(appService: AppService);
+    init(req: Request, res: any): any;
     retrieveTesting(): string;
     testing(): fingerprintDataInterface;
     registerFp(registerfp: string): string;

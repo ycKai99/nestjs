@@ -10,25 +10,25 @@ import * as net from 'net'
 export class AppController {
   constructor(private readonly appService: AppService) { }
 
-  @Get('init')
-  init(@Req() req: Request, @Res() res): string {
+  @Post('init')
+  init(@Req() req: Request, @Res() res): any {
     let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
     let socket: net.Socket;
     socket = new net.Socket();
     socket.connect(8080, 'localhost', async () => {
       console.log('Connected to Java server');
       socket.write(subValue.submitValue);
+      socket.destroy();
     });
 
-    const jadeargument: any = {};
+    // const jadeargument: any = {};
     // console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-    let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-      encoding: 'utf8',
-    });
-    let fpdata = JSON.parse(data);
-    jadeargument['dataSet1'] = fpdata
+    // let data = fs.readFileSync('./localStorage/fingerprintData.json', {
+    //   encoding: 'utf8',
+    // });
+    // let fpdata = JSON.parse(data);
+    // jadeargument['dataSet1'] = fpdata
     // return res.send(res_render('statuspage', res, jadeargument));
-    return "finish";
   }
 
 

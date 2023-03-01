@@ -17,9 +17,20 @@ const common_1 = require("@nestjs/common");
 const app_service_1 = require("./app.service");
 const fs = require("graceful-fs");
 const jade = require("jade");
+const net = require("net");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
+    }
+    init(req, res) {
+        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
+        let socket;
+        socket = new net.Socket();
+        socket.connect(8080, 'localhost', async () => {
+            console.log('Connected to Java server');
+            socket.write(subValue.submitValue);
+            socket.destroy();
+        });
     }
     retrieveTesting() {
         return this.appService.retrieveTesting();
@@ -50,6 +61,8 @@ let AppController = class AppController {
     postStatus(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
+        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
+        console.log(subValue.submitValue);
         let data = fs.readFileSync('./localStorage/fingerprintData.json', {
             encoding: 'utf8',
         });
@@ -58,6 +71,14 @@ let AppController = class AppController {
         return res.send(res_render('statuspage', res, jadeargument));
     }
 };
+__decorate([
+    (0, common_1.Post)('init'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request, Object]),
+    __metadata("design:returntype", Object)
+], AppController.prototype, "init", null);
 __decorate([
     (0, common_1.Get)('retrieveTesting'),
     __metadata("design:type", Function),

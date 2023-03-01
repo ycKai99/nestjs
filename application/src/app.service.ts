@@ -24,7 +24,7 @@ export class AppService {
     this.readMessageData();
     // let data = [{fp1:{"fp1":"fp1"}}]
     // this.registerFingerprint(JSON.stringify(data))
-    // postData(this.fingerprintLocalData, this.tempCount)
+    postData(this.fingerprintLocalData, this.tempCount)
   }
 
   // testing purpose
