@@ -4,15 +4,33 @@ var CryptoJS = require("crypto-js")
 
 
 var tempCount: number = 1;
+var tempTotal: number;
+var checkStatus: boolean = true;
 
-export function postData(fileData, tempCount) {
+export function postData(fileData) {
 
-  // console.log('data is ',ciphertext)
-
-
-  axios.post('http://localhost:4200', "ciphertext")
-    .then(res => console.log("res is ", res.data))
-    .catch(err => console.log("error is ", err))
+  tempTotal = fileData.length;
+  let data;
+  if (tempTotal <= 0) {
+    data = "no data"
+    checkStatus = false;
+    return checkStatus;
+  }
+  do {
+    if (tempCount <= tempTotal) {
+      console.log('tempCount is ', tempCount)
+      data = calResult(fileData)
+    }
+    else {
+      console.log('done sent all data')
+      data = "done"
+      checkStatus = false;
+    }
+    console.log('run axios')
+    axios.post('http://192.168.100.54:8080', data.toString())
+      .then(res => { console.log('res is ', res.data) })
+      .catch(err => { console.log('error is ', err) })
+  } while (checkStatus);
 
   let socket: net.Socket;
   // socket = new net.Socket();

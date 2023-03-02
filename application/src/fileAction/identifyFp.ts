@@ -1,4 +1,4 @@
-export async function identifyFp(fileData: any) {
+export async function onlyFpData(fileData: any) {
   let dataArray = []
   fileData.forEach(element => {
     dataArray.push(element['fpid'])

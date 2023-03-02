@@ -1,35 +1,46 @@
 import { Injectable } from '@nestjs/common';
-import { identifyFp } from './fileAction/identifyFp';
+import { onlyFpData } from './fileAction/identifyFp';
 import { readFileData } from './fileAction/readFileSync';
 import { writeFileSync } from './fileAction/writeFileSync';
 import { syncData } from './connectionAction/postDataToCentral';
 import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 import { data_full_path, message_full_path } from './fileInterface/constSetting';
 import { postData } from './connectionAction/postDataToLocal';
+import { dataEncryption, dataDecryption } from './fileAction/dataEncryption';
 
+export interface StandardFingerprintInterface {
+  fingerprintData;
+  messageData;
+  readMessageData()
+  readFingerprintData()
+  registerFingerprint(data: string)
+  verifyFingerprint()
+  identifyFingerprint()
+  fingerprintRawData()
+}
 @Injectable()
-export class AppService {
+export class StandardFingerprint implements StandardFingerprintInterface {
 
   private verifyFpCount: number = 0; // used to store current turn of result
   private verifyFpTotal: number = 0; // used to store data length of file
   private verifyBool: boolean = true; // used to check whether reached last data or not
 
-  private fingerprintLocalData; // used to store fingerprint data in local
-  private messageNotificationData; // used to store message notification
-
-  private tempCount: number = 1;
+  private _fingerprintData; // used to store fingerprint data in local
+  private _messageData; // used to store message notification
 
   constructor() {
     this.readFingerprintData();
     this.readMessageData();
-    // let data = [{fp1:{"fp1":"fp1"}}]
     // this.registerFingerprint(JSON.stringify(data))
-    postData(this.fingerprintLocalData, this.tempCount)
+    // postData(this.fingerprintData)
+    // console.log('fingerprint data is ',this.fingerprintData)
+    // console.log('message data is ',this.messageData)
+    // this.retrieveTesting()
   }
 
   // testing purpose
   retrieveTesting() {
-    syncData(this.fingerprintLocalData)
+    syncData(this.fingerprintData)
     return "message from local server"
   }
 
@@ -47,51 +58,51 @@ export class AppService {
 
   // get fingerprint data from this.fingerprintLocalData
   get fingerprintData() {
-    return this.fingerprintLocalData;
+    return this._fingerprintData;
   }
 
   // set fingerprint data to this.fingerprintLocalData
   set fingerprintData(data: fingerprintDataInterface) {
-    this.fingerprintLocalData.push(data)
+    this._fingerprintData.push(data)
   }
 
   // get message notification data from this.messageNotificationData
   get messageData() {
-    return this.messageNotificationData
+    return this._messageData
   }
 
   // set message data to this.messageNotificationData
   set messageData(data: fileMessage) {
-    this.messageNotificationData.push(data)
+    this._messageData.push(data)
   }
 
   // read all message data and store it to this.messageNotificationData
   readMessageData() {
-    this.messageNotificationData = readFileData(message_full_path);
+    this._messageData = readFileData(message_full_path);
   }
 
   // read all fingerprint data and store it to this.fingerprintLocalData
   readFingerprintData() {
-    this.fingerprintLocalData = readFileData(data_full_path);
+    this._fingerprintData = readFileData(data_full_path);
   }
 
   // register new fingerprint 
   registerFingerprint(data: string) {
-    writeFileSync(data, this.fingerprintData)
+    writeFileSync(data, this._fingerprintData)
     this.readFingerprintData
   }
 
   // retrieve only fingerprint data 
   fingerprintRawData() {
-    return identifyFp(this.fingerprintLocalData);
+    return onlyFpData(this._fingerprintData);
   }
 
   // verify fingerprint 1 to 1
   verifyFingerprint() {
-    this.verifyFpTotal = this.fingerprintLocalData.length
+    this.verifyFpTotal = this._fingerprintData.length
     do {
       if (this.verifyFpCount < this.verifyFpTotal) {
-        let fp = this.fingerprintLocalData[this.verifyFpCount]['fpid']
+        let fp = this._fingerprintData[this.verifyFpCount]['fpid']
         this.verifyBool = true;
         this.verifyFpCount++
         return fp

@@ -1,6 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { Controller, Get, Post, Body, Res, Req, All } from '@nestjs/common';
-import { AppService } from './app.service';
+import { ZKTFingerprintService } from './zktfingerprint.service';
 import { fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 import fs = require('graceful-fs')
 import jade = require('jade')
@@ -9,7 +9,7 @@ const axios = require('axios')
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: ZKTFingerprintService) { }
 
   @Post('init')
   init(@Req() req: Request, @Res() res): any {
