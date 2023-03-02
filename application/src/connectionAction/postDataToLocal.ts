@@ -2,12 +2,15 @@ const axios = require('axios')
 import * as net from 'net'
 var CryptoJS = require("crypto-js")
 
+
 var tempCount: number = 1;
 
 export function postData(fileData, tempCount) {
 
   // console.log('data is ',ciphertext)
-  axios.post('http://localhost:8080', "ciphertext")
+
+
+  axios.post('http://localhost:4200', "ciphertext")
     .then(res => console.log("res is ", res.data))
     .catch(err => console.log("error is ", err))
 

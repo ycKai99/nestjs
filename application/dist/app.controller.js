@@ -33,6 +33,12 @@ let AppController = class AppController {
             socket.destroy();
         });
     }
+    syncData(req, res) {
+        let data = fs.readFileSync('./localStorage/fingerprintData.json', {
+            encoding: 'utf-8'
+        });
+        console.log(data);
+    }
     retrieveTesting() {
         return this.appService.retrieveTesting();
     }
@@ -112,6 +118,14 @@ __decorate([
     __metadata("design:paramtypes", [Request, Object]),
     __metadata("design:returntype", Object)
 ], AppController.prototype, "init", null);
+__decorate([
+    (0, common_1.Post)('sync'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request, Object]),
+    __metadata("design:returntype", Object)
+], AppController.prototype, "syncData", null);
 __decorate([
     (0, common_1.Get)('retrieveTesting'),
     __metadata("design:type", Function),

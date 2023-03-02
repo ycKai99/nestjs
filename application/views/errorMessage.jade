@@ -72,3 +72,9 @@ html
                     td=index+1
                     td=jadeargument["errMessage"][index]["time"]
                     td=jadeargument["errMessage"][index]["message"]
+        
+        br
+
+        form(method='post', style='margin-bottom:5px', action='http://localhost:3000/setfp')
+            input(type='submit', value='Post to central', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
+            input(type='hidden', name='postFp', value='sync')  

@@ -24,6 +24,18 @@ export class AppController {
 
   }
 
+  //testing post data to central server
+  @Post('sync')
+  syncData(@Req() req: Request, @Res() res): any {
+    let data = fs.readFileSync('./localStorage/fingerprintData.json', {
+      encoding: 'utf-8'
+    });
+    console.log(data);
+    // axios.post('http://localhost:4200/sync', data.toString())
+    //   .then(res => { console.log('res is ', res.data) })
+    //   .catch(err => { console.log('error is ', err) })
+  }
+
 
 
   // testing purpose
