@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { Controller, Get, Post, Body, Res, Req } from '@nestjs/common';
+import { Controller, Get, Post, Body, Res, Req, All } from '@nestjs/common';
 import { AppService } from './app.service';
 import { fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 import fs = require('graceful-fs')
@@ -87,17 +87,46 @@ export class AppController {
     return res.send(res_render('statuspage', res, jadeargument));
   }
 
+
+
   // display error message
   @Post('error')
-  errorMessage(@Req() req: Request, @Res() res): string {
+  postErrorMessage(@Req() req: Request, @Res() res): string {
     const jadeargument: any = {};
     console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
+    let data = fs.readFileSync('./localStorage/errorMessage.json', {
+      encoding: 'utf8',
+    });
     let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
-    jadeargument['errorMessage'] = errMessage[0].message;
-    return res.send(res_render('errorMessage', res, errMessage[0].message));
+    console.log(errMessage);
+    let jsonArray = [];
+    let jsonObj = JSON.parse(JSON.stringify(jsonArray));
+    if (data.length != 0) {
+      let pastErrMessage = JSON.parse(data);
+      pastErrMessage.push(errMessage);
+      console.log(pastErrMessage);
+      fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(pastErrMessage));
+    }
+    else {
+      jsonObj.push(errMessage);
+      fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(jsonObj));
+    }
+    jadeargument['errMessage'] = data;
+    return res.send(res_render('errorMessage', res, jadeargument));
   }
 
 
+  // get error message
+  @Get('error')
+  getErrorMessage(@Res() res): string {
+    const jadeargument: any = {};
+    let data = fs.readFileSync('./localStorage/errorMessage.json', {
+      encoding: 'utf8',
+    });
+    let errMessage = JSON.parse(data);
+    jadeargument['errMessage'] = errMessage;
+    return res.send(res_render('errorMessage', res, jadeargument));
+  }
 
 
 }

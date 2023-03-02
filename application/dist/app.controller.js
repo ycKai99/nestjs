@@ -71,12 +71,37 @@ let AppController = class AppController {
         jadeargument['dataSet1'] = fpdata;
         return res.send(res_render('statuspage', res, jadeargument));
     }
-    errorMessage(req, res) {
+    postErrorMessage(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
+        let data = fs.readFileSync('./localStorage/errorMessage.json', {
+            encoding: 'utf8',
+        });
         let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
-        jadeargument['errorMessage'] = errMessage[0].message;
-        return res.send(res_render('errorMessage', res, errMessage[0].message));
+        console.log(errMessage);
+        let jsonArray = [];
+        let jsonObj = JSON.parse(JSON.stringify(jsonArray));
+        if (data.length != 0) {
+            let pastErrMessage = JSON.parse(data);
+            pastErrMessage.push(errMessage);
+            console.log(pastErrMessage);
+            fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(pastErrMessage));
+        }
+        else {
+            jsonObj.push(errMessage);
+            fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(jsonObj));
+        }
+        jadeargument['errMessage'] = data;
+        return res.send(res_render('errorMessage', res, jadeargument));
+    }
+    getErrorMessage(res) {
+        const jadeargument = {};
+        let data = fs.readFileSync('./localStorage/errorMessage.json', {
+            encoding: 'utf8',
+        });
+        let errMessage = JSON.parse(data);
+        jadeargument['errMessage'] = errMessage;
+        return res.send(res_render('errorMessage', res, jadeargument));
     }
 };
 __decorate([
@@ -141,7 +166,14 @@ __decorate([
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Request, Object]),
     __metadata("design:returntype", String)
-], AppController.prototype, "errorMessage", null);
+], AppController.prototype, "postErrorMessage", null);
+__decorate([
+    (0, common_1.Get)('error'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], AppController.prototype, "getErrorMessage", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])
