@@ -76,7 +76,6 @@ let StandardFingerprint = class StandardFingerprint {
                 if (status['fpid'] === 'match') {
                     this.verifyBool = false;
                     this.verifyFpCount = 0;
-                    console.log('stop sending data and fingerprint match');
                 }
                 return data;
             }
