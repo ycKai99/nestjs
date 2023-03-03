@@ -66,22 +66,30 @@ let StandardFingerprint = class StandardFingerprint {
     }
     verifyFingerprint(status) {
         this.verifyFpTotal = this._fingerprintData.length;
+        let check = status['fpid'];
         do {
             if (this.verifyFpCount < this.verifyFpTotal) {
                 let fp = this._fingerprintData[this.verifyFpCount]['fpid'];
                 this.verifyBool = true;
                 this.verifyFpCount++;
                 let data = (0, dataEncryption_1.dataEncryption)(fp);
-                console.log('encrypt data is ', data);
-                if (status['fpid'] === 'match') {
+                if (check === 'match') {
                     this.verifyBool = false;
                     this.verifyFpCount = 0;
+                    console.log('match');
+                    break;
                 }
                 return data;
             }
             else {
                 this.verifyBool = false;
                 this.verifyFpCount = 0;
+                if (check === 'match') {
+                    this.verifyBool = false;
+                    this.verifyFpCount = 0;
+                    console.log('match');
+                }
+                console.log('finish');
                 return "finished";
             }
         } while (this.verifyBool);
