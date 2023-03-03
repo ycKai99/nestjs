@@ -111,6 +111,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
         if (status['fpid'] === 'match') {
           this.verifyBool = false;
           this.verifyFpCount = 0;
+          console.log('match');
         }
         return data;
       }
