@@ -1,10 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { StandardFingerprint } from './app.service';
+import { ZKTFingerprintService } from './zktfingerprint.service';
+
 
 @Module({
   imports: [],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [ZKTFingerprintService],
 })
 export class AppModule { }
