@@ -112,6 +112,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
           this.verifyBool = false;
           this.verifyFpCount = 0;
           console.log('match');
+          break;
         }
         return data;
       }
