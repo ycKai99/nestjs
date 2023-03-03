@@ -1,14 +1,14 @@
-import { AppService } from './app.service';
+import { ZKTFingerprintService } from './zktfingerprint.service';
 import { fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 export declare class AppController {
     private readonly appService;
-    constructor(appService: AppService);
+    constructor(appService: ZKTFingerprintService);
     init(req: Request, res: any): any;
     syncData(req: Request, res: any): any;
     retrieveTesting(): string;
     testing(): fingerprintDataInterface;
     registerFp(registerfp: string): string;
-    verifyFp(): any;
+    verifyFp(status: string): string;
     identifyFp(): void;
     getStatus(req: any, res: any): string;
     postStatus(req: Request, res: any): string;

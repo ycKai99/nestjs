@@ -1,4 +1,5 @@
-var crypto = require("crypto-js")
+// var crypto = require("crypto-js")
+import * as crypto from "crypto"
 
 export function dataEncryption(fileData) {
   let fpdata = fileData.toString();
@@ -6,7 +7,7 @@ export function dataEncryption(fileData) {
   // const key = 'Z5OO0FWfkCWuUqalU4AwlA==';
   const key = 'axtQjz7QRHCV7yOrnNK7gp==';
   const keyBuffer = Buffer.from(key, 'base64');
-  console.log(crypto.randomBytes(16).toString('base64'));
+  // console.log(crypto.randomBytes(16).toString('base64'));
 
   // The plaintext data to encrypt
   const plaintext = fpdata;

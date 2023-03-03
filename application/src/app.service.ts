@@ -7,6 +7,7 @@ import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessa
 import { data_full_path, message_full_path } from './fileInterface/constSetting';
 import { postData } from './connectionAction/postDataToLocal';
 import { dataEncryption, dataDecryption } from './fileAction/dataEncryption';
+import { Controller, Get, Post, Body, Res, Req, All } from '@nestjs/common';
 
 export interface StandardFingerprintInterface {
   fingerprintData;
@@ -14,7 +15,7 @@ export interface StandardFingerprintInterface {
   readMessageData()
   readFingerprintData()
   registerFingerprint(data: string)
-  verifyFingerprint()
+  verifyFingerprint(status: string)
   identifyFingerprint()
   fingerprintRawData()
 }
@@ -98,23 +99,27 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   }
 
   // verify fingerprint 1 to 1
-  verifyFingerprint() {
+  verifyFingerprint(status: string) {
     this.verifyFpTotal = this._fingerprintData.length
-    // do {
-    if (this.verifyFpCount < this.verifyFpTotal) {
-      let fp = this._fingerprintData[this.verifyFpCount]['fpid']
-      this.verifyBool = true;
-      this.verifyFpCount++;
-      let data = dataEncryption(fp);
-      console.log('encrypt data is ', data);
-      return data;
-    }
-    else {
-      this.verifyBool = false;
-      this.verifyFpCount = 0;
-      return "finished";
-    }
-    // } while (this.verifyBool);
+    do {
+      if (this.verifyFpCount < this.verifyFpTotal) {
+        let fp = this._fingerprintData[this.verifyFpCount]['fpid']
+        this.verifyBool = true;
+        this.verifyFpCount++;
+        let data = dataEncryption(fp);
+        console.log('encrypt data is ', data)
+        if (status['fpid'] === 'match') {
+          this.verifyBool = false;
+          this.verifyFpCount = 0;
+        }
+        return data;
+      }
+      else {
+        this.verifyBool = false;
+        this.verifyFpCount = 0;
+        return "finished";
+      }
+    } while (this.verifyBool);
   }
 
   // identify fingerprint 1 to all

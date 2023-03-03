@@ -1,11 +1,20 @@
 import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
-export declare class AppService {
+export interface StandardFingerprintInterface {
+    fingerprintData: any;
+    messageData: any;
+    readMessageData(): any;
+    readFingerprintData(): any;
+    registerFingerprint(data: string): any;
+    verifyFingerprint(status: string): any;
+    identifyFingerprint(): any;
+    fingerprintRawData(): any;
+}
+export declare class StandardFingerprint implements StandardFingerprintInterface {
     private verifyFpCount;
     private verifyFpTotal;
     private verifyBool;
-    private fingerprintLocalData;
-    private messageNotificationData;
-    private tempCount;
+    private _fingerprintData;
+    private _messageData;
     constructor();
     retrieveTesting(): string;
     display(): fingerprintDataInterface;
@@ -17,6 +26,6 @@ export declare class AppService {
     readFingerprintData(): void;
     registerFingerprint(data: string): void;
     fingerprintRawData(): Promise<any[]>;
-    verifyFingerprint(): any;
+    verifyFingerprint(status: string): string;
     identifyFingerprint(): void;
 }

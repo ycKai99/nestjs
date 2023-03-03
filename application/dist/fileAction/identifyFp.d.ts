@@ -1,1 +1,1 @@
-export declare function identifyFp(fileData: any): Promise<any[]>;
+export declare function onlyFpData(fileData: any): Promise<any[]>;

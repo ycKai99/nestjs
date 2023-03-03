@@ -1,12 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.identifyFp = void 0;
-async function identifyFp(fileData) {
+exports.onlyFpData = void 0;
+async function onlyFpData(fileData) {
     let dataArray = [];
     fileData.forEach(element => {
         dataArray.push(element['fpid']);
     });
     return dataArray;
 }
-exports.identifyFp = identifyFp;
+exports.onlyFpData = onlyFpData;
 //# sourceMappingURL=identifyFp.js.map

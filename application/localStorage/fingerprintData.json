@@ -1,0 +1,56 @@
+[
+    {
+        "fpid": "fp1",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp2",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp3",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp4",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp5",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp6",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp7",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp8",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    },
+    {
+        "fpid": "fp9",
+        "registeredDate": "2023-03-02T07:14:50.912Z",
+        "operation": "Register fingerprint",
+        "vendor": "ZKTeco"
+    }
+]

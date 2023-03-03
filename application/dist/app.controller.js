@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.res_render = exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
-const app_service_1 = require("./app.service");
+const zktfingerprint_service_1 = require("./zktfingerprint.service");
 const fs = require("graceful-fs");
 const jade = require("jade");
 const net = require("net");
@@ -50,8 +50,9 @@ let AppController = class AppController {
         this.appService.registerFingerprint(registerfp);
         return "success";
     }
-    verifyFp() {
-        return this.appService.verifyFingerprint();
+    verifyFp(status) {
+        let result = status;
+        return this.appService.verifyFingerprint(result);
     }
     identifyFp() {
         return this.appService.identifyFingerprint();
@@ -146,9 +147,10 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "registerFp", null);
 __decorate([
-    (0, common_1.Get)('verifyFp'),
+    (0, common_1.All)('verifyFp'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "verifyFp", null);
 __decorate([
@@ -190,7 +192,7 @@ __decorate([
 ], AppController.prototype, "getErrorMessage", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [app_service_1.AppService])
+    __metadata("design:paramtypes", [zktfingerprint_service_1.ZKTFingerprintService])
 ], AppController);
 exports.AppController = AppController;
 function res_render(jadefile, res, jadeargument) {

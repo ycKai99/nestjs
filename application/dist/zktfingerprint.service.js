@@ -6,18 +6,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.ZKTFingerprintService = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const zktfingerprint_service_1 = require("./zktfingerprint.service");
-let AppModule = class AppModule {
+const app_service_1 = require("./app.service");
+let ZKTFingerprintService = class ZKTFingerprintService extends app_service_1.StandardFingerprint {
+    contructor() { }
 };
-AppModule = __decorate([
-    (0, common_1.Module)({
-        imports: [],
-        controllers: [app_controller_1.AppController],
-        providers: [zktfingerprint_service_1.ZKTFingerprintService],
-    })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+ZKTFingerprintService = __decorate([
+    (0, common_1.Injectable)()
+], ZKTFingerprintService);
+exports.ZKTFingerprintService = ZKTFingerprintService;
+//# sourceMappingURL=zktfingerprint.service.js.map

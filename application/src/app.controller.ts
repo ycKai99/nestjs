@@ -59,9 +59,10 @@ export class AppController {
   }
 
   // verify fingerprint 1 to 1
-  @Get('verifyFp')
-  verifyFp() {
-    return this.appService.verifyFingerprint();
+  @All('verifyFp')
+  verifyFp(@Body() status: string) {
+    let result = status;
+    return this.appService.verifyFingerprint(result);
   }
 
   // identify fingerprint 1 to all

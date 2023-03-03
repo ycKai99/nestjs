@@ -9,24 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppService = void 0;
+exports.StandardFingerprint = void 0;
 const common_1 = require("@nestjs/common");
 const identifyFp_1 = require("./fileAction/identifyFp");
 const readFileSync_1 = require("./fileAction/readFileSync");
 const writeFileSync_1 = require("./fileAction/writeFileSync");
 const postDataToCentral_1 = require("./connectionAction/postDataToCentral");
 const constSetting_1 = require("./fileInterface/constSetting");
-let AppService = class AppService {
+const dataEncryption_1 = require("./fileAction/dataEncryption");
+let StandardFingerprint = class StandardFingerprint {
     constructor() {
         this.verifyFpCount = 0;
         this.verifyFpTotal = 0;
         this.verifyBool = true;
-        this.tempCount = 1;
         this.readFingerprintData();
         this.readMessageData();
     }
     retrieveTesting() {
-        (0, postDataToCentral_1.syncData)(this.fingerprintLocalData);
+        (0, postDataToCentral_1.syncData)(this.fingerprintData);
         return "message from local server";
     }
     display() {
@@ -40,38 +40,45 @@ let AppService = class AppService {
         return this.fingerprintData;
     }
     get fingerprintData() {
-        return this.fingerprintLocalData;
+        return this._fingerprintData;
     }
     set fingerprintData(data) {
-        this.fingerprintLocalData.push(data);
+        this._fingerprintData.push(data);
     }
     get messageData() {
-        return this.messageNotificationData;
+        return this._messageData;
     }
     set messageData(data) {
-        this.messageNotificationData.push(data);
+        this._messageData.push(data);
     }
     readMessageData() {
-        this.messageNotificationData = (0, readFileSync_1.readFileData)(constSetting_1.message_full_path);
+        this._messageData = (0, readFileSync_1.readFileData)(constSetting_1.message_full_path);
     }
     readFingerprintData() {
-        this.fingerprintLocalData = (0, readFileSync_1.readFileData)(constSetting_1.data_full_path);
+        this._fingerprintData = (0, readFileSync_1.readFileData)(constSetting_1.data_full_path);
     }
     registerFingerprint(data) {
-        (0, writeFileSync_1.writeFileSync)(data, this.fingerprintData);
+        (0, writeFileSync_1.writeFileSync)(data, this._fingerprintData);
         this.readFingerprintData;
     }
     fingerprintRawData() {
-        return (0, identifyFp_1.identifyFp)(this.fingerprintLocalData);
+        return (0, identifyFp_1.onlyFpData)(this._fingerprintData);
     }
-    verifyFingerprint() {
-        this.verifyFpTotal = this.fingerprintLocalData.length;
+    verifyFingerprint(status) {
+        this.verifyFpTotal = this._fingerprintData.length;
         do {
             if (this.verifyFpCount < this.verifyFpTotal) {
-                let fp = this.fingerprintLocalData[this.verifyFpCount]['fpid'];
+                let fp = this._fingerprintData[this.verifyFpCount]['fpid'];
                 this.verifyBool = true;
                 this.verifyFpCount++;
-                return fp;
+                let data = (0, dataEncryption_1.dataEncryption)(fp);
+                console.log('encrypt data is ', data);
+                if (status['fpid'] === 'match') {
+                    this.verifyBool = false;
+                    this.verifyFpCount = 0;
+                    console.log('stop sending data and fingerprint match');
+                }
+                return data;
             }
             else {
                 this.verifyBool = false;
@@ -83,9 +90,9 @@ let AppService = class AppService {
     identifyFingerprint() {
     }
 };
-AppService = __decorate([
+StandardFingerprint = __decorate([
     (0, common_1.Injectable)(),
     __metadata("design:paramtypes", [])
-], AppService);
-exports.AppService = AppService;
+], StandardFingerprint);
+exports.StandardFingerprint = StandardFingerprint;
 //# sourceMappingURL=app.service.js.map
