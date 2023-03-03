@@ -1,7 +1,7 @@
 var crypto = require("crypto-js")
 
 export function dataEncryption(fileData) {
-  let fpdata = JSON.parse(fileData.toString());
+  let fpdata = fileData.toString();
 
   // const key = 'Z5OO0FWfkCWuUqalU4AwlA==';
   const key = 'axtQjz7QRHCV7yOrnNK7gp==';
@@ -9,7 +9,7 @@ export function dataEncryption(fileData) {
   console.log(crypto.randomBytes(16).toString('base64'));
 
   // The plaintext data to encrypt
-  const plaintext = fpdata['Register'][0].fingerprintTemplate;
+  const plaintext = fpdata;
 
   // The IV (initialization vector) to use for CBC mode
   const iv = 'Os28pvyLTO00JHdxsBA3sw==';
