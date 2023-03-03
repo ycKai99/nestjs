@@ -23,10 +23,11 @@ export function dataEncryption(fileData) {
   ciphertext += cipher.final('base64');
 
   // Send the ciphertext, IV, and key to the Android app
-  const dataToSend = {
-    ciphertext: ciphertext,
-  };
-  return dataToSend;
+  // const dataToSend = {
+  //   ciphertext: ciphertext,
+  // };
+  const dataToSend = ciphertext;
+  return ciphertext;
 }
 
 export function dataDecryption(ciphertext) {
