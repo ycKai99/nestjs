@@ -100,19 +100,21 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   // verify fingerprint 1 to 1
   verifyFingerprint() {
     this.verifyFpTotal = this._fingerprintData.length
-    do {
-      if (this.verifyFpCount < this.verifyFpTotal) {
-        let fp = this._fingerprintData[this.verifyFpCount]['fpid']
-        this.verifyBool = true;
-        this.verifyFpCount++
-        return fp
-      }
-      else {
-        this.verifyBool = false;
-        this.verifyFpCount = 0;
-        return "finished"
-      }
-    } while (this.verifyBool);
+    // do {
+    if (this.verifyFpCount < this.verifyFpTotal) {
+      let fp = this._fingerprintData[this.verifyFpCount]['fpid']
+      this.verifyBool = true;
+      this.verifyFpCount++;
+      let data = dataEncryption(fp);
+      console.log('encrypt data is ', data);
+      return data;
+    }
+    else {
+      this.verifyBool = false;
+      this.verifyFpCount = 0;
+      return "finished";
+    }
+    // } while (this.verifyBool);
   }
 
   // identify fingerprint 1 to all
