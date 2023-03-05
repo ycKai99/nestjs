@@ -102,6 +102,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   verifyFingerprint(status: string) {
     this.verifyFpTotal = this._fingerprintData.length
     let check = status['fpid'];
+    console.log('before endter do: ', check)
     do {
       if (this.verifyFpCount < this.verifyFpTotal) {
         let fp = this._fingerprintData[this.verifyFpCount]['fpid']
