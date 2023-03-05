@@ -70,6 +70,7 @@ let StandardFingerprint = class StandardFingerprint {
         do {
             if (this.verifyFpCount < this.verifyFpTotal) {
                 let fp = this._fingerprintData[this.verifyFpCount]['fpid'];
+                console.log(this._fingerprintData['']);
                 this.verifyBool = true;
                 this.verifyFpCount++;
                 let data = (0, dataEncryption_1.dataEncryption)(fp);

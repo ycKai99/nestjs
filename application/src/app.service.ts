@@ -105,7 +105,6 @@ export class StandardFingerprint implements StandardFingerprintInterface {
     do {
       if (this.verifyFpCount < this.verifyFpTotal) {
         let fp = this._fingerprintData[this.verifyFpCount]['fpid']
-        // console.log(this.verifyFpCount, ', received from java: ', check);
         this.verifyBool = true;
         this.verifyFpCount++;
         let data = dataEncryption(fp);
@@ -125,6 +124,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
           this.verifyBool = false;
           this.verifyFpCount = 0;
           console.log('match');
+          break;
         }
         console.log('finish');
         // console.log(this.verifyFpCount, ', received from java after finish: ', check);
