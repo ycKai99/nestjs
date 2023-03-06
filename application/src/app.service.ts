@@ -102,7 +102,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   verifyFingerprint(status: string) {
     this.verifyFpTotal = this._fingerprintData.length
     let check = status['fpid'];
-    console.log('before endter do: ', check)
+    console.log('before enter do: ', check)
     do {
       if (this.verifyFpCount < this.verifyFpTotal) {
         let fp = this._fingerprintData[this.verifyFpCount]['fpid']
@@ -115,10 +115,9 @@ export class StandardFingerprint implements StandardFingerprintInterface {
           console.log('match');
           break;
         }
-        else {
-
-          return data;
-        }
+        // else {
+        return data;
+        // }
       }
       else {
         this.verifyBool = false;
