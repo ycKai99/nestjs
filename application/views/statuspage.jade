@@ -68,19 +68,19 @@ html
                     td=index+1
                     td=jadeargument["dataSet1"][index]["fpid"].slice(0 , 20)
                     td=jadeargument["dataSet1"][index]["registeredDate"]
-                    td=jadeargument["dataSet1"][index]["type"]
+                    td=jadeargument["dataSet1"][index]["operation"]
                     td=jadeargument["dataSet1"][index]["vendor"]
                     
         br
         
         form(method='post', style='margin-bottom:5px', action='http://localhost:4000/init')
             input(type='submit', value='Initialize scanner', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden', name='initStatus', value='true')  
+            input(type='hidden', name='initStatus', value='open')  
 
-        form(method='post', style='margin-bottom:5px')
-            input(type='submit',value='Register', style='padding: 8px 20px;width: 225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden',name='registerStatus', value='true')
+        form(method='post', style='margin-bottom:5px', action='#')
+            input(type='submit',value='Register fingerprint', style='padding: 8px 20px;width: 225px;font-size:14px;border-radius:6px;background: #DCDCDC')
+            input(type='hidden',name='registerStatus', value='close')
 
-        form(method='post', style='margin-bottom:5px', action='http://localhost:4000/sync')
-            input(type='submit', value='Sync data to central', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
+        form(method='post', style='margin-bottom:5px', action='#')
+            input(type='submit', value='Close scanner', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
             input(type='hidden', name='postFp', value='sync') 

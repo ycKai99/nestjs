@@ -21,20 +21,20 @@ export class AppController {
       socket.write(subValue.submitValue);
       socket.destroy();
     });
-
   }
 
-  //testing post data to central server
-  @Post('sync')
-  syncData(@Req() req: Request, @Res() res): any {
-    let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-      encoding: 'utf-8'
+  @Post('closeScanner')
+  closeScanner(@Req() req: Request, @Res() res): any {
+    let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
+    let socket: net.Socket;
+    socket = new net.Socket();
+    socket.connect(8080, 'localhost', async () => {
+      console.log('Connected to Java server');
+      socket.write(subValue.submitValue);
+      socket.destroy();
     });
-    console.log(data);
-    // axios.post('http://localhost:4200/sync', data.toString())
-    //   .then(res => { console.log('res is ', res.data) })
-    //   .catch(err => { console.log('error is ', err) })
   }
+
 
 
 

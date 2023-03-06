@@ -5,8 +5,6 @@ import { appMessage } from './appMessage';
 import { readFileData } from './readFileSync';
 
 export async function writeFileSync(fingerprintData: string, fileData: any) {
-
-
   console.log('data is ', fingerprintData)
   console.log('data is ', fingerprintData['fpid'])
 

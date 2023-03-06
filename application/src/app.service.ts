@@ -188,6 +188,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
 
   }
+
   verifyFingerprintMessage(message) {
     console.log('message is ', message)
     if (message['fpid'] == "match") {

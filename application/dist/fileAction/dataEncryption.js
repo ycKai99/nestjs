@@ -12,7 +12,6 @@ function dataEncryption(fileData) {
     const cipher = crypto.createCipheriv('aes-128-cbc', keyBuffer, ivBuffer);
     let ciphertext = cipher.update(plaintext, 'utf8', 'base64');
     ciphertext += cipher.final('base64');
-    const dataToSend = ciphertext;
     return ciphertext;
 }
 exports.dataEncryption = dataEncryption;
