@@ -26,6 +26,7 @@ export declare class StandardFingerprint implements StandardFingerprintInterface
     readFingerprintData(): void;
     registerFingerprint(data: string): void;
     fingerprintRawData(): Promise<any[]>;
-    verifyFingerprint(status: string): string;
+    verifyFingerprint(): Promise<string>;
+    verifyFingerprintMessage(message: any): void;
     identifyFingerprint(): void;
 }

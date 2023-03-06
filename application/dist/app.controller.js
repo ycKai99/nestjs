@@ -50,9 +50,12 @@ let AppController = class AppController {
         this.appService.registerFingerprint(registerfp);
         return "success";
     }
-    verifyFp(status) {
+    verify() {
+        return this.appService.verifyFingerprint();
+    }
+    verifyFpMessage(status) {
         let result = status;
-        return this.appService.verifyFingerprint(result);
+        return this.appService.verifyFingerprintMessage(result);
     }
     identifyFp() {
         return this.appService.identifyFingerprint();
@@ -147,12 +150,18 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "registerFp", null);
 __decorate([
-    (0, common_1.All)('verifyFp'),
+    (0, common_1.Get)('verifyfp'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "verify", null);
+__decorate([
+    (0, common_1.Post)('verify'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "verifyFp", null);
+], AppController.prototype, "verifyFpMessage", null);
 __decorate([
     (0, common_1.Get)('identifyfp'),
     __metadata("design:type", Function),

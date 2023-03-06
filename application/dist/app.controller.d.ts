@@ -8,7 +8,8 @@ export declare class AppController {
     retrieveTesting(): string;
     testing(): fingerprintDataInterface;
     registerFp(registerfp: string): string;
-    verifyFp(status: string): string;
+    verify(): Promise<string>;
+    verifyFpMessage(status: string): void;
     identifyFp(): void;
     getStatus(req: any, res: any): string;
     postStatus(req: Request, res: any): string;

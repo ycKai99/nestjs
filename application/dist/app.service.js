@@ -64,36 +64,31 @@ let StandardFingerprint = class StandardFingerprint {
     fingerprintRawData() {
         return (0, identifyFp_1.onlyFpData)(this._fingerprintData);
     }
-    verifyFingerprint(status) {
+    async verifyFingerprint() {
         this.verifyFpTotal = this._fingerprintData.length;
-        let check = status['fpid'];
-        do {
-            if (this.verifyFpCount < this.verifyFpTotal) {
-                let fp = this._fingerprintData[this.verifyFpCount]['fpid'];
-                this.verifyBool = true;
-                this.verifyFpCount++;
-                let data = (0, dataEncryption_1.dataEncryption)(fp);
-                if (check === 'match') {
-                    this.verifyBool = false;
-                    this.verifyFpCount = 0;
-                    console.log('match');
-                    break;
-                }
-                return data;
-            }
-            else {
-                this.verifyBool = false;
-                this.verifyFpCount = 0;
-                if (check === 'match') {
-                    this.verifyBool = false;
-                    this.verifyFpCount = 0;
-                    console.log('match');
-                    break;
-                }
-                console.log('finish');
-                return "finished";
-            }
-        } while (this.verifyBool);
+        if (this.verifyFpTotal == 0) {
+            let data = "no data";
+            return data;
+        }
+        else if (this.verifyFpCount < this.verifyFpTotal) {
+            let fp = this.fingerprintData[this.verifyFpCount]['fpid'];
+            this.verifyBool = true;
+            this.verifyFpCount++;
+            let data = await (0, dataEncryption_1.dataEncryption)(fp);
+            return data;
+        }
+        else {
+            this.verifyFpCount = 0;
+            let data = "finished";
+            return data;
+        }
+    }
+    verifyFingerprintMessage(message) {
+        console.log('message is ', message);
+        if (message['fpid'] == "match") {
+            this.verifyFpCount = 0;
+            console.log('match');
+        }
     }
     identifyFingerprint() {
     }

@@ -27,7 +27,7 @@ export function dataEncryption(fileData) {
   // const dataToSend = {
   //   ciphertext: ciphertext,
   // };
-  const dataToSend = ciphertext;
+  // const dataToSend = ciphertext;
   return ciphertext;
 }
 

@@ -99,42 +99,101 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   }
 
   // verify fingerprint 1 to 1
-  verifyFingerprint(status: string) {
+  async verifyFingerprint() {
+    // this.verifyFpTotal = this._fingerprintData.length
+    // let check = status['fpid'];
+    // do {
+    //   console.log('inside do: ', check)
+    //   if (this.verifyFpCount < this.verifyFpTotal) {
+    //     let fp = this._fingerprintData[this.verifyFpCount]['fpid']
+    //     let data = dataEncryption(fp);
+    //     this.verifyBool = true;
+    //     this.verifyFpCount++;
+    //     if (check === 'match') {
+    //       this.verifyBool = false;
+    //       this.verifyFpCount = 0;
+    //       console.log('match');
+    //       break;
+    //     }
+    //     // else {
+    //     return data;
+    //     // }
+    //   }
+    //   else {
+    //     this.verifyBool = false;
+    //     this.verifyFpCount = 0;
+    //     // if (check === 'match') {
+    //     //   this.verifyBool = false;
+    //     //   this.verifyFpCount = 0;
+    //     //   console.log('match');
+    //     //   break;
+    //     // }
+    //     console.log('finish');
+    //     // console.log(this.verifyFpCount, ', received from java after finish: ', check);
+    //     return "finished";
+    //   }
+    // } while (this.verifyBool);
+
+    // this.verifyFpTotal = this._fingerprintData.length
+    // let check = status['fpid'];
+    // if (this.verifyFpTotal == 0) {
+    //   let data = await dataEncryption("no data");
+    //   return data;
+    // }
+    // if (this.verifyFpCount < this.verifyFpTotal) {
+    //   let fp = this.fingerprintData[this.verifyFpCount]['fpid'];
+    //   // this.verifyBool = true;
+    //   // this.verifyFpCount++
+    //   let data = await dataEncryption(fp);
+    //   if (check !== 'match') {
+    //     // console.log('fp count: ', this.verifyFpCount);
+    //     this.verifyBool = true;
+    //     this.verifyFpCount++;
+    //     // return data;
+    //   }
+    //   else {
+    //     this.verifyBool = false;
+    //     this.verifyFpCount = 0;
+    //     console.log('match');
+    //   }
+    //   return data;
+    // }
+    // else {
+    //   this.verifyBool = false;
+    //   this.verifyFpCount = 0;
+    //   console.log('finish');
+    //   return "finished";
+    // }
+
     this.verifyFpTotal = this._fingerprintData.length
-    let check = status['fpid'];
-    console.log('before enter do: ', check)
-    do {
-      if (this.verifyFpCount < this.verifyFpTotal) {
-        let fp = this._fingerprintData[this.verifyFpCount]['fpid']
-        let data = dataEncryption(fp);
-        this.verifyBool = true;
-        this.verifyFpCount++;
-        if (check === 'match') {
-          this.verifyBool = false;
-          this.verifyFpCount = 0;
-          console.log('match');
-          break;
-        }
-        // else {
-        return data;
-        // }
-      }
-      else {
-        this.verifyBool = false;
-        this.verifyFpCount = 0;
-        if (check === 'match') {
-          this.verifyBool = false;
-          this.verifyFpCount = 0;
-          console.log('match');
-          break;
-        }
-        console.log('finish');
-        // console.log(this.verifyFpCount, ', received from java after finish: ', check);
-        return "finished";
-      }
+    if (this.verifyFpTotal == 0) {
+      let data = "no data"
+      return data
+    }
+    else if (this.verifyFpCount < this.verifyFpTotal) {
+      let fp = this.fingerprintData[this.verifyFpCount]['fpid']
+      this.verifyBool = true;
+      this.verifyFpCount++
+      let data = await dataEncryption(fp)
+      // console.log('encrypted data is ', data)
+      return data
+    }
+    else {
+      // this.verifyBool = false;
+      this.verifyFpCount = 0;
+      let data = "finished"
+      // console.log('encrypted data is ', data)
+      return data
+    }
 
-    } while (this.verifyBool);
 
+  }
+  verifyFingerprintMessage(message) {
+    console.log('message is ', message)
+    if (message['fpid'] == "match") {
+      this.verifyFpCount = 0;
+      console.log('match');
+    }
   }
 
   // identify fingerprint 1 to all
