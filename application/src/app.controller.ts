@@ -18,7 +18,7 @@ export class AppController {
     socket = new net.Socket();
     socket.connect(8080, 'localhost', async () => {
       console.log('Connected to Java server');
-      socket.write(subValue.submitValue);
+      socket.write('open');
       socket.destroy();
     });
   }
@@ -30,7 +30,7 @@ export class AppController {
     socket = new net.Socket();
     socket.connect(8080, 'localhost', async () => {
       console.log('Connected to Java server');
-      socket.write(subValue.submitValue);
+      socket.write('close');
       socket.destroy();
     });
   }
