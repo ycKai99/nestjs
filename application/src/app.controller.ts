@@ -14,25 +14,32 @@ export class AppController {
   @Post('init')
   init(@Req() req: Request, @Res() res): any {
     let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
-    let socket: net.Socket;
-    socket = new net.Socket();
-    socket.connect(8080, 'localhost', async () => {
-      console.log('Connected to Java server');
-      socket.write('open');
-      socket.destroy();
-    });
+    // let socket: net.Socket;
+    // socket = new net.Socket();
+    // socket.connect(8080, 'localhost', async () => {
+    //   console.log('Connected to Java server');
+    //   socket.write('open');
+    //   socket.destroy();
+    // });
+    axios.post('http://localhost:8080', "open")
+      .then(res => { console.log('res is ', res.data) })
+      .catch(err => { console.log('error is ', err) })
   }
 
   @Post('closeScanner')
   closeScanner(@Req() req: Request, @Res() res): any {
     let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
-    let socket: net.Socket;
-    socket = new net.Socket();
-    socket.connect(8080, 'localhost', async () => {
-      console.log('Connected to Java server');
-      socket.write('close');
-      socket.destroy();
-    });
+    // let socket: net.Socket;
+    // socket = new net.Socket();
+    // socket.connect(8080, 'localhost', async () => {
+    //   console.log('Connected to Java server');
+    //   socket.write('close');
+    //   socket.destroy();
+    // });
+
+    axios.post('http://localhost:8080', "close")
+      .then(res => { console.log('res is ', res.data) })
+      .catch(err => { console.log('error is ', err) })
   }
 
 
