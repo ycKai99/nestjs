@@ -79,8 +79,8 @@ html
 
         form(method='post', style='margin-bottom:5px', action='#')
             input(type='submit',value='Register fingerprint', style='padding: 8px 20px;width: 225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden',name='registerStatus', value='close')
+            input(type='hidden',name='registerStatus', value='register')
 
-        form(method='post', style='margin-bottom:5px', action='#')
+        form(method='post', style='margin-bottom:5px', action='http://localhost:4000/closeScanner')
             input(type='submit', value='Close scanner', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden', name='postFp', value='sync') 
+            input(type='hidden', name='closeStatus', value='Close scanner') 
