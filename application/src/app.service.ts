@@ -89,8 +89,8 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
   // register new fingerprint 
   registerFingerprint(data: string) {
-    writeFileSync(data, this._fingerprintData)
-    this.readFingerprintData
+    writeFileSync(data, this._fingerprintData);
+    this.readFingerprintData;
   }
 
   // retrieve only fingerprint data 

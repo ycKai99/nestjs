@@ -55,8 +55,15 @@ export class AppController {
   @Post('registerfp')
   registerFp(@Body() registerfp: string) {
     console.log('registerfp is ', registerfp)
-    this.appService.registerFingerprint(registerfp)
-    return "success"
+    // let socket: net.Socket;
+    // socket = new net.Socket();
+    // socket.connect(8080, 'localhost', async () => {
+    //   console.log('Connected to Java server');
+    //   socket.write('register');
+    //   // socket.destroy();
+    // });
+    // this.appService.registerFingerprint(registerfp)
+    // return "success"
   }
 
   // verify fingerprint 1 to 1
