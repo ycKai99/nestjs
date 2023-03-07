@@ -4,10 +4,10 @@ export declare class AppController {
     private readonly appService;
     constructor(appService: ZKTFingerprintService);
     init(req: Request, res: any): any;
-    syncData(req: Request, res: any): any;
+    closeScanner(req: Request, res: any): any;
     retrieveTesting(): string;
     testing(): fingerprintDataInterface;
-    registerFp(registerfp: string): string;
+    registerFp(registerfp: string, req: any): void;
     verify(): Promise<string>;
     verifyFpMessage(status: string): void;
     identifyFp(): void;

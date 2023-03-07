@@ -7,6 +7,7 @@ import jade = require('jade')
 import * as net from 'net'
 const axios = require('axios')
 
+
 @Controller()
 export class AppController {
   constructor(private readonly appService: ZKTFingerprintService) { }
@@ -53,8 +54,11 @@ export class AppController {
 
   // register fingerprint data
   @Post('registerfp')
-  registerFp(@Body() registerfp: string) {
-    console.log('registerfp is ', registerfp)
+  registerFp(@Body() registerfp: string, @Req() req) {
+    console.log('registerfp is ', registerfp);
+    const imageData = req.body;
+    console.log(imageData);
+    fs.writeFileSync('test.bmp', JSON.stringify(imageData))
     // let socket: net.Socket;
     // socket = new net.Socket();
     // socket.connect(8080, 'localhost', async () => {

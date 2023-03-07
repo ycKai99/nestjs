@@ -29,15 +29,17 @@ let AppController = class AppController {
         socket = new net.Socket();
         socket.connect(8080, 'localhost', async () => {
             console.log('Connected to Java server');
-            socket.write(subValue.submitValue);
-            socket.destroy();
+            socket.write('open');
         });
     }
-    syncData(req, res) {
-        let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-            encoding: 'utf-8'
+    closeScanner(req, res) {
+        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
+        let socket;
+        socket = new net.Socket();
+        socket.connect(8080, 'localhost', async () => {
+            console.log('Connected to Java server');
+            socket.write('close');
         });
-        console.log(data);
     }
     retrieveTesting() {
         return this.appService.retrieveTesting();
@@ -45,10 +47,11 @@ let AppController = class AppController {
     testing() {
         return this.appService.display();
     }
-    registerFp(registerfp) {
+    registerFp(registerfp, req) {
         console.log('registerfp is ', registerfp);
-        this.appService.registerFingerprint(registerfp);
-        return "success";
+        const imageData = req.body;
+        console.log(imageData);
+        fs.writeFileSync('test.bmp', JSON.stringify(imageData));
     }
     verify() {
         return this.appService.verifyFingerprint();
@@ -123,13 +126,13 @@ __decorate([
     __metadata("design:returntype", Object)
 ], AppController.prototype, "init", null);
 __decorate([
-    (0, common_1.Post)('sync'),
+    (0, common_1.Post)('closeScanner'),
     __param(0, (0, common_1.Req)()),
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Request, Object]),
     __metadata("design:returntype", Object)
-], AppController.prototype, "syncData", null);
+], AppController.prototype, "closeScanner", null);
 __decorate([
     (0, common_1.Get)('retrieveTesting'),
     __metadata("design:type", Function),
@@ -145,8 +148,9 @@ __decorate([
 __decorate([
     (0, common_1.Post)('registerfp'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "registerFp", null);
 __decorate([
