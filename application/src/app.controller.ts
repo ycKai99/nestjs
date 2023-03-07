@@ -56,9 +56,7 @@ export class AppController {
   @Post('registerfp')
   registerFp(@Body() registerfp: string, @Req() req) {
     console.log('registerfp is ', registerfp);
-    const imageData = req.body;
-    console.log(imageData);
-    fs.writeFileSync('test.bmp', JSON.stringify(imageData))
+
     // let socket: net.Socket;
     // socket = new net.Socket();
     // socket.connect(8080, 'localhost', async () => {

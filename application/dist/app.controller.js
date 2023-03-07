@@ -49,9 +49,7 @@ let AppController = class AppController {
     }
     registerFp(registerfp, req) {
         console.log('registerfp is ', registerfp);
-        const imageData = req.body;
-        console.log(imageData);
-        fs.writeFileSync('test.bmp', JSON.stringify(imageData));
+        console.log('registerfp is ', req.body);
     }
     verify() {
         return this.appService.verifyFingerprint();
