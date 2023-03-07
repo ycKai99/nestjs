@@ -48,8 +48,11 @@ let AppController = class AppController {
         return this.appService.display();
     }
     registerFp(registerfp, req) {
-        console.log('registerfp is ', registerfp);
-        console.log('registerfp is ', req.body);
+        console.log('registerfp is ', registerfp['fpid']);
+        let result = registerfp['fpid'].replace(/\n/g, "");
+        const buffer = Buffer.from(result, 'base64');
+        fs.writeFileSync('image.png', buffer);
+        console.log('saved');
     }
     verify() {
         return this.appService.verifyFingerprint();

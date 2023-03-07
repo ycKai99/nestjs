@@ -55,8 +55,13 @@ export class AppController {
   // register fingerprint data
   @Post('registerfp')
   registerFp(@Body() registerfp: string, @Req() req) {
-    console.log('registerfp is ', registerfp);
+    console.log('registerfp is ', registerfp['fpid']);
+    let result = registerfp['fpid'].replace(/\n/g, "");
+    const buffer = Buffer.from(result, 'base64');
 
+
+    fs.writeFileSync('image.png', buffer);
+    console.log('saved');
     // let socket: net.Socket;
     // socket = new net.Socket();
     // socket.connect(8080, 'localhost', async () => {
