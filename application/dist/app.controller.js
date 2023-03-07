@@ -19,6 +19,7 @@ const fs = require("graceful-fs");
 const jade = require("jade");
 const net = require("net");
 const axios = require('axios');
+const sharp = require('sharp');
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -51,8 +52,17 @@ let AppController = class AppController {
         console.log('registerfp is ', registerfp['fpid']);
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
-        fs.writeFileSync('image.png', buffer);
         console.log('saved');
+        sharp(buffer)
+            .webp()
+            .resize(300, 400)
+            .toBuffer({ resolveWithObject: true })
+            .then(({ data, info }) => {
+            console.log('image buffer : ', data);
+            console.log('image info : ', info);
+            fs.writeFileSync('image.png', data);
+        })
+            .catch(err => { console.log('error : ', err); });
     }
     verify() {
         return this.appService.verifyFingerprint();

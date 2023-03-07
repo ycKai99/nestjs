@@ -6,7 +6,7 @@ import fs = require('graceful-fs')
 import jade = require('jade')
 import * as net from 'net'
 const axios = require('axios')
-
+const sharp = require('sharp');
 
 @Controller()
 export class AppController {
@@ -55,13 +55,30 @@ export class AppController {
   // register fingerprint data
   @Post('registerfp')
   registerFp(@Body() registerfp: string, @Req() req) {
-    console.log('registerfp is ', registerfp['fpid']);
+    // console.log('registerfp is ', registerfp['fpid']);
     let result = registerfp['fpid'].replace(/\n/g, "");
     const buffer = Buffer.from(result, 'base64');
+    // sharp(buffer)
+    //   .resize(300, 400)
+    //   .toFile('image.webp', (err, info) => {
+    //     // console.log('error : ', err);
+    //   });
+    // fs.writeFileSync('image.png', buffer);
 
 
-    fs.writeFileSync('image.png', buffer);
-    console.log('saved');
+    sharp(buffer)
+      .webp()
+      .resize(300, 400)
+      .toBuffer({ resolveWithObject: true })
+      .then(({ data, info }) => {
+        console.log('image buffer : ', data);
+        console.log('image info : ', info);
+        fs.writeFileSync('image.png', data);
+        console.log('saved');
+      })
+      .catch(err => { console.log('error : ', err); });
+
+
     // let socket: net.Socket;
     // socket = new net.Socket();
     // socket.connect(8080, 'localhost', async () => {
