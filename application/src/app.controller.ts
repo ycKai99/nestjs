@@ -66,17 +66,29 @@ export class AppController {
     // fs.writeFileSync('image.png', buffer);
 
 
-    sharp(buffer)
-      .webp()
-      .resize(300, 400)
-      .toBuffer({ resolveWithObject: true })
-      .then(({ data, info }) => {
-        console.log('image buffer : ', data);
-        console.log('image info : ', info);
-        fs.writeFileSync('image.png', data);
-        console.log('saved');
-      })
-      .catch(err => { console.log('error : ', err); });
+    var Jimp = require("jimp");
+
+    // open a file called "lenna.png"
+    Jimp.read(buffer, (err, lenna) => {
+      if (err) throw err;
+      lenna
+        .resize(300, 400) // resize
+        .quality(50) // set JPEG quality
+        .write("image.jpeg"); // save
+      console.log('save');
+    });
+
+    // sharp(buffer)
+    //   .webp()
+    //   .resize(300, 400)
+    //   .toBuffer({ resolveWithObject: true })
+    //   .then(({ data, info }) => {
+    //     console.log('image buffer : ', data);
+    //     console.log('image info : ', info);
+    //     fs.writeFileSync('image.png', data);
+    //     console.log('saved');
+    //   })
+    //   .catch(err => { console.log('error : ', err); });
 
 
     // let socket: net.Socket;

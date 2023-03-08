@@ -49,20 +49,19 @@ let AppController = class AppController {
         return this.appService.display();
     }
     registerFp(registerfp, req) {
-        console.log('registerfp is ', registerfp['fpid']);
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
-        console.log('saved');
-        sharp(buffer)
-            .webp()
-            .resize(300, 400)
-            .toBuffer({ resolveWithObject: true })
-            .then(({ data, info }) => {
-            console.log('image buffer : ', data);
-            console.log('image info : ', info);
-            fs.writeFileSync('image.png', data);
-        })
-            .catch(err => { console.log('error : ', err); });
+        fs.writeFileSync('image.png', buffer);
+        var Jimp = require("jimp");
+        Jimp.read(buffer, (err, lenna) => {
+            if (err)
+                throw err;
+            lenna
+                .resize(300, 400)
+                .quality(50)
+                .write("new.jpeg");
+            console.log('save');
+        });
     }
     verify() {
         return this.appService.verifyFingerprint();
