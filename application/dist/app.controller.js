@@ -19,7 +19,6 @@ const fs = require("graceful-fs");
 const jade = require("jade");
 const net = require("net");
 const axios = require('axios');
-const sharp = require('sharp');
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -46,12 +45,11 @@ let AppController = class AppController {
         return this.appService.retrieveTesting();
     }
     testing(registerfp) {
-        console.log('registerfp is ', registerfp['fpid']);
-        let result = registerfp['fpid'].replace(/\n/g, "");
-        const buffer = Buffer.from(result, 'base64');
-        fs.writeFileSync('test.jpeg', buffer);
+        const newbuffer = fs.readFileSync('image.jpeg');
+        console.log('buffer send: ', newbuffer.toString('base64'));
+        return newbuffer.toString('base64');
     }
-    registerFp(registerfp, req) {
+    registerFp(registerfp) {
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
         console.log('original image buffer length: ', buffer.length);
@@ -61,12 +59,12 @@ let AppController = class AppController {
                 throw err;
             data
                 .resize(300, 400)
-                .quality(50);
-            console.log('save');
+                .quality(50)
+                .write("image.jpeg");
+            console.log('image save');
         });
         const newbuffer = fs.readFileSync('image.jpeg');
-        console.log('new image buffer length: ', newbuffer.length);
-        return newbuffer;
+        console.log('after compress: ', newbuffer.length);
     }
     verify() {
         return this.appService.verifyFingerprint();
@@ -155,7 +153,7 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "retrieveTesting", null);
 __decorate([
-    (0, common_1.Post)('testing'),
+    (0, common_1.Get)('testing'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -164,9 +162,8 @@ __decorate([
 __decorate([
     (0, common_1.Post)('registerfp'),
     __param(0, (0, common_1.Body)()),
-    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Object]),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "registerFp", null);
 __decorate([

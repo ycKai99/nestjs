@@ -7,7 +7,7 @@ import jade = require('jade')
 import * as net from 'net'
 import { syncData } from './connectionAction/postDataToCentral';
 const axios = require('axios')
-const sharp = require('sharp');
+// const sharp = require('sharp');
 
 @Controller()
 export class AppController {
@@ -56,7 +56,8 @@ export class AppController {
 
     // get the image and return buffer
     const newbuffer = fs.readFileSync('image.jpeg');
-    return newbuffer;
+    console.log('buffer send: ', newbuffer.toString('base64'));
+    return newbuffer.toString('base64');
   }
 
   // register fingerprint data
@@ -78,6 +79,8 @@ export class AppController {
       // console.log('type of :', data.bitmap.data);
       console.log('image save');
     });
+    const newbuffer = fs.readFileSync('image.jpeg');
+    console.log('after compress: ', newbuffer.length);
 
     // Jimp read buffer function
     // Jimp.read(buffer)
