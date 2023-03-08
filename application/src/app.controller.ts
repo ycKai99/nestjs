@@ -5,6 +5,7 @@ import { fingerprintDataInterface } from './fileInterface/fileMessageType.interf
 import fs = require('graceful-fs')
 import jade = require('jade')
 import * as net from 'net'
+import { syncData } from './connectionAction/postDataToCentral';
 const axios = require('axios')
 const sharp = require('sharp');
 
@@ -34,7 +35,6 @@ export class AppController {
       socket.write('close');
       // socket.destroy();
     });
-
   }
 
 
@@ -48,49 +48,57 @@ export class AppController {
 
   // testing purpose
   @Get('testing')
-  testing() {
-    return this.appService.display()
+  testing(@Body() registerfp: string) {
+    // console.log('registerfp is ', registerfp['fpid']);
+    // let result = registerfp['fpid'].replace(/\n/g, "");
+    // const buffer = Buffer.from(result, 'base64');
+    // fs.writeFileSync('test.jpeg', buffer);
+
+    // get the image and return buffer
+    const newbuffer = fs.readFileSync('image.jpeg');
+    return newbuffer;
   }
 
   // register fingerprint data
   @Post('registerfp')
-  registerFp(@Body() registerfp: string, @Req() req) {
+  registerFp(@Body() registerfp: string) {
     // console.log('registerfp is ', registerfp['fpid']);
     let result = registerfp['fpid'].replace(/\n/g, "");
     const buffer = Buffer.from(result, 'base64');
-    // sharp(buffer)
-    //   .resize(300, 400)
-    //   .toFile('image.webp', (err, info) => {
-    //     // console.log('error : ', err);
-    //   });
-    // fs.writeFileSync('image.png', buffer);
+    console.log('original image buffer length: ', buffer.length);
 
-
+    // Jimp read buffer and compress image
     var Jimp = require("jimp");
-
-    // open a file called "lenna.png"
-    Jimp.read(buffer, (err, lenna) => {
+    Jimp.read(buffer, (err, data) => {
       if (err) throw err;
-      lenna
+      data
         .resize(300, 400) // resize
         .quality(50) // set JPEG quality
         .write("image.jpeg"); // save
-      console.log('save');
+      // console.log('type of :', data.bitmap.data);
+      console.log('image save');
     });
 
-    // sharp(buffer)
-    //   .webp()
-    //   .resize(300, 400)
-    //   .toBuffer({ resolveWithObject: true })
-    //   .then(({ data, info }) => {
-    //     console.log('image buffer : ', data);
-    //     console.log('image info : ', info);
-    //     fs.writeFileSync('image.png', data);
-    //     console.log('saved');
+    // Jimp read buffer function
+    // Jimp.read(buffer)
+    //   .then(async (image) => {
+    //     // Do stuff with the image.
+    //     image.resize(300, 400);
+    //     image.quality(50);
+    //     let imageBuff = image.getBufferAsync('image/JPEG');
+    //     // await fs.writeFileSync('test.txt', JSON.stringify(imageBuff));
     //   })
-    //   .catch(err => { console.log('error : ', err); });
+    //   .catch((err) => {
+    //     // Handle an exception.
+    //     console.log('error: ', err);
+    //   });
 
+    // return image buffer to java
+    // const newbuffer = fs.readFileSync('image.jpeg');
+    // console.log('new image buffer length: ', newbuffer.length);
+    // return newbuffer;
 
+    // socket part
     // let socket: net.Socket;
     // socket = new net.Socket();
     // socket.connect(8080, 'localhost', async () => {

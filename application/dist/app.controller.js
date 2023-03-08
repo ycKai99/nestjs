@@ -45,23 +45,28 @@ let AppController = class AppController {
     retrieveTesting() {
         return this.appService.retrieveTesting();
     }
-    testing() {
-        return this.appService.display();
+    testing(registerfp) {
+        console.log('registerfp is ', registerfp['fpid']);
+        let result = registerfp['fpid'].replace(/\n/g, "");
+        const buffer = Buffer.from(result, 'base64');
+        fs.writeFileSync('test.jpeg', buffer);
     }
     registerFp(registerfp, req) {
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
-        fs.writeFileSync('image.png', buffer);
+        console.log('original image buffer length: ', buffer.length);
         var Jimp = require("jimp");
-        Jimp.read(buffer, (err, lenna) => {
+        Jimp.read(buffer, (err, data) => {
             if (err)
                 throw err;
-            lenna
+            data
                 .resize(300, 400)
-                .quality(50)
-                .write("new.jpeg");
+                .quality(50);
             console.log('save');
         });
+        const newbuffer = fs.readFileSync('image.jpeg');
+        console.log('new image buffer length: ', newbuffer.length);
+        return newbuffer;
     }
     verify() {
         return this.appService.verifyFingerprint();
@@ -150,9 +155,10 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "retrieveTesting", null);
 __decorate([
-    (0, common_1.Get)('testing'),
+    (0, common_1.Post)('testing'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
+    __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "testing", null);
 __decorate([
