@@ -84,7 +84,7 @@ let StandardFingerprint = class StandardFingerprint {
         }
     }
     verifyFingerprintMessage(message) {
-        console.log('message is ', message);
+        console.log('Received from java: ', message);
         if (message['fpid'] == "match") {
             this.verifyFpCount = 0;
             console.log('match');

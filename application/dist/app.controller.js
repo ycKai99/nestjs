@@ -22,6 +22,7 @@ const axios = require('axios');
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
+        this.verifyFpCount = 0;
     }
     init(req, res) {
         let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
@@ -44,11 +45,37 @@ let AppController = class AppController {
     retrieveTesting() {
         return this.appService.retrieveTesting();
     }
-    testing(registerfp) {
+    testing() {
+        const dir = 'images/';
+        fs.readdir(dir, (err, files) => {
+            let fileNum = files.length;
+            const fileExtension = '.jpeg';
+            const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+            if (fileNum == 0) {
+                let data = "no data";
+                return data;
+            }
+            else if (this.verifyFpCount < fileNum) {
+                for (let i = 0; i < fileNum; i++) {
+                    let imageData = fs.readFileSync(`${dir}image_${i}${fileExtension}`);
+                    this.verifyFpCount++;
+                    return imageData;
+                }
+            }
+            else {
+                this.verifyFpCount = 0;
+                let data = 'finished';
+                return data;
+            }
+            if (err)
+                console.log(err);
+        });
     }
     registerFp(registerfp) {
         const dir = 'images/';
         fs.readdir(dir, (err, files) => {
+            if (files.length != 0) {
+            }
             let fileNum = files.length;
             const fileExtension = '.jpeg';
             const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
@@ -157,9 +184,8 @@ __decorate([
 ], AppController.prototype, "retrieveTesting", null);
 __decorate([
     (0, common_1.Get)('testing'),
-    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "testing", null);
 __decorate([

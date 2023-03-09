@@ -1,11 +1,12 @@
 import { ZKTFingerprintService } from './zktfingerprint.service';
 export declare class AppController {
     private readonly appService;
+    private verifyFpCount;
     constructor(appService: ZKTFingerprintService);
     init(req: Request, res: any): any;
     closeScanner(req: Request, res: any): any;
     retrieveTesting(): string;
-    testing(registerfp: string): void;
+    testing(): void;
     registerFp(registerfp: string): void;
     verify(): Promise<string>;
     verifyFpMessage(status: string): void;

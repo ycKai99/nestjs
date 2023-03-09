@@ -92,24 +92,43 @@ export class AppController {
     // count file number
     const dir = 'images/';
     fs.readdir(dir, (err, files) => {
-      let fileNum = files.length;
-      const fileExtension = '.jpeg';
-      const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+      if (files.length != 0) {
+        let fileNum = files.length;
+        const fileExtension = '.jpeg';
+        const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
 
-      let result = registerfp['fpid'].replace(/\n/g, "");
-      const buffer = Buffer.from(result, 'base64');
-      console.log('original image buffer length: ', buffer.length);
+        let result = registerfp['fpid'].replace(/\n/g, "");
+        const buffer = Buffer.from(result, 'base64');
+        console.log('original image buffer length: ', buffer.length);
 
-      // Jimp read buffer and compress image
-      var Jimp = require("jimp");
-      Jimp.read(buffer, (err, data) => {
-        if (err) throw err;
-        data
-          .resize(300, 400) // resize
-          .quality(60) // set JPEG quality
-          .write(fileName); // save
-        console.log('image save');
-      });
+        // Jimp read buffer and compress image
+        var Jimp = require("jimp");
+        Jimp.read(buffer, (err, data) => {
+          if (err) throw err;
+          data
+            .resize(300, 400) // resize
+            .quality(60) // set JPEG quality
+            .write(fileName); // save
+          console.log('image save');
+        });
+      }
+      else {
+        let result = registerfp['fpid'].replace(/\n/g, "");
+        const buffer = Buffer.from(result, 'base64');
+        console.log('original image buffer length: ', buffer.length);
+
+        // Jimp read buffer and compress image
+        var Jimp = require("jimp");
+        Jimp.read(buffer, (err, data) => {
+          if (err) throw err;
+          data
+            .resize(300, 400) // resize
+            .quality(60) // set JPEG quality
+            .write('images/image_1.jpeg'); // save
+          console.log('image save');
+        });
+      }
+
       if (err) console.log(err);
     });
 
