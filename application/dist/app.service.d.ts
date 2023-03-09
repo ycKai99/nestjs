@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 export interface StandardFingerprintInterface {
     fingerprintData: any;
@@ -29,7 +28,7 @@ export declare class StandardFingerprint implements StandardFingerprintInterface
     readFingerprintData(): void;
     registerFingerprint(data: string): void;
     fingerprintRawData(): Promise<any[]>;
-    verifyFingerprint(): string | Buffer;
+    verifyFingerprint(): string;
     verifyFingerprintMessage(message: any): void;
     identifyFingerprint(): void;
 }

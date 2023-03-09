@@ -1,4 +1,3 @@
-/// <reference types="node" />
 import { ZKTFingerprintService } from './zktfingerprint.service';
 export declare class AppController {
     private readonly appService;
@@ -10,7 +9,7 @@ export declare class AppController {
     retrieveTesting(): string;
     testing(): void;
     registerFp(registerfp: string): void;
-    verify(): string | Buffer;
+    verify(): string;
     verifyFpMessage(status: string): void;
     identifyFp(): void;
     getStatus(req: any, res: any): string;

@@ -80,7 +80,7 @@ let StandardFingerprint = class StandardFingerprint {
         else if (this.verifyFpCount < this.fileNum) {
             let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
             this.verifyFpCount++;
-            return imageData;
+            return imageData.toString('base64');
         }
         else {
             this.verifyFpCount = 0;

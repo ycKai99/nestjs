@@ -208,7 +208,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
       // for (let i = 0; i < fileNum; i++) {
       let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
       this.verifyFpCount++;
-      return imageData;
+      return imageData.toString('base64');
       // }
     }
     else {
