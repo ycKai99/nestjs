@@ -202,6 +202,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
       const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
       if (fileNum == 0) {
         data = "no data"
+        console.log('no data');
         // return data
       }
       else if (this.verifyFpCount < fileNum) {
@@ -216,10 +217,12 @@ export class StandardFingerprint implements StandardFingerprintInterface {
       else {
         this.verifyFpCount = 0;
         data = 'finished';
+        console.log('finished');
         // return data;
       }
 
     });
+    console.log(data);
     return data;
   }
 
