@@ -55,7 +55,6 @@ export class AppController {
   @Get('testing')
   testing() {
     const dir = 'images/';
-
     fs.readdir(dir, (err, files) => {
       let fileNum = files.length;
       const fileSize = fileNum;

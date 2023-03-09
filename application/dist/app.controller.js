@@ -23,6 +23,7 @@ let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
         this.verifyFpCount = 0;
+        this.fileSize = 0;
     }
     init(req, res) {
         let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
@@ -49,6 +50,7 @@ let AppController = class AppController {
         const dir = 'images/';
         fs.readdir(dir, (err, files) => {
             let fileNum = files.length;
+            const fileSize = fileNum;
             const fileExtension = '.jpeg';
             const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
             if (fileNum == 0) {
@@ -56,11 +58,10 @@ let AppController = class AppController {
                 return data;
             }
             else if (this.verifyFpCount < fileNum) {
-                for (let i = 0; i < fileNum; i++) {
-                    let imageData = fs.readFileSync(`${dir}image_${i}${fileExtension}`);
-                    this.verifyFpCount++;
-                    return imageData;
-                }
+                let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
+                this.verifyFpCount++;
+                this.fileSize--;
+                return imageData;
             }
             else {
                 this.verifyFpCount = 0;
@@ -74,24 +75,40 @@ let AppController = class AppController {
     registerFp(registerfp) {
         const dir = 'images/';
         fs.readdir(dir, (err, files) => {
+            console.log(files.length);
             if (files.length != 0) {
+                let fileNum = files.length;
+                const fileExtension = '.jpeg';
+                const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+                let result = registerfp['fpid'].replace(/\n/g, "");
+                const buffer = Buffer.from(result, 'base64');
+                console.log('original image buffer length: ', buffer.length);
+                var Jimp = require("jimp");
+                Jimp.read(buffer, (err, data) => {
+                    if (err)
+                        throw err;
+                    data
+                        .resize(300, 400)
+                        .quality(60)
+                        .write(fileName);
+                    console.log('image save');
+                });
             }
-            let fileNum = files.length;
-            const fileExtension = '.jpeg';
-            const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
-            let result = registerfp['fpid'].replace(/\n/g, "");
-            const buffer = Buffer.from(result, 'base64');
-            console.log('original image buffer length: ', buffer.length);
-            var Jimp = require("jimp");
-            Jimp.read(buffer, (err, data) => {
-                if (err)
-                    throw err;
-                data
-                    .resize(300, 400)
-                    .quality(60)
-                    .write(fileName);
-                console.log('image save');
-            });
+            else {
+                let result = registerfp['fpid'].replace(/\n/g, "");
+                const buffer = Buffer.from(result, 'base64');
+                console.log('original image buffer length: ', buffer.length);
+                var Jimp = require("jimp");
+                Jimp.read(buffer, (err, data) => {
+                    if (err)
+                        throw err;
+                    data
+                        .resize(300, 400)
+                        .quality(60)
+                        .write('images/image_1.jpeg');
+                    console.log('image save');
+                });
+            }
             if (err)
                 console.log(err);
         });

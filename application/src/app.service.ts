@@ -8,6 +8,7 @@ import { data_full_path, message_full_path } from './fileInterface/constSetting'
 import { postData } from './connectionAction/postDataToLocal';
 import { dataEncryption, dataDecryption } from './fileAction/dataEncryption';
 import { Controller, Get, Post, Body, Res, Req, All } from '@nestjs/common';
+import fs = require('graceful-fs')
 
 export interface StandardFingerprintInterface {
   fingerprintData;
@@ -28,6 +29,9 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
   private _fingerprintData; // used to store fingerprint data in local
   private _messageData; // used to store message notification
+
+
+  private fileSize: number = 0;
 
   constructor() {
     this.readFingerprintData();
@@ -165,28 +169,55 @@ export class StandardFingerprint implements StandardFingerprintInterface {
     //   return "finished";
     // }
 
-    this.verifyFpTotal = this._fingerprintData.length
-    if (this.verifyFpTotal == 0) {
-      let data = "no data"
-      return data
-    }
-    else if (this.verifyFpCount < this.verifyFpTotal) {
-      let fp = this.fingerprintData[this.verifyFpCount]['fpid']
-      this.verifyBool = true;
-      this.verifyFpCount++
-      let data = await dataEncryption(fp)
-      // console.log('encrypted data is ', data)
-      return data
-    }
-    else {
-      // this.verifyBool = false;
-      this.verifyFpCount = 0;
-      let data = "finished"
-      // console.log('encrypted data is ', data)
-      return data
-    }
+    // verify can work
+    // this.verifyFpTotal = this._fingerprintData.length
+    // if (this.verifyFpTotal == 0) {
+    //   let data = "no data"
+    //   return data
+    // }
+    // else if (this.verifyFpCount < this.verifyFpTotal) {
+    //   let fp = this.fingerprintData[this.verifyFpCount]['fpid']
+    //   this.verifyBool = true;
+    //   this.verifyFpCount++
+    //   let data = await dataEncryption(fp)
+    //   // console.log('encrypted data is ', data)
+    //   return data
+    // }
+    // else {
+    //   // this.verifyBool = false;
+    //   this.verifyFpCount = 0;
+    //   let data = "finished"
+    //   // console.log('encrypted data is ', data)
+    //   return data
+    // }
 
 
+    // verify by send image data
+    const dir = 'images/';
+    fs.readdir(dir, (err, files) => {
+      let fileNum = files.length;
+      const fileSize = fileNum;
+      const fileExtension = '.jpeg';
+      const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+      if (fileNum == 0) {
+        let data = "no data"
+        return data
+      }
+      else if (this.verifyFpCount < fileNum) {
+        // for (let i = 0; i < fileNum; i++) {
+        let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
+        this.verifyFpCount++;
+        this.fileSize--;
+        return imageData;
+        // }
+      }
+      else {
+        this.verifyFpCount = 0;
+        let data = 'finished';
+        return data;
+      }
+
+    });
   }
 
   verifyFingerprintMessage(message) {
