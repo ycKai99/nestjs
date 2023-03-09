@@ -12,6 +12,7 @@ const axios = require('axios')
 @Controller()
 export class AppController {
   private verifyFpCount: number = 0;
+  private fileSize: number = 0;
   constructor(private readonly appService: ZKTFingerprintService) {
 
   }
@@ -54,8 +55,10 @@ export class AppController {
   @Get('testing')
   testing() {
     const dir = 'images/';
+
     fs.readdir(dir, (err, files) => {
       let fileNum = files.length;
+      const fileSize = fileNum + 1;
       const fileExtension = '.jpeg';
       const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
       if (fileNum == 0) {
@@ -63,19 +66,17 @@ export class AppController {
         return data
       }
       else if (this.verifyFpCount < fileNum) {
-        for (let i = 0; i < fileNum; i++) {
-          let imageData = fs.readFileSync(`${dir}image_${i}${fileExtension}`);
-          this.verifyFpCount++;
-          return imageData;
-        }
+        // for (let i = 0; i < fileNum; i++) {
+        let imageData = fs.readFileSync(`${dir}image_${fileSize - 1}${fileExtension}`);
+        this.verifyFpCount++;
+        return imageData;
+        // }
       }
       else {
         this.verifyFpCount = 0;
         let data = 'finished';
         return data;
       }
-
-
       if (err) console.log(err);
     });
 
@@ -92,6 +93,7 @@ export class AppController {
     // count file number
     const dir = 'images/';
     fs.readdir(dir, (err, files) => {
+      console.log(files.length);
       if (files.length != 0) {
         let fileNum = files.length;
         const fileExtension = '.jpeg';
