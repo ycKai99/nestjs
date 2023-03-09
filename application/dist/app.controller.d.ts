@@ -5,7 +5,7 @@ export declare class AppController {
     init(req: Request, res: any): any;
     closeScanner(req: Request, res: any): any;
     retrieveTesting(): string;
-    testing(registerfp: string): string;
+    testing(registerfp: string): void;
     registerFp(registerfp: string): void;
     verify(): Promise<string>;
     verifyFpMessage(status: string): void;

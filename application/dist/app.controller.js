@@ -45,26 +45,29 @@ let AppController = class AppController {
         return this.appService.retrieveTesting();
     }
     testing(registerfp) {
-        const newbuffer = fs.readFileSync('image.jpeg');
-        console.log('buffer send: ', newbuffer.toString('base64'));
-        return newbuffer.toString('base64');
     }
     registerFp(registerfp) {
-        let result = registerfp['fpid'].replace(/\n/g, "");
-        const buffer = Buffer.from(result, 'base64');
-        console.log('original image buffer length: ', buffer.length);
-        var Jimp = require("jimp");
-        Jimp.read(buffer, (err, data) => {
+        const dir = 'images/';
+        fs.readdir(dir, (err, files) => {
+            let fileNum = files.length;
+            const fileExtension = '.jpeg';
+            const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+            let result = registerfp['fpid'].replace(/\n/g, "");
+            const buffer = Buffer.from(result, 'base64');
+            console.log('original image buffer length: ', buffer.length);
+            var Jimp = require("jimp");
+            Jimp.read(buffer, (err, data) => {
+                if (err)
+                    throw err;
+                data
+                    .resize(300, 400)
+                    .quality(60)
+                    .write(fileName);
+                console.log('image save');
+            });
             if (err)
-                throw err;
-            data
-                .resize(300, 400)
-                .quality(50)
-                .write("image.jpeg");
-            console.log('image save');
+                console.log(err);
         });
-        const newbuffer = fs.readFileSync('image.jpeg');
-        console.log('after compress: ', newbuffer.length);
     }
     verify() {
         return this.appService.verifyFingerprint();

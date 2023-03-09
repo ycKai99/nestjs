@@ -11,8 +11,13 @@ const axios = require('axios')
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: ZKTFingerprintService) { }
+  private verifyFpCount: number = 0;
+  constructor(private readonly appService: ZKTFingerprintService) {
 
+  }
+
+
+  //open the scanner
   @Post('init')
   init(@Req() req: Request, @Res() res): any {
     let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
@@ -25,6 +30,7 @@ export class AppController {
     });
   }
 
+  // close the scanner
   @Post('closeScanner')
   closeScanner(@Req() req: Request, @Res() res): any {
     let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
@@ -38,49 +44,74 @@ export class AppController {
   }
 
 
-
-
   // testing purpose
   @Get('retrieveTesting')
   retrieveTesting() {
     return this.appService.retrieveTesting();
   }
 
-  // testing purpose
+  // testing for sending the image data
   @Get('testing')
-  testing(@Body() registerfp: string) {
-    // console.log('registerfp is ', registerfp['fpid']);
-    // let result = registerfp['fpid'].replace(/\n/g, "");
-    // const buffer = Buffer.from(result, 'base64');
-    // fs.writeFileSync('test.jpeg', buffer);
+  testing() {
+    const dir = 'images/';
+    fs.readdir(dir, (err, files) => {
+      let fileNum = files.length;
+      const fileExtension = '.jpeg';
+      const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+      if (fileNum == 0) {
+        let data = "no data"
+        return data
+      }
+      else if (this.verifyFpCount < fileNum) {
+        for (let i = 0; i < fileNum; i++) {
+          let imageData = fs.readFileSync(`${dir}image_${i}${fileExtension}`);
+          this.verifyFpCount++;
+          return imageData;
+        }
+      }
+      else {
+        this.verifyFpCount = 0;
+        let data = 'finished';
+        return data;
+      }
+
+
+      if (err) console.log(err);
+    });
 
     // get the image and return buffer
-    const newbuffer = fs.readFileSync('image.jpeg');
-    console.log('buffer send: ', newbuffer.toString('base64'));
-    return newbuffer.toString('base64');
+    // const newbuffer = fs.readFileSync('images/image.jpeg');
+    // return newbuffer.toString('base64');
   }
 
   // register fingerprint data
   @Post('registerfp')
   registerFp(@Body() registerfp: string) {
     // console.log('registerfp is ', registerfp['fpid']);
-    let result = registerfp['fpid'].replace(/\n/g, "");
-    const buffer = Buffer.from(result, 'base64');
-    console.log('original image buffer length: ', buffer.length);
 
-    // Jimp read buffer and compress image
-    var Jimp = require("jimp");
-    Jimp.read(buffer, (err, data) => {
-      if (err) throw err;
-      data
-        .resize(300, 400) // resize
-        .quality(50) // set JPEG quality
-        .write("image.jpeg"); // save
-      // console.log('type of :', data.bitmap.data);
-      console.log('image save');
+    // count file number
+    const dir = 'images/';
+    fs.readdir(dir, (err, files) => {
+      let fileNum = files.length;
+      const fileExtension = '.jpeg';
+      const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
+
+      let result = registerfp['fpid'].replace(/\n/g, "");
+      const buffer = Buffer.from(result, 'base64');
+      console.log('original image buffer length: ', buffer.length);
+
+      // Jimp read buffer and compress image
+      var Jimp = require("jimp");
+      Jimp.read(buffer, (err, data) => {
+        if (err) throw err;
+        data
+          .resize(300, 400) // resize
+          .quality(60) // set JPEG quality
+          .write(fileName); // save
+        console.log('image save');
+      });
+      if (err) console.log(err);
     });
-    const newbuffer = fs.readFileSync('image.jpeg');
-    console.log('after compress: ', newbuffer.length);
 
     // Jimp read buffer function
     // Jimp.read(buffer)
