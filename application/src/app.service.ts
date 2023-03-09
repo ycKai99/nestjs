@@ -194,30 +194,33 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
     // verify by send image data
     const dir = 'images/';
+    let data;
     fs.readdir(dir, (err, files) => {
       let fileNum = files.length;
       const fileSize = fileNum;
       const fileExtension = '.jpeg';
       const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
       if (fileNum == 0) {
-        let data = "no data"
-        return data
+        data = "no data"
+        // return data
       }
       else if (this.verifyFpCount < fileNum) {
         // for (let i = 0; i < fileNum; i++) {
         let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
         this.verifyFpCount++;
         this.fileSize--;
-        return imageData;
+        data = imageData;
+        // return imageData;
         // }
       }
       else {
         this.verifyFpCount = 0;
-        let data = 'finished';
-        return data;
+        data = 'finished';
+        // return data;
       }
 
     });
+    return data;
   }
 
   verifyFingerprintMessage(message) {
