@@ -23,7 +23,7 @@ export interface StandardFingerprintInterface {
 @Injectable()
 export class StandardFingerprint implements StandardFingerprintInterface {
 
-  private verifyFpCount: number = 0; // used to store current turn of result
+  private verifyFpCount: number = 1; // used to store current turn of result
   private verifyFpTotal: number = 0; // used to store data length of file
   private verifyBool: boolean = true; // used to check whether reached last data or not
 
@@ -32,6 +32,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
 
   private fileSize: number = 0;
+  private fileNum: number = 0;
 
   constructor() {
     this.readFingerprintData();
@@ -103,7 +104,7 @@ export class StandardFingerprint implements StandardFingerprintInterface {
   }
 
   // verify fingerprint 1 to 1
-  async verifyFingerprint() {
+  verifyFingerprint() {
     // this.verifyFpTotal = this._fingerprintData.length
     // let check = status['fpid'];
     // do {
@@ -194,36 +195,31 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
     // verify by send image data
     const dir = 'images/';
-    let data;
     fs.readdir(dir, (err, files) => {
-      let fileNum = files.length;
-      const fileSize = fileNum;
-      const fileExtension = '.jpeg';
-      const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
-      if (fileNum == 0) {
-        data = "no data"
-        console.log('no data');
-        // return data
-      }
-      else if (this.verifyFpCount < fileNum) {
-        // for (let i = 0; i < fileNum; i++) {
-        let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
-        this.verifyFpCount++;
-        this.fileSize--;
-        data = imageData;
-        // return imageData;
-        // }
-      }
-      else {
-        this.verifyFpCount = 0;
-        data = 'finished';
-        console.log('finished');
-        // return data;
-      }
-
+      this.fileNum = files.length;
     });
-    console.log(data);
-    return data;
+    const fileExtension = '.jpeg';
+    if (this.fileNum == 0) {
+      let data = "no data"
+      console.log('no data from verify');
+      return data
+    }
+    else if (this.verifyFpCount < this.fileNum) {
+      // for (let i = 0; i < fileNum; i++) {
+      let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
+      this.verifyFpCount++;
+      return imageData;
+      // }
+    }
+    else {
+      this.verifyFpCount = 0;
+      let data = 'finished';
+      console.log('finished');
+      return data;
+    }
+
+
+
   }
 
   verifyFingerprintMessage(message) {

@@ -61,7 +61,7 @@ export class AppController {
       const fileExtension = '.jpeg';
       const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
       if (fileNum == 0) {
-        let data = "no data"
+        let data = "no data from testing"
         return data
       }
       else if (this.verifyFpCount < fileNum) {
@@ -77,7 +77,6 @@ export class AppController {
         let data = 'finished';
         return data;
       }
-      if (err) console.log(err);
     });
 
     // get the image and return buffer

@@ -16,12 +16,14 @@ const readFileSync_1 = require("./fileAction/readFileSync");
 const writeFileSync_1 = require("./fileAction/writeFileSync");
 const postDataToCentral_1 = require("./connectionAction/postDataToCentral");
 const constSetting_1 = require("./fileInterface/constSetting");
-const dataEncryption_1 = require("./fileAction/dataEncryption");
+const fs = require("graceful-fs");
 let StandardFingerprint = class StandardFingerprint {
     constructor() {
-        this.verifyFpCount = 0;
+        this.verifyFpCount = 1;
         this.verifyFpTotal = 0;
         this.verifyBool = true;
+        this.fileSize = 0;
+        this.fileNum = 0;
         this.readFingerprintData();
         this.readMessageData();
     }
@@ -64,22 +66,26 @@ let StandardFingerprint = class StandardFingerprint {
     fingerprintRawData() {
         return (0, identifyFp_1.onlyFpData)(this._fingerprintData);
     }
-    async verifyFingerprint() {
-        this.verifyFpTotal = this._fingerprintData.length;
-        if (this.verifyFpTotal == 0) {
+    verifyFingerprint() {
+        const dir = 'images/';
+        fs.readdir(dir, (err, files) => {
+            this.fileNum = files.length;
+        });
+        const fileExtension = '.jpeg';
+        if (this.fileNum == 0) {
             let data = "no data";
+            console.log('no data from verify');
             return data;
         }
-        else if (this.verifyFpCount < this.verifyFpTotal) {
-            let fp = this.fingerprintData[this.verifyFpCount]['fpid'];
-            this.verifyBool = true;
+        else if (this.verifyFpCount < this.fileNum) {
+            let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
             this.verifyFpCount++;
-            let data = await (0, dataEncryption_1.dataEncryption)(fp);
-            return data;
+            return imageData;
         }
         else {
             this.verifyFpCount = 0;
-            let data = "finished";
+            let data = 'finished';
+            console.log('finished');
             return data;
         }
     }
