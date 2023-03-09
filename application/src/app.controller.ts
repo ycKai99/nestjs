@@ -58,7 +58,7 @@ export class AppController {
 
     fs.readdir(dir, (err, files) => {
       let fileNum = files.length;
-      const fileSize = fileNum + 1;
+      const fileSize = fileNum;
       const fileExtension = '.jpeg';
       const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
       if (fileNum == 0) {
@@ -67,8 +67,9 @@ export class AppController {
       }
       else if (this.verifyFpCount < fileNum) {
         // for (let i = 0; i < fileNum; i++) {
-        let imageData = fs.readFileSync(`${dir}image_${fileSize - 1}${fileExtension}`);
+        let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
         this.verifyFpCount++;
+        this.fileSize--;
         return imageData;
         // }
       }
