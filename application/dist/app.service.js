@@ -74,7 +74,7 @@ let StandardFingerprint = class StandardFingerprint {
         const fileExtension = '.jpeg';
         if (this.fileNum == 0) {
             let data = "no data";
-            console.log('no data from verify');
+            console.log('no data');
             return data;
         }
         else if (this.verifyFpCount < this.fileNum) {

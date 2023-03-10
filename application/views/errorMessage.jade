@@ -5,12 +5,16 @@ html
         style.
             table{
                 border-collapse: collapse;
-                width: 1000px;
+                table-layout: fixed;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: auto;
+
             }
             th,td{
                 text-align: left;
                 padding: 8px;
-                
+                word-wrap: break-word;
             }
             tr:nth-child(even) {
                 background-color:#D6EEEE;
@@ -54,9 +58,9 @@ html
         nav
             ul
                 li
-                    a(href="http://localhost:4000/status") Fingerprint Data
+                    a(href="http://10.0.2.2:4000/status") Fingerprint Data
                 li
-                    a(class="active", href="http://localhost:4000/error") Error Message
+                    a(class="active", href="http://10.0.2.2:4000/error") Error Message
         
         br
         br

@@ -80,7 +80,7 @@ let AppController = class AppController {
                 const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
                 let result = registerfp['fpid'].replace(/\n/g, "");
                 const buffer = Buffer.from(result, 'base64');
-                console.log('original image buffer length: ', buffer.length);
+                console.log('type : ', typeof buffer);
                 var Jimp = require("jimp");
                 Jimp.read(buffer, (err, data) => {
                     if (err)
@@ -95,7 +95,6 @@ let AppController = class AppController {
             else {
                 let result = registerfp['fpid'].replace(/\n/g, "");
                 const buffer = Buffer.from(result, 'base64');
-                console.log('original image buffer length: ', buffer.length);
                 var Jimp = require("jimp");
                 Jimp.read(buffer, (err, data) => {
                     if (err)

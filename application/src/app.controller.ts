@@ -100,8 +100,7 @@ export class AppController {
 
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
-        console.log('original image buffer length: ', buffer.length);
-
+        console.log('type : ', typeof buffer);
         // Jimp read buffer and compress image
         var Jimp = require("jimp");
         Jimp.read(buffer, (err, data) => {
@@ -116,7 +115,6 @@ export class AppController {
       else {
         let result = registerfp['fpid'].replace(/\n/g, "");
         const buffer = Buffer.from(result, 'base64');
-        console.log('original image buffer length: ', buffer.length);
 
         // Jimp read buffer and compress image
         var Jimp = require("jimp");
@@ -129,39 +127,8 @@ export class AppController {
           console.log('image save');
         });
       }
-
       if (err) console.log(err);
     });
-
-    // Jimp read buffer function
-    // Jimp.read(buffer)
-    //   .then(async (image) => {
-    //     // Do stuff with the image.
-    //     image.resize(300, 400);
-    //     image.quality(50);
-    //     let imageBuff = image.getBufferAsync('image/JPEG');
-    //     // await fs.writeFileSync('test.txt', JSON.stringify(imageBuff));
-    //   })
-    //   .catch((err) => {
-    //     // Handle an exception.
-    //     console.log('error: ', err);
-    //   });
-
-    // return image buffer to java
-    // const newbuffer = fs.readFileSync('image.jpeg');
-    // console.log('new image buffer length: ', newbuffer.length);
-    // return newbuffer;
-
-    // socket part
-    // let socket: net.Socket;
-    // socket = new net.Socket();
-    // socket.connect(8080, 'localhost', async () => {
-    //   console.log('Connected to Java server');
-    //   socket.write('register');
-    //   // socket.destroy();
-    // });
-    // this.appService.registerFingerprint(registerfp)
-    // return "success"
   }
 
   // verify fingerprint 1 to 1
