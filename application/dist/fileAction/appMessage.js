@@ -1,9 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateMessage = exports.appMessage = void 0;
-const uuid_1 = require("uuid");
-const uuid = (0, uuid_1.v4)();
-function appMessage(data) {
+exports.generateMessage = exports.zktecoFpMessage = exports.appMessage = void 0;
+function appMessage(data, uuid) {
     let messageDetails = {
         message: "Fingerprint data",
         ReceivedDate: new Date(),
@@ -18,6 +16,17 @@ function appMessage(data) {
     return messageDetails;
 }
 exports.appMessage = appMessage;
+function zktecoFpMessage(fingerprintData, uuid) {
+    let messageDetails = {
+        fpid: fingerprintData['fpid'],
+        registeredDate: new Date(),
+        operation: 'Register fingerprint',
+        vendor: 'ZKTeco',
+        header_messageId: "FP_" + uuid
+    };
+    return messageDetails;
+}
+exports.zktecoFpMessage = zktecoFpMessage;
 function generateMessage() {
     let messageDetails = {
         message: "Fingerprint data to central server",
@@ -28,7 +37,7 @@ function generateMessage() {
         ID: "FP_",
         Code: "FPREG9500",
         Operation: "sync",
-        DataSource: "FP_" + uuid
+        DataSource: "FP_"
     };
     return messageDetails;
 }

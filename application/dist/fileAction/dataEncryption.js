@@ -22,10 +22,10 @@ function dataDecryption(ciphertext) {
     const keyBuffer = Buffer.from(key, 'base64');
     const ivBuffer = Buffer.from(iv, 'base64');
     const decipher = crypto.createDecipheriv('aes-128-cbc', keyBuffer, ivBuffer);
+    decipher.setAutoPadding(true);
     let plaintext = decipher.update(ciphertextBuffer, null, 'utf8');
     plaintext += decipher.final('utf8');
-    const fpdata = JSON.parse(plaintext);
-    return fpdata;
+    return plaintext;
 }
 exports.dataDecryption = dataDecryption;
 //# sourceMappingURL=dataEncryption.js.map

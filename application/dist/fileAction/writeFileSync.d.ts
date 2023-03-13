@@ -1,1 +1,1 @@
-export declare function writeFileSync(fingerprintData: string, fileData: any): Promise<void>;
+export declare function writeFileSync(fingerprintData: string, fileData: any, messageData: any): Promise<void>;

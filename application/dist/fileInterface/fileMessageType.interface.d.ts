@@ -3,6 +3,7 @@ export interface fingerprintDataInterface {
     registeredDate: Date;
     operation: string;
     vendor: string;
+    header_messageId: string;
 }
 export interface fileMessage {
     message: string;

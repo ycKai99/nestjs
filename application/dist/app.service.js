@@ -11,41 +11,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.StandardFingerprint = void 0;
 const common_1 = require("@nestjs/common");
-const identifyFp_1 = require("./fileAction/identifyFp");
-const readFileSync_1 = require("./fileAction/readFileSync");
-const writeFileSync_1 = require("./fileAction/writeFileSync");
-const postDataToCentral_1 = require("./connectionAction/postDataToCentral");
+const retrieveFileData_1 = require("./fileAction/retrieveFileData");
 const constSetting_1 = require("./fileInterface/constSetting");
-const fs = require("graceful-fs");
+const fingerprintRegister_1 = require("./fileAction/fingerprintRegister");
+const fingerprintVerify_1 = require("./fileAction/fingerprintVerify");
+const readFileTotal_1 = require("./fileAction/readFileTotal");
 let StandardFingerprint = class StandardFingerprint {
     constructor() {
         this.verifyFpCount = 1;
-        this.verifyFpTotal = 0;
-        this.verifyBool = true;
-        this.fileSize = 0;
         this.fileNum = 0;
-        this.readFingerprintData();
+        this.countFileTotal();
         this.readMessageData();
-    }
-    retrieveTesting() {
-        (0, postDataToCentral_1.syncData)(this.fingerprintData);
-        return "message from local server";
-    }
-    display() {
-        let data = {
-            fpid: 'fp6',
-            registeredDate: new Date(),
-            operation: 'registeredFingerprint',
-            vendor: 'ZKTeco'
-        };
-        this.fingerprintData = data;
-        return this.fingerprintData;
-    }
-    get fingerprintData() {
-        return this._fingerprintData;
-    }
-    set fingerprintData(data) {
-        this._fingerprintData.push(data);
     }
     get messageData() {
         return this._messageData;
@@ -54,49 +30,31 @@ let StandardFingerprint = class StandardFingerprint {
         this._messageData.push(data);
     }
     readMessageData() {
-        this._messageData = (0, readFileSync_1.readFileData)(constSetting_1.message_full_path);
+        this._messageData = (0, retrieveFileData_1.readFileData)(constSetting_1.MESSAGE_FOLDER_PATH);
     }
-    readFingerprintData() {
-        this._fingerprintData = (0, readFileSync_1.readFileData)(constSetting_1.data_full_path);
+    countFileTotal() {
+        this._fingerprintImageTotal = (0, readFileTotal_1.readFileTotal)(constSetting_1.IMAGE_FOLDER);
     }
-    registerFingerprint(data) {
-        (0, writeFileSync_1.writeFileSync)(data, this._fingerprintData);
-        this.readFingerprintData;
+    get fingerprintImageTotal() {
+        return this._fingerprintImageTotal;
     }
-    fingerprintRawData() {
-        return (0, identifyFp_1.onlyFpData)(this._fingerprintData);
+    set fingerprintImageTotal(num) {
+        this._fingerprintImageTotal = num;
+    }
+    async registerFingerprint(fingerprintData) {
+        console.log('fingerprintImageTotal is ', this.fingerprintImageTotal);
+        await this.countFileTotal();
+        let result = await (0, fingerprintRegister_1.fingerprintRegister)(fingerprintData, this.fingerprintImageTotal);
+        return result;
     }
     verifyFingerprint() {
-        const dir = 'images/';
-        fs.readdir(dir, (err, files) => {
-            this.fileNum = files.length;
-        });
-        const fileExtension = '.jpeg';
-        if (this.fileNum == 0) {
-            let data = "no data";
-            console.log('no data');
-            return data;
-        }
-        else if (this.verifyFpCount < this.fileNum) {
-            let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
-            this.verifyFpCount++;
-            return imageData.toString('base64');
-        }
-        else {
-            this.verifyFpCount = 0;
-            let data = 'finished';
-            console.log('finished');
-            return data;
-        }
+        return (0, fingerprintVerify_1.fingerprintVerify)(this.verifyFpCount, this.fingerprintImageTotal);
     }
     verifyFingerprintMessage(message) {
-        console.log('Received from java: ', message);
-        if (message['fpid'] == "match") {
+        console.log('message is ', message);
+        if (message === "match success") {
             this.verifyFpCount = 0;
-            console.log('match');
         }
-    }
-    identifyFingerprint() {
     }
 };
 StandardFingerprint = __decorate([

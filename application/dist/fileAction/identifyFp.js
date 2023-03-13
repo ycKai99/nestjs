@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.onlyFpData = void 0;
-async function onlyFpData(fileData) {
+function onlyFpData(fileData) {
     let dataArray = [];
     fileData.forEach(element => {
         dataArray.push(element['fpid']);

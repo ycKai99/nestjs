@@ -7,4 +7,4 @@ export function makeDirectory(dir: string) {
         fs.mkdirSync(dir);
         return true;
     }
-}
+  }

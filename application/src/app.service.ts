@@ -1,76 +1,49 @@
 import { Injectable } from '@nestjs/common';
-import { onlyFpData } from './fileAction/identifyFp';
-import { readFileData } from './fileAction/readFileSync';
-import { writeFileSync } from './fileAction/writeFileSync';
+import { readFileData } from './fileAction/retrieveFileData';
 import { syncData } from './connectionAction/postDataToCentral';
 import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
-import { data_full_path, message_full_path } from './fileInterface/constSetting';
+import { ERROR_MESSAGE, FILE_EXTENSION, FINGERPRINT_FOLDER_PATH, IMAGE_FOLDER, MESSAGE_FOLDER_PATH, SUCCESS_MESSAGE } from './fileInterface/constSetting';
 import { postData } from './connectionAction/postDataToLocal';
-import { dataEncryption, dataDecryption } from './fileAction/dataEncryption';
-import { Controller, Get, Post, Body, Res, Req, All } from '@nestjs/common';
+import { dataEncryption } from './fileAction/dataEncryption';
 import fs = require('graceful-fs')
+import { fingerprintRegister } from './fileAction/fingerprintRegister';
+import { fingerprintVerify } from './fileAction/fingerprintVerify';
+import { readFileTotal } from './fileAction/readFileTotal';
 
 export interface StandardFingerprintInterface {
-  fingerprintData;
-  messageData;
   readMessageData()
-  readFingerprintData()
-  registerFingerprint(data: string)
-  verifyFingerprint(status: string)
-  identifyFingerprint()
-  fingerprintRawData()
+  countFileTotal()
+  registerFingerprint(fingerprintData: string, fingerprintImageTotal: number)
+  verifyFingerprint()
+  verifyFingerprintMessage(message: string)
 }
 @Injectable()
 export class StandardFingerprint implements StandardFingerprintInterface {
 
   private verifyFpCount: number = 1; // used to store current turn of result
-  private verifyFpTotal: number = 0; // used to store data length of file
-  private verifyBool: boolean = true; // used to check whether reached last data or not
+  private fileNum: number = 0; // used to store data length of file
+  // private verifyBool: boolean = true; // used to check whether reached last data or not
 
   private _fingerprintData; // used to store fingerprint data in local
   private _messageData; // used to store message notification
-
-
-  private fileSize: number = 0;
-  private fileNum: number = 0;
+  private _fingerprintImageTotal;
 
   constructor() {
-    this.readFingerprintData();
+    this.countFileTotal();
     this.readMessageData();
-    // this.registerFingerprint(JSON.stringify(data))
     // postData(this.fingerprintData)
-    // console.log('fingerprint data is ',this.fingerprintData)
-    // console.log('message data is ',this.messageData)
-    // this.retrieveTesting()
-  }
-
-  // testing purpose
-  retrieveTesting() {
-    syncData(this.fingerprintData)
-    return "message from local server"
-  }
-
-  // testing purpose
-  display() {
-    let data: fingerprintDataInterface = {
-      fpid: 'fp6',
-      registeredDate: new Date(),
-      operation: 'registeredFingerprint',
-      vendor: 'ZKTeco'
-    }
-    this.fingerprintData = data
-    return this.fingerprintData
+    // await syncData(this._fingerprintData,this._messageData)
   }
 
   // get fingerprint data from this.fingerprintLocalData
-  get fingerprintData() {
-    return this._fingerprintData;
-  }
+  // get fingerprintData() {
+  //   return this._fingerprintData;
+  // }
 
-  // set fingerprint data to this.fingerprintLocalData
-  set fingerprintData(data: fingerprintDataInterface) {
-    this._fingerprintData.push(data)
-  }
+  // // set fingerprint data to this.fingerprintLocalData
+  // set fingerprintData(data: fingerprintDataInterface) {
+  //   this._fingerprintData = data
+  // }
 
   // get message notification data from this.messageNotificationData
   get messageData() {
@@ -84,154 +57,43 @@ export class StandardFingerprint implements StandardFingerprintInterface {
 
   // read all message data and store it to this.messageNotificationData
   readMessageData() {
-    this._messageData = readFileData(message_full_path);
+    this._messageData = readFileData(MESSAGE_FOLDER_PATH);
   }
 
-  // read all fingerprint data and store it to this.fingerprintLocalData
-  readFingerprintData() {
-    this._fingerprintData = readFileData(data_full_path);
+  // // read all fingerprint data and store it to this.fingerprintLocalData
+  // readFingerprintData() {
+  //   this._fingerprintData = readFileData(FINGERPRINT_FOLDER_PATH);
+  // }
+
+  // count fingerprint image total
+  countFileTotal() {
+    this._fingerprintImageTotal = readFileTotal(IMAGE_FOLDER);
   }
+  get fingerprintImageTotal() {
+    return this._fingerprintImageTotal
+  }
+  set fingerprintImageTotal(num: number) {
+    this._fingerprintImageTotal = num
+  }
+
 
   // register new fingerprint 
-  registerFingerprint(data: string) {
-    writeFileSync(data, this._fingerprintData);
-    this.readFingerprintData;
-  }
+  async registerFingerprint(fingerprintData: string) {
+    console.log('fingerprintImageTotal is ', this.fingerprintImageTotal)
+    await this.countFileTotal()
+    let result = await fingerprintRegister(fingerprintData, this.fingerprintImageTotal);
 
-  // retrieve only fingerprint data 
-  fingerprintRawData() {
-    return onlyFpData(this._fingerprintData);
+    return result
+    // await this.readMessageData()
   }
 
   // verify fingerprint 1 to 1
   verifyFingerprint() {
-    // this.verifyFpTotal = this._fingerprintData.length
-    // let check = status['fpid'];
-    // do {
-    //   console.log('inside do: ', check)
-    //   if (this.verifyFpCount < this.verifyFpTotal) {
-    //     let fp = this._fingerprintData[this.verifyFpCount]['fpid']
-    //     let data = dataEncryption(fp);
-    //     this.verifyBool = true;
-    //     this.verifyFpCount++;
-    //     if (check === 'match') {
-    //       this.verifyBool = false;
-    //       this.verifyFpCount = 0;
-    //       console.log('match');
-    //       break;
-    //     }
-    //     // else {
-    //     return data;
-    //     // }
-    //   }
-    //   else {
-    //     this.verifyBool = false;
-    //     this.verifyFpCount = 0;
-    //     // if (check === 'match') {
-    //     //   this.verifyBool = false;
-    //     //   this.verifyFpCount = 0;
-    //     //   console.log('match');
-    //     //   break;
-    //     // }
-    //     console.log('finish');
-    //     // console.log(this.verifyFpCount, ', received from java after finish: ', check);
-    //     return "finished";
-    //   }
-    // } while (this.verifyBool);
 
-    // this.verifyFpTotal = this._fingerprintData.length
-    // let check = status['fpid'];
-    // if (this.verifyFpTotal == 0) {
-    //   let data = await dataEncryption("no data");
-    //   return data;
-    // }
-    // if (this.verifyFpCount < this.verifyFpTotal) {
-    //   let fp = this.fingerprintData[this.verifyFpCount]['fpid'];
-    //   // this.verifyBool = true;
-    //   // this.verifyFpCount++
-    //   let data = await dataEncryption(fp);
-    //   if (check !== 'match') {
-    //     // console.log('fp count: ', this.verifyFpCount);
-    //     this.verifyBool = true;
-    //     this.verifyFpCount++;
-    //     // return data;
-    //   }
-    //   else {
-    //     this.verifyBool = false;
-    //     this.verifyFpCount = 0;
-    //     console.log('match');
-    //   }
-    //   return data;
-    // }
-    // else {
-    //   this.verifyBool = false;
-    //   this.verifyFpCount = 0;
-    //   console.log('finish');
-    //   return "finished";
-    // }
-
-    // verify can work
-    // this.verifyFpTotal = this._fingerprintData.length
-    // if (this.verifyFpTotal == 0) {
-    //   let data = "no data"
-    //   return data
-    // }
-    // else if (this.verifyFpCount < this.verifyFpTotal) {
-    //   let fp = this.fingerprintData[this.verifyFpCount]['fpid']
-    //   this.verifyBool = true;
-    //   this.verifyFpCount++
-    //   let data = await dataEncryption(fp)
-    //   // console.log('encrypted data is ', data)
-    //   return data
-    // }
-    // else {
-    //   // this.verifyBool = false;
-    //   this.verifyFpCount = 0;
-    //   let data = "finished"
-    //   // console.log('encrypted data is ', data)
-    //   return data
-    // }
-
-
-    // verify by send image data
-    const dir = 'images/';
-    fs.readdir(dir, (err, files) => {
-      this.fileNum = files.length;
-    });
-    const fileExtension = '.jpeg';
-    if (this.fileNum == 0) {
-      let data = "no data"
-      console.log('no data');
-      return data
-    }
-    else if (this.verifyFpCount < this.fileNum) {
-      // for (let i = 0; i < fileNum; i++) {
-      let imageData = fs.readFileSync(`${dir}image_${this.verifyFpCount + 1}${fileExtension}`);
-      this.verifyFpCount++;
-      return imageData.toString('base64');
-      // }
-    }
-    else {
-      this.verifyFpCount = 0;
-      let data = 'finished';
-      console.log('finished');
-      return data;
-    }
-
-
-
+    return fingerprintVerify(this.verifyFpCount, this.fingerprintImageTotal);
   }
-
-  verifyFingerprintMessage(message) {
-    console.log('Received from java: ', message)
-    if (message['fpid'] == "match") {
-      this.verifyFpCount = 0;
-      console.log('match');
-    }
-  }
-
-  // identify fingerprint 1 to all
-  identifyFingerprint() {
-
+  verifyFingerprintMessage(message: string) {
+    console.log('message is ', message)
+    if (message === "match success") { this.verifyFpCount = 0 }
   }
 }

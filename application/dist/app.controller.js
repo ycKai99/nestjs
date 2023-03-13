@@ -14,137 +14,28 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.res_render = exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
-const zktfingerprint_service_1 = require("./zktfingerprint.service");
 const fs = require("graceful-fs");
 const jade = require("jade");
-const net = require("net");
-const axios = require('axios');
+const zktfingerprint_service_1 = require("./zktfingerprint.service");
+const constSetting_1 = require("./fileInterface/constSetting");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
-        this.verifyFpCount = 0;
-        this.fileSize = 0;
     }
-    init(req, res) {
-        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
-        let socket;
-        socket = new net.Socket();
-        socket.connect(8080, 'localhost', async () => {
-            console.log('Connected to Java server');
-            socket.write('open');
-        });
+    registerFingerprint(fingerprintData) {
+        return this.appService.registerFingerprint(fingerprintData);
     }
-    closeScanner(req, res) {
-        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
-        let socket;
-        socket = new net.Socket();
-        socket.connect(8080, 'localhost', async () => {
-            console.log('Connected to Java server');
-            socket.write('close');
-        });
-    }
-    retrieveTesting() {
-        return this.appService.retrieveTesting();
-    }
-    testing() {
-        const dir = 'images/';
-        fs.readdir(dir, (err, files) => {
-            let fileNum = files.length;
-            const fileSize = fileNum;
-            const fileExtension = '.jpeg';
-            const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
-            if (fileNum == 0) {
-                let data = "no data from testing";
-                return data;
-            }
-            else if (this.verifyFpCount < fileNum) {
-                let imageData = fs.readFileSync(`${dir}image_${fileSize}${fileExtension}`);
-                this.verifyFpCount++;
-                this.fileSize--;
-                return imageData;
-            }
-            else {
-                this.verifyFpCount = 0;
-                let data = 'finished';
-                return data;
-            }
-        });
-    }
-    registerFp(registerfp) {
-        const dir = 'images/';
-        fs.readdir(dir, (err, files) => {
-            console.log(files.length);
-            if (files.length != 0) {
-                let fileNum = files.length;
-                const fileExtension = '.jpeg';
-                const fileName = `${dir}image_${fileNum + 1}${fileExtension}`;
-                let result = registerfp['fpid'].replace(/\n/g, "");
-                const buffer = Buffer.from(result, 'base64');
-                console.log('type : ', typeof buffer);
-                var Jimp = require("jimp");
-                Jimp.read(buffer, (err, data) => {
-                    if (err)
-                        throw err;
-                    data
-                        .resize(300, 400)
-                        .quality(60)
-                        .write(fileName);
-                    console.log('image save');
-                });
-            }
-            else {
-                let result = registerfp['fpid'].replace(/\n/g, "");
-                const buffer = Buffer.from(result, 'base64');
-                var Jimp = require("jimp");
-                Jimp.read(buffer, (err, data) => {
-                    if (err)
-                        throw err;
-                    data
-                        .resize(300, 400)
-                        .quality(60)
-                        .write('images/image_1.jpeg');
-                    console.log('image save');
-                });
-            }
-            if (err)
-                console.log(err);
-        });
-    }
-    verify() {
+    verifyFingerprint() {
         return this.appService.verifyFingerprint();
     }
     verifyFpMessage(status) {
         let result = status;
         return this.appService.verifyFingerprintMessage(result);
     }
-    identifyFp() {
-        return this.appService.identifyFingerprint();
-    }
-    getStatus(req, res) {
-        const jadeargument = {};
-        let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-            encoding: 'utf-8'
-        });
-        let fpdata = JSON.parse(data);
-        jadeargument['dataSet1'] = fpdata;
-        return res.send(res_render('statuspage', res, jadeargument));
-    }
-    postStatus(req, res) {
-        const jadeargument = {};
-        console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-        let subValue = JSON.parse(JSON.stringify(req.body, null, 2));
-        console.log(subValue.submitValue);
-        let data = fs.readFileSync('./localStorage/fingerprintData.json', {
-            encoding: 'utf8',
-        });
-        let fpdata = JSON.parse(data);
-        jadeargument['dataSet1'] = fpdata;
-        return res.send(res_render('statuspage', res, jadeargument));
-    }
     postErrorMessage(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-        let data = fs.readFileSync('./localStorage/errorMessage.json', {
+        let data = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
             encoding: 'utf8',
         });
         let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
@@ -155,66 +46,82 @@ let AppController = class AppController {
             let pastErrMessage = JSON.parse(data);
             pastErrMessage.push(errMessage);
             console.log(pastErrMessage);
-            fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(pastErrMessage));
+            fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(pastErrMessage));
         }
         else {
             jsonObj.push(errMessage);
-            fs.writeFileSync('./localStorage/errorMessage.json', JSON.stringify(jsonObj));
+            fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(jsonObj));
         }
         jadeargument['errMessage'] = data;
         return res.send(res_render('errorMessage', res, jadeargument));
     }
     getErrorMessage(res) {
         const jadeargument = {};
-        let data = fs.readFileSync('./localStorage/errorMessage.json', {
+        let data = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
             encoding: 'utf8',
         });
         let errMessage = JSON.parse(data);
         jadeargument['errMessage'] = errMessage;
         return res.send(res_render('errorMessage', res, jadeargument));
     }
+    getStatus(req, res) {
+        const jadeargument = {};
+        let data = fs.readFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, {
+            encoding: 'utf-8'
+        });
+        console.log("trigger get");
+        let fpdata = JSON.parse(data);
+        jadeargument['dataSet1'] = fpdata;
+        const errorMessage = {};
+        let errorData = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
+            encoding: 'utf8',
+        });
+        let errMessage = JSON.parse(errorData);
+        errorMessage['errMessage'] = errMessage;
+        return res.send(res_render('statuspage', res, jadeargument));
+    }
+    postStatus(req, res) {
+        let sendMessage = "";
+        console.log("message post: ", req.body['submitValue']);
+        switch (req.body['submitValue']) {
+            case "INITIALIZE_DEVICE":
+                console.log('INITIALIZE_DEVICE');
+                break;
+            case "ENROLL_FINGERPRINT":
+                console.log('ENROLL_FINGERPRINT');
+                break;
+            case "VERIFY_FINGERPRINT":
+                console.log('VERIFY_FINGERPRINT');
+                break;
+            case "CLOSE_DEVICE":
+                console.log('CLOSE_DEVICE');
+                break;
+        }
+        if (sendMessage) {
+            console.log('sendMessage');
+        }
+        const jadeargument = {};
+        let data = fs.readFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, {
+            encoding: 'utf8',
+        });
+        let fpdata = JSON.parse(data);
+        jadeargument['dataSet1'] = fpdata;
+        return res.send(res_render('statuspage', res, jadeargument));
+    }
 };
-__decorate([
-    (0, common_1.Post)('init'),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Request, Object]),
-    __metadata("design:returntype", Object)
-], AppController.prototype, "init", null);
-__decorate([
-    (0, common_1.Post)('closeScanner'),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Request, Object]),
-    __metadata("design:returntype", Object)
-], AppController.prototype, "closeScanner", null);
-__decorate([
-    (0, common_1.Get)('retrieveTesting'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "retrieveTesting", null);
-__decorate([
-    (0, common_1.Get)('testing'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "testing", null);
 __decorate([
     (0, common_1.Post)('registerfp'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "registerFp", null);
+], AppController.prototype, "registerFingerprint", null);
 __decorate([
     (0, common_1.Get)('verifyfp'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "verify", null);
+], AppController.prototype, "verifyFingerprint", null);
 __decorate([
     (0, common_1.Post)('verify'),
     __param(0, (0, common_1.Body)()),
@@ -223,11 +130,20 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "verifyFpMessage", null);
 __decorate([
-    (0, common_1.Get)('identifyfp'),
+    (0, common_1.Post)('error'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "identifyFp", null);
+    __metadata("design:paramtypes", [Request, Object]),
+    __metadata("design:returntype", String)
+], AppController.prototype, "postErrorMessage", null);
+__decorate([
+    (0, common_1.Get)('error'),
+    __param(0, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", String)
+], AppController.prototype, "getErrorMessage", null);
 __decorate([
     (0, common_1.Get)('status'),
     __param(0, (0, common_1.Req)()),
@@ -244,21 +160,6 @@ __decorate([
     __metadata("design:paramtypes", [Request, Object]),
     __metadata("design:returntype", String)
 ], AppController.prototype, "postStatus", null);
-__decorate([
-    (0, common_1.Post)('error'),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Request, Object]),
-    __metadata("design:returntype", String)
-], AppController.prototype, "postErrorMessage", null);
-__decorate([
-    (0, common_1.Get)('error'),
-    __param(0, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getErrorMessage", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [zktfingerprint_service_1.ZKTFingerprintService])

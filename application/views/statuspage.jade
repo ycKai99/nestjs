@@ -3,6 +3,34 @@ html
     head
         title Fingerprint
         style.
+            form{
+                text-align: center;
+            }
+            button{
+                padding: 8px 20px;
+                width:225px;
+                font-size:14px;
+                border-radius:6px;
+                background: #DCDCDC
+            }
+            
+            input:hover,
+            input:focus { 
+                background-color: #16437E;
+                color: #ffffff;
+            }
+
+            input:active {
+                background: #09223b;
+                color: rgb(255, 255, 255, .7);
+            }
+
+            input:disabled { 
+                cursor: not-allowed;
+                background: rgba(0, 0, 0, .08);
+                color: rgba(0, 0, 0, .3);
+            }
+            
             table{
                 border-collapse: collapse;
                 table-layout: fixed;
@@ -31,33 +59,50 @@ html
             }
 
             li {
-            float: left;
+                float: left;
             }
 
             li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
             }
 
             li a:hover {
-            background-color: #111;
+                background-color: #111;
             }
             .active {
                 background-color: #04AA6D;
             }
+            .hidden {
+                display: none;
+            }
+            .text-center {
+                text-align: center;
+            }
+            .button-container {
+                display: flex;
+                align-items: center;
+                flex-direction:column;
+            }
+
+        
+
+
+
 
     body
         nav
             ul
                 li
-                    a(class="active", href="http://10.0.2.2:4000/status") Fingerprint Data
+                    a(class="active", href="http://localhost:4000/status") Fingerprint Data
                 li
-                    a(href="http://10.0.2.2:4000/error") Error Message
+                    a(href="http://localhost:4000/error") Error Message
         br
         br
+        
         table(border="1") 
             thead 
                 tr 
@@ -71,17 +116,153 @@ html
                     td=jadeargument["dataSet1"][index]["registeredDate"]
                     td=jadeargument["dataSet1"][index]["operation"]
                     td=jadeargument["dataSet1"][index]["vendor"]
-                    
+
+        
+
+        br
         br
         
-        form(method='post', style='margin-bottom:5px', action='http://localhost:4000/init')
-            input(type='submit', value='Initialize scanner', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden', name='initStatus', value='open')  
+        //- form(method='post', style='margin-bottom:5px', action='#')
+        //-     input(type='submit', value='Initialize scanner', id="openButton", onclick="myFunction()")
+        //-     input(type='hidden', name='submitValue', value='INITIALIZE_DEVICE')  
+        
+        //- form(method='post', style='margin-bottom:5px', action='#', )
+        //-     input(type='submit',value='Register fingerprint', style="display:none")
+        //-     input(type='hidden',name='submitValue', value='ENROLL_FINGERPRINT')
+            
+        //- form(method='post', style='margin-bottom:5px', action='#' )
+        //-     input(type='submit',value='Verify fingerprint', style="display:none")
+        //-     input(type='hidden',name='submitValue', value='VERIFY_FINGEPRRINT')
+                
+        //- form(method='post', style='margin-bottom:5px', action='#')
+        //-     input(type='submit', value='Close scanner')
+        //-     input(type='hidden', name='submitValue', value='CLOSE_DEVICE') 
+        //- form(action="http://localhost:4000/status" method="POST")
+        div(class="text-center")
+            button(id="openDeviceBtn") Open Device
+        br    
+        div(class="button-container")
+            button(id="registerBtn" style="display:none;" class="text-center" onClick="register()") Register Fingerprint
+            br
+            button(id="verifyBtn" style="display:none;" class="text-center") Verify Fingerprint
+            br
+            button(id="closeBtn" style="display:none;" class="text-center") Close Device
 
-        form(method='post', style='margin-bottom:5px', action='#')
-            input(type='submit',value='Register fingerprint', style='padding: 8px 20px;width: 225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden',name='registerStatus', value='register')
+            
 
-        form(method='post', style='margin-bottom:5px', action='http://localhost:4000/closeScanner')
-            input(type='submit', value='Close scanner', style='padding: 8px 20px;width:225px;font-size:14px;border-radius:6px;background: #DCDCDC')
-            input(type='hidden', name='closeStatus', value='Close scanner') 
+        script.
+            // get references to buttons
+            const openDeviceBtn = document.getElementById('openDeviceBtn');
+            const registerBtn = document.getElementById('registerBtn');
+            const verifyBtn = document.getElementById('verifyBtn');
+            const closeBtn = document.getElementById('closeBtn');
+
+            // show and hide buttons on click events
+            openDeviceBtn.addEventListener('click', function() {
+                // show register and verify buttons
+                registerBtn.style.display = 'block';
+                verifyBtn.style.display = 'block';
+                // hide open device button
+                openDeviceBtn.style.display = 'none';
+                // show close button
+                closeBtn.style.display = 'block';
+            });
+
+            closeBtn.addEventListener('click', function() {
+                // hide register and verify buttons
+                registerBtn.style.display = 'none';
+                verifyBtn.style.display = 'none';
+                // hide close button
+                closeBtn.style.display = 'none';
+                // show open device button
+                openDeviceBtn.style.display = 'inline';
+            });
+
+            function register() {
+                alert("Start Register");
+                // Add your register logic here
+                
+            }
+            registerBtn.addEventListener("click", () => {
+                verifyBtn.disabled = true;
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://localhost:4000/status', true);
+                //- xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send();
+            });
+            document.querySelector('#openDeviceBtn').addEventListener('click', () => {
+                //- event.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send(JSON.stringify({submitValue: 'INITIALIZE_DEVICE'}));
+            });
+            document.querySelector('#registerBtn').addEventListener('click', () => {
+                //- event.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send(JSON.stringify({submitValue: 'ENROLL_FINGERPRINT'}));
+            });
+            document.querySelector('#verifyBtn').addEventListener('click', () => {
+                //- event.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send(JSON.stringify({submitValue: 'VERIFY_FINGERPRINT'}));
+            });
+            document.querySelector('#closeBtn').addEventListener('click', () => {
+                //- event.preventDefault();
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send(JSON.stringify({submitValue: 'CLOSE_DEVICE'}));
+            });
+
+
+

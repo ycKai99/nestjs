@@ -4,37 +4,27 @@ exports.writeFileSync = void 0;
 const fs = require("graceful-fs");
 const constSetting_1 = require("../fileInterface/constSetting");
 const appMessage_1 = require("./appMessage");
-const readFileSync_1 = require("./readFileSync");
-async function writeFileSync(fingerprintData, fileData) {
-    console.log('data is ', fingerprintData);
-    console.log('data is ', fingerprintData['fpid']);
-    let readMessage = await (0, readFileSync_1.readFileData)(constSetting_1.message_full_path);
-    let messageDetails = (0, appMessage_1.appMessage)(fileData);
-    let regFingerprint = {
-        fpid: fingerprintData['fpid'],
-        registeredDate: new Date,
-        operation: 'Register fingerprint',
-        vendor: 'ZKTeco'
-    };
+const uuid_1 = require("uuid");
+const axios_1 = require("axios");
+async function writeFileSync(fingerprintData, fileData, messageData) {
+    let uuid = (0, uuid_1.v4)();
+    let messageDetails = (0, appMessage_1.appMessage)(fileData, uuid);
+    let regFingerprint = (0, appMessage_1.zktecoFpMessage)(fingerprintData, uuid);
     fileData.push(regFingerprint);
-    readMessage.push(messageDetails);
+    messageData.push(messageDetails);
     try {
-        console.log('file data is ', fileData);
-        fs.writeFileSync(constSetting_1.data_full_path, JSON.stringify(fileData, null, 4));
-        fs.writeFileSync(constSetting_1.message_full_path, JSON.stringify(readMessage, null, 4));
+        await fs.writeFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, JSON.stringify(fileData, null, 4));
+        await fs.writeFileSync(constSetting_1.MESSAGE_FOLDER_PATH, JSON.stringify(messageData, null, 4));
+        axios_1.default.post('http://192.168.100.46:5050/registerfp', {
+            data: regFingerprint,
+            message: messageDetails
+        })
+            .then(res => console.log("res is ", res.data))
+            .catch(err => console.log("error is ", err));
         console.log('file saved');
     }
     catch (e) {
         console.log('error is ', e);
-    }
-    function formatDate(date) {
-        const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hour = String(date.getHours()).padStart(2, '0');
-        const minute = String(date.getMinutes()).padStart(2, '0');
-        const second = String(date.getSeconds()).padStart(2, '0');
-        return `${year}-${month}-${day} ${hour}:${minute}:${second}`;
     }
 }
 exports.writeFileSync = writeFileSync;
