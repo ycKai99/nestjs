@@ -3,13 +3,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.writeFileSync = void 0;
 const fs = require("graceful-fs");
 const constSetting_1 = require("../fileInterface/constSetting");
-const appMessage_1 = require("./appMessage");
+const fingerprint_app_message_1 = require("./fingerprint_app_message");
 const uuid_1 = require("uuid");
 const axios_1 = require("axios");
 async function writeFileSync(fingerprintData, fileData, messageData) {
     let uuid = (0, uuid_1.v4)();
-    let messageDetails = (0, appMessage_1.appMessage)(fileData, uuid);
-    let regFingerprint = (0, appMessage_1.zktecoFpMessage)(fingerprintData, uuid);
+    let messageDetails;
+    let regFingerprint = (0, fingerprint_app_message_1.zktecoFpMessage)(fingerprintData, uuid);
     fileData.push(regFingerprint);
     messageData.push(messageDetails);
     try {

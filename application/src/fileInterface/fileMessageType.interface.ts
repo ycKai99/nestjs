@@ -1,3 +1,4 @@
+// fingerprint data interface
 export interface fingerprintDataInterface {
     fpid: string;
     registeredDate: Date;
@@ -6,7 +7,8 @@ export interface fingerprintDataInterface {
     header_messageId: string;
 }
 
-export interface fileMessage {
+// message notification interface
+export interface messageNotificationInterface {
     message: string;
     ReceivedDate: Date;
     InstanceID: string;
@@ -16,4 +18,11 @@ export interface fileMessage {
     Code: string;
     Operation: string;
     DataSource: string;
+}
+
+// success or error message interface
+export interface messageInterface {
+    time: Date;
+    message: string;
+    header_messageId?: string;
 }

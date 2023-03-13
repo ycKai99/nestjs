@@ -1,18 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { readFileData } from './fileAction/retrieveFileData';
-import { syncData } from './connectionAction/postDataToCentral';
-import { fileMessage, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
-import { ERROR_MESSAGE, FILE_EXTENSION, FINGERPRINT_FOLDER_PATH, IMAGE_FOLDER, MESSAGE_FOLDER_PATH, SUCCESS_MESSAGE } from './fileInterface/constSetting';
-import { postData } from './connectionAction/postDataToLocal';
-import { dataEncryption } from './fileAction/dataEncryption';
-import fs = require('graceful-fs')
-import { fingerprintRegister } from './fileAction/fingerprintRegister';
-import { fingerprintVerify } from './fileAction/fingerprintVerify';
-import { readFileTotal } from './fileAction/readFileTotal';
+import { readFileData } from './fileAction/fingerprint_read_file_data';
+import { messageNotificationInterface, messageInterface } from './fileInterface/fileMessageType.interface';
+import { ERROR_MESSAGE_FOLDER_PATH, IMAGE_FOLDER, MESSAGE_FOLDER_PATH } from './fileInterface/constSetting';
+import { fingerprintRegister } from './fileAction/fingerprint_register';
+import { fingerprintVerify } from './fileAction/fingerprint_verify';
+import { readFileTotal } from './fileAction/fingerprint_read_file_total';
+import { retrieveFingerprintData } from './fileAction/fingerprint_retrieve_data';
 
 export interface StandardFingerprintInterface {
-  readMessageData()
+  readMessageNotificationData()
   countFileTotal()
+  readReturnMessageData()
   registerFingerprint(fingerprintData: string, fingerprintImageTotal: number)
   verifyFingerprint()
   verifyFingerprintMessage(message: string)
@@ -20,80 +18,80 @@ export interface StandardFingerprintInterface {
 @Injectable()
 export class StandardFingerprint implements StandardFingerprintInterface {
 
-  private verifyFpCount: number = 1; // used to store current turn of result
-  private fileNum: number = 0; // used to store data length of file
-  // private verifyBool: boolean = true; // used to check whether reached last data or not
-
-  private _fingerprintData; // used to store fingerprint data in local
-  private _messageData; // used to store message notification
-  private _fingerprintImageTotal;
+  private _messageNotificationData; // used to store message notification
+  private _fingerprintImageTotal; // used to store fingerprint image total
+  private _messageData;
 
   constructor() {
     this.countFileTotal();
-    this.readMessageData();
+    this.readMessageNotificationData();
+    this.readReturnMessageData();
     // postData(this.fingerprintData)
     // await syncData(this._fingerprintData,this._messageData)
   }
 
-  // get fingerprint data from this.fingerprintLocalData
-  // get fingerprintData() {
-  //   return this._fingerprintData;
-  // }
-
-  // // set fingerprint data to this.fingerprintLocalData
-  // set fingerprintData(data: fingerprintDataInterface) {
-  //   this._fingerprintData = data
-  // }
-
+  // read all message data and store it to this.messageNotificationData
   // get message notification data from this.messageNotificationData
-  get messageData() {
-    return this._messageData
+  // set message data to this.messageNotificationData
+  async readMessageNotificationData() {
+    console.log('read message notification')
+    this._messageNotificationData = await readFileData(MESSAGE_FOLDER_PATH);
+  }
+  get messageNotificationData() {
+    return this._messageNotificationData;
+  }
+  set messageNotificationData(data: messageNotificationInterface) {
+    this._messageNotificationData.push(data);
   }
 
-  // set message data to this.messageNotificationData
-  set messageData(data: fileMessage) {
+  // read return message whether is success or failure
+  // get return message
+  // set return message
+  async readReturnMessageData() {
+    this._messageData = await readFileData(ERROR_MESSAGE_FOLDER_PATH);
+  }
+  get messageData() {
+    return this._messageData;
+  }
+  set messageData(data: messageInterface) {
     this._messageData.push(data)
   }
 
-  // read all message data and store it to this.messageNotificationData
-  readMessageData() {
-    this._messageData = readFileData(MESSAGE_FOLDER_PATH);
-  }
-
-  // // read all fingerprint data and store it to this.fingerprintLocalData
-  // readFingerprintData() {
-  //   this._fingerprintData = readFileData(FINGERPRINT_FOLDER_PATH);
-  // }
-
   // count fingerprint image total
-  countFileTotal() {
-    this._fingerprintImageTotal = readFileTotal(IMAGE_FOLDER);
-  }
+  // get fingerprint image total
+  // set fingerprint image total
+
   get fingerprintImageTotal() {
-    return this._fingerprintImageTotal
+    return this._fingerprintImageTotal;
   }
-  set fingerprintImageTotal(num: number) {
-    this._fingerprintImageTotal = num
+  set fingerprintImageTotal(num) {
+    this._fingerprintImageTotal = num;
+  }
+  countFileTotal() {
+    this.fingerprintImageTotal = readFileTotal(IMAGE_FOLDER);
   }
 
 
   // register new fingerprint 
-  async registerFingerprint(fingerprintData: string) {
-    console.log('fingerprintImageTotal is ', this.fingerprintImageTotal)
-    await this.countFileTotal()
-    let result = await fingerprintRegister(fingerprintData, this.fingerprintImageTotal);
-
-    return result
-    // await this.readMessageData()
+  registerFingerprint(fingerprintData: string) {
+    this.countFileTotal();
+    let result = fingerprintRegister(fingerprintData, this.fingerprintImageTotal, this._messageNotificationData, this._messageData);
+    this.readMessageNotificationData();
+    this.readReturnMessageData();
+    return result;
   }
 
   // verify fingerprint 1 to 1
-  verifyFingerprint() {
-
-    return fingerprintVerify(this.verifyFpCount, this.fingerprintImageTotal);
+  async verifyFingerprint() {
+    await this.countFileTotal();
+    return await fingerprintVerify(this.fingerprintImageTotal);
   }
   verifyFingerprintMessage(message: string) {
-    console.log('message is ', message)
-    if (message === "match success") { this.verifyFpCount = 0 }
+    if (message['fpid'] === "match") { fingerprintVerify(this.fingerprintImageTotal, message['fpid']) }
+  }
+
+
+  fingerprintData() {
+    return retrieveFingerprintData(this.fingerprintImageTotal)
   }
 }

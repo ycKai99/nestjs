@@ -9,10 +9,10 @@ function fingerprintVerify(verifyFpCount, fileNum) {
         data = "no data";
         console.log('no data');
     }
-    else if (verifyFpCount < fileNum) {
+    if (verifyFpCount < fileNum) {
         let imageData = fs.readFileSync(`${constSetting_1.IMAGE_FOLDER}image_${verifyFpCount + 1}.${"jpeg"}`);
         verifyFpCount++;
-        console.log('count: ', verifyFpCount++);
+        console.log('send', verifyFpCount);
         data = imageData.toString('base64');
     }
     else {

@@ -5,7 +5,7 @@ export interface fingerprintDataInterface {
     vendor: string;
     header_messageId: string;
 }
-export interface fileMessage {
+export interface messageNotificationInterface {
     message: string;
     ReceivedDate: Date;
     InstanceID: string;
@@ -15,4 +15,9 @@ export interface fileMessage {
     Code: string;
     Operation: string;
     DataSource: string;
+}
+export interface messageInterface {
+    time: Date;
+    message: string;
+    header_messageId?: string;
 }

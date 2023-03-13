@@ -1,26 +1,28 @@
-import { fileMessage } from './fileInterface/fileMessageType.interface';
-import { ERROR_MESSAGE, SUCCESS_MESSAGE } from './fileInterface/constSetting';
+import { messageNotificationInterface, messageInterface } from './fileInterface/fileMessageType.interface';
 export interface StandardFingerprintInterface {
-    readMessageData(): any;
+    readMessageNotificationData(): any;
     countFileTotal(): any;
+    readReturnMessageData(): any;
     registerFingerprint(fingerprintData: string, fingerprintImageTotal: number): any;
     verifyFingerprint(): any;
     verifyFingerprintMessage(message: string): any;
 }
 export declare class StandardFingerprint implements StandardFingerprintInterface {
-    private verifyFpCount;
-    private fileNum;
-    private _fingerprintData;
-    private _messageData;
+    private _messageNotificationData;
     private _fingerprintImageTotal;
+    private _messageData;
     constructor();
-    get messageData(): fileMessage;
-    set messageData(data: fileMessage);
-    readMessageData(): void;
+    readMessageNotificationData(): Promise<void>;
+    get messageNotificationData(): messageNotificationInterface;
+    set messageNotificationData(data: messageNotificationInterface);
+    readReturnMessageData(): Promise<void>;
+    get messageData(): messageInterface;
+    set messageData(data: messageInterface);
+    get fingerprintImageTotal(): any;
+    set fingerprintImageTotal(num: any);
     countFileTotal(): void;
-    get fingerprintImageTotal(): number;
-    set fingerprintImageTotal(num: number);
-    registerFingerprint(fingerprintData: string): Promise<SUCCESS_MESSAGE | ERROR_MESSAGE.FAILED_SAVE_IMAGE>;
-    verifyFingerprint(): any;
+    registerFingerprint(fingerprintData: string): import("./fileInterface/constSetting").SUCCESS_MESSAGE | import("./fileInterface/constSetting").ERROR_MESSAGE.FAILED_SAVE_IMAGE;
+    verifyFingerprint(): Promise<string | false>;
     verifyFingerprintMessage(message: string): void;
+    fingerprintData(): string;
 }

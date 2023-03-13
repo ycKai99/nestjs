@@ -17,7 +17,7 @@ async function fingerprintRegister(fingerprintData, fileNum) {
         return "Save image successful.";
     }
     else {
-        return "Failed to save image, Jimp error.";
+        return "Failed to save image.";
     }
 }
 exports.fingerprintRegister = fingerprintRegister;

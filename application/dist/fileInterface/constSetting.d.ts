@@ -6,10 +6,6 @@ export declare const IMAGE_FOLDER: string;
 export declare const MESSAGE_FOLDER_PATH: string;
 export declare const FINGERPRINT_FOLDER_PATH: string;
 export declare const ERROR_MESSAGE_FOLDER_PATH: string;
-export declare const WRITE_FILE_SYNC: string;
-export declare const READ_FILE_SYNC: string;
-export declare const WRITE_MESSAGE_SYNC: string;
-export declare const READ_MESSAGE_SYNC: string;
 export declare const enum SUBMIT_VALUE {
     INITIALIZE_DEVICE = "INITIALIZE_DEVICE",
     ENROLL_FINGERPRINT = "ENROLL_FINGERPRINT",
@@ -23,7 +19,7 @@ export declare const enum FILE_EXTENSION {
     PNG = "png"
 }
 export declare const enum ERROR_MESSAGE {
-    FAILED_SAVE_IMAGE = "Failed to save image, Jimp error.",
+    FAILED_SAVE_IMAGE = "Failed to save image.",
     READ_DIR_FAILED = "Read directory failed, readdir method error."
 }
 export declare const enum SUCCESS_MESSAGE {

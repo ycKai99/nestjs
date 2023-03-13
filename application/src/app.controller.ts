@@ -4,6 +4,8 @@ import jade = require('jade')
 import { ZKTFingerprintService } from './zktfingerprint.service';
 import { FINGERPRINT_FOLDER_PATH, ERROR_MESSAGE_FOLDER_PATH, SUBMIT_VALUE } from './fileInterface/constSetting';
 import axios from 'axios';
+import { readFileData } from './fileAction/fingerprint_read_file_data';
+import { fingerprintWriteMessage } from './fileAction/fingerprint_write_message';
 
 @Controller()
 export class AppController {
@@ -32,29 +34,22 @@ export class AppController {
 
   // display error message
   @Post('error')
-  postErrorMessage(@Req() req: Request, @Res() res): string {
+  async postErrorMessage(@Req() req: Request, @Res() res): Promise<string> {
     const jadeargument: any = {};
     console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-    let data = fs.readFileSync(ERROR_MESSAGE_FOLDER_PATH, {
-      encoding: 'utf8',
-    });
-    let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
-    console.log(errMessage);
+    let data = await readFileData(ERROR_MESSAGE_FOLDER_PATH)
+
+    let errMessage = JSON.parse(JSON.stringify(req.body['fpid'], null, 2));
     let jsonArray = [];
     let jsonObj = JSON.parse(JSON.stringify(jsonArray));
-    if (data.length != 0) {
-      let pastErrMessage = JSON.parse(data);
-      pastErrMessage.push(errMessage);
-      console.log(pastErrMessage);
-      fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(pastErrMessage));
-    }
-    else {
-      jsonObj.push(errMessage);
-      fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(jsonObj));
-    }
-    jadeargument['errMessage'] = data;
+    if (data.length !== 0) { data.push(errMessage); }
+    else { jsonObj.push(errMessage); data = jsonObj; }
+
+    await fingerprintWriteMessage(ERROR_MESSAGE_FOLDER_PATH, data)
+    jadeargument['dataSet1'] = data
     return res.send(res_render('errorMessage', res, jadeargument));
   }
+
 
 
   // get error message

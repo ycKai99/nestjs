@@ -18,6 +18,8 @@ const fs = require("graceful-fs");
 const jade = require("jade");
 const zktfingerprint_service_1 = require("./zktfingerprint.service");
 const constSetting_1 = require("./fileInterface/constSetting");
+const fingerprint_read_file_data_1 = require("./fileAction/fingerprint_read_file_data");
+const fingerprint_write_message_1 = require("./fileAction/fingerprint_write_message");
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -32,27 +34,22 @@ let AppController = class AppController {
         let result = status;
         return this.appService.verifyFingerprintMessage(result);
     }
-    postErrorMessage(req, res) {
+    async postErrorMessage(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-        let data = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
-            encoding: 'utf8',
-        });
-        let errMessage = JSON.parse(JSON.stringify(req.body, null, 2));
-        console.log(errMessage);
+        let data = await (0, fingerprint_read_file_data_1.readFileData)(constSetting_1.ERROR_MESSAGE_FOLDER_PATH);
+        let errMessage = JSON.parse(JSON.stringify(req.body['fpid'], null, 2));
         let jsonArray = [];
         let jsonObj = JSON.parse(JSON.stringify(jsonArray));
-        if (data.length != 0) {
-            let pastErrMessage = JSON.parse(data);
-            pastErrMessage.push(errMessage);
-            console.log(pastErrMessage);
-            fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(pastErrMessage));
+        if (data.length !== 0) {
+            data.push(errMessage);
         }
         else {
             jsonObj.push(errMessage);
-            fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(jsonObj));
+            data = jsonObj;
         }
-        jadeargument['errMessage'] = data;
+        await (0, fingerprint_write_message_1.fingerprintWriteMessage)(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, data);
+        jadeargument['dataSet1'] = data;
         return res.send(res_render('errorMessage', res, jadeargument));
     }
     getErrorMessage(res) {
@@ -135,7 +132,7 @@ __decorate([
     __param(1, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Request, Object]),
-    __metadata("design:returntype", String)
+    __metadata("design:returntype", Promise)
 ], AppController.prototype, "postErrorMessage", null);
 __decorate([
     (0, common_1.Get)('error'),

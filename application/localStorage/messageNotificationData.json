@@ -10,5 +10,27 @@
         "Code": "string",
         "Operation": "string",
         "DataSource": "string"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-13T23:36:52.076Z",
+        "InstanceID": "FP_62",
+        "EntityTypeID": "FP_62",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_9d7bd878-b3f0-4169-9d9f-ce7627e0fdad"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-13T23:36:57.120Z",
+        "InstanceID": "FP_63",
+        "EntityTypeID": "FP_63",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_1472e2bb-2d1f-4f39-a8c3-3f0edf7c4ea4"
     }
 ]
