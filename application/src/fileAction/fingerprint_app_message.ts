@@ -26,7 +26,7 @@ export function zktecoFpMessage(fingerprintData, uuid: string) {
   return messageDetails;
 }
 
-export function returnMessage(data: string, uuid: string) {
+export function handleResponseMessages(data: string, uuid: string) {
   let messageDetails: messageInterface = {
     time: new Date(),
     message: data,

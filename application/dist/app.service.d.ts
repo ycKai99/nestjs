@@ -24,5 +24,6 @@ export declare class StandardFingerprint implements StandardFingerprintInterface
     registerFingerprint(fingerprintData: string): import("./fileInterface/constSetting").SUCCESS_MESSAGE | import("./fileInterface/constSetting").ERROR_MESSAGE.FAILED_SAVE_IMAGE;
     verifyFingerprint(): Promise<string | false>;
     verifyFingerprintMessage(message: string): void;
+    countFingerprintImage(): number;
     fingerprintData(): string;
 }

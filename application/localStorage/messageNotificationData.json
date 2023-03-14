@@ -32,5 +32,27 @@
         "Code": "FPREG9500",
         "Operation": "Registered fingerprint",
         "DataSource": "FP_1472e2bb-2d1f-4f39-a8c3-3f0edf7c4ea4"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-14T01:51:00.213Z",
+        "InstanceID": "FP_64",
+        "EntityTypeID": "FP_64",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_b469eea6-4923-4091-9441-9aa38fdb3bc1"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-14T01:53:19.311Z",
+        "InstanceID": "FP_64",
+        "EntityTypeID": "FP_64",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_4fd4a17f-0057-4742-a324-89f07b89d65b"
     }
 ]

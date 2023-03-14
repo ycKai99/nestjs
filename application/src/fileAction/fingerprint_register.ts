@@ -1,7 +1,7 @@
 import { ERROR_MESSAGE, ERROR_MESSAGE_FOLDER_PATH, FILE_EXTENSION, FINGERPRINT_FOLDER_PATH, IMAGE_FOLDER, MESSAGE_FOLDER_PATH, SUCCESS_MESSAGE } from 'src/fileInterface/constSetting';
 import { saveFingerprintImage } from './fingerprint_save_image';
 import { v4 as uuidv4 } from 'uuid';
-import { appMessage, returnMessage } from './fingerprint_app_message';
+import { appMessage, handleResponseMessages } from './fingerprint_app_message';
 import fs = require('graceful-fs');
 import { fingerprintWriteMessage } from './fingerprint_write_message';
 
@@ -28,7 +28,7 @@ export function fingerprintRegister(fingerprintData: string, fileNum: number, me
 
   if (saveImage) { // if save image successful
     let messageNotification = appMessage(fileCount, "Registered fingerprint", uuid); // create a notification message
-    let messageOutput = returnMessage(SUCCESS_MESSAGE.SUCCESS_SAVE_IMAGE, uuid); // create a successful message
+    let messageOutput = handleResponseMessages(SUCCESS_MESSAGE.SUCCESS_SAVE_IMAGE, uuid); // create a successful message
 
     messageNotificationData.push(messageNotification);
     messageData.push(messageOutput);

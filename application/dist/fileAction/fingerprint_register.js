@@ -21,7 +21,7 @@ function fingerprintRegister(fingerprintData, fileNum, messageNotificationData, 
     let saveImage = (0, fingerprint_save_image_1.saveFingerprintImage)(buffer, fileName);
     if (saveImage) {
         let messageNotification = (0, fingerprint_app_message_1.appMessage)(fileCount, "Registered fingerprint", uuid);
-        let messageOutput = (0, fingerprint_app_message_1.returnMessage)("Save image successful.", uuid);
+        let messageOutput = (0, fingerprint_app_message_1.handleResponseMessages)("Save image successful.", uuid);
         messageNotificationData.push(messageNotification);
         messageData.push(messageOutput);
         fs.writeFileSync(constSetting_1.MESSAGE_FOLDER_PATH, JSON.stringify(messageNotificationData, null, 4));

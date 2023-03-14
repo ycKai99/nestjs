@@ -34,6 +34,9 @@ let AppController = class AppController {
         let result = status;
         return this.appService.verifyFingerprintMessage(result);
     }
+    countFileNum() {
+        return this.appService.countFingerprintImage();
+    }
     async postErrorMessage(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
@@ -57,6 +60,7 @@ let AppController = class AppController {
         let data = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
             encoding: 'utf8',
         });
+        console.log("Message Page reload");
         let errMessage = JSON.parse(data);
         jadeargument['errMessage'] = errMessage;
         return res.send(res_render('errorMessage', res, jadeargument));
@@ -66,7 +70,7 @@ let AppController = class AppController {
         let data = fs.readFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, {
             encoding: 'utf-8'
         });
-        console.log("trigger get");
+        console.log("Status Page reload");
         let fpdata = JSON.parse(data);
         jadeargument['dataSet1'] = fpdata;
         const errorMessage = {};
@@ -82,6 +86,7 @@ let AppController = class AppController {
         console.log("message post: ", req.body['submitValue']);
         switch (req.body['submitValue']) {
             case "INITIALIZE_DEVICE":
+                sendMessage = "INITIALIZE_DEVICE";
                 console.log('INITIALIZE_DEVICE');
                 break;
             case "ENROLL_FINGERPRINT":
@@ -91,11 +96,9 @@ let AppController = class AppController {
                 console.log('VERIFY_FINGERPRINT');
                 break;
             case "CLOSE_DEVICE":
+                sendMessage = "IDENTIFY_FINGERPRINT";
                 console.log('CLOSE_DEVICE');
                 break;
-        }
-        if (sendMessage) {
-            console.log('sendMessage');
         }
         const jadeargument = {};
         let data = fs.readFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, {
@@ -126,6 +129,12 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "verifyFpMessage", null);
+__decorate([
+    (0, common_1.Get)('fileNum'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "countFileNum", null);
 __decorate([
     (0, common_1.Post)('error'),
     __param(0, (0, common_1.Req)()),

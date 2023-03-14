@@ -4,7 +4,8 @@
     "registeredDate": "2023-03-02T07:14:50.912Z",
     "operation": "Register fingerprint",
     "vendor": "ZKTeco"
-  },{
+  },
+  {
     "fpid": "fp6",
     "registeredDate": "2023-03-02T07:14:50.912Z",
     "operation": "Register fingerprint",
@@ -16,5 +17,4 @@
     "operation": "Register fingerprint",
     "vendor": "ZKTeco"
   }
-  
 ]

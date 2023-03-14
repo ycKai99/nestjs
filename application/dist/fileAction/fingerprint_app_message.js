@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateMessage = exports.returnMessage = exports.zktecoFpMessage = exports.appMessage = void 0;
+exports.generateMessage = exports.handleResponseMessages = exports.zktecoFpMessage = exports.appMessage = void 0;
 function appMessage(fileNum, operation, uuid) {
     let messageDetails = {
         message: "Fingerprint data",
@@ -27,7 +27,7 @@ function zktecoFpMessage(fingerprintData, uuid) {
     return messageDetails;
 }
 exports.zktecoFpMessage = zktecoFpMessage;
-function returnMessage(data, uuid) {
+function handleResponseMessages(data, uuid) {
     let messageDetails = {
         time: new Date(),
         message: data,
@@ -35,7 +35,7 @@ function returnMessage(data, uuid) {
     };
     return messageDetails;
 }
-exports.returnMessage = returnMessage;
+exports.handleResponseMessages = handleResponseMessages;
 function generateMessage() {
     let messageDetails = {
         message: "Fingerprint data to central server",

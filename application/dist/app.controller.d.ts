@@ -5,6 +5,7 @@ export declare class AppController {
     registerFingerprint(fingerprintData: string): import("./fileInterface/constSetting").SUCCESS_MESSAGE | import("./fileInterface/constSetting").ERROR_MESSAGE.FAILED_SAVE_IMAGE;
     verifyFingerprint(): Promise<string | false>;
     verifyFpMessage(status: string): void;
+    countFileNum(): number;
     postErrorMessage(req: Request, res: any): Promise<string>;
     getErrorMessage(res: any): string;
     getStatus(req: any, res: any): string;

@@ -67,6 +67,11 @@ let StandardFingerprint = class StandardFingerprint {
             (0, fingerprint_verify_1.fingerprintVerify)(this.fingerprintImageTotal, message['fpid']);
         }
     }
+    countFingerprintImage() {
+        let result = this.fingerprintImageTotal - 1;
+        console.log(result);
+        return result;
+    }
     fingerprintData() {
         return (0, fingerprint_retrieve_data_1.retrieveFingerprintData)(this.fingerprintImageTotal);
     }

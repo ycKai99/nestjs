@@ -142,7 +142,7 @@ html
             button(id="openDeviceBtn") Open Device
         br    
         div(class="button-container")
-            button(id="registerBtn" style="display:none;" class="text-center" onClick="register()") Register Fingerprint
+            button(id="registerBtn" style="display:none;" class="text-center") Register Fingerprint
             br
             button(id="verifyBtn" style="display:none;" class="text-center") Verify Fingerprint
             br
@@ -178,27 +178,22 @@ html
                 openDeviceBtn.style.display = 'inline';
             });
 
-            function register() {
-                alert("Start Register");
-                // Add your register logic here
-                
-            }
-            registerBtn.addEventListener("click", () => {
-                verifyBtn.disabled = true;
-                const xhr = new XMLHttpRequest();
-                xhr.open('GET', 'http://localhost:4000/status', true);
-                //- xhr.setRequestHeader('Content-Type', 'application/json');
-                xhr.onload = function() {
-                    if (xhr.status === 200) {
-                    // Handle response
-                    console.log(xhr.responseText);
-                    } else {
-                    // Handle error
-                    console.error(xhr.statusText);
-                    }
-                };
-                xhr.send();
-            });
+            
+            //- registerBtn.addEventListener("click", () => {
+            //-     const xhr = new XMLHttpRequest();
+            //-     xhr.open('GET', 'http://localhost:4000/fileNum', true);
+            //-     //- xhr.setRequestHeader('Content-Type', 'application/json');
+            //-     xhr.onload = function() {
+            //-         if (xhr.status === 200) {
+            //-         // Handle response
+            //-         console.log(xhr.responseText);
+            //-         } else {
+            //-         // Handle error
+            //-         console.error(xhr.statusText);
+            //-         }
+            //-     };
+            //-     xhr.send();
+            //- });
             document.querySelector('#openDeviceBtn').addEventListener('click', () => {
                 //- event.preventDefault();
                 const xhr = new XMLHttpRequest();
@@ -216,7 +211,8 @@ html
                 xhr.send(JSON.stringify({submitValue: 'INITIALIZE_DEVICE'}));
             });
             document.querySelector('#registerBtn').addEventListener('click', () => {
-                //- event.preventDefault();
+                verifyBtn.disabled = true;
+                alert("Start Verify");
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://localhost:4000/status');
                 xhr.setRequestHeader('Content-Type', 'application/json');
@@ -232,6 +228,7 @@ html
                 xhr.send(JSON.stringify({submitValue: 'ENROLL_FINGERPRINT'}));
             });
             document.querySelector('#verifyBtn').addEventListener('click', () => {
+                alert("Start Verify");
                 //- event.preventDefault();
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://localhost:4000/status');
@@ -248,7 +245,7 @@ html
                 xhr.send(JSON.stringify({submitValue: 'VERIFY_FINGERPRINT'}));
             });
             document.querySelector('#closeBtn').addEventListener('click', () => {
-                //- event.preventDefault();
+                verifyBtn.disabled = false;
                 const xhr = new XMLHttpRequest();
                 xhr.open('POST', 'http://localhost:4000/status');
                 xhr.setRequestHeader('Content-Type', 'application/json');

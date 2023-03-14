@@ -29,7 +29,10 @@ export class AppController {
     return this.appService.verifyFingerprintMessage(result);
   }
 
-
+  @Get('fileNum')
+  countFileNum() {
+    return this.appService.countFingerprintImage();
+  }
 
 
   // display error message
@@ -38,14 +41,17 @@ export class AppController {
     const jadeargument: any = {};
     console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
     let data = await readFileData(ERROR_MESSAGE_FOLDER_PATH)
-
     let errMessage = JSON.parse(JSON.stringify(req.body['fpid'], null, 2));
     let jsonArray = [];
     let jsonObj = JSON.parse(JSON.stringify(jsonArray));
-    if (data.length !== 0) { data.push(errMessage); }
-    else { jsonObj.push(errMessage); data = jsonObj; }
-
-    await fingerprintWriteMessage(ERROR_MESSAGE_FOLDER_PATH, data)
+    if (data.length !== 0) {
+      data.push(errMessage);
+    }
+    else {
+      jsonObj.push(errMessage);
+      data = jsonObj;
+    }
+    // await fingerprintWriteMessage(ERROR_MESSAGE_FOLDER_PATH, data)
     jadeargument['dataSet1'] = data
     return res.send(res_render('errorMessage', res, jadeargument));
   }
@@ -59,6 +65,7 @@ export class AppController {
     let data = fs.readFileSync(ERROR_MESSAGE_FOLDER_PATH, {
       encoding: 'utf8',
     });
+    console.log("Message Page reload");
     let errMessage = JSON.parse(data);
     jadeargument['errMessage'] = errMessage;
     return res.send(res_render('errorMessage', res, jadeargument));
@@ -74,7 +81,7 @@ export class AppController {
     let data = fs.readFileSync(FINGERPRINT_FOLDER_PATH, {
       encoding: 'utf-8'
     })
-    console.log("trigger get")
+    console.log("Status Page reload");
     let fpdata = JSON.parse(data)
     jadeargument['dataSet1'] = fpdata
 
@@ -96,7 +103,7 @@ export class AppController {
     console.log("message post: ", req.body['submitValue']);
     switch (req.body['submitValue']) {
       case SUBMIT_VALUE.INITIALIZE_DEVICE:
-        // sendMessage = SUBMIT_VALUE.INITIALIZE_DEVICE
+        sendMessage = SUBMIT_VALUE.INITIALIZE_DEVICE
         console.log('INITIALIZE_DEVICE')
         break;
       case SUBMIT_VALUE.ENROLL_FINGERPRINT:
@@ -108,16 +115,16 @@ export class AppController {
         console.log('VERIFY_FINGERPRINT')
         break;
       case SUBMIT_VALUE.CLOSE_DEVICE:
-        // sendMessage = SUBMIT_VALUE.IDENTIFY_FINGERPRINT
+        sendMessage = SUBMIT_VALUE.IDENTIFY_FINGERPRINT
         console.log('CLOSE_DEVICE')
         break;
     }
-    if (sendMessage) {
-      console.log('sendMessage')
-      // axios.post('http://192.168.100.54:8080', sendMessage)
-      //   .then(res => { console.log('res is ', res.data); })
-      //   .catch(err => { console.log('error is ', err) })
-    }
+    // if (sendMessage) {
+    //   console.log('sendMessage')
+    //   axios.post('http://localhost:8080', sendMessage)
+    //     .then(res => { console.log('res is ', res.data); })
+    //     .catch(err => { console.log('error is ', err) })
+    // }
 
     const jadeargument: any = {};
     let data = fs.readFileSync(FINGERPRINT_FOLDER_PATH, {

@@ -90,6 +90,11 @@ export class StandardFingerprint implements StandardFingerprintInterface {
     if (message['fpid'] === "match") { fingerprintVerify(this.fingerprintImageTotal, message['fpid']) }
   }
 
+  countFingerprintImage() {
+    let result = this.fingerprintImageTotal - 1;
+    console.log(result);
+    return result;
+  }
 
   fingerprintData() {
     return retrieveFingerprintData(this.fingerprintImageTotal)
