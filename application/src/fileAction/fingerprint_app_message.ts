@@ -1,9 +1,18 @@
 import { messageNotificationInterface, fingerprintDataInterface, messageInterface } from 'src/fileInterface/fileMessageType.interface';
 
+const now = new Date();
+const year = now.getFullYear();
+const month = ('0' + (now.getMonth() + 1)).slice(-2);
+const day = ('0' + now.getDate()).slice(-2);
+const hours = ('0' + now.getHours()).slice(-2);
+const minutes = ('0' + now.getMinutes()).slice(-2);
+const seconds = ('0' + now.getSeconds()).slice(-2);
+const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+
 export function appMessage(fileNum, operation: string, uuid: string) {
   let messageDetails: messageNotificationInterface = {
     message: "Fingerprint data",
-    ReceivedDate: new Date(),
+    ReceivedDate: formattedDateTime,
     InstanceID: "FP_" + (fileNum + 1),
     EntityTypeID: "FP_" + (fileNum + 1),
     EntityTypeName: "Fingerprint",
@@ -18,7 +27,7 @@ export function appMessage(fileNum, operation: string, uuid: string) {
 export function zktecoFpMessage(fingerprintData, uuid: string) {
   let messageDetails: fingerprintDataInterface = {
     fpid: fingerprintData['fpid'],
-    registeredDate: new Date(),
+    registeredDate: formattedDateTime,
     operation: 'Register fingerprint',
     vendor: 'ZKTeco',
     header_messageId: "FP_" + uuid
@@ -28,7 +37,7 @@ export function zktecoFpMessage(fingerprintData, uuid: string) {
 
 export function handleResponseMessages(data: string, uuid: string) {
   let messageDetails: messageInterface = {
-    time: new Date(),
+    time: formattedDateTime,
     message: data,
     header_messageId: "FP_" + uuid
   }
@@ -38,7 +47,7 @@ export function handleResponseMessages(data: string, uuid: string) {
 export function generateMessage() {
   let messageDetails: messageNotificationInterface = {
     message: "Fingerprint data to central server",
-    ReceivedDate: new Date(),
+    ReceivedDate: formattedDateTime,
     InstanceID: "FP_testing",
     EntityTypeID: "FP_testing",
     EntityTypeName: "Fingerprint",

@@ -11,8 +11,8 @@ function saveFingerprintImage(buffer, fileName) {
             returnValue = false;
         }
         data
-            .resize(300, 300)
-            .quality(30)
+            .resize(300, 400)
+            .quality(60)
             .write(fileName);
         console.log('true : ', fileName);
         returnValue = true;

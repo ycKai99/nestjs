@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.dataDecryption = exports.dataEncryption = void 0;
 const crypto = require("crypto");
 function dataEncryption(fileData) {
-    let fpdata = fileData.toString();
+    let fpdata = fileData;
     const key = 'axtQjz7QRHCV7yOrnNK7gp==';
     const keyBuffer = Buffer.from(key, 'base64');
     const plaintext = fpdata;

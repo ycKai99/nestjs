@@ -54,5 +54,16 @@
         "Code": "FPREG9500",
         "Operation": "Registered fingerprint",
         "DataSource": "FP_4fd4a17f-0057-4742-a324-89f07b89d65b"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-15T01:43:56.079Z",
+        "InstanceID": "FP_65",
+        "EntityTypeID": "FP_65",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_d9f489e6-f223-4295-bdfe-122f6f44358e"
     }
 ]

@@ -1,13 +1,13 @@
 export interface fingerprintDataInterface {
     fpid: string;
-    registeredDate: Date;
+    registeredDate: string;
     operation: string;
     vendor: string;
     header_messageId: string;
 }
 export interface messageNotificationInterface {
     message: string;
-    ReceivedDate: Date;
+    ReceivedDate: string;
     InstanceID: string;
     EntityTypeID: string;
     EntityTypeName: string;
@@ -17,7 +17,7 @@ export interface messageNotificationInterface {
     DataSource: string;
 }
 export interface messageInterface {
-    time: Date;
+    time: string;
     message: string;
     header_messageId?: string;
 }

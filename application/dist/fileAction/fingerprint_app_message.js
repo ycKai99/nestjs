@@ -1,10 +1,17 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateMessage = exports.handleResponseMessages = exports.zktecoFpMessage = exports.appMessage = void 0;
+const now = new Date();
+const year = now.getFullYear();
+const month = ('0' + (now.getMonth() + 1)).slice(-2);
+const day = ('0' + now.getDate()).slice(-2);
+const hours = ('0' + now.getHours()).slice(-2);
+const minutes = ('0' + now.getMinutes()).slice(-2);
+const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
 function appMessage(fileNum, operation, uuid) {
     let messageDetails = {
         message: "Fingerprint data",
-        ReceivedDate: new Date(),
+        ReceivedDate: formattedDateTime,
         InstanceID: "FP_" + (fileNum + 1),
         EntityTypeID: "FP_" + (fileNum + 1),
         EntityTypeName: "Fingerprint",
@@ -19,7 +26,7 @@ exports.appMessage = appMessage;
 function zktecoFpMessage(fingerprintData, uuid) {
     let messageDetails = {
         fpid: fingerprintData['fpid'],
-        registeredDate: new Date(),
+        registeredDate: formattedDateTime,
         operation: 'Register fingerprint',
         vendor: 'ZKTeco',
         header_messageId: "FP_" + uuid
@@ -29,7 +36,7 @@ function zktecoFpMessage(fingerprintData, uuid) {
 exports.zktecoFpMessage = zktecoFpMessage;
 function handleResponseMessages(data, uuid) {
     let messageDetails = {
-        time: new Date(),
+        time: formattedDateTime,
         message: data,
         header_messageId: "FP_" + uuid
     };
@@ -39,7 +46,7 @@ exports.handleResponseMessages = handleResponseMessages;
 function generateMessage() {
     let messageDetails = {
         message: "Fingerprint data to central server",
-        ReceivedDate: new Date(),
+        ReceivedDate: formattedDateTime,
         InstanceID: "FP_testing",
         EntityTypeID: "FP_testing",
         EntityTypeName: "Fingerprint",

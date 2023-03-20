@@ -19,12 +19,46 @@ const jade = require("jade");
 const zktfingerprint_service_1 = require("./zktfingerprint.service");
 const constSetting_1 = require("./fileInterface/constSetting");
 const fingerprint_read_file_data_1 = require("./fileAction/fingerprint_read_file_data");
-const fingerprint_write_message_1 = require("./fileAction/fingerprint_write_message");
+const path = require('path');
+const java = require('java');
+java.asyncOptions = {
+    syncSuffix: "",
+    asyncSuffix: "Async",
+    promiseSuffix: "Promise",
+    promisify: require('util').promisify
+};
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/commons-io-2.11.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/fastutil-8.5.6.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/fingerprintio-1.3.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/gson-2.8.9.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-annotations-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-core-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-databind-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-dataformat-cbor-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jnbis-2.1.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/noexception-1.8.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/slf4j-api-1.7.32.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/sourceafis-3.17.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
+const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
+const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
+const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
+    testMatch(imageData, req) {
+        const probeTemplate = fs.readFileSync('images/image_1.jpeg');
+        const candidateTemplate = fs.readFileSync('images/image_2.jpeg');
+        const probebuffer = Buffer.from(probeTemplate.toString('base64'), 'base64');
+        let buffer2 = new Uint8Array(probebuffer);
+        const probebuffer1 = Buffer.from(candidateTemplate.toString('base64'), 'base64');
+        let buffer21 = new Uint8Array(probebuffer1);
+        console.log("probe :", buffer2);
+        console.log("candidate :", buffer21);
+    }
     registerFingerprint(fingerprintData) {
+        console.log(fingerprintData);
         return this.appService.registerFingerprint(fingerprintData);
     }
     verifyFingerprint() {
@@ -34,25 +68,43 @@ let AppController = class AppController {
         let result = status;
         return this.appService.verifyFingerprintMessage(result);
     }
-    countFileNum() {
-        return this.appService.countFingerprintImage();
+    fingerprintData() {
+        return this.appService.fingerprintData();
     }
     async postErrorMessage(req, res) {
         const jadeargument = {};
         console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
         let data = await (0, fingerprint_read_file_data_1.readFileData)(constSetting_1.ERROR_MESSAGE_FOLDER_PATH);
-        let errMessage = JSON.parse(JSON.stringify(req.body['fpid'], null, 2));
         let jsonArray = [];
         let jsonObj = JSON.parse(JSON.stringify(jsonArray));
-        if (data.length !== 0) {
-            data.push(errMessage);
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = ('0' + (now.getMonth() + 1)).slice(-2);
+        const day = ('0' + now.getDate()).slice(-2);
+        const hours = ('0' + now.getHours()).slice(-2);
+        const minutes = ('0' + now.getMinutes()).slice(-2);
+        const seconds = ('0' + now.getSeconds()).slice(-2);
+        const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+        switch (req.body['fpid']) {
+            case '0':
+                console.log('Verify success');
+                break;
+            case '1':
+                console.log('Verify fail');
+                const errorMessage = {};
+                let errorData = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
+                    encoding: 'utf8',
+                });
+                let errMessage = JSON.parse(errorData);
+                console.log(errMessage);
+                console.log('before push: ', data);
+                let newData = { "time": formattedDateTime, "operation": 'Verify fail' };
+                data.push(newData);
+                console.log('after push: ', data);
+                fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
+                break;
         }
-        else {
-            jsonObj.push(errMessage);
-            data = jsonObj;
-        }
-        await (0, fingerprint_write_message_1.fingerprintWriteMessage)(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, data);
-        jadeargument['dataSet1'] = data;
+        jadeargument['errMessage'] = data;
         return res.send(res_render('errorMessage', res, jadeargument));
     }
     getErrorMessage(res) {
@@ -73,12 +125,6 @@ let AppController = class AppController {
         console.log("Status Page reload");
         let fpdata = JSON.parse(data);
         jadeargument['dataSet1'] = fpdata;
-        const errorMessage = {};
-        let errorData = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
-            encoding: 'utf8',
-        });
-        let errMessage = JSON.parse(errorData);
-        errorMessage['errMessage'] = errMessage;
         return res.send(res_render('statuspage', res, jadeargument));
     }
     postStatus(req, res) {
@@ -110,6 +156,14 @@ let AppController = class AppController {
     }
 };
 __decorate([
+    (0, common_1.Get)('testing'),
+    __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, Request]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "testMatch", null);
+__decorate([
     (0, common_1.Post)('registerfp'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -130,11 +184,11 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], AppController.prototype, "verifyFpMessage", null);
 __decorate([
-    (0, common_1.Get)('fileNum'),
+    (0, common_1.Get)('fingerprintData'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], AppController.prototype, "countFileNum", null);
+], AppController.prototype, "fingerprintData", null);
 __decorate([
     (0, common_1.Post)('error'),
     __param(0, (0, common_1.Req)()),

@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.fingerprintVerify = void 0;
 const fs = require("graceful-fs");
 const constSetting_1 = require("../fileInterface/constSetting");
+const fingerprint_data_encryption_1 = require("./fingerprint_data_encryption");
 var verifyFpCount = 1;
 function fingerprintVerify(fileNum, success) {
     let data = null;
@@ -18,11 +19,11 @@ function fingerprintVerify(fileNum, success) {
     else if (verifyFpCount < fileNum) {
         let imageData = fs.readFileSync(`${constSetting_1.IMAGE_FOLDER}image_${verifyFpCount}.${"jpeg"}`);
         verifyFpCount++;
-        data = imageData.toString('base64');
+        data = (0, fingerprint_data_encryption_1.dataEncryption)(imageData.toString('base64'));
     }
     else {
         verifyFpCount = 1;
-        data = 'finished';
+        data = (0, fingerprint_data_encryption_1.dataEncryption)('finished');
         console.log('Not recognize');
     }
     return data;

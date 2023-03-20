@@ -99,7 +99,7 @@ html
                 li
                     a(class="active", href="http://localhost:4000/status") Fingerprint Data
                 li
-                    a(href="http://localhost:4000/error") Error Message
+                    a(href="http://localhost:4000/error") Operation Log
         br
         br
         
@@ -138,15 +138,15 @@ html
         //-     input(type='submit', value='Close scanner')
         //-     input(type='hidden', name='submitValue', value='CLOSE_DEVICE') 
         //- form(action="http://localhost:4000/status" method="POST")
-        div(class="text-center")
-            button(id="openDeviceBtn") Open Device
-        br    
-        div(class="button-container")
-            button(id="registerBtn" style="display:none;" class="text-center") Register Fingerprint
-            br
-            button(id="verifyBtn" style="display:none;" class="text-center") Verify Fingerprint
-            br
-            button(id="closeBtn" style="display:none;" class="text-center") Close Device
+        //- div(class="text-center")
+        //-     button(id="openDeviceBtn") Open Device
+        //- br    
+        //- div(class="button-container")
+        //-     button(id="registerBtn" style="display:none;" class="text-center") Register Fingerprint
+        //-     br
+        //-     button(id="verifyBtn" style="display:none;" class="text-center") Verify Fingerprint
+        //-     br
+        //-     button(id="closeBtn" style="display:none;" class="text-center") Close Device
 
             
 
@@ -179,21 +179,21 @@ html
             });
 
             
-            //- registerBtn.addEventListener("click", () => {
-            //-     const xhr = new XMLHttpRequest();
-            //-     xhr.open('GET', 'http://localhost:4000/fileNum', true);
-            //-     //- xhr.setRequestHeader('Content-Type', 'application/json');
-            //-     xhr.onload = function() {
-            //-         if (xhr.status === 200) {
-            //-         // Handle response
-            //-         console.log(xhr.responseText);
-            //-         } else {
-            //-         // Handle error
-            //-         console.error(xhr.statusText);
-            //-         }
-            //-     };
-            //-     xhr.send();
-            //- });
+            registerBtn.addEventListener("click", () => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', 'http://localhost:4000/testing', true);
+                //- xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                    // Handle response
+                    console.log(xhr.responseText);
+                    } else {
+                    // Handle error
+                    console.error(xhr.statusText);
+                    }
+                };
+                xhr.send();
+            });
             document.querySelector('#openDeviceBtn').addEventListener('click', () => {
                 //- event.preventDefault();
                 const xhr = new XMLHttpRequest();
