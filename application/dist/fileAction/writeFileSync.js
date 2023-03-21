@@ -1,26 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.writeFileSync = void 0;
-const fs = require("graceful-fs");
-const constSetting_1 = require("../fileInterface/constSetting");
 const fingerprint_app_message_1 = require("./fingerprint_app_message");
 const uuid_1 = require("uuid");
-const axios_1 = require("axios");
 async function writeFileSync(fingerprintData, fileData, messageData) {
     let uuid = (0, uuid_1.v4)();
     let messageDetails;
     let regFingerprint = (0, fingerprint_app_message_1.zktecoFpMessage)(fingerprintData, uuid);
-    fileData.push(regFingerprint);
-    messageData.push(messageDetails);
+    console.log('file data', fileData);
     try {
-        await fs.writeFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, JSON.stringify(fileData, null, 4));
-        await fs.writeFileSync(constSetting_1.MESSAGE_FOLDER_PATH, JSON.stringify(messageData, null, 4));
-        axios_1.default.post('http://192.168.100.46:5050/registerfp', {
-            data: regFingerprint,
-            message: messageDetails
-        })
-            .then(res => console.log("res is ", res.data))
-            .catch(err => console.log("error is ", err));
         console.log('file saved');
     }
     catch (e) {

@@ -9,7 +9,7 @@ export declare class AppController {
     fingerprintData(): string;
     postErrorMessage(req: Request, res: any): Promise<string>;
     getErrorMessage(res: any): string;
-    getStatus(req: any, res: any): string;
+    getStatus(res: any): string;
     postStatus(req: Request, res: any): string;
 }
 export declare function res_render(jadefile: any, res: any, jadeargument: any): any;

@@ -1,14 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateMessage = exports.handleResponseMessages = exports.zktecoFpMessage = exports.appMessage = void 0;
-const now = new Date();
-const year = now.getFullYear();
-const month = ('0' + (now.getMonth() + 1)).slice(-2);
-const day = ('0' + now.getDate()).slice(-2);
-const hours = ('0' + now.getHours()).slice(-2);
-const minutes = ('0' + now.getMinutes()).slice(-2);
-const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}`;
 function appMessage(fileNum, operation, uuid) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         message: "Fingerprint data",
         ReceivedDate: formattedDateTime,
@@ -24,6 +25,14 @@ function appMessage(fileNum, operation, uuid) {
 }
 exports.appMessage = appMessage;
 function zktecoFpMessage(fingerprintData, uuid) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         fpid: fingerprintData['fpid'],
         registeredDate: formattedDateTime,
@@ -35,6 +44,14 @@ function zktecoFpMessage(fingerprintData, uuid) {
 }
 exports.zktecoFpMessage = zktecoFpMessage;
 function handleResponseMessages(data, uuid) {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         time: formattedDateTime,
         message: data,
@@ -44,6 +61,14 @@ function handleResponseMessages(data, uuid) {
 }
 exports.handleResponseMessages = handleResponseMessages;
 function generateMessage() {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = ('0' + (now.getMonth() + 1)).slice(-2);
+    const day = ('0' + now.getDate()).slice(-2);
+    const hours = ('0' + now.getHours()).slice(-2);
+    const minutes = ('0' + now.getMinutes()).slice(-2);
+    const seconds = ('0' + now.getSeconds()).slice(-2);
+    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         message: "Fingerprint data to central server",
         ReceivedDate: formattedDateTime,

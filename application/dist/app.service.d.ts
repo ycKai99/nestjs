@@ -1,4 +1,4 @@
-import { messageNotificationInterface, messageInterface } from './fileInterface/fileMessageType.interface';
+import { messageNotificationInterface, messageInterface, fingerprintDataInterface } from './fileInterface/fileMessageType.interface';
 export interface StandardFingerprintInterface {
     readMessageNotificationData(): any;
     countFileTotal(): any;
@@ -11,7 +11,11 @@ export declare class StandardFingerprint implements StandardFingerprintInterface
     private _messageNotificationData;
     private _fingerprintImageTotal;
     private _messageData;
+    private _fingerprintData;
     constructor();
+    readFpData(): Promise<void>;
+    get fpData(): fingerprintDataInterface;
+    set fpData(data: fingerprintDataInterface);
     readMessageNotificationData(): Promise<void>;
     get messageNotificationData(): messageNotificationInterface;
     set messageNotificationData(data: messageNotificationInterface);

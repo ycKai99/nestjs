@@ -6,7 +6,7 @@ const fingerprint_save_image_1 = require("./fingerprint_save_image");
 const uuid_1 = require("uuid");
 const fingerprint_app_message_1 = require("./fingerprint_app_message");
 const fs = require("graceful-fs");
-function fingerprintRegister(fingerprintData, fileNum, messageNotificationData, messageData) {
+function fingerprintRegister(fingerprintData, fileNum, messageNotificationData, messageData, fpData) {
     let fileName = "";
     let fileCount = fileNum ? fileNum : 0;
     let uuid = (0, uuid_1.v4)();
@@ -25,7 +25,6 @@ function fingerprintRegister(fingerprintData, fileNum, messageNotificationData, 
         messageNotificationData.push(messageNotification);
         messageData.push(messageOutput);
         fs.writeFileSync(constSetting_1.MESSAGE_FOLDER_PATH, JSON.stringify(messageNotificationData, null, 4));
-        fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(messageData, null, 4));
         console.log("Save image successful.");
         return "Save image successful.";
     }

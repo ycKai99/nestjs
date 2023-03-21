@@ -22,9 +22,18 @@ let StandardFingerprint = class StandardFingerprint {
         this.countFileTotal();
         this.readMessageNotificationData();
         this.readReturnMessageData();
+        this.readFpData();
+    }
+    async readFpData() {
+        this._fingerprintData = await (0, fingerprint_read_file_data_1.readFileData)(constSetting_1.FINGERPRINT_DATA_FILE);
+    }
+    get fpData() {
+        return this._fingerprintData;
+    }
+    set fpData(data) {
+        this._fingerprintData.push(data);
     }
     async readMessageNotificationData() {
-        console.log('read message notification');
         this._messageNotificationData = await (0, fingerprint_read_file_data_1.readFileData)(constSetting_1.MESSAGE_FOLDER_PATH);
     }
     get messageNotificationData() {
@@ -53,7 +62,7 @@ let StandardFingerprint = class StandardFingerprint {
     }
     registerFingerprint(fingerprintData) {
         this.countFileTotal();
-        let result = (0, fingerprint_register_1.fingerprintRegister)(fingerprintData, this.fingerprintImageTotal, this._messageNotificationData, this._messageData);
+        let result = (0, fingerprint_register_1.fingerprintRegister)(fingerprintData, this.fingerprintImageTotal, this._messageNotificationData, this._messageData, this._fingerprintData);
         this.readMessageNotificationData();
         this.readReturnMessageData();
         return result;
@@ -73,6 +82,7 @@ let StandardFingerprint = class StandardFingerprint {
         return result;
     }
     fingerprintData() {
+        this.countFileTotal();
         return (0, fingerprint_retrieve_data_1.retrieveFingerprintData)(this.fingerprintImageTotal);
     }
 };

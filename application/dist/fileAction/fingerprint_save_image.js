@@ -4,7 +4,6 @@ exports.saveFingerprintImage = void 0;
 var Jimp = require("jimp");
 function saveFingerprintImage(buffer, fileName) {
     let returnValue = true;
-    console.log('buffer is ', buffer);
     Jimp.read(buffer, (err, data) => {
         if (err) {
             console.log('fail');
@@ -14,7 +13,7 @@ function saveFingerprintImage(buffer, fileName) {
             .resize(300, 400)
             .quality(60)
             .write(fileName);
-        console.log('true : ', fileName);
+        console.log('File name : ', fileName);
         returnValue = true;
     });
     return returnValue;

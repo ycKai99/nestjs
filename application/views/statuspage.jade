@@ -88,11 +88,6 @@ html
                 flex-direction:column;
             }
 
-        
-
-
-
-
     body
         nav
             ul
@@ -113,12 +108,9 @@ html
             each value, index in jadeargument["dataSet1"]
                 tr 
                     td=index+1
-                    td=jadeargument["dataSet1"][index]["registeredDate"]
-                    td=jadeargument["dataSet1"][index]["operation"]
-                    td=jadeargument["dataSet1"][index]["vendor"]
-
-        
-
+                    td=jadeargument["dataSet1"][index]["ReceivedDate"]
+                    td=jadeargument["dataSet1"][index]["Operation"]
+                    td="ZKTeco"
         br
         br
         
@@ -151,6 +143,10 @@ html
             
 
         script.
+            //- setTimeout(function(){
+            //-     location.reload();
+            //- }, 5000);
+
             // get references to buttons
             const openDeviceBtn = document.getElementById('openDeviceBtn');
             const registerBtn = document.getElementById('registerBtn');
