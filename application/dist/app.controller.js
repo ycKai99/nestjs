@@ -19,19 +19,33 @@ const jade = require("jade");
 const zktfingerprint_service_1 = require("./zktfingerprint.service");
 const constSetting_1 = require("./fileInterface/constSetting");
 const fingerprint_read_file_data_1 = require("./fileAction/fingerprint_read_file_data");
+var Jimp = require("jimp");
+const java = require('java');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/commons-io-2.11.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fastutil-8.5.6.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fingerprintio-1.3.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/gson-2.8.9.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-annotations-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-core-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-databind-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-dataformat-cbor-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jnbis-2.1.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/noexception-1.8.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/slf4j-api-1.7.32.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/SourceAfis-3.17.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
+const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
+const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
+const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
+let count = 1;
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    testMatch(imageData, req) {
+    async testMatch(imageData, req) {
         const probeTemplate = fs.readFileSync('images/image_1.jpeg');
-        const candidateTemplate = fs.readFileSync('images/image_2.jpeg');
         const probebuffer = Buffer.from(probeTemplate.toString('base64'), 'base64');
         let buffer2 = new Uint8Array(probebuffer);
-        const probebuffer1 = Buffer.from(candidateTemplate.toString('base64'), 'base64');
-        let buffer21 = new Uint8Array(probebuffer1);
-        console.log("probe :", buffer2);
-        console.log("candidate :", buffer21);
     }
     registerFingerprint(fingerprintData) {
         return this.appService.registerFingerprint(fingerprintData);
@@ -152,7 +166,7 @@ __decorate([
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, Request]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], AppController.prototype, "testMatch", null);
 __decorate([
     (0, common_1.Post)('registerfp'),

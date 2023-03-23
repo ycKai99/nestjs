@@ -2,7 +2,7 @@ import { ZKTFingerprintService } from './zktfingerprint.service';
 export declare class AppController {
     private readonly appService;
     constructor(appService: ZKTFingerprintService);
-    testMatch(imageData: string, req: Request): void;
+    testMatch(imageData: string, req: Request): Promise<void>;
     registerFingerprint(fingerprintData: string): import("./fileInterface/constSetting").SUCCESS_MESSAGE | import("./fileInterface/constSetting").ERROR_MESSAGE.FAILED_SAVE_IMAGE;
     verifyFingerprint(): Promise<string | false>;
     verifyFpMessage(status: string): void;

@@ -5,50 +5,68 @@ import { ZKTFingerprintService } from './zktfingerprint.service';
 import { FINGERPRINT_FOLDER_PATH, ERROR_MESSAGE_FOLDER_PATH, SUBMIT_VALUE, MESSAGE_FOLDER_PATH } from './fileInterface/constSetting';
 import axios from 'axios';
 import { readFileData } from './fileAction/fingerprint_read_file_data';
+var Jimp = require("jimp");
 // const path = require('path');
-// const java = require('java');
-// java.asyncOptions = {
-//   syncSuffix: "",
-//   asyncSuffix: "Async",
-//   promiseSuffix: "Promise",
-//   promisify: require('util').promisify
-// };
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/commons-io-2.11.0.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/fastutil-8.5.6.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/fingerprintio-1.3.0.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/gson-2.8.9.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-annotations-2.13.3.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-core-2.13.3.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-databind-2.13.3.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jackson-dataformat-cbor-2.13.3.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/jnbis-2.1.1.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/noexception-1.8.0.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAFIS/slf4j-api-1.7.32.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/sourceafis-3.17.1.jar');
-// java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
-// const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
-// const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
-// const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
+const java = require('java');
 
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/commons-io-2.11.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fastutil-8.5.6.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fingerprintio-1.3.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/gson-2.8.9.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-annotations-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-core-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-databind-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-dataformat-cbor-2.13.3.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jnbis-2.1.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/noexception-1.8.0.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/slf4j-api-1.7.32.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/SourceAfis-3.17.1.jar');
+java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
+const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
+const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
+const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
 
+let count = 1;
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: ZKTFingerprintService) { }
 
-  //testing using SourceAFIS
+  //testing using SourceAfis
   @Get('testing')
-  testMatch(@Body() imageData: string, @Req() req: Request) {
+  async testMatch(@Body() imageData: string, @Req() req: Request) {
+    //count fp score
+    // await console.log('fingerprint ', count++, ': ', imageData['fpid']);
+    // if (count > 10) {
+    //   count = 1;
+    // }
+
+    //convert CBOR to json
+    // console.log('fingerprint ', imageData['fpid']);
+    // let buffer = Buffer.from(imageData['fpid'], 'base64');
+    // const cbor = require('cbor');
+    // cbor.decodeAll(buffer, (error, decoded) => {
+    //   if (error) {
+    //     console.error(error);
+    //   } else {
+    //     console.log('decoded data: ', decoded);
+    //     // let jsontable = JSON.parse(decoded);
+    //     let edgeString = JSON.stringify(decoded)
+    //     fs.writeFileSync('shuffled-minutiae.json', edgeString)
+    //   }
+    // });
+
+
 
     const probeTemplate = fs.readFileSync('images/image_1.jpeg'); // Probe fingerprint template
-    const candidateTemplate = fs.readFileSync('images/image_2.jpeg'); // Candidate fingerprint template
+    // const candidateTemplate = fs.readFileSync('images/image_2.jpeg'); // Candidate fingerprint template
     const probebuffer = Buffer.from(probeTemplate.toString('base64'), 'base64');
     let buffer2 = new Uint8Array(probebuffer);
-    const probebuffer1 = Buffer.from(candidateTemplate.toString('base64'), 'base64');
-    let buffer21 = new Uint8Array(probebuffer1);
+    // const probebuffer1 = Buffer.from(candidateTemplate.toString('base64'), 'base64');
+    // let buffer21 = new Uint8Array(probebuffer1);
 
-    console.log("probe :", buffer2);
-    console.log("candidate :", buffer21);
+    // console.log("probe :", buffer2);
+    // console.log("candidate :", buffer21);
     // const byteArr = new ArrayBuffer(probeTemplate.length);
     // const view = new Uint8Array(byteArr);
     // for (let i = 0; i < probeTemplate.length; i++) {
@@ -68,8 +86,12 @@ export class AppController {
     // console.log('length: ', byteArray.length)
     // var charArray = java.newArray("char", "hello world\n".split(''));
     // console.log(charArray)
-
-    // let probe = new FingerprintImage(byteArray);
+    // let byteArray = java.newArray(
+    //   "byte",
+    //   buffer.toString('base64')
+    //     .split('')
+    //     .map(function (c) { return java.newByte(String.prototype.charCodeAt(0)); }));
+    // let probe = new FingerprintImage(buffer2);
 
     // let probe = new FingerprintTemplate(probeImage);
     // const candidate = new FingerprintTemplate(new FingerprintImage(candidateTemplate));

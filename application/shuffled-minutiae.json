@@ -1,0 +1,810 @@
+[
+  {
+    "minutiae": [
+      {
+        "direction": 5.902678966522217,
+        "position": {
+          "x": 259,
+          "y": 222
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.28576135635376,
+        "position": {
+          "x": 280,
+          "y": 148
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.1415927410125732,
+        "position": {
+          "x": 245,
+          "y": 466
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.9269907474517822,
+        "position": {
+          "x": 208,
+          "y": 804
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.944197177886963,
+        "position": {
+          "x": 345,
+          "y": 282
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.8363308906555176,
+        "position": {
+          "x": 409,
+          "y": 170
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 0.04995839670300484,
+        "position": {
+          "x": 410,
+          "y": 176
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.81953763961792,
+        "position": {
+          "x": 434,
+          "y": 88
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 1.7196862697601318,
+        "position": {
+          "x": 288,
+          "y": 844
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.170846462249756,
+        "position": {
+          "x": 298,
+          "y": 904
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.861279010772705,
+        "position": {
+          "x": 412,
+          "y": 748
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.9927027225494385,
+        "position": {
+          "x": 529,
+          "y": 298
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.35299038887023926,
+        "position": {
+          "x": 374,
+          "y": 1112
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.71238899230957,
+        "position": {
+          "x": 562,
+          "y": 192
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.31386661529541,
+        "position": {
+          "x": 458,
+          "y": 1024
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.9229238033294678,
+        "position": {
+          "x": 612,
+          "y": 316
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.547240257263184,
+        "position": {
+          "x": 666,
+          "y": 104
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.7188299894332886,
+        "position": {
+          "x": 491,
+          "y": 1102
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 6.126583576202393,
+        "position": {
+          "x": 658,
+          "y": 392
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.412539482116699,
+        "position": {
+          "x": 671,
+          "y": 390
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.9272952079772949,
+        "position": {
+          "x": 674,
+          "y": 704
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.9764440059661865,
+        "position": {
+          "x": 608,
+          "y": 1084
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.289535045623779,
+        "position": {
+          "x": 688,
+          "y": 732
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 0.141897052526474,
+        "position": {
+          "x": 779,
+          "y": 822
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.259720802307129,
+        "position": {
+          "x": 227,
+          "y": 457
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 6.085789680480957,
+        "position": {
+          "x": 465,
+          "y": 309
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.2709468603134155,
+        "position": {
+          "x": 341,
+          "y": 1061
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.876058042049408,
+        "position": {
+          "x": 729,
+          "y": 437
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.8603315353393555,
+        "position": {
+          "x": 767,
+          "y": 641
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.297438621520996,
+        "position": {
+          "x": 270,
+          "y": 366
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.7850937843322754,
+        "position": {
+          "x": 297,
+          "y": 264
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.004067063331604,
+        "position": {
+          "x": 194,
+          "y": 798
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.356194496154785,
+        "position": {
+          "x": 215,
+          "y": 772
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.854286193847656,
+        "position": {
+          "x": 388,
+          "y": 122
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.7233684062957764,
+        "position": {
+          "x": 269,
+          "y": 840
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.384758234024048,
+        "position": {
+          "x": 359,
+          "y": 516
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.290482521057129,
+        "position": {
+          "x": 415,
+          "y": 316
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.111215829849243,
+        "position": {
+          "x": 382,
+          "y": 590
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.570491790771484,
+        "position": {
+          "x": 400,
+          "y": 634
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.224733829498291,
+        "position": {
+          "x": 431,
+          "y": 492
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.7427659034729,
+        "position": {
+          "x": 511,
+          "y": 164
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.153789520263672,
+        "position": {
+          "x": 343,
+          "y": 1036
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 0.19739556312561035,
+        "position": {
+          "x": 529,
+          "y": 368
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.3389883041381836,
+        "position": {
+          "x": 398,
+          "y": 1062
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.319174289703369,
+        "position": {
+          "x": 479,
+          "y": 660
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.9269907474517822,
+        "position": {
+          "x": 397,
+          "y": 1080
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.8966140747070312,
+        "position": {
+          "x": 551,
+          "y": 428
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.677945137023926,
+        "position": {
+          "x": 594,
+          "y": 334
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.1915509700775146,
+        "position": {
+          "x": 540,
+          "y": 1106
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.21948766708374,
+        "position": {
+          "x": 700,
+          "y": 698
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.234121561050415,
+        "position": {
+          "x": 703,
+          "y": 756
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.355890274047852,
+        "position": {
+          "x": 292,
+          "y": 501
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.426479816436768,
+        "position": {
+          "x": 253,
+          "y": 843
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.6571147441864014,
+        "position": {
+          "x": 406,
+          "y": 441
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.3734008073806763,
+        "position": {
+          "x": 408,
+          "y": 989
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.4198923110961914,
+        "position": {
+          "x": 277,
+          "y": 334
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.8621700406074524,
+        "position": {
+          "x": 200,
+          "y": 800
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.1109113693237305,
+        "position": {
+          "x": 214,
+          "y": 748
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.4592761993408203,
+        "position": {
+          "x": 271,
+          "y": 554
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.8603315353393555,
+        "position": {
+          "x": 362,
+          "y": 452
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.81953763961792,
+        "position": {
+          "x": 403,
+          "y": 466
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.041923999786377,
+        "position": {
+          "x": 488,
+          "y": 216
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.780342102050781,
+        "position": {
+          "x": 528,
+          "y": 136
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.946510314941406,
+        "position": {
+          "x": 541,
+          "y": 310
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.248741149902344,
+        "position": {
+          "x": 505,
+          "y": 518
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.659805774688721,
+        "position": {
+          "x": 488,
+          "y": 808
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.8198421001434326,
+        "position": {
+          "x": 470,
+          "y": 1084
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 0.635026752948761,
+        "position": {
+          "x": 667,
+          "y": 642
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.398118495941162,
+        "position": {
+          "x": 720,
+          "y": 976
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.16514867544174194,
+        "position": {
+          "x": 719,
+          "y": 1050
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.583292484283447,
+        "position": {
+          "x": 249,
+          "y": 561
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 6.038206577301025,
+        "position": {
+          "x": 453,
+          "y": 497
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 6.233226776123047,
+        "position": {
+          "x": 659,
+          "y": 477
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.729595184326172,
+        "position": {
+          "x": 197,
+          "y": 404
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.8603315353393555,
+        "position": {
+          "x": 238,
+          "y": 314
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.7187387943267822,
+        "position": {
+          "x": 259,
+          "y": 344
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 4.2052903175354,
+        "position": {
+          "x": 284,
+          "y": 294
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.498091459274292,
+        "position": {
+          "x": 337,
+          "y": 172
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.500363349914551,
+        "position": {
+          "x": 317,
+          "y": 284
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.9764440059661865,
+        "position": {
+          "x": 219,
+          "y": 936
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.7187387943267822,
+        "position": {
+          "x": 368,
+          "y": 230
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.199288368225098,
+        "position": {
+          "x": 291,
+          "y": 840
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 5.81953763961792,
+        "position": {
+          "x": 390,
+          "y": 538
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 0.04995839670300484,
+        "position": {
+          "x": 456,
+          "y": 214
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.3865714073181152,
+        "position": {
+          "x": 423,
+          "y": 416
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 3.041923999786377,
+        "position": {
+          "x": 489,
+          "y": 244
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 5.018267631530762,
+        "position": {
+          "x": 426,
+          "y": 666
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.041923999786377,
+        "position": {
+          "x": 492,
+          "y": 518
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 0.7853981852531433,
+        "position": {
+          "x": 448,
+          "y": 1038
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.522099018096924,
+        "position": {
+          "x": 580,
+          "y": 558
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.677945137023926,
+        "position": {
+          "x": 629,
+          "y": 356
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 2.677945137023926,
+        "position": {
+          "x": 670,
+          "y": 442
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 4.861279010772705,
+        "position": {
+          "x": 616,
+          "y": 870
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 3.809882164001465,
+        "position": {
+          "x": 751,
+          "y": 440
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 2.2655346393585205,
+        "position": {
+          "x": 418,
+          "y": 621
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.5707963705062866,
+        "position": {
+          "x": 395,
+          "y": 795
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 6.038206577301025,
+        "position": {
+          "x": 576,
+          "y": 193
+        },
+        "type": "ENDING"
+      },
+      {
+        "direction": 1.993650197982788,
+        "position": {
+          "x": 465,
+          "y": 759
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.1479424238204956,
+        "position": {
+          "x": 451,
+          "y": 971
+        },
+        "type": "BIFURCATION"
+      },
+      {
+        "direction": 1.1902899742126465,
+        "position": {
+          "x": 756,
+          "y": 705
+        },
+        "type": "BIFURCATION"
+      }
+    ],
+    "size": {
+      "x": 900,
+      "y": 1125
+    }
+  }
+]

@@ -1,0 +1,79 @@
+[
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:15:22",
+        "InstanceID": "FP_1",
+        "EntityTypeID": "FP_1",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_f916abf5-169d-42a2-a103-5e979a0a0bcf"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:15:43",
+        "InstanceID": "FP_2",
+        "EntityTypeID": "FP_2",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_6cf6174e-b028-4db7-b6d6-9a79661d970e"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:15:56",
+        "InstanceID": "FP_3",
+        "EntityTypeID": "FP_3",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_118a44af-6b1c-4e0c-86b3-b4a02db88645"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:15:59",
+        "InstanceID": "FP_4",
+        "EntityTypeID": "FP_4",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_f74bd4e6-7e5c-425d-85da-363a46ac9195"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:16:02",
+        "InstanceID": "FP_5",
+        "EntityTypeID": "FP_5",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_b41e8b44-1309-43ee-8483-573203b164a5"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-22 11:16:05",
+        "InstanceID": "FP_6",
+        "EntityTypeID": "FP_6",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_1272a573-7dd2-4529-bfdc-9f2d2a3e1fce"
+    },
+    {
+        "message": "Fingerprint data",
+        "ReceivedDate": "2023-03-23 16:06:27",
+        "InstanceID": "FP_1",
+        "EntityTypeID": "FP_1",
+        "EntityTypeName": "Fingerprint",
+        "ID": "FP_",
+        "Code": "FPREG9500",
+        "Operation": "Registered fingerprint",
+        "DataSource": "FP_71bbf778-64c1-4049-a056-afb15ef22ff5"
+    }
+]

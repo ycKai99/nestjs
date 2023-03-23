@@ -1,0 +1,5604 @@
+[
+  [
+    [
+      {
+        "length": 35,
+        "neighborAngle": 0.4834465980529785,
+        "referenceAngle": 3.870018482208252,
+        "neighbor": 21
+      },
+      {
+        "length": 40,
+        "neighborAngle": 4.443686008453369,
+        "referenceAngle": 4.298057556152344,
+        "neighbor": 72
+      },
+      {
+        "length": 74,
+        "neighborAngle": 4.5208282470703125,
+        "referenceAngle": 3.5030627250671387,
+        "neighbor": 20
+      },
+      {
+        "length": 86,
+        "neighborAngle": 3.9876716136932373,
+        "referenceAngle": 3.5027503967285156,
+        "neighbor": 1
+      },
+      {
+        "length": 92,
+        "neighborAngle": 5.078479290008545,
+        "referenceAngle": 4.524361610412598,
+        "neighbor": 76
+      },
+      {
+        "length": 104,
+        "neighborAngle": 1.4749374389648438,
+        "referenceAngle": 0.3465151786804199,
+        "neighbor": 50
+      },
+      {
+        "length": 110,
+        "neighborAngle": 1.4903984069824219,
+        "referenceAngle": 0.43328380584716797,
+        "neighbor": 49
+      },
+      {
+        "length": 113,
+        "neighborAngle": 5.4167327880859375,
+        "referenceAngle": 3.824662923812866,
+        "neighbor": 52
+      },
+      {
+        "length": 129,
+        "neighborAngle": 4.357683181762695,
+        "referenceAngle": 4.336410045623779,
+        "neighbor": 24
+      }
+    ],
+    [
+      {
+        "length": 12,
+        "neighborAngle": 1.376997947692871,
+        "referenceAngle": 3.9857466220855713,
+        "neighbor": 20
+      },
+      {
+        "length": 42,
+        "neighborAngle": 6.1321702003479,
+        "referenceAngle": 1.8834285736083984,
+        "neighbor": 52
+      },
+      {
+        "length": 55,
+        "neighborAngle": 3.023017644882202,
+        "referenceAngle": 3.752917528152466,
+        "neighbor": 21
+      },
+      {
+        "length": 60,
+        "neighborAngle": 4.85720157623291,
+        "referenceAngle": 1.196462631225586,
+        "neighbor": 73
+      },
+      {
+        "length": 65,
+        "neighborAngle": 0.055498600006103516,
+        "referenceAngle": 3.536383867263794,
+        "neighbor": 72
+      },
+      {
+        "length": 73,
+        "neighborAngle": 5.784091949462891,
+        "referenceAngle": 1.3787481784820557,
+        "neighbor": 75
+      },
+      {
+        "length": 86,
+        "neighborAngle": 3.5027506351470947,
+        "referenceAngle": 3.9876716136932373,
+        "neighbor": 0
+      },
+      {
+        "length": 87,
+        "neighborAngle": 5.063117027282715,
+        "referenceAngle": 1.27802312374115,
+        "neighbor": 22
+      },
+      {
+        "length": 87,
+        "neighborAngle": 6.085123062133789,
+        "referenceAngle": 2.874333620071411,
+        "neighbor": 76
+      }
+    ],
+    [
+      {
+        "length": 19,
+        "neighborAngle": 0.03380298614501953,
+        "referenceAngle": 0.033803462982177734,
+        "neighbor": 74
+      },
+      {
+        "length": 36,
+        "neighborAngle": 4.3011627197265625,
+        "referenceAngle": 1.2111493349075317,
+        "neighbor": 3
+      },
+      {
+        "length": 36,
+        "neighborAngle": 4.136013984680176,
+        "referenceAngle": 4.187593460083008,
+        "neighbor": 53
+      },
+      {
+        "length": 59,
+        "neighborAngle": 4.574624061584473,
+        "referenceAngle": 4.590248107910156,
+        "neighbor": 51
+      },
+      {
+        "length": 68,
+        "neighborAngle": 5.95007848739624,
+        "referenceAngle": 1.588951826095581,
+        "neighbor": 4
+      },
+      {
+        "length": 75,
+        "neighborAngle": 0.03922224044799805,
+        "referenceAngle": 2.9133429527282715,
+        "neighbor": 78
+      },
+      {
+        "length": 81,
+        "neighborAngle": 4.093674659729004,
+        "referenceAngle": 1.3873565196990967,
+        "neighbor": 77
+      },
+      {
+        "length": 83,
+        "neighborAngle": 0.7275304794311523,
+        "referenceAngle": 3.9076437950134277,
+        "neighbor": 23
+      },
+      {
+        "length": 88,
+        "neighborAngle": 4.408604621887207,
+        "referenceAngle": 4.302033424377441,
+        "neighbor": 96
+      }
+    ],
+    [
+      {
+        "length": 34,
+        "neighborAngle": 4.889849662780762,
+        "referenceAngle": 4.838270664215088,
+        "neighbor": 74
+      },
+      {
+        "length": 36,
+        "neighborAngle": 1.2111494541168213,
+        "referenceAngle": 4.3011627197265625,
+        "neighbor": 2
+      },
+      {
+        "length": 36,
+        "neighborAngle": 0.04574251174926758,
+        "referenceAngle": 1.9162218570709229,
+        "neighbor": 4
+      },
+      {
+        "length": 45,
+        "neighborAngle": 4.2357659339904785,
+        "referenceAngle": 1.4778681993484497,
+        "neighbor": 77
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.219155311584473,
+        "referenceAngle": 4.219155311584473,
+        "neighbor": 53
+      },
+      {
+        "length": 85,
+        "neighborAngle": 2.446120500564575,
+        "referenceAngle": 5.825300216674805,
+        "neighbor": 71
+      },
+      {
+        "length": 88,
+        "neighborAngle": 0.46364784240722656,
+        "referenceAngle": 3.286189079284668,
+        "neighbor": 78
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.483687400817871,
+        "referenceAngle": 4.4477314949035645,
+        "neighbor": 51
+      },
+      {
+        "length": 109,
+        "neighborAngle": 3.6380155086517334,
+        "referenceAngle": 6.203232765197754,
+        "neighbor": 50
+      }
+    ],
+    [
+      {
+        "length": 20,
+        "neighborAngle": 3.334094524383545,
+        "referenceAngle": 1.847310185432434,
+        "neighbor": 77
+      },
+      {
+        "length": 36,
+        "neighborAngle": 1.9162218570709229,
+        "referenceAngle": 0.04574251174926758,
+        "neighbor": 3
+      },
+      {
+        "length": 68,
+        "neighborAngle": 1.588951826095581,
+        "referenceAngle": 5.95007848739624,
+        "neighbor": 2
+      },
+      {
+        "length": 70,
+        "neighborAngle": 5.0032854080200195,
+        "referenceAngle": 6.2228193283081055,
+        "neighbor": 74
+      },
+      {
+        "length": 88,
+        "neighborAngle": 0.880272388458252,
+        "referenceAngle": 4.973927021026611,
+        "neighbor": 78
+      },
+      {
+        "length": 92,
+        "neighborAngle": 5.052319526672363,
+        "referenceAngle": 3.617661952972412,
+        "neighbor": 8
+      },
+      {
+        "length": 100,
+        "neighborAngle": 4.492450714111328,
+        "referenceAngle": 5.763564109802246,
+        "neighbor": 53
+      },
+      {
+        "length": 101,
+        "neighborAngle": 4.613457679748535,
+        "referenceAngle": 3.687440872192383,
+        "neighbor": 69
+      },
+      {
+        "length": 114,
+        "neighborAngle": 2.221832513809204,
+        "referenceAngle": 0.588939905166626,
+        "neighbor": 71
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 4.782168388366699,
+        "referenceAngle": 4.003763198852539,
+        "neighbor": 25
+      },
+      {
+        "length": 47,
+        "neighborAngle": 0.7704737186431885,
+        "referenceAngle": 3.321446180343628,
+        "neighbor": 6
+      },
+      {
+        "length": 93,
+        "neighborAngle": 3.470789909362793,
+        "referenceAngle": 6.209882736206055,
+        "neighbor": 54
+      },
+      {
+        "length": 108,
+        "neighborAngle": 0.8400218486785889,
+        "referenceAngle": 2.6738131046295166,
+        "neighbor": 80
+      },
+      {
+        "length": 109,
+        "neighborAngle": 3.6268787384033203,
+        "referenceAngle": 2.599914789199829,
+        "neighbor": 45
+      },
+      {
+        "length": 188,
+        "neighborAngle": 2.3770017623901367,
+        "referenceAngle": 1.300816535949707,
+        "neighbor": 18
+      },
+      {
+        "length": 218,
+        "neighborAngle": 2.011915683746338,
+        "referenceAngle": 0.979743480682373,
+        "neighbor": 28
+      },
+      {
+        "length": 222,
+        "neighborAngle": 5.05330753326416,
+        "referenceAngle": 1.0950769186019897,
+        "neighbor": 82
+      },
+      {
+        "length": 236,
+        "neighborAngle": 0.6731534004211426,
+        "referenceAngle": 0.6731535196304321,
+        "neighbor": 79
+      }
+    ],
+    [
+      {
+        "length": 35,
+        "neighborAngle": 0.6161031723022461,
+        "referenceAngle": 0.4283180236816406,
+        "neighbor": 25
+      },
+      {
+        "length": 47,
+        "neighborAngle": 3.321446180343628,
+        "referenceAngle": 0.7704739570617676,
+        "neighbor": 5
+      },
+      {
+        "length": 76,
+        "neighborAngle": 0.4592902660369873,
+        "referenceAngle": 2.883701801300049,
+        "neighbor": 80
+      },
+      {
+        "length": 80,
+        "neighborAngle": 3.228762149810791,
+        "referenceAngle": 2.7924184799194336,
+        "neighbor": 45
+      },
+      {
+        "length": 139,
+        "neighborAngle": 3.555619239807129,
+        "referenceAngle": 0.602147102355957,
+        "neighbor": 54
+      },
+      {
+        "length": 213,
+        "neighborAngle": 2.1770315170288086,
+        "referenceAngle": 1.6914666891098022,
+        "neighbor": 18
+      },
+      {
+        "length": 229,
+        "neighborAngle": 0.5651025772094727,
+        "referenceAngle": 2.9276461601257324,
+        "neighbor": 87
+      },
+      {
+        "length": 253,
+        "neighborAngle": 1.878490924835205,
+        "referenceAngle": 1.4369391202926636,
+        "neighbor": 28
+      },
+      {
+        "length": 254,
+        "neighborAngle": 4.906027793884277,
+        "referenceAngle": 1.5384174585342407,
+        "neighbor": 82
+      }
+    ],
+    [
+      {
+        "length": 57,
+        "neighborAngle": 1.0300874710083008,
+        "referenceAngle": 1.4704341888427734,
+        "neighbor": 56
+      },
+      {
+        "length": 84,
+        "neighborAngle": 0.18030548095703125,
+        "referenceAngle": 2.912188768386841,
+        "neighbor": 8
+      },
+      {
+        "length": 90,
+        "neighborAngle": 5.15849494934082,
+        "referenceAngle": 2.363187551498413,
+        "neighbor": 81
+      },
+      {
+        "length": 93,
+        "neighborAngle": 5.874327659606934,
+        "referenceAngle": 2.8316662311553955,
+        "neighbor": 69
+      },
+      {
+        "length": 104,
+        "neighborAngle": 1.3079183101654053,
+        "referenceAngle": 3.9876749515533447,
+        "neighbor": 77
+      },
+      {
+        "length": 113,
+        "neighborAngle": 4.044353008270264,
+        "referenceAngle": 1.2005401849746704,
+        "neighbor": 57
+      },
+      {
+        "length": 114,
+        "neighborAngle": 2.8074533939361572,
+        "referenceAngle": 3.8324015140533447,
+        "neighbor": 4
+      },
+      {
+        "length": 141,
+        "neighborAngle": 4.9899187088012695,
+        "referenceAngle": 2.5000593662261963,
+        "neighbor": 97
+      },
+      {
+        "length": 149,
+        "neighborAngle": 1.6271698474884033,
+        "referenceAngle": 3.923231363296509,
+        "neighbor": 3
+      }
+    ],
+    [
+      {
+        "length": 11,
+        "neighborAngle": 5.225995063781738,
+        "referenceAngle": 2.593043565750122,
+        "neighbor": 69
+      },
+      {
+        "length": 48,
+        "neighborAngle": 3.9854040145874023,
+        "referenceAngle": 1.5998060703277588,
+        "neighbor": 81
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.504986763000488,
+        "referenceAngle": 2.4248368740081787,
+        "neighbor": 97
+      },
+      {
+        "length": 84,
+        "neighborAngle": 2.912188768386841,
+        "referenceAngle": 0.1803053617477417,
+        "neighbor": 7
+      },
+      {
+        "length": 92,
+        "neighborAngle": 3.617661952972412,
+        "referenceAngle": 5.052319526672363,
+        "neighbor": 4
+      },
+      {
+        "length": 95,
+        "neighborAngle": 6.24691104888916,
+        "referenceAngle": 0.81378173828125,
+        "neighbor": 56
+      },
+      {
+        "length": 98,
+        "neighborAngle": 2.1611170768737793,
+        "referenceAngle": 5.250583171844482,
+        "neighbor": 77
+      },
+      {
+        "length": 113,
+        "neighborAngle": 1.8008313179016113,
+        "referenceAngle": 4.1875505447387695,
+        "neighbor": 78
+      },
+      {
+        "length": 117,
+        "neighborAngle": 1.0231544971466064,
+        "referenceAngle": 2.6889026165008545,
+        "neighbor": 12
+      }
+    ],
+    [
+      {
+        "length": 36,
+        "neighborAngle": 2.2218728065490723,
+        "referenceAngle": 2.1238276958465576,
+        "neighbor": 55
+      },
+      {
+        "length": 47,
+        "neighborAngle": 5.397834777832031,
+        "referenceAngle": 5.503534317016602,
+        "neighbor": 11
+      },
+      {
+        "length": 62,
+        "neighborAngle": 0.12768006324768066,
+        "referenceAngle": 6.030821323394775,
+        "neighbor": 10
+      },
+      {
+        "length": 134,
+        "neighborAngle": 1.0873806476593018,
+        "referenceAngle": 4.3798909187316895,
+        "neighbor": 31
+      },
+      {
+        "length": 135,
+        "neighborAngle": 5.226840972900391,
+        "referenceAngle": 5.4718194007873535,
+        "neighbor": 32
+      },
+      {
+        "length": 151,
+        "neighborAngle": 0.90067458152771,
+        "referenceAngle": 5.591790199279785,
+        "neighbor": 89
+      },
+      {
+        "length": 153,
+        "neighborAngle": 2.7727816104888916,
+        "referenceAngle": 5.630106449127197,
+        "neighbor": 88
+      },
+      {
+        "length": 159,
+        "neighborAngle": 5.114324569702148,
+        "referenceAngle": 1.3079571723937988,
+        "neighbor": 67
+      },
+      {
+        "length": 173,
+        "neighborAngle": 0.43824565410614014,
+        "referenceAngle": 0.5001134872436523,
+        "neighbor": 68
+      }
+    ],
+    [
+      {
+        "length": 32,
+        "neighborAngle": 3.6026225090026855,
+        "referenceAngle": 0.9467734098434448,
+        "neighbor": 11
+      },
+      {
+        "length": 62,
+        "neighborAngle": 6.030821323394775,
+        "referenceAngle": 0.12768006324768066,
+        "neighbor": 9
+      },
+      {
+        "length": 88,
+        "neighborAngle": 4.841708183288574,
+        "referenceAngle": 2.3251383304595947,
+        "neighbor": 32
+      },
+      {
+        "length": 92,
+        "neighborAngle": 2.711266279220581,
+        "referenceAngle": 6.134857654571533,
+        "neighbor": 55
+      },
+      {
+        "length": 98,
+        "neighborAngle": 2.5227153301239014,
+        "referenceAngle": 2.6184916496276855,
+        "neighbor": 88
+      },
+      {
+        "length": 98,
+        "neighborAngle": 0.6271240711212158,
+        "referenceAngle": 2.5566911697387695,
+        "neighbor": 89
+      },
+      {
+        "length": 129,
+        "neighborAngle": 2.2925283908843994,
+        "referenceAngle": 3.4516215324401855,
+        "neighbor": 30
+      },
+      {
+        "length": 135,
+        "neighborAngle": 0.7610129117965698,
+        "referenceAngle": 4.344517707824707,
+        "neighbor": 68
+      },
+      {
+        "length": 144,
+        "neighborAngle": 2.499180555343628,
+        "referenceAngle": 3.5189948081970215,
+        "neighbor": 84
+      }
+    ],
+    [
+      {
+        "length": 32,
+        "neighborAngle": 0.9467732906341553,
+        "referenceAngle": 3.6026225090026855,
+        "neighbor": 10
+      },
+      {
+        "length": 47,
+        "neighborAngle": 5.503534317016602,
+        "referenceAngle": 5.397834777832031,
+        "neighbor": 9
+      },
+      {
+        "length": 82,
+        "neighborAngle": 2.356194257736206,
+        "referenceAngle": 5.294042587280273,
+        "neighbor": 55
+      },
+      {
+        "length": 88,
+        "neighborAngle": 5.209956169128418,
+        "referenceAngle": 2.2076425552368164,
+        "neighbor": 32
+      },
+      {
+        "length": 105,
+        "neighborAngle": 0.940115213394165,
+        "referenceAngle": 2.383938789367676,
+        "neighbor": 89
+      },
+      {
+        "length": 107,
+        "neighborAngle": 2.828212022781372,
+        "referenceAngle": 2.4382448196411133,
+        "neighbor": 88
+      },
+      {
+        "length": 122,
+        "neighborAngle": 0.7330489158630371,
+        "referenceAngle": 0.7782672643661499,
+        "neighbor": 31
+      },
+      {
+        "length": 156,
+        "neighborAngle": 2.4160587787628174,
+        "referenceAngle": 3.0894083976745605,
+        "neighbor": 30
+      },
+      {
+        "length": 166,
+        "neighborAngle": 0.7117804288864136,
+        "referenceAngle": 3.809541702270508,
+        "neighbor": 68
+      }
+    ],
+    [
+      {
+        "length": 32,
+        "neighborAngle": 1.6866772174835205,
+        "referenceAngle": 4.656890869140625,
+        "neighbor": 58
+      },
+      {
+        "length": 35,
+        "neighborAngle": 0.3620431423187256,
+        "referenceAngle": 3.576676607131958,
+        "neighbor": 70
+      },
+      {
+        "length": 51,
+        "neighborAngle": 2.007058620452881,
+        "referenceAngle": 1.4027533531188965,
+        "neighbor": 97
+      },
+      {
+        "length": 53,
+        "neighborAngle": 0.6388063430786133,
+        "referenceAngle": 4.119691848754883,
+        "neighbor": 85
+      },
+      {
+        "length": 57,
+        "neighborAngle": 0.0459446907043457,
+        "referenceAngle": 3.816333770751953,
+        "neighbor": 59
+      },
+      {
+        "length": 88,
+        "neighborAngle": 3.1503069400787354,
+        "referenceAngle": 2.3346152305603027,
+        "neighbor": 13
+      },
+      {
+        "length": 88,
+        "neighborAngle": 1.5594334602355957,
+        "referenceAngle": 5.164673805236816,
+        "neighbor": 83
+      },
+      {
+        "length": 104,
+        "neighborAngle": 2.350846767425537,
+        "referenceAngle": 1.441093921661377,
+        "neighbor": 81
+      },
+      {
+        "length": 106,
+        "neighborAngle": 2.1903867721557617,
+        "referenceAngle": 1.0332796573638916,
+        "neighbor": 69
+      }
+    ],
+    [
+      {
+        "length": 71,
+        "neighborAngle": 0.41312098503112793,
+        "referenceAngle": 3.7661001682281494,
+        "neighbor": 97
+      },
+      {
+        "length": 83,
+        "neighborAngle": 1.8533916473388672,
+        "referenceAngle": 2.742124319076538,
+        "neighbor": 70
+      },
+      {
+        "length": 84,
+        "neighborAngle": 1.3972058296203613,
+        "referenceAngle": 4.444737434387207,
+        "neighbor": 81
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.3346149921417236,
+        "referenceAngle": 3.1503069400787354,
+        "neighbor": 12
+      },
+      {
+        "length": 98,
+        "neighborAngle": 4.128260612487793,
+        "referenceAngle": 1.0318856239318848,
+        "neighbor": 35
+      },
+      {
+        "length": 101,
+        "neighborAngle": 1.1027626991271973,
+        "referenceAngle": 2.547250986099243,
+        "neighbor": 59
+      },
+      {
+        "length": 112,
+        "neighborAngle": 2.294872522354126,
+        "referenceAngle": 2.939185380935669,
+        "neighbor": 58
+      },
+      {
+        "length": 112,
+        "neighborAngle": 1.5152978897094727,
+        "referenceAngle": 2.6702826023101807,
+        "neighbor": 85
+      },
+      {
+        "length": 118,
+        "neighborAngle": 1.3901488780975342,
+        "referenceAngle": 4.190326690673828,
+        "neighbor": 69
+      }
+    ],
+    [
+      {
+        "length": 39,
+        "neighborAngle": 1.9309420585632324,
+        "referenceAngle": 2.149183750152588,
+        "neighbor": 36
+      },
+      {
+        "length": 55,
+        "neighborAngle": 2.0439977645874023,
+        "referenceAngle": 0.6466970443725586,
+        "neighbor": 99
+      },
+      {
+        "length": 68,
+        "neighborAngle": 1.1101208925247192,
+        "referenceAngle": 6.243359565734863,
+        "neighbor": 47
+      },
+      {
+        "length": 121,
+        "neighborAngle": 3.247931957244873,
+        "referenceAngle": 1.4225413799285889,
+        "neighbor": 48
+      },
+      {
+        "length": 130,
+        "neighborAngle": 1.7744700908660889,
+        "referenceAngle": 4.139011383056641,
+        "neighbor": 39
+      },
+      {
+        "length": 131,
+        "neighborAngle": 2.121927261352539,
+        "referenceAngle": 0.8720638751983643,
+        "neighbor": 46
+      },
+      {
+        "length": 144,
+        "neighborAngle": 4.898070335388184,
+        "referenceAngle": 0.7539682388305664,
+        "neighbor": 84
+      },
+      {
+        "length": 145,
+        "neighborAngle": 0.8720532655715942,
+        "referenceAngle": 6.104223251342773,
+        "neighbor": 57
+      },
+      {
+        "length": 151,
+        "neighborAngle": 4.871894836425781,
+        "referenceAngle": 0.8670716285705566,
+        "neighbor": 30
+      }
+    ],
+    [
+      {
+        "length": 58,
+        "neighborAngle": 4.957155704498291,
+        "referenceAngle": 4.791625499725342,
+        "neighbor": 93
+      },
+      {
+        "length": 61,
+        "neighborAngle": 3.971442461013794,
+        "referenceAngle": 5.19069242477417,
+        "neighbor": 62
+      },
+      {
+        "length": 79,
+        "neighborAngle": 2.2134363651275635,
+        "referenceAngle": 6.154200553894043,
+        "neighbor": 38
+      },
+      {
+        "length": 95,
+        "neighborAngle": 1.2852139472961426,
+        "referenceAngle": 1.858851671218872,
+        "neighbor": 37
+      },
+      {
+        "length": 95,
+        "neighborAngle": 2.572004795074463,
+        "referenceAngle": 0.6890115737915039,
+        "neighbor": 60
+      },
+      {
+        "length": 102,
+        "neighborAngle": 1.6490674018859863,
+        "referenceAngle": 5.938602447509766,
+        "neighbor": 92
+      },
+      {
+        "length": 113,
+        "neighborAngle": 0.9400472640991211,
+        "referenceAngle": 6.156877517700195,
+        "neighbor": 91
+      },
+      {
+        "length": 115,
+        "neighborAngle": 3.1183407306671143,
+        "referenceAngle": 5.373432159423828,
+        "neighbor": 42
+      },
+      {
+        "length": 116,
+        "neighborAngle": 4.21207332611084,
+        "referenceAngle": 6.269768714904785,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 31,
+        "neighborAngle": 2.731834650039673,
+        "referenceAngle": 3.3408665657043457,
+        "neighbor": 65
+      },
+      {
+        "length": 33,
+        "neighborAngle": 2.0074234008789062,
+        "referenceAngle": 2.758352279663086,
+        "neighbor": 95
+      },
+      {
+        "length": 68,
+        "neighborAngle": 2.0869319438934326,
+        "referenceAngle": 5.701153755187988,
+        "neighbor": 44
+      },
+      {
+        "length": 75,
+        "neighborAngle": 3.832929849624634,
+        "referenceAngle": 1.4422657489776611,
+        "neighbor": 63
+      },
+      {
+        "length": 94,
+        "neighborAngle": 0.6819944381713867,
+        "referenceAngle": 2.1076645851135254,
+        "neighbor": 64
+      },
+      {
+        "length": 116,
+        "neighborAngle": 5.062323570251465,
+        "referenceAngle": 2.304485559463501,
+        "neighbor": 17
+      },
+      {
+        "length": 187,
+        "neighborAngle": 3.2206451892852783,
+        "referenceAngle": 5.965224266052246,
+        "neighbor": 15
+      },
+      {
+        "length": 188,
+        "neighborAngle": 4.850955963134766,
+        "referenceAngle": 1.3123500347137451,
+        "neighbor": 39
+      },
+      {
+        "length": 188,
+        "neighborAngle": 2.544292688369751,
+        "referenceAngle": 2.3854684829711914,
+        "neighbor": 66
+      }
+    ],
+    [
+      {
+        "length": 30,
+        "neighborAngle": 4.681149482727051,
+        "referenceAngle": 5.723064422607422,
+        "neighbor": 64
+      },
+      {
+        "length": 73,
+        "neighborAngle": 2.672597646713257,
+        "referenceAngle": 2.1300182342529297,
+        "neighbor": 66
+      },
+      {
+        "length": 87,
+        "neighborAngle": 4.528446197509766,
+        "referenceAngle": 4.8956193923950195,
+        "neighbor": 95
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.259720802307129,
+        "referenceAngle": 5.768486976623535,
+        "neighbor": 63
+      },
+      {
+        "length": 104,
+        "neighborAngle": 4.581277370452881,
+        "referenceAngle": 4.806553840637207,
+        "neighbor": 65
+      },
+      {
+        "length": 116,
+        "neighborAngle": 2.30448579788208,
+        "referenceAngle": 5.062323570251465,
+        "neighbor": 16
+      },
+      {
+        "length": 158,
+        "neighborAngle": 4.18797492980957,
+        "referenceAngle": 0.2656135559082031,
+        "neighbor": 39
+      },
+      {
+        "length": 183,
+        "neighborAngle": 1.9258677959442139,
+        "referenceAngle": 5.15633487701416,
+        "neighbor": 44
+      },
+      {
+        "length": 255,
+        "neighborAngle": 0.8143055438995361,
+        "referenceAngle": 6.23054313659668,
+        "neighbor": 35
+      }
+    ],
+    [
+      {
+        "length": 54,
+        "neighborAngle": 4.262439727783203,
+        "referenceAngle": 4.521986484527588,
+        "neighbor": 82
+      },
+      {
+        "length": 69,
+        "neighborAngle": 2.852022171020508,
+        "referenceAngle": 5.3893537521362305,
+        "neighbor": 98
+      },
+      {
+        "length": 71,
+        "neighborAngle": 1.0293712615966797,
+        "referenceAngle": 4.214976787567139,
+        "neighbor": 28
+      },
+      {
+        "length": 87,
+        "neighborAngle": 6.261570453643799,
+        "referenceAngle": 6.1395134925842285,
+        "neighbor": 86
+      },
+      {
+        "length": 95,
+        "neighborAngle": 5.607880115509033,
+        "referenceAngle": 5.216350555419922,
+        "neighbor": 29
+      },
+      {
+        "length": 116,
+        "neighborAngle": 4.591245651245117,
+        "referenceAngle": 4.74013614654541,
+        "neighbor": 83
+      },
+      {
+        "length": 137,
+        "neighborAngle": 4.879214286804199,
+        "referenceAngle": 5.955399036407471,
+        "neighbor": 34
+      },
+      {
+        "length": 139,
+        "neighborAngle": 6.0340094566345215,
+        "referenceAngle": 3.968602180480957,
+        "neighbor": 79
+      },
+      {
+        "length": 175,
+        "neighborAngle": 5.353130340576172,
+        "referenceAngle": 4.866993427276611,
+        "neighbor": 58
+      }
+    ],
+    [
+      {
+        "length": 15,
+        "neighborAngle": 0.8426918983459473,
+        "referenceAngle": 3.520636796951294,
+        "neighbor": 94
+      },
+      {
+        "length": 17,
+        "neighborAngle": 0.28897523880004883,
+        "referenceAngle": 2.608149528503418,
+        "neighbor": 42
+      },
+      {
+        "length": 55,
+        "neighborAngle": 4.624983787536621,
+        "referenceAngle": 5.978906154632568,
+        "neighbor": 41
+      },
+      {
+        "length": 67,
+        "neighborAngle": 3.3974010944366455,
+        "referenceAngle": 1.4678339958190918,
+        "neighbor": 92
+      },
+      {
+        "length": 73,
+        "neighborAngle": 1.2380099296569824,
+        "referenceAngle": 2.5213429927825928,
+        "neighbor": 62
+      },
+      {
+        "length": 91,
+        "neighborAngle": 3.9835596084594727,
+        "referenceAngle": 1.705221176147461,
+        "neighbor": 38
+      },
+      {
+        "length": 91,
+        "neighborAngle": 2.33591628074646,
+        "referenceAngle": 1.3336443901062012,
+        "neighbor": 91
+      },
+      {
+        "length": 91,
+        "neighborAngle": 2.8184304237365723,
+        "referenceAngle": 2.716982841491699,
+        "neighbor": 93
+      },
+      {
+        "length": 104,
+        "neighborAngle": 5.498981952667236,
+        "referenceAngle": 1.3375751972198486,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 12,
+        "neighborAngle": 3.9857466220855713,
+        "referenceAngle": 1.376997947692871,
+        "neighbor": 1
+      },
+      {
+        "length": 43,
+        "neighborAngle": 2.958481550216675,
+        "referenceAngle": 4.221225738525391,
+        "neighbor": 21
+      },
+      {
+        "length": 49,
+        "neighborAngle": 5.9179840087890625,
+        "referenceAngle": 2.2020864486694336,
+        "neighbor": 52
+      },
+      {
+        "length": 54,
+        "neighborAngle": 6.242392063140869,
+        "referenceAngle": 3.972935914993286,
+        "neighbor": 72
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.799127578735352,
+        "referenceAngle": 1.6712325811386108,
+        "neighbor": 73
+      },
+      {
+        "length": 74,
+        "neighborAngle": 3.5030629634857178,
+        "referenceAngle": 4.5208282470703125,
+        "neighbor": 0
+      },
+      {
+        "length": 82,
+        "neighborAngle": 5.953859329223633,
+        "referenceAngle": 3.275914430618286,
+        "neighbor": 76
+      },
+      {
+        "length": 84,
+        "neighborAngle": 5.710932731628418,
+        "referenceAngle": 1.8384331464767456,
+        "neighbor": 75
+      },
+      {
+        "length": 96,
+        "neighborAngle": 4.966396808624268,
+        "referenceAngle": 2.821295738220215,
+        "neighbor": 24
+      }
+    ],
+    [
+      {
+        "length": 16,
+        "neighborAngle": 5.545370578765869,
+        "referenceAngle": 5.154763221740723,
+        "neighbor": 72
+      },
+      {
+        "length": 35,
+        "neighborAngle": 3.870018243789673,
+        "referenceAngle": 0.4834465980529785,
+        "neighbor": 0
+      },
+      {
+        "length": 43,
+        "neighborAngle": 4.221225738525391,
+        "referenceAngle": 2.958481550216675,
+        "neighbor": 20
+      },
+      {
+        "length": 55,
+        "neighborAngle": 3.752917528152466,
+        "referenceAngle": 3.023017644882202,
+        "neighbor": 1
+      },
+      {
+        "length": 67,
+        "neighborAngle": 5.405995845794678,
+        "referenceAngle": 4.606899261474609,
+        "neighbor": 76
+      },
+      {
+        "length": 78,
+        "neighborAngle": 5.396098613739014,
+        "referenceAngle": 3.559049606323242,
+        "neighbor": 52
+      },
+      {
+        "length": 98,
+        "neighborAngle": 4.520340919494629,
+        "referenceAngle": 4.254088878631592,
+        "neighbor": 24
+      },
+      {
+        "length": 110,
+        "neighborAngle": 4.578943252563477,
+        "referenceAngle": 3.329897403717041,
+        "neighbor": 73
+      },
+      {
+        "length": 119,
+        "neighborAngle": 5.459079265594482,
+        "referenceAngle": 3.465428352355957,
+        "neighbor": 75
+      }
+    ],
+    [
+      {
+        "length": 16,
+        "neighborAngle": 2.0666911602020264,
+        "referenceAngle": 4.588034629821777,
+        "neighbor": 75
+      },
+      {
+        "length": 28,
+        "neighborAngle": 1.974515676498413,
+        "referenceAngle": 5.2404632568359375,
+        "neighbor": 73
+      },
+      {
+        "length": 58,
+        "neighborAngle": 1.9655873775482178,
+        "referenceAngle": 4.643532752990723,
+        "neighbor": 52
+      },
+      {
+        "length": 67,
+        "neighborAngle": 1.6704649925231934,
+        "referenceAngle": 2.13411283493042,
+        "neighbor": 67
+      },
+      {
+        "length": 86,
+        "neighborAngle": 1.6880013942718506,
+        "referenceAngle": 3.4006950855255127,
+        "neighbor": 27
+      },
+      {
+        "length": 87,
+        "neighborAngle": 1.2780232429504395,
+        "referenceAngle": 5.063117027282715,
+        "neighbor": 1
+      },
+      {
+        "length": 98,
+        "neighborAngle": 1.759385585784912,
+        "referenceAngle": 5.011635780334473,
+        "neighbor": 20
+      },
+      {
+        "length": 98,
+        "neighborAngle": 6.026092529296875,
+        "referenceAngle": 3.9916489124298096,
+        "neighbor": 24
+      },
+      {
+        "length": 125,
+        "neighborAngle": 0.5758283138275146,
+        "referenceAngle": 4.291726112365723,
+        "neighbor": 76
+      }
+    ],
+    [
+      {
+        "length": 34,
+        "neighborAngle": 5.655938148498535,
+        "referenceAngle": 5.510846138000488,
+        "neighbor": 96
+      },
+      {
+        "length": 50,
+        "neighborAngle": 0.5127573013305664,
+        "referenceAngle": 0.5258164405822754,
+        "neighbor": 53
+      },
+      {
+        "length": 53,
+        "neighborAngle": 6.2572174072265625,
+        "referenceAngle": 6.234320640563965,
+        "neighbor": 51
+      },
+      {
+        "length": 62,
+        "neighborAngle": 6.200695991516113,
+        "referenceAngle": 2.7407658100128174,
+        "neighbor": 26
+      },
+      {
+        "length": 76,
+        "neighborAngle": 5.156549453735352,
+        "referenceAngle": 1.7089636325836182,
+        "neighbor": 78
+      },
+      {
+        "length": 83,
+        "neighborAngle": 3.9076433181762695,
+        "referenceAngle": 0.7275302410125732,
+        "neighbor": 2
+      },
+      {
+        "length": 98,
+        "neighborAngle": 0.6370925903320312,
+        "referenceAngle": 0.5985722541809082,
+        "neighbor": 74
+      },
+      {
+        "length": 110,
+        "neighborAngle": 2.3974082469940186,
+        "referenceAngle": 2.7613871097564697,
+        "neighbor": 79
+      },
+      {
+        "length": 117,
+        "neighborAngle": 3.9904980659484863,
+        "referenceAngle": 0.861964225769043,
+        "neighbor": 3
+      }
+    ],
+    [
+      {
+        "length": 42,
+        "neighborAngle": 1.3331663608551025,
+        "referenceAngle": 3.9419150352478027,
+        "neighbor": 76
+      },
+      {
+        "length": 55,
+        "neighborAngle": 0.1913471221923828,
+        "referenceAngle": 0.7968918085098267,
+        "neighbor": 27
+      },
+      {
+        "length": 63,
+        "neighborAngle": 3.861757278442383,
+        "referenceAngle": 5.432553291320801,
+        "neighbor": 52
+      },
+      {
+        "length": 86,
+        "neighborAngle": 4.505941390991211,
+        "referenceAngle": 5.920135974884033,
+        "neighbor": 75
+      },
+      {
+        "length": 89,
+        "neighborAngle": 1.3575291633605957,
+        "referenceAngle": 4.374766826629639,
+        "neighbor": 72
+      },
+      {
+        "length": 93,
+        "neighborAngle": 3.5815062522888184,
+        "referenceAngle": 5.740304946899414,
+        "neighbor": 73
+      },
+      {
+        "length": 95,
+        "neighborAngle": 2.414079189300537,
+        "referenceAngle": 5.092024326324463,
+        "neighbor": 1
+      },
+      {
+        "length": 96,
+        "neighborAngle": 2.821295738220215,
+        "referenceAngle": 4.966396808624268,
+        "neighbor": 20
+      },
+      {
+        "length": 98,
+        "neighborAngle": 4.254088401794434,
+        "referenceAngle": 4.520340919494629,
+        "neighbor": 21
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 4.003763198852539,
+        "referenceAngle": 4.782167911529541,
+        "neighbor": 5
+      },
+      {
+        "length": 35,
+        "neighborAngle": 0.4283182621002197,
+        "referenceAngle": 0.6161031723022461,
+        "neighbor": 6
+      },
+      {
+        "length": 105,
+        "neighborAngle": 3.6128177642822266,
+        "referenceAngle": 3.9887232780456543,
+        "neighbor": 54
+      },
+      {
+        "length": 105,
+        "neighborAngle": 0.6692359447479248,
+        "referenceAngle": 0.13983964920043945,
+        "neighbor": 80
+      },
+      {
+        "length": 107,
+        "neighborAngle": 3.4569034576416016,
+        "referenceAngle": 0.06675195693969727,
+        "neighbor": 45
+      },
+      {
+        "length": 205,
+        "neighborAngle": 2.3388023376464844,
+        "referenceAngle": 5.182614803314209,
+        "neighbor": 18
+      },
+      {
+        "length": 237,
+        "neighborAngle": 2.0027713775634766,
+        "referenceAngle": 4.890597343444824,
+        "neighbor": 28
+      },
+      {
+        "length": 240,
+        "neighborAngle": 5.035593032836914,
+        "referenceAngle": 4.9973602294921875,
+        "neighbor": 82
+      },
+      {
+        "length": 254,
+        "neighborAngle": 0.6867814064025879,
+        "referenceAngle": 4.606779098510742,
+        "neighbor": 79
+      }
+    ],
+    [
+      {
+        "length": 48,
+        "neighborAngle": 2.4239375591278076,
+        "referenceAngle": 3.1062541007995605,
+        "neighbor": 79
+      },
+      {
+        "length": 62,
+        "neighborAngle": 2.7407658100128174,
+        "referenceAngle": 6.200695991516113,
+        "neighbor": 23
+      },
+      {
+        "length": 69,
+        "neighborAngle": 4.280393600463867,
+        "referenceAngle": 1.1511454582214355,
+        "neighbor": 78
+      },
+      {
+        "length": 94,
+        "neighborAngle": 5.896864891052246,
+        "referenceAngle": 6.07011079788208,
+        "neighbor": 96
+      },
+      {
+        "length": 100,
+        "neighborAngle": 6.278147220611572,
+        "referenceAngle": 0.3263587951660156,
+        "neighbor": 53
+      },
+      {
+        "length": 113,
+        "neighborAngle": 6.067317962646484,
+        "referenceAngle": 0.07957315444946289,
+        "neighbor": 51
+      },
+      {
+        "length": 119,
+        "neighborAngle": 3.589493989944458,
+        "referenceAngle": 3.239638328552246,
+        "neighbor": 28
+      },
+      {
+        "length": 123,
+        "neighborAngle": 3.436664581298828,
+        "referenceAngle": 0.5748887062072754,
+        "neighbor": 2
+      },
+      {
+        "length": 141,
+        "neighborAngle": 0.2606019973754883,
+        "referenceAngle": 0.5404195785522461,
+        "neighbor": 74
+      }
+    ],
+    [
+      {
+        "length": 55,
+        "neighborAngle": 0.7968919277191162,
+        "referenceAngle": 0.1913471221923828,
+        "neighbor": 24
+      },
+      {
+        "length": 65,
+        "neighborAngle": 4.953186511993408,
+        "referenceAngle": 4.430782794952393,
+        "neighbor": 68
+      },
+      {
+        "length": 81,
+        "neighborAngle": 3.8357810974121094,
+        "referenceAngle": 1.502838134765625,
+        "neighbor": 75
+      },
+      {
+        "length": 86,
+        "neighborAngle": 3.4006950855255127,
+        "referenceAngle": 1.6880011558532715,
+        "neighbor": 22
+      },
+      {
+        "length": 87,
+        "neighborAngle": 3.177659511566162,
+        "referenceAngle": 1.0013182163238525,
+        "neighbor": 52
+      },
+      {
+        "length": 92,
+        "neighborAngle": 0.570460319519043,
+        "referenceAngle": 2.4630072116851807,
+        "neighbor": 67
+      },
+      {
+        "length": 97,
+        "neighborAngle": 2.996622085571289,
+        "referenceAngle": 1.4082834720611572,
+        "neighbor": 73
+      },
+      {
+        "length": 97,
+        "neighborAngle": 1.331228494644165,
+        "referenceAngle": 0.1928396224975586,
+        "neighbor": 76
+      },
+      {
+        "length": 128,
+        "neighborAngle": 2.0099732875823975,
+        "referenceAngle": 0.9407808780670166,
+        "neighbor": 1
+      }
+    ],
+    [
+      {
+        "length": 26,
+        "neighborAngle": 0.12488794326782227,
+        "referenceAngle": 0.3404221534729004,
+        "neighbor": 82
+      },
+      {
+        "length": 65,
+        "neighborAngle": 5.176036834716797,
+        "referenceAngle": 5.280913352966309,
+        "neighbor": 83
+      },
+      {
+        "length": 71,
+        "neighborAngle": 4.214977264404297,
+        "referenceAngle": 1.0293712615966797,
+        "neighbor": 18
+      },
+      {
+        "length": 72,
+        "neighborAngle": 5.7882981300354,
+        "referenceAngle": 3.678877592086792,
+        "neighbor": 79
+      },
+      {
+        "length": 78,
+        "neighborAngle": 3.8563013076782227,
+        "referenceAngle": 0.066434346139431,
+        "neighbor": 98
+      },
+      {
+        "length": 82,
+        "neighborAngle": 0.14189696311950684,
+        "referenceAngle": 5.989540100097656,
+        "neighbor": 29
+      },
+      {
+        "length": 119,
+        "neighborAngle": 3.239637851715088,
+        "referenceAngle": 3.589493751525879,
+        "neighbor": 26
+      },
+      {
+        "length": 126,
+        "neighborAngle": 5.704327583312988,
+        "referenceAngle": 5.174178123474121,
+        "neighbor": 58
+      },
+      {
+        "length": 130,
+        "neighborAngle": 0.5196568965911865,
+        "referenceAngle": 0.35358715057373047,
+        "neighbor": 86
+      }
+    ],
+    [
+      {
+        "length": 29,
+        "neighborAngle": 5.396683692932129,
+        "referenceAngle": 5.1839518547058105,
+        "neighbor": 98
+      },
+      {
+        "length": 54,
+        "neighborAngle": 3.646883249282837,
+        "referenceAngle": 1.0457096099853516,
+        "neighbor": 83
+      },
+      {
+        "length": 64,
+        "neighborAngle": 2.3905789852142334,
+        "referenceAngle": 6.183248519897461,
+        "neighbor": 82
+      },
+      {
+        "length": 81,
+        "neighborAngle": 1.1785399913787842,
+        "referenceAngle": 4.589605331420898,
+        "neighbor": 86
+      },
+      {
+        "length": 82,
+        "neighborAngle": 5.989540100097656,
+        "referenceAngle": 0.14189696311950684,
+        "neighbor": 28
+      },
+      {
+        "length": 86,
+        "neighborAngle": 3.4654464721679688,
+        "referenceAngle": 2.937912702560425,
+        "neighbor": 33
+      },
+      {
+        "length": 88,
+        "neighborAngle": 4.814021110534668,
+        "referenceAngle": 2.0884923934936523,
+        "neighbor": 85
+      },
+      {
+        "length": 92,
+        "neighborAngle": 4.991196155548096,
+        "referenceAngle": 1.7549960613250732,
+        "neighbor": 58
+      },
+      {
+        "length": 93,
+        "neighborAngle": 5.640116214752197,
+        "referenceAngle": 3.966238021850586,
+        "neighbor": 34
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 2.9996955394744873,
+        "referenceAngle": 6.002009391784668,
+        "neighbor": 84
+      },
+      {
+        "length": 20,
+        "neighborAngle": 5.225995063781738,
+        "referenceAngle": 4.839362144470215,
+        "neighbor": 46
+      },
+      {
+        "length": 80,
+        "neighborAngle": 4.913312911987305,
+        "referenceAngle": 3.951152801513672,
+        "neighbor": 48
+      },
+      {
+        "length": 96,
+        "neighborAngle": 1.0780868530273438,
+        "referenceAngle": 3.156362771987915,
+        "neighbor": 88
+      },
+      {
+        "length": 98,
+        "neighborAngle": 5.52885103225708,
+        "referenceAngle": 4.994780540466309,
+        "neighbor": 99
+      },
+      {
+        "length": 102,
+        "neighborAngle": 5.51641845703125,
+        "referenceAngle": 3.1452999114990234,
+        "neighbor": 89
+      },
+      {
+        "length": 114,
+        "neighborAngle": 1.8367618322372437,
+        "referenceAngle": 1.1195807456970215,
+        "neighbor": 68
+      },
+      {
+        "length": 121,
+        "neighborAngle": 3.5477652549743652,
+        "referenceAngle": 3.013695240020752,
+        "neighbor": 32
+      },
+      {
+        "length": 122,
+        "neighborAngle": 5.611069202423096,
+        "referenceAngle": 5.324352741241455,
+        "neighbor": 47
+      }
+    ],
+    [
+      {
+        "length": 122,
+        "neighborAngle": 0.7782671451568604,
+        "referenceAngle": 0.7330489158630371,
+        "neighbor": 11
+      },
+      {
+        "length": 134,
+        "neighborAngle": 4.3798909187316895,
+        "referenceAngle": 1.0873806476593018,
+        "neighbor": 9
+      },
+      {
+        "length": 140,
+        "neighborAngle": 6.249490737915039,
+        "referenceAngle": 0.060366153717041016,
+        "neighbor": 32
+      },
+      {
+        "length": 153,
+        "neighborAngle": 1.1980583667755127,
+        "referenceAngle": 0.6670966148376465,
+        "neighbor": 10
+      },
+      {
+        "length": 160,
+        "neighborAngle": 1.5127968788146973,
+        "referenceAngle": 1.263833999633789,
+        "neighbor": 55
+      },
+      {
+        "length": 163,
+        "neighborAngle": 1.780550241470337,
+        "referenceAngle": 0.03756284713745117,
+        "neighbor": 89
+      },
+      {
+        "length": 169,
+        "neighborAngle": 3.6290032863616943,
+        "referenceAngle": 0.05222511291503906,
+        "neighbor": 88
+      },
+      {
+        "length": 181,
+        "neighborAngle": 3.3058512210845947,
+        "referenceAngle": 4.970708847045898,
+        "neighbor": 40
+      },
+      {
+        "length": 235,
+        "neighborAngle": 0.2781684398651123,
+        "referenceAngle": 6.227325439453125,
+        "neighbor": 48
+      }
+    ],
+    [
+      {
+        "length": 24,
+        "neighborAngle": 1.6461255550384521,
+        "referenceAngle": 2.950669765472412,
+        "neighbor": 89
+      },
+      {
+        "length": 29,
+        "neighborAngle": 3.589935064315796,
+        "referenceAngle": 3.0606884956359863,
+        "neighbor": 88
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.3251383304595947,
+        "referenceAngle": 4.841708183288574,
+        "neighbor": 10
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.2076425552368164,
+        "referenceAngle": 5.20995569229126,
+        "neighbor": 11
+      },
+      {
+        "length": 98,
+        "neighborAngle": 0.11142182350158691,
+        "referenceAngle": 2.824924945831299,
+        "neighbor": 48
+      },
+      {
+        "length": 121,
+        "neighborAngle": 3.013695001602173,
+        "referenceAngle": 3.5477652549743652,
+        "neighbor": 30
+      },
+      {
+        "length": 127,
+        "neighborAngle": 0.10502076148986816,
+        "referenceAngle": 3.3940505981445312,
+        "neighbor": 46
+      },
+      {
+        "length": 135,
+        "neighborAngle": 5.4718194007873535,
+        "referenceAngle": 5.226840496063232,
+        "neighbor": 9
+      },
+      {
+        "length": 138,
+        "neighborAngle": 3.133094072341919,
+        "referenceAngle": 3.5278854370117188,
+        "neighbor": 84
+      }
+    ],
+    [
+      {
+        "length": 70,
+        "neighborAngle": 3.6511852741241455,
+        "referenceAngle": 4.884286880493164,
+        "neighbor": 59
+      },
+      {
+        "length": 72,
+        "neighborAngle": 3.6983554363250732,
+        "referenceAngle": 4.641953468322754,
+        "neighbor": 85
+      },
+      {
+        "length": 86,
+        "neighborAngle": 2.937912702560425,
+        "referenceAngle": 3.4654464721679688,
+        "neighbor": 29
+      },
+      {
+        "length": 88,
+        "neighborAngle": 0.34332990646362305,
+        "referenceAngle": 2.338578224182129,
+        "neighbor": 34
+      },
+      {
+        "length": 88,
+        "neighborAngle": 0.5464177131652832,
+        "referenceAngle": 1.7250280380249023,
+        "neighbor": 60
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.1757001876831055,
+        "referenceAngle": 4.853046894073486,
+        "neighbor": 70
+      },
+      {
+        "length": 97,
+        "neighborAngle": 3.173708200454712,
+        "referenceAngle": 0.5257636904716492,
+        "neighbor": 37
+      },
+      {
+        "length": 99,
+        "neighborAngle": 4.063241004943848,
+        "referenceAngle": 4.496167182922363,
+        "neighbor": 58
+      },
+      {
+        "length": 106,
+        "neighborAngle": 6.077037334442139,
+        "referenceAngle": 3.250246524810791,
+        "neighbor": 98
+      }
+    ],
+    [
+      {
+        "length": 53,
+        "neighborAngle": 5.574109077453613,
+        "referenceAngle": 1.6158785820007324,
+        "neighbor": 60
+      },
+      {
+        "length": 54,
+        "neighborAngle": 2.640127658843994,
+        "referenceAngle": 4.5834784507751465,
+        "neighbor": 86
+      },
+      {
+        "length": 87,
+        "neighborAngle": 0.7186821699142456,
+        "referenceAngle": 5.321421146392822,
+        "neighbor": 98
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.338578224182129,
+        "referenceAngle": 0.3433300256729126,
+        "neighbor": 33
+      },
+      {
+        "length": 90,
+        "neighborAngle": 2.6206271648406982,
+        "referenceAngle": 2.6030852794647217,
+        "neighbor": 90
+      },
+      {
+        "length": 93,
+        "neighborAngle": 3.966238021850586,
+        "referenceAngle": 5.640115737915039,
+        "neighbor": 29
+      },
+      {
+        "length": 103,
+        "neighborAngle": 5.714661121368408,
+        "referenceAngle": 2.573068380355835,
+        "neighbor": 91
+      },
+      {
+        "length": 106,
+        "neighborAngle": 0.3864891529083252,
+        "referenceAngle": 2.2520155906677246,
+        "neighbor": 38
+      },
+      {
+        "length": 125,
+        "neighborAngle": 0.24303340911865234,
+        "referenceAngle": 2.4573309421539307,
+        "neighbor": 92
+      }
+    ],
+    [
+      {
+        "length": 98,
+        "neighborAngle": 1.0318856239318848,
+        "referenceAngle": 4.128260612487793,
+        "neighbor": 13
+      },
+      {
+        "length": 116,
+        "neighborAngle": 0.2895035743713379,
+        "referenceAngle": 0.3756828308105469,
+        "neighbor": 39
+      },
+      {
+        "length": 135,
+        "neighborAngle": 4.717132091522217,
+        "referenceAngle": 2.235355854034424,
+        "neighbor": 37
+      },
+      {
+        "length": 136,
+        "neighborAngle": 1.9020705223083496,
+        "referenceAngle": 3.3013408184051514,
+        "neighbor": 59
+      },
+      {
+        "length": 137,
+        "neighborAngle": 2.6384196281433105,
+        "referenceAngle": 3.4819343090057373,
+        "neighbor": 70
+      },
+      {
+        "length": 154,
+        "neighborAngle": 2.2054123878479004,
+        "referenceAngle": 3.3151791095733643,
+        "neighbor": 85
+      },
+      {
+        "length": 162,
+        "neighborAngle": 2.8765499591827393,
+        "referenceAngle": 3.647023916244507,
+        "neighbor": 12
+      },
+      {
+        "length": 164,
+        "neighborAngle": 5.841242790222168,
+        "referenceAngle": 2.8658182621002197,
+        "neighbor": 33
+      },
+      {
+        "length": 164,
+        "neighborAngle": 2.5053181648254395,
+        "referenceAngle": 5.360194206237793,
+        "neighbor": 47
+      }
+    ],
+    [
+      {
+        "length": 39,
+        "neighborAngle": 2.149183750152588,
+        "referenceAngle": 1.9309420585632324,
+        "neighbor": 14
+      },
+      {
+        "length": 65,
+        "neighborAngle": 1.4076260328292847,
+        "referenceAngle": 2.933676242828369,
+        "neighbor": 99
+      },
+      {
+        "length": 95,
+        "neighborAngle": 2.9742722511291504,
+        "referenceAngle": 4.072233200073242,
+        "neighbor": 48
+      },
+      {
+        "length": 96,
+        "neighborAngle": 0.772459864616394,
+        "referenceAngle": 2.5458641052246094,
+        "neighbor": 47
+      },
+      {
+        "length": 126,
+        "neighborAngle": 1.8212757110595703,
+        "referenceAngle": 3.494762897491455,
+        "neighbor": 46
+      },
+      {
+        "length": 143,
+        "neighborAngle": 4.627196311950684,
+        "referenceAngle": 3.406445026397705,
+        "neighbor": 84
+      },
+      {
+        "length": 145,
+        "neighborAngle": 4.612331867218018,
+        "referenceAngle": 3.53085994720459,
+        "neighbor": 30
+      },
+      {
+        "length": 150,
+        "neighborAngle": 2.01373553276062,
+        "referenceAngle": 1.0184426307678223,
+        "neighbor": 39
+      },
+      {
+        "length": 164,
+        "neighborAngle": 0.010100364685058594,
+        "referenceAngle": 4.148496627807617,
+        "neighbor": 88
+      }
+    ],
+    [
+      {
+        "length": 95,
+        "neighborAngle": 1.858851671218872,
+        "referenceAngle": 1.2852139472961426,
+        "neighbor": 15
+      },
+      {
+        "length": 97,
+        "neighborAngle": 0.525763750076294,
+        "referenceAngle": 3.173708200454712,
+        "neighbor": 33
+      },
+      {
+        "length": 105,
+        "neighborAngle": 1.5844941139221191,
+        "referenceAngle": 2.269456386566162,
+        "neighbor": 60
+      },
+      {
+        "length": 135,
+        "neighborAngle": 2.235355854034424,
+        "referenceAngle": 4.717131614685059,
+        "neighbor": 35
+      },
+      {
+        "length": 138,
+        "neighborAngle": 2.932993173599243,
+        "referenceAngle": 3.6724467277526855,
+        "neighbor": 59
+      },
+      {
+        "length": 146,
+        "neighborAngle": 1.0456876754760742,
+        "referenceAngle": 2.547287702560425,
+        "neighbor": 34
+      },
+      {
+        "length": 146,
+        "neighborAngle": 1.578380823135376,
+        "referenceAngle": 1.8039145469665527,
+        "neighbor": 38
+      },
+      {
+        "length": 149,
+        "neighborAngle": 3.1316261291503906,
+        "referenceAngle": 3.581576108932495,
+        "neighbor": 85
+      },
+      {
+        "length": 150,
+        "neighborAngle": 0.03654670715332031,
+        "referenceAngle": 0.3325519561767578,
+        "neighbor": 44
+      }
+    ],
+    [
+      {
+        "length": 30,
+        "neighborAngle": 1.047518253326416,
+        "referenceAngle": 4.537881851196289,
+        "neighbor": 92
+      },
+      {
+        "length": 34,
+        "neighborAngle": 0.9463863372802734,
+        "referenceAngle": 5.364045143127441,
+        "neighbor": 91
+      },
+      {
+        "length": 38,
+        "neighborAngle": 4.456718444824219,
+        "referenceAngle": 5.715242862701416,
+        "neighbor": 90
+      },
+      {
+        "length": 67,
+        "neighborAngle": 2.639958381652832,
+        "referenceAngle": 3.0600368976593018,
+        "neighbor": 62
+      },
+      {
+        "length": 71,
+        "neighborAngle": 3.5325396060943604,
+        "referenceAngle": 0.8503749370574951,
+        "neighbor": 60
+      },
+      {
+        "length": 79,
+        "neighborAngle": 6.154200553894043,
+        "referenceAngle": 2.2134366035461426,
+        "neighbor": 15
+      },
+      {
+        "length": 81,
+        "neighborAngle": 2.3600852489471436,
+        "referenceAngle": 3.816005229949951,
+        "neighbor": 42
+      },
+      {
+        "length": 88,
+        "neighborAngle": 3.879640579223633,
+        "referenceAngle": 2.9149389266967773,
+        "neighbor": 93
+      },
+      {
+        "length": 91,
+        "neighborAngle": 1.70522141456604,
+        "referenceAngle": 3.9835596084594727,
+        "neighbor": 19
+      }
+    ],
+    [
+      {
+        "length": 114,
+        "neighborAngle": 0.47545814514160156,
+        "referenceAngle": 4.764993190765381,
+        "neighbor": 63
+      },
+      {
+        "length": 116,
+        "neighborAngle": 0.3756828308105469,
+        "referenceAngle": 0.2895035743713379,
+        "neighbor": 35
+      },
+      {
+        "length": 130,
+        "neighborAngle": 4.139011383056641,
+        "referenceAngle": 1.7744698524475098,
+        "neighbor": 14
+      },
+      {
+        "length": 139,
+        "neighborAngle": 2.5243422985076904,
+        "referenceAngle": 4.3470258712768555,
+        "neighbor": 64
+      },
+      {
+        "length": 150,
+        "neighborAngle": 1.0184426307678223,
+        "referenceAngle": 2.01373553276062,
+        "neighbor": 36
+      },
+      {
+        "length": 158,
+        "neighborAngle": 0.2656135559082031,
+        "referenceAngle": 4.18797492980957,
+        "neighbor": 17
+      },
+      {
+        "length": 174,
+        "neighborAngle": 1.8062405586242676,
+        "referenceAngle": 1.4333453178405762,
+        "neighbor": 47
+      },
+      {
+        "length": 182,
+        "neighborAngle": 2.290739059448242,
+        "referenceAngle": 1.67048978805542,
+        "neighbor": 99
+      },
+      {
+        "length": 187,
+        "neighborAngle": 3.5260794162750244,
+        "referenceAngle": 4.6740217208862305,
+        "neighbor": 95
+      }
+    ],
+    [
+      {
+        "length": 102,
+        "neighborAngle": 0.3683650493621826,
+        "referenceAngle": 0.6654295921325684,
+        "neighbor": 43
+      },
+      {
+        "length": 181,
+        "neighborAngle": 4.970708847045898,
+        "referenceAngle": 3.3058512210845947,
+        "neighbor": 31
+      },
+      {
+        "length": 206,
+        "neighborAngle": 1.006844162940979,
+        "referenceAngle": 2.5776405334472656,
+        "neighbor": 32
+      },
+      {
+        "length": 216,
+        "neighborAngle": 2.741058111190796,
+        "referenceAngle": 2.474806070327759,
+        "neighbor": 89
+      },
+      {
+        "length": 221,
+        "neighborAngle": 4.560654640197754,
+        "referenceAngle": 2.460611581802368,
+        "neighbor": 88
+      },
+      {
+        "length": 248,
+        "neighborAngle": 1.0441181659698486,
+        "referenceAngle": 2.1868252754211426,
+        "neighbor": 48
+      },
+      {
+        "length": 260,
+        "neighborAngle": 1.4455418586730957,
+        "referenceAngle": 2.877058982849121,
+        "neighbor": 11
+      },
+      {
+        "length": 279,
+        "neighborAngle": 1.8349947929382324,
+        "referenceAngle": 2.780768394470215,
+        "neighbor": 10
+      },
+      {
+        "length": 294,
+        "neighborAngle": 4.807156562805176,
+        "referenceAngle": 2.9913814067840576,
+        "neighbor": 9
+      }
+    ],
+    [
+      {
+        "length": 55,
+        "neighborAngle": 5.978906154632568,
+        "referenceAngle": 4.624983310699463,
+        "neighbor": 19
+      },
+      {
+        "length": 67,
+        "neighborAngle": 0.29935693740844727,
+        "referenceAngle": 4.76497220993042,
+        "neighbor": 94
+      },
+      {
+        "length": 72,
+        "neighborAngle": 0.46364736557006836,
+        "referenceAngle": 4.570491790771484,
+        "neighbor": 42
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.001479148864746,
+        "referenceAngle": 3.8595824241638184,
+        "neighbor": 92
+      },
+      {
+        "length": 107,
+        "neighborAngle": 2.455207347869873,
+        "referenceAngle": 2.313310146331787,
+        "neighbor": 61
+      },
+      {
+        "length": 109,
+        "neighborAngle": 2.863293409347534,
+        "referenceAngle": 3.648691177368164,
+        "neighbor": 91
+      },
+      {
+        "length": 121,
+        "neighborAngle": 5.970609188079834,
+        "referenceAngle": 3.596872329711914,
+        "neighbor": 90
+      },
+      {
+        "length": 125,
+        "neighborAngle": 4.395190715789795,
+        "referenceAngle": 3.904522657394409,
+        "neighbor": 38
+      },
+      {
+        "length": 127,
+        "neighborAngle": 1.3731803894042969,
+        "referenceAngle": 4.444183826446533,
+        "neighbor": 62
+      }
+    ],
+    [
+      {
+        "length": 14,
+        "neighborAngle": 2.108081102371216,
+        "referenceAngle": 5.6084442138671875,
+        "neighbor": 94
+      },
+      {
+        "length": 17,
+        "neighborAngle": 2.608149766921997,
+        "referenceAngle": 0.28897523880004883,
+        "neighbor": 19
+      },
+      {
+        "length": 56,
+        "neighborAngle": 1.2114334106445312,
+        "referenceAngle": 3.3171844482421875,
+        "neighbor": 62
+      },
+      {
+        "length": 62,
+        "neighborAngle": 3.1415927410125732,
+        "referenceAngle": 2.0344436168670654,
+        "neighbor": 92
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.570491790771484,
+        "referenceAngle": 0.46364736557006836,
+        "neighbor": 41
+      },
+      {
+        "length": 74,
+        "neighborAngle": 2.843750476837158,
+        "referenceAngle": 3.5647215843200684,
+        "neighbor": 93
+      },
+      {
+        "length": 81,
+        "neighborAngle": 3.816005229949951,
+        "referenceAngle": 2.3600852489471436,
+        "neighbor": 38
+      },
+      {
+        "length": 87,
+        "neighborAngle": 2.1454410552978516,
+        "referenceAngle": 1.9655871391296387,
+        "neighbor": 91
+      },
+      {
+        "length": 100,
+        "neighborAngle": 5.333453178405762,
+        "referenceAngle": 1.9944648742675781,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 102,
+        "neighborAngle": 0.665428638458252,
+        "referenceAngle": 0.3683648109436035,
+        "neighbor": 40
+      },
+      {
+        "length": 258,
+        "neighborAngle": 1.3876856565475464,
+        "referenceAngle": 5.8030104637146,
+        "neighbor": 32
+      },
+      {
+        "length": 259,
+        "neighborAngle": 3.132972240447998,
+        "referenceAngle": 5.711248397827148,
+        "neighbor": 89
+      },
+      {
+        "length": 263,
+        "neighborAngle": 4.948179244995117,
+        "referenceAngle": 5.692665100097656,
+        "neighbor": 88
+      },
+      {
+        "length": 264,
+        "neighborAngle": 1.4403653144836426,
+        "referenceAngle": 5.427600860595703,
+        "neighbor": 48
+      },
+      {
+        "length": 274,
+        "neighborAngle": 5.149857997894287,
+        "referenceAngle": 0.04634356498718262,
+        "neighbor": 31
+      },
+      {
+        "length": 277,
+        "neighborAngle": 5.328685760498047,
+        "referenceAngle": 5.0763678550720215,
+        "neighbor": 36
+      },
+      {
+        "length": 310,
+        "neighborAngle": 5.138266086578369,
+        "referenceAngle": 4.128844261169434,
+        "neighbor": 66
+      },
+      {
+        "length": 314,
+        "neighborAngle": 2.3740954399108887,
+        "referenceAngle": 5.045128345489502,
+        "neighbor": 14
+      }
+    ],
+    [
+      {
+        "length": 68,
+        "neighborAngle": 5.701153755187988,
+        "referenceAngle": 2.0869319438934326,
+        "neighbor": 16
+      },
+      {
+        "length": 92,
+        "neighborAngle": 2.1860499382019043,
+        "referenceAngle": 2.3224520683288574,
+        "neighbor": 65
+      },
+      {
+        "length": 101,
+        "neighborAngle": 1.8736815452575684,
+        "referenceAngle": 2.1519808769226074,
+        "neighbor": 95
+      },
+      {
+        "length": 121,
+        "neighborAngle": 4.35939884185791,
+        "referenceAngle": 1.4961055517196655,
+        "neighbor": 63
+      },
+      {
+        "length": 123,
+        "neighborAngle": 3.365497350692749,
+        "referenceAngle": 5.637447357177734,
+        "neighbor": 15
+      },
+      {
+        "length": 128,
+        "neighborAngle": 6.206413269042969,
+        "referenceAngle": 5.171240329742432,
+        "neighbor": 93
+      },
+      {
+        "length": 150,
+        "neighborAngle": 0.3325519561767578,
+        "referenceAngle": 0.03654670715332031,
+        "neighbor": 37
+      },
+      {
+        "length": 150,
+        "neighborAngle": 4.882834434509277,
+        "referenceAngle": 5.232441425323486,
+        "neighbor": 62
+      },
+      {
+        "length": 158,
+        "neighborAngle": 0.8707442283630371,
+        "referenceAngle": 1.8237849473953247,
+        "neighbor": 64
+      }
+    ],
+    [
+      {
+        "length": 8,
+        "neighborAngle": 2.4704487323760986,
+        "referenceAngle": 2.1896109580993652,
+        "neighbor": 80
+      },
+      {
+        "length": 80,
+        "neighborAngle": 2.7924184799194336,
+        "referenceAngle": 3.228762149810791,
+        "neighbor": 6
+      },
+      {
+        "length": 107,
+        "neighborAngle": 0.06675148010253906,
+        "referenceAngle": 3.4569032192230225,
+        "neighbor": 25
+      },
+      {
+        "length": 109,
+        "neighborAngle": 2.599914312362671,
+        "referenceAngle": 3.626878499984741,
+        "neighbor": 5
+      },
+      {
+        "length": 150,
+        "neighborAngle": 0.6371521949768066,
+        "referenceAngle": 0.2944464683532715,
+        "neighbor": 87
+      },
+      {
+        "length": 191,
+        "neighborAngle": 1.7932376861572266,
+        "referenceAngle": 4.885609149932861,
+        "neighbor": 18
+      },
+      {
+        "length": 196,
+        "neighborAngle": 3.2175111770629883,
+        "referenceAngle": 3.841975450515747,
+        "neighbor": 54
+      },
+      {
+        "length": 236,
+        "neighborAngle": 5.407156467437744,
+        "referenceAngle": 5.235877990722656,
+        "neighbor": 86
+      },
+      {
+        "length": 241,
+        "neighborAngle": 4.585136413574219,
+        "referenceAngle": 4.795461654663086,
+        "neighbor": 82
+      }
+    ],
+    [
+      {
+        "length": 20,
+        "neighborAngle": 4.839361667633057,
+        "referenceAngle": 5.225995063781738,
+        "neighbor": 30
+      },
+      {
+        "length": 21,
+        "neighborAngle": 4.0726189613342285,
+        "referenceAngle": 4.319972991943359,
+        "neighbor": 84
+      },
+      {
+        "length": 69,
+        "neighborAngle": 4.685702800750732,
+        "referenceAngle": 0.9685832858085632,
+        "neighbor": 48
+      },
+      {
+        "length": 78,
+        "neighborAngle": 5.568591117858887,
+        "referenceAngle": 2.2795610427856445,
+        "neighbor": 99
+      },
+      {
+        "length": 100,
+        "neighborAngle": 0.8770136833190918,
+        "referenceAngle": 0.20032978057861328,
+        "neighbor": 88
+      },
+      {
+        "length": 104,
+        "neighborAngle": 5.7010178565979,
+        "referenceAngle": 2.659341812133789,
+        "neighbor": 47
+      },
+      {
+        "length": 106,
+        "neighborAngle": 5.327254295349121,
+        "referenceAngle": 0.20117604732513428,
+        "neighbor": 89
+      },
+      {
+        "length": 126,
+        "neighborAngle": 3.494763135910034,
+        "referenceAngle": 1.8212757110595703,
+        "neighbor": 36
+      },
+      {
+        "length": 127,
+        "neighborAngle": 3.3940505981445312,
+        "referenceAngle": 0.10502076148986816,
+        "neighbor": 32
+      }
+    ],
+    [
+      {
+        "length": 43,
+        "neighborAngle": 3.550081729888916,
+        "referenceAngle": 0.16113495826721191,
+        "neighbor": 99
+      },
+      {
+        "length": 68,
+        "neighborAngle": 6.243359565734863,
+        "referenceAngle": 1.1101210117340088,
+        "neighbor": 14
+      },
+      {
+        "length": 79,
+        "neighborAngle": 0.7530943155288696,
+        "referenceAngle": 3.9936184883117676,
+        "neighbor": 57
+      },
+      {
+        "length": 96,
+        "neighborAngle": 2.5458641052246094,
+        "referenceAngle": 0.772459864616394,
+        "neighbor": 36
+      },
+      {
+        "length": 104,
+        "neighborAngle": 2.659341812133789,
+        "referenceAngle": 5.701017379760742,
+        "neighbor": 46
+      },
+      {
+        "length": 108,
+        "neighborAngle": 5.359147071838379,
+        "referenceAngle": 5.506584644317627,
+        "neighbor": 84
+      },
+      {
+        "length": 122,
+        "neighborAngle": 5.324352741241455,
+        "referenceAngle": 5.611069202423096,
+        "neighbor": 30
+      },
+      {
+        "length": 132,
+        "neighborAngle": 3.7822279930114746,
+        "referenceAngle": 6.248377323150635,
+        "neighbor": 48
+      },
+      {
+        "length": 139,
+        "neighborAngle": 3.7068417072296143,
+        "referenceAngle": 3.9483399391174316,
+        "neighbor": 56
+      }
+    ],
+    [
+      {
+        "length": 69,
+        "neighborAngle": 0.968583345413208,
+        "referenceAngle": 4.685702800750732,
+        "neighbor": 46
+      },
+      {
+        "length": 70,
+        "neighborAngle": 0.11473989486694336,
+        "referenceAngle": 0.013582706451416016,
+        "neighbor": 88
+      },
+      {
+        "length": 74,
+        "neighborAngle": 4.621728897094727,
+        "referenceAngle": 0.07117748260498047,
+        "neighbor": 89
+      },
+      {
+        "length": 80,
+        "neighborAngle": 3.951153039932251,
+        "referenceAngle": 4.913312911987305,
+        "neighbor": 30
+      },
+      {
+        "length": 90,
+        "neighborAngle": 3.911559820175171,
+        "referenceAngle": 4.734440803527832,
+        "neighbor": 84
+      },
+      {
+        "length": 90,
+        "neighborAngle": 0.1197742223739624,
+        "referenceAngle": 3.6894564628601074,
+        "neighbor": 99
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.072233200073242,
+        "referenceAngle": 2.9742722511291504,
+        "neighbor": 36
+      },
+      {
+        "length": 98,
+        "neighborAngle": 2.8249244689941406,
+        "referenceAngle": 0.11142158508300781,
+        "neighbor": 32
+      },
+      {
+        "length": 121,
+        "neighborAngle": 1.422541618347168,
+        "referenceAngle": 3.247931957244873,
+        "neighbor": 14
+      }
+    ],
+    [
+      {
+        "length": 11,
+        "neighborAngle": 5.695182800292969,
+        "referenceAngle": 2.4822824001312256,
+        "neighbor": 50
+      },
+      {
+        "length": 42,
+        "neighborAngle": 0.2287602424621582,
+        "referenceAngle": 4.113007545471191,
+        "neighbor": 71
+      },
+      {
+        "length": 110,
+        "neighborAngle": 0.43328332901000977,
+        "referenceAngle": 1.4903980493545532,
+        "neighbor": 0
+      },
+      {
+        "length": 110,
+        "neighborAngle": 3.331346273422241,
+        "referenceAngle": 3.784834623336792,
+        "neighbor": 74
+      },
+      {
+        "length": 115,
+        "neighborAngle": 6.119720458984375,
+        "referenceAngle": 3.4831950664520264,
+        "neighbor": 3
+      },
+      {
+        "length": 126,
+        "neighborAngle": 5.370697975158691,
+        "referenceAngle": 3.117868185043335,
+        "neighbor": 77
+      },
+      {
+        "length": 129,
+        "neighborAngle": 0.16695475578308105,
+        "referenceAngle": 3.762035608291626,
+        "neighbor": 2
+      },
+      {
+        "length": 136,
+        "neighborAngle": 0.8719637393951416,
+        "referenceAngle": 3.2475106716156006,
+        "neighbor": 4
+      },
+      {
+        "length": 142,
+        "neighborAngle": 3.906304121017456,
+        "referenceAngle": 1.6761976480484009,
+        "neighbor": 72
+      }
+    ],
+    [
+      {
+        "length": 11,
+        "neighborAngle": 2.4822824001312256,
+        "referenceAngle": 5.695182800292969,
+        "neighbor": 49
+      },
+      {
+        "length": 44,
+        "neighborAngle": 0.4785346984863281,
+        "referenceAngle": 4.434089660644531,
+        "neighbor": 71
+      },
+      {
+        "length": 104,
+        "neighborAngle": 0.3465147018432617,
+        "referenceAngle": 1.4749372005462646,
+        "neighbor": 0
+      },
+      {
+        "length": 108,
+        "neighborAngle": 3.428504705429077,
+        "referenceAngle": 3.953300714492798,
+        "neighbor": 74
+      },
+      {
+        "length": 109,
+        "neighborAngle": 6.203232765197754,
+        "referenceAngle": 3.6380155086517334,
+        "neighbor": 3
+      },
+      {
+        "length": 118,
+        "neighborAngle": 5.425321578979492,
+        "referenceAngle": 3.2437994480133057,
+        "neighbor": 77
+      },
+      {
+        "length": 126,
+        "neighborAngle": 0.24936699867248535,
+        "referenceAngle": 3.9157555103302,
+        "neighbor": 2
+      },
+      {
+        "length": 129,
+        "neighborAngle": 0.9302833080291748,
+        "referenceAngle": 3.3771378993988037,
+        "neighbor": 4
+      },
+      {
+        "length": 135,
+        "neighborAngle": 3.848435640335083,
+        "referenceAngle": 1.6896367073059082,
+        "neighbor": 72
+      }
+    ],
+    [
+      {
+        "length": 29,
+        "neighborAngle": 1.9011712074279785,
+        "referenceAngle": 5.078719615936279,
+        "neighbor": 53
+      },
+      {
+        "length": 35,
+        "neighborAngle": 3.918894052505493,
+        "referenceAngle": 0.6551060676574707,
+        "neighbor": 96
+      },
+      {
+        "length": 53,
+        "neighborAngle": 6.234320640563965,
+        "referenceAngle": 6.2572174072265625,
+        "neighbor": 23
+      },
+      {
+        "length": 59,
+        "neighborAngle": 4.590248107910156,
+        "referenceAngle": 4.574624061584473,
+        "neighbor": 2
+      },
+      {
+        "length": 64,
+        "neighborAngle": 1.154942512512207,
+        "referenceAngle": 4.280911445617676,
+        "neighbor": 74
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.4477314949035645,
+        "referenceAngle": 4.483686923980713,
+        "neighbor": 3
+      },
+      {
+        "length": 100,
+        "neighborAngle": 5.700956344604492,
+        "referenceAngle": 5.417860984802246,
+        "neighbor": 78
+      },
+      {
+        "length": 113,
+        "neighborAngle": 0.07957339286804199,
+        "referenceAngle": 6.067317962646484,
+        "neighbor": 26
+      },
+      {
+        "length": 114,
+        "neighborAngle": 3.3955838680267334,
+        "referenceAngle": 3.669126272201538,
+        "neighbor": 71
+      }
+    ],
+    [
+      {
+        "length": 38,
+        "neighborAngle": 4.101134777069092,
+        "referenceAngle": 1.5475447177886963,
+        "neighbor": 73
+      },
+      {
+        "length": 42,
+        "neighborAngle": 1.8834285736083984,
+        "referenceAngle": 6.1321702003479,
+        "neighbor": 1
+      },
+      {
+        "length": 42,
+        "neighborAngle": 5.285055637359619,
+        "referenceAngle": 1.9868608713150024,
+        "neighbor": 75
+      },
+      {
+        "length": 49,
+        "neighborAngle": 2.2020864486694336,
+        "referenceAngle": 5.9179840087890625,
+        "neighbor": 20
+      },
+      {
+        "length": 58,
+        "neighborAngle": 4.643532752990723,
+        "referenceAngle": 1.9655874967575073,
+        "neighbor": 22
+      },
+      {
+        "length": 63,
+        "neighborAngle": 5.432553291320801,
+        "referenceAngle": 3.861757278442383,
+        "neighbor": 24
+      },
+      {
+        "length": 73,
+        "neighborAngle": 0.2982509136199951,
+        "referenceAngle": 4.4777960777282715,
+        "neighbor": 76
+      },
+      {
+        "length": 78,
+        "neighborAngle": 3.5590498447418213,
+        "referenceAngle": 5.396098613739014,
+        "neighbor": 21
+      },
+      {
+        "length": 80,
+        "neighborAngle": 0.6005020141601562,
+        "referenceAngle": 5.188536167144775,
+        "neighbor": 72
+      }
+    ],
+    [
+      {
+        "length": 29,
+        "neighborAngle": 5.0787200927734375,
+        "referenceAngle": 1.9011712074279785,
+        "neighbor": 51
+      },
+      {
+        "length": 36,
+        "neighborAngle": 4.187593460083008,
+        "referenceAngle": 4.136013507843018,
+        "neighbor": 2
+      },
+      {
+        "length": 49,
+        "neighborAngle": 0.7112636566162109,
+        "referenceAngle": 3.801276683807373,
+        "neighbor": 74
+      },
+      {
+        "length": 50,
+        "neighborAngle": 0.5258164405822754,
+        "referenceAngle": 0.5127573013305664,
+        "neighbor": 23
+      },
+      {
+        "length": 52,
+        "neighborAngle": 4.487786293029785,
+        "referenceAngle": 1.1880426406860352,
+        "neighbor": 96
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.219155311584473,
+        "referenceAngle": 4.2191548347473145,
+        "neighbor": 3
+      },
+      {
+        "length": 73,
+        "neighborAngle": 5.833813667297363,
+        "referenceAngle": 5.514761924743652,
+        "neighbor": 78
+      },
+      {
+        "length": 100,
+        "neighborAngle": 5.763564109802246,
+        "referenceAngle": 4.492450714111328,
+        "neighbor": 4
+      },
+      {
+        "length": 100,
+        "neighborAngle": 0.3263590335845947,
+        "referenceAngle": 6.2781476974487305,
+        "neighbor": 26
+      }
+    ],
+    [
+      {
+        "length": 93,
+        "neighborAngle": 6.209883213043213,
+        "referenceAngle": 3.470789909362793,
+        "neighbor": 5
+      },
+      {
+        "length": 105,
+        "neighborAngle": 3.9887235164642334,
+        "referenceAngle": 3.6128177642822266,
+        "neighbor": 25
+      },
+      {
+        "length": 139,
+        "neighborAngle": 0.6021473407745361,
+        "referenceAngle": 3.555619239807129,
+        "neighbor": 6
+      },
+      {
+        "length": 177,
+        "neighborAngle": 4.586167335510254,
+        "referenceAngle": 1.1647573709487915,
+        "neighbor": 26
+      },
+      {
+        "length": 179,
+        "neighborAngle": 1.0322890281677246,
+        "referenceAngle": 1.4347883462905884,
+        "neighbor": 79
+      },
+      {
+        "length": 190,
+        "neighborAngle": 3.9372451305389404,
+        "referenceAngle": 0.8341730833053589,
+        "neighbor": 23
+      },
+      {
+        "length": 190,
+        "neighborAngle": 2.4499197006225586,
+        "referenceAngle": 1.820246934890747,
+        "neighbor": 28
+      },
+      {
+        "length": 193,
+        "neighborAngle": 2.8685741424560547,
+        "referenceAngle": 2.1948883533477783,
+        "neighbor": 18
+      },
+      {
+        "length": 193,
+        "neighborAngle": 0.7653412818908691,
+        "referenceAngle": 0.6587700843811035,
+        "neighbor": 96
+      }
+    ],
+    [
+      {
+        "length": 36,
+        "neighborAngle": 2.1238276958465576,
+        "referenceAngle": 2.2218728065490723,
+        "neighbor": 9
+      },
+      {
+        "length": 82,
+        "neighborAngle": 5.294042587280273,
+        "referenceAngle": 2.3561947345733643,
+        "neighbor": 11
+      },
+      {
+        "length": 92,
+        "neighborAngle": 6.134858131408691,
+        "referenceAngle": 2.711266279220581,
+        "neighbor": 10
+      },
+      {
+        "length": 137,
+        "neighborAngle": 4.920053482055664,
+        "referenceAngle": 4.353324890136719,
+        "neighbor": 67
+      },
+      {
+        "length": 160,
+        "neighborAngle": 1.263833999633789,
+        "referenceAngle": 1.5127968788146973,
+        "neighbor": 31
+      },
+      {
+        "length": 170,
+        "neighborAngle": 5.183245658874512,
+        "referenceAngle": 2.384676694869995,
+        "neighbor": 32
+      },
+      {
+        "length": 179,
+        "neighborAngle": 0.2346566915512085,
+        "referenceAngle": 3.5361626148223877,
+        "neighbor": 68
+      },
+      {
+        "length": 186,
+        "neighborAngle": 0.8381602764129639,
+        "referenceAngle": 2.4857285022735596,
+        "neighbor": 89
+      },
+      {
+        "length": 187,
+        "neighborAngle": 2.70373272895813,
+        "referenceAngle": 2.517510175704956,
+        "neighbor": 88
+      }
+    ],
+    [
+      {
+        "length": 57,
+        "neighborAngle": 1.4704341888427734,
+        "referenceAngle": 1.0300874710083008,
+        "neighbor": 7
+      },
+      {
+        "length": 60,
+        "neighborAngle": 3.789865016937256,
+        "referenceAngle": 3.6472983360290527,
+        "neighbor": 57
+      },
+      {
+        "length": 70,
+        "neighborAngle": 5.840811252593994,
+        "referenceAngle": 5.7467498779296875,
+        "neighbor": 81
+      },
+      {
+        "length": 95,
+        "neighborAngle": 0.81378173828125,
+        "referenceAngle": 6.24691104888916,
+        "neighbor": 8
+      },
+      {
+        "length": 98,
+        "neighborAngle": 0.1932985782623291,
+        "referenceAngle": 6.135068893432617,
+        "neighbor": 69
+      },
+      {
+        "length": 122,
+        "neighborAngle": 5.401362419128418,
+        "referenceAngle": 5.612749099731445,
+        "neighbor": 97
+      },
+      {
+        "length": 123,
+        "neighborAngle": 5.026991844177246,
+        "referenceAngle": 5.026991844177246,
+        "neighbor": 13
+      },
+      {
+        "length": 139,
+        "neighborAngle": 3.9483399391174316,
+        "referenceAngle": 3.706841468811035,
+        "neighbor": 47
+      },
+      {
+        "length": 154,
+        "neighborAngle": 1.5250349044799805,
+        "referenceAngle": 0.622852087020874,
+        "neighbor": 77
+      }
+    ],
+    [
+      {
+        "length": 60,
+        "neighborAngle": 3.6472983360290527,
+        "referenceAngle": 3.789865016937256,
+        "neighbor": 56
+      },
+      {
+        "length": 79,
+        "neighborAngle": 3.9936184883117676,
+        "referenceAngle": 0.7530941963195801,
+        "neighbor": 47
+      },
+      {
+        "length": 113,
+        "neighborAngle": 1.2005400657653809,
+        "referenceAngle": 4.044353008270264,
+        "neighbor": 7
+      },
+      {
+        "length": 113,
+        "neighborAngle": 0.034708380699157715,
+        "referenceAngle": 3.224806785583496,
+        "neighbor": 81
+      },
+      {
+        "length": 115,
+        "neighborAngle": 4.001551151275635,
+        "referenceAngle": 0.513672947883606,
+        "neighbor": 99
+      },
+      {
+        "length": 126,
+        "neighborAngle": 5.513897895812988,
+        "referenceAngle": 2.5148720741271973,
+        "neighbor": 13
+      },
+      {
+        "length": 130,
+        "neighborAngle": 6.0090179443359375,
+        "referenceAngle": 6.057523727416992,
+        "neighbor": 84
+      },
+      {
+        "length": 139,
+        "neighborAngle": 3.256209373474121,
+        "referenceAngle": 6.198953628540039,
+        "neighbor": 46
+      },
+      {
+        "length": 145,
+        "neighborAngle": 6.104223251342773,
+        "referenceAngle": 0.8720531463623047,
+        "neighbor": 14
+      }
+    ],
+    [
+      {
+        "length": 30,
+        "neighborAngle": 0.05778670310974121,
+        "referenceAngle": 3.7100512981414795,
+        "neighbor": 85
+      },
+      {
+        "length": 32,
+        "neighborAngle": 4.656890869140625,
+        "referenceAngle": 1.6866769790649414,
+        "neighbor": 12
+      },
+      {
+        "length": 35,
+        "neighborAngle": 5.6829986572265625,
+        "referenceAngle": 2.7858259677886963,
+        "neighbor": 70
+      },
+      {
+        "length": 43,
+        "neighborAngle": 5.737530708312988,
+        "referenceAngle": 3.396113157272339,
+        "neighbor": 59
+      },
+      {
+        "length": 62,
+        "neighborAngle": 1.815774917602539,
+        "referenceAngle": 5.5923943519592285,
+        "neighbor": 83
+      },
+      {
+        "length": 83,
+        "neighborAngle": 2.0507469177246094,
+        "referenceAngle": 1.6178205013275146,
+        "neighbor": 97
+      },
+      {
+        "length": 92,
+        "neighborAngle": 1.7549960613250732,
+        "referenceAngle": 4.991196155548096,
+        "neighbor": 29
+      },
+      {
+        "length": 99,
+        "neighborAngle": 4.496167182922363,
+        "referenceAngle": 4.063241004943848,
+        "neighbor": 33
+      },
+      {
+        "length": 112,
+        "neighborAngle": 2.939185380935669,
+        "referenceAngle": 2.294872760772705,
+        "neighbor": 13
+      }
+    ],
+    [
+      {
+        "length": 17,
+        "neighborAngle": 2.3154006004333496,
+        "referenceAngle": 5.167490005493164,
+        "neighbor": 85
+      },
+      {
+        "length": 25,
+        "neighborAngle": 4.0865068435668945,
+        "referenceAngle": 0.3891589641571045,
+        "neighbor": 70
+      },
+      {
+        "length": 43,
+        "neighborAngle": 3.396113157272339,
+        "referenceAngle": 5.737530708312988,
+        "neighbor": 58
+      },
+      {
+        "length": 57,
+        "neighborAngle": 3.816333770751953,
+        "referenceAngle": 0.0459446907043457,
+        "neighbor": 12
+      },
+      {
+        "length": 70,
+        "neighborAngle": 4.884286880493164,
+        "referenceAngle": 3.6511852741241455,
+        "neighbor": 33
+      },
+      {
+        "length": 94,
+        "neighborAngle": 2.19724178314209,
+        "referenceAngle": 5.1736860275268555,
+        "neighbor": 83
+      },
+      {
+        "length": 101,
+        "neighborAngle": 2.547250986099243,
+        "referenceAngle": 1.1027626991271973,
+        "neighbor": 13
+      },
+      {
+        "length": 101,
+        "neighborAngle": 1.6202569007873535,
+        "referenceAngle": 0.38715481758117676,
+        "neighbor": 97
+      },
+      {
+        "length": 102,
+        "neighborAngle": 2.1894867420196533,
+        "referenceAngle": 4.625511169433594,
+        "neighbor": 29
+      }
+    ],
+    [
+      {
+        "length": 53,
+        "neighborAngle": 1.6158785820007324,
+        "referenceAngle": 5.574109077453613,
+        "neighbor": 34
+      },
+      {
+        "length": 71,
+        "neighborAngle": 0.8503749370574951,
+        "referenceAngle": 3.5325396060943604,
+        "neighbor": 38
+      },
+      {
+        "length": 75,
+        "neighborAngle": 3.2553517818450928,
+        "referenceAngle": 4.054448127746582,
+        "neighbor": 90
+      },
+      {
+        "length": 84,
+        "neighborAngle": 6.25938081741333,
+        "referenceAngle": 3.9344260692596436,
+        "neighbor": 91
+      },
+      {
+        "length": 88,
+        "neighborAngle": 1.7250280380249023,
+        "referenceAngle": 0.5464177131652832,
+        "neighbor": 33
+      },
+      {
+        "length": 95,
+        "neighborAngle": 0.6890115737915039,
+        "referenceAngle": 2.572004795074463,
+        "neighbor": 15
+      },
+      {
+        "length": 98,
+        "neighborAngle": 0.6619420051574707,
+        "referenceAngle": 3.6928775310516357,
+        "neighbor": 92
+      },
+      {
+        "length": 105,
+        "neighborAngle": 2.269456386566162,
+        "referenceAngle": 1.5844942331314087,
+        "neighbor": 37
+      },
+      {
+        "length": 107,
+        "neighborAngle": 2.726154088973999,
+        "referenceAngle": 5.486143112182617,
+        "neighbor": 86
+      }
+    ],
+    [
+      {
+        "length": 107,
+        "neighborAngle": 2.313310146331787,
+        "referenceAngle": 2.455207347869873,
+        "neighbor": 41
+      },
+      {
+        "length": 134,
+        "neighborAngle": 3.7552521228790283,
+        "referenceAngle": 1.5409544706344604,
+        "neighbor": 91
+      },
+      {
+        "length": 137,
+        "neighborAngle": 0.5366878509521484,
+        "referenceAngle": 1.446441411972046,
+        "neighbor": 90
+      },
+      {
+        "length": 142,
+        "neighborAngle": 4.861279487609863,
+        "referenceAngle": 1.7196863889694214,
+        "neighbor": 92
+      },
+      {
+        "length": 143,
+        "neighborAngle": 2.6846365928649902,
+        "referenceAngle": 5.383854866027832,
+        "neighbor": 87
+      },
+      {
+        "length": 150,
+        "neighborAngle": 0.25140905380249023,
+        "referenceAngle": 2.180976390838623,
+        "neighbor": 19
+      },
+      {
+        "length": 163,
+        "neighborAngle": 0.9987978935241699,
+        "referenceAngle": 2.105947256088257,
+        "neighbor": 42
+      },
+      {
+        "length": 165,
+        "neighborAngle": 0.726536750793457,
+        "referenceAngle": 2.1924562454223633,
+        "neighbor": 94
+      },
+      {
+        "length": 166,
+        "neighborAngle": 5.097289085388184,
+        "referenceAngle": 1.6069252490997314,
+        "neighbor": 38
+      }
+    ],
+    [
+      {
+        "length": 24,
+        "neighborAngle": 3.460644245147705,
+        "referenceAngle": 5.217456817626953,
+        "neighbor": 93
+      },
+      {
+        "length": 56,
+        "neighborAngle": 3.3171846866607666,
+        "referenceAngle": 1.2114334106445312,
+        "neighbor": 42
+      },
+      {
+        "length": 61,
+        "neighborAngle": 5.19069242477417,
+        "referenceAngle": 3.971442461013794,
+        "neighbor": 15
+      },
+      {
+        "length": 67,
+        "neighborAngle": 3.0600368976593018,
+        "referenceAngle": 2.639958381652832,
+        "neighbor": 38
+      },
+      {
+        "length": 67,
+        "neighborAngle": 2.796243906021118,
+        "referenceAngle": 1.0492630004882812,
+        "neighbor": 94
+      },
+      {
+        "length": 71,
+        "neighborAngle": 2.276364803314209,
+        "referenceAngle": 2.205057144165039,
+        "neighbor": 92
+      },
+      {
+        "length": 73,
+        "neighborAngle": 2.5213429927825928,
+        "referenceAngle": 1.2380099296569824,
+        "neighbor": 19
+      },
+      {
+        "length": 93,
+        "neighborAngle": 1.5126724243164062,
+        "referenceAngle": 2.3686599731445312,
+        "neighbor": 91
+      },
+      {
+        "length": 102,
+        "neighborAngle": 4.769126892089844,
+        "referenceAngle": 2.46597957611084,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 58,
+        "neighborAngle": 1.608412742614746,
+        "referenceAngle": 2.283154010772705,
+        "neighbor": 64
+      },
+      {
+        "length": 74,
+        "neighborAngle": 3.3865716457366943,
+        "referenceAngle": 3.3865716457366943,
+        "neighbor": 95
+      },
+      {
+        "length": 75,
+        "neighborAngle": 1.4422659873962402,
+        "referenceAngle": 3.832929849624634,
+        "neighbor": 16
+      },
+      {
+        "length": 88,
+        "neighborAngle": 5.768486976623535,
+        "referenceAngle": 2.259720802307129,
+        "neighbor": 17
+      },
+      {
+        "length": 90,
+        "neighborAngle": 3.6474685668945312,
+        "referenceAngle": 3.5055716037750244,
+        "neighbor": 65
+      },
+      {
+        "length": 114,
+        "neighborAngle": 4.764993190765381,
+        "referenceAngle": 0.47545814514160156,
+        "neighbor": 39
+      },
+      {
+        "length": 121,
+        "neighborAngle": 1.4961059093475342,
+        "referenceAngle": 4.35939884185791,
+        "neighbor": 44
+      },
+      {
+        "length": 157,
+        "neighborAngle": 2.944196939468384,
+        "referenceAngle": 2.0344438552856445,
+        "neighbor": 66
+      },
+      {
+        "length": 181,
+        "neighborAngle": 1.0334687232971191,
+        "referenceAngle": 6.08253288269043,
+        "neighbor": 35
+      }
+    ],
+    [
+      {
+        "length": 30,
+        "neighborAngle": 5.723064422607422,
+        "referenceAngle": 4.681149005889893,
+        "neighbor": 17
+      },
+      {
+        "length": 58,
+        "neighborAngle": 2.283154010772705,
+        "referenceAngle": 1.608412742614746,
+        "neighbor": 63
+      },
+      {
+        "length": 71,
+        "neighborAngle": 4.210784912109375,
+        "referenceAngle": 0.3944511413574219,
+        "neighbor": 95
+      },
+      {
+        "length": 89,
+        "neighborAngle": 4.3100056648254395,
+        "referenceAngle": 0.3517746925354004,
+        "neighbor": 65
+      },
+      {
+        "length": 94,
+        "neighborAngle": 2.1076645851135254,
+        "referenceAngle": 0.6819944381713867,
+        "neighbor": 16
+      },
+      {
+        "length": 101,
+        "neighborAngle": 2.802300214767456,
+        "referenceAngle": 4.359398365020752,
+        "neighbor": 66
+      },
+      {
+        "length": 139,
+        "neighborAngle": 4.3470258712768555,
+        "referenceAngle": 2.5243420600891113,
+        "neighbor": 39
+      },
+      {
+        "length": 158,
+        "neighborAngle": 1.8237850666046143,
+        "referenceAngle": 0.8707442283630371,
+        "neighbor": 44
+      },
+      {
+        "length": 229,
+        "neighborAngle": 0.8779020309448242,
+        "referenceAngle": 2.1106319427490234,
+        "neighbor": 35
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 0.8621697425842285,
+        "referenceAngle": 4.145659446716309,
+        "neighbor": 95
+      },
+      {
+        "length": 31,
+        "neighborAngle": 3.3408665657043457,
+        "referenceAngle": 2.731834650039673,
+        "neighbor": 16
+      },
+      {
+        "length": 89,
+        "neighborAngle": 0.3517746925354004,
+        "referenceAngle": 4.3100056648254395,
+        "neighbor": 64
+      },
+      {
+        "length": 90,
+        "neighborAngle": 3.5055716037750244,
+        "referenceAngle": 3.6474688053131104,
+        "neighbor": 63
+      },
+      {
+        "length": 92,
+        "neighborAngle": 2.3224523067474365,
+        "referenceAngle": 2.1860499382019043,
+        "neighbor": 44
+      },
+      {
+        "length": 104,
+        "neighborAngle": 4.806553840637207,
+        "referenceAngle": 4.581277370452881,
+        "neighbor": 17
+      },
+      {
+        "length": 173,
+        "neighborAngle": 2.3993332386016846,
+        "referenceAngle": 4.773069858551025,
+        "neighbor": 66
+      },
+      {
+        "length": 203,
+        "neighborAngle": 4.715755462646484,
+        "referenceAngle": 3.709709882736206,
+        "neighbor": 39
+      },
+      {
+        "length": 214,
+        "neighborAngle": 3.291198492050171,
+        "referenceAngle": 2.2851531505584717,
+        "neighbor": 15
+      }
+    ],
+    [
+      {
+        "length": 73,
+        "neighborAngle": 2.1300182342529297,
+        "referenceAngle": 2.672597646713257,
+        "neighbor": 17
+      },
+      {
+        "length": 101,
+        "neighborAngle": 4.35939884185791,
+        "referenceAngle": 2.802300214767456,
+        "neighbor": 64
+      },
+      {
+        "length": 157,
+        "neighborAngle": 2.0344438552856445,
+        "referenceAngle": 2.944196939468384,
+        "neighbor": 63
+      },
+      {
+        "length": 158,
+        "neighborAngle": 4.699731826782227,
+        "referenceAngle": 2.4678919315338135,
+        "neighbor": 95
+      },
+      {
+        "length": 173,
+        "neighborAngle": 4.773069858551025,
+        "referenceAngle": 2.3993332386016846,
+        "neighbor": 65
+      },
+      {
+        "length": 188,
+        "neighborAngle": 2.3854684829711914,
+        "referenceAngle": 2.544292688369751,
+        "neighbor": 16
+      },
+      {
+        "length": 192,
+        "neighborAngle": 3.8142600059509277,
+        "referenceAngle": 3.576070785522461,
+        "neighbor": 39
+      },
+      {
+        "length": 256,
+        "neighborAngle": 1.9588887691497803,
+        "referenceAngle": 2.5903422832489014,
+        "neighbor": 44
+      },
+      {
+        "length": 270,
+        "neighborAngle": 0.24936199188232422,
+        "referenceAngle": 4.14805793762207,
+        "neighbor": 36
+      }
+    ],
+    [
+      {
+        "length": 67,
+        "neighborAngle": 2.13411283493042,
+        "referenceAngle": 1.6704649925231934,
+        "neighbor": 22
+      },
+      {
+        "length": 81,
+        "neighborAngle": 2.626922845840454,
+        "referenceAngle": 1.5430254936218262,
+        "neighbor": 75
+      },
+      {
+        "length": 92,
+        "neighborAngle": 2.4630072116851807,
+        "referenceAngle": 0.570460319519043,
+        "neighbor": 27
+      },
+      {
+        "length": 95,
+        "neighborAngle": 1.9994728565216064,
+        "referenceAngle": 1.6601800918579102,
+        "neighbor": 73
+      },
+      {
+        "length": 119,
+        "neighborAngle": 2.3058393001556396,
+        "referenceAngle": 1.3785438537597656,
+        "neighbor": 52
+      },
+      {
+        "length": 131,
+        "neighborAngle": 5.655533790588379,
+        "referenceAngle": 0.09899044036865234,
+        "neighbor": 68
+      },
+      {
+        "length": 134,
+        "neighborAngle": 0.2457869052886963,
+        "referenceAngle": 0.8892879486083984,
+        "neighbor": 24
+      },
+      {
+        "length": 137,
+        "neighborAngle": 4.353324890136719,
+        "referenceAngle": 4.920053482055664,
+        "neighbor": 55
+      },
+      {
+        "length": 154,
+        "neighborAngle": 1.3705968856811523,
+        "referenceAngle": 1.550450325012207,
+        "neighbor": 1
+      }
+    ],
+    [
+      {
+        "length": 65,
+        "neighborAngle": 4.430783271789551,
+        "referenceAngle": 4.953186511993408,
+        "neighbor": 27
+      },
+      {
+        "length": 102,
+        "neighborAngle": 1.3948566913604736,
+        "referenceAngle": 4.45330810546875,
+        "neighbor": 24
+      },
+      {
+        "length": 112,
+        "neighborAngle": 1.4180138111114502,
+        "referenceAngle": 1.9959158897399902,
+        "neighbor": 84
+      },
+      {
+        "length": 114,
+        "neighborAngle": 1.1195807456970215,
+        "referenceAngle": 1.8367619514465332,
+        "neighbor": 30
+      },
+      {
+        "length": 131,
+        "neighborAngle": 4.731822490692139,
+        "referenceAngle": 1.9207777976989746,
+        "neighbor": 46
+      },
+      {
+        "length": 131,
+        "neighborAngle": 0.09898996353149414,
+        "referenceAngle": 5.655533313751221,
+        "neighbor": 67
+      },
+      {
+        "length": 135,
+        "neighborAngle": 4.344517707824707,
+        "referenceAngle": 0.7610126733779907,
+        "neighbor": 10
+      },
+      {
+        "length": 139,
+        "neighborAngle": 1.756514549255371,
+        "referenceAngle": 4.2821221351623535,
+        "neighbor": 76
+      },
+      {
+        "length": 145,
+        "neighborAngle": 3.7411556243896484,
+        "referenceAngle": 5.072208881378174,
+        "neighbor": 75
+      }
+    ],
+    [
+      {
+        "length": 11,
+        "neighborAngle": 2.593043088912964,
+        "referenceAngle": 5.225995063781738,
+        "neighbor": 8
+      },
+      {
+        "length": 42,
+        "neighborAngle": 3.7629165649414062,
+        "referenceAngle": 0.86867755651474,
+        "neighbor": 81
+      },
+      {
+        "length": 61,
+        "neighborAngle": 4.474363327026367,
+        "referenceAngle": 1.8855724334716797,
+        "neighbor": 97
+      },
+      {
+        "length": 93,
+        "neighborAngle": 2.8316662311553955,
+        "referenceAngle": 5.874327182769775,
+        "neighbor": 7
+      },
+      {
+        "length": 98,
+        "neighborAngle": 6.135068893432617,
+        "referenceAngle": 0.19329845905303955,
+        "neighbor": 56
+      },
+      {
+        "length": 101,
+        "neighborAngle": 3.687440872192383,
+        "referenceAngle": 4.613457679748535,
+        "neighbor": 4
+      },
+      {
+        "length": 106,
+        "neighborAngle": 1.0332796573638916,
+        "referenceAngle": 2.1903867721557617,
+        "neighbor": 12
+      },
+      {
+        "length": 108,
+        "neighborAngle": 2.2092928886413574,
+        "referenceAngle": 4.790118217468262,
+        "neighbor": 77
+      },
+      {
+        "length": 114,
+        "neighborAngle": 1.8990421295166016,
+        "referenceAngle": 3.777120590209961,
+        "neighbor": 78
+      }
+    ],
+    [
+      {
+        "length": 25,
+        "neighborAngle": 0.3891587257385254,
+        "referenceAngle": 4.0865068435668945,
+        "neighbor": 59
+      },
+      {
+        "length": 29,
+        "neighborAngle": 1.3082756996154785,
+        "referenceAngle": 4.716120719909668,
+        "neighbor": 85
+      },
+      {
+        "length": 35,
+        "neighborAngle": 3.576676607131958,
+        "referenceAngle": 0.3620431423187256,
+        "neighbor": 12
+      },
+      {
+        "length": 35,
+        "neighborAngle": 2.7858259677886963,
+        "referenceAngle": 5.6829986572265625,
+        "neighbor": 58
+      },
+      {
+        "length": 76,
+        "neighborAngle": 1.6196084022521973,
+        "referenceAngle": 0.9422619342803955,
+        "neighbor": 97
+      },
+      {
+        "length": 83,
+        "neighborAngle": 2.742124319076538,
+        "referenceAngle": 1.8533915281295776,
+        "neighbor": 13
+      },
+      {
+        "length": 95,
+        "neighborAngle": 4.8530473709106445,
+        "referenceAngle": 4.175701141357422,
+        "neighbor": 33
+      },
+      {
+        "length": 95,
+        "neighborAngle": 1.9357094764709473,
+        "referenceAngle": 5.46790885925293,
+        "neighbor": 83
+      },
+      {
+        "length": 116,
+        "neighborAngle": 1.998650312423706,
+        "referenceAngle": 4.99043083190918,
+        "neighbor": 29
+      }
+    ],
+    [
+      {
+        "length": 42,
+        "neighborAngle": 4.113007545471191,
+        "referenceAngle": 0.2287600040435791,
+        "neighbor": 49
+      },
+      {
+        "length": 44,
+        "neighborAngle": 4.434089660644531,
+        "referenceAngle": 0.4785346984863281,
+        "neighbor": 50
+      },
+      {
+        "length": 72,
+        "neighborAngle": 3.1428630352020264,
+        "referenceAngle": 2.8536970615386963,
+        "neighbor": 74
+      },
+      {
+        "length": 85,
+        "neighborAngle": 5.825300216674805,
+        "referenceAngle": 2.4461209774017334,
+        "neighbor": 3
+      },
+      {
+        "length": 91,
+        "neighborAngle": 0.008048295974731445,
+        "referenceAngle": 2.8604748249053955,
+        "neighbor": 2
+      },
+      {
+        "length": 109,
+        "neighborAngle": 5.044815540313721,
+        "referenceAngle": 2.0493311882019043,
+        "neighbor": 77
+      },
+      {
+        "length": 113,
+        "neighborAngle": 3.375610113143921,
+        "referenceAngle": 3.138023614883423,
+        "neighbor": 53
+      },
+      {
+        "length": 114,
+        "neighborAngle": 0.588939905166626,
+        "referenceAngle": 2.221832513809204,
+        "neighbor": 4
+      },
+      {
+        "length": 114,
+        "neighborAngle": 3.669126272201538,
+        "referenceAngle": 3.3955838680267334,
+        "neighbor": 51
+      }
+    ],
+    [
+      {
+        "length": 16,
+        "neighborAngle": 5.1547627449035645,
+        "referenceAngle": 5.545370101928711,
+        "neighbor": 21
+      },
+      {
+        "length": 40,
+        "neighborAngle": 4.298057556152344,
+        "referenceAngle": 4.443686008453369,
+        "neighbor": 0
+      },
+      {
+        "length": 54,
+        "neighborAngle": 3.972935438156128,
+        "referenceAngle": 6.242391586303711,
+        "neighbor": 20
+      },
+      {
+        "length": 54,
+        "neighborAngle": 5.245233058929443,
+        "referenceAngle": 1.6951513290405273,
+        "neighbor": 76
+      },
+      {
+        "length": 65,
+        "neighborAngle": 3.536383867263794,
+        "referenceAngle": 0.055498361587524414,
+        "neighbor": 1
+      },
+      {
+        "length": 80,
+        "neighborAngle": 5.188536167144775,
+        "referenceAngle": 0.6005020141601562,
+        "neighbor": 52
+      },
+      {
+        "length": 89,
+        "neighborAngle": 4.374766826629639,
+        "referenceAngle": 1.3575291633605957,
+        "neighbor": 24
+      },
+      {
+        "length": 115,
+        "neighborAngle": 4.440001964569092,
+        "referenceAngle": 0.43997061252593994,
+        "neighbor": 73
+      },
+      {
+        "length": 122,
+        "neighborAngle": 5.324441909790039,
+        "referenceAngle": 0.5798059701919556,
+        "neighbor": 75
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 0.1566019058227539,
+        "referenceAngle": 2.5535900592803955,
+        "neighbor": 75
+      },
+      {
+        "length": 28,
+        "neighborAngle": 5.2404632568359375,
+        "referenceAngle": 1.9745157957077026,
+        "neighbor": 22
+      },
+      {
+        "length": 38,
+        "neighborAngle": 1.5475447177886963,
+        "referenceAngle": 4.101134777069092,
+        "neighbor": 52
+      },
+      {
+        "length": 60,
+        "neighborAngle": 1.196462631225586,
+        "referenceAngle": 4.85720157623291,
+        "neighbor": 1
+      },
+      {
+        "length": 72,
+        "neighborAngle": 1.6712327003479004,
+        "referenceAngle": 4.799127578735352,
+        "neighbor": 20
+      },
+      {
+        "length": 93,
+        "neighborAngle": 5.740304946899414,
+        "referenceAngle": 3.5815062522888184,
+        "neighbor": 24
+      },
+      {
+        "length": 95,
+        "neighborAngle": 1.6601800918579102,
+        "referenceAngle": 1.999472737312317,
+        "neighbor": 67
+      },
+      {
+        "length": 97,
+        "neighborAngle": 1.4082834720611572,
+        "referenceAngle": 2.996622085571289,
+        "neighbor": 27
+      },
+      {
+        "length": 110,
+        "neighborAngle": 3.32989764213562,
+        "referenceAngle": 4.578943729400635,
+        "neighbor": 21
+      }
+    ],
+    [
+      {
+        "length": 19,
+        "neighborAngle": 0.033803701400756836,
+        "referenceAngle": 0.033803462982177734,
+        "neighbor": 2
+      },
+      {
+        "length": 34,
+        "neighborAngle": 4.838270664215088,
+        "referenceAngle": 4.88985013961792,
+        "neighbor": 3
+      },
+      {
+        "length": 49,
+        "neighborAngle": 3.801276922225952,
+        "referenceAngle": 0.7112636566162109,
+        "neighbor": 53
+      },
+      {
+        "length": 64,
+        "neighborAngle": 4.280911445617676,
+        "referenceAngle": 1.154942512512207,
+        "neighbor": 51
+      },
+      {
+        "length": 70,
+        "neighborAngle": 6.2228193283081055,
+        "referenceAngle": 5.003284931182861,
+        "neighbor": 4
+      },
+      {
+        "length": 72,
+        "neighborAngle": 2.8536970615386963,
+        "referenceAngle": 3.1428632736206055,
+        "neighbor": 71
+      },
+      {
+        "length": 79,
+        "neighborAngle": 4.329758167266846,
+        "referenceAngle": 4.765032768249512,
+        "neighbor": 77
+      },
+      {
+        "length": 94,
+        "neighborAngle": 0.09144735336303711,
+        "referenceAngle": 6.107160568237305,
+        "neighbor": 78
+      },
+      {
+        "length": 97,
+        "neighborAngle": 4.232387542724609,
+        "referenceAngle": 0.9842233657836914,
+        "neighbor": 96
+      }
+    ],
+    [
+      {
+        "length": 16,
+        "neighborAngle": 4.588033676147461,
+        "referenceAngle": 2.0666909217834473,
+        "neighbor": 22
+      },
+      {
+        "length": 18,
+        "neighborAngle": 2.5535900592803955,
+        "referenceAngle": 0.1566019058227539,
+        "neighbor": 73
+      },
+      {
+        "length": 42,
+        "neighborAngle": 1.986860990524292,
+        "referenceAngle": 5.285055637359619,
+        "neighbor": 52
+      },
+      {
+        "length": 73,
+        "neighborAngle": 1.3787484169006348,
+        "referenceAngle": 5.784091949462891,
+        "neighbor": 1
+      },
+      {
+        "length": 81,
+        "neighborAngle": 1.502838373184204,
+        "referenceAngle": 3.8357815742492676,
+        "neighbor": 27
+      },
+      {
+        "length": 81,
+        "neighborAngle": 1.5430254936218262,
+        "referenceAngle": 2.626922845840454,
+        "neighbor": 67
+      },
+      {
+        "length": 84,
+        "neighborAngle": 1.8384332656860352,
+        "referenceAngle": 5.710932731628418,
+        "neighbor": 20
+      },
+      {
+        "length": 86,
+        "neighborAngle": 5.920136451721191,
+        "referenceAngle": 4.505941867828369,
+        "neighbor": 24
+      },
+      {
+        "length": 110,
+        "neighborAngle": 0.532843828201294,
+        "referenceAngle": 4.868990898132324,
+        "neighbor": 76
+      }
+    ],
+    [
+      {
+        "length": 42,
+        "neighborAngle": 3.9419150352478027,
+        "referenceAngle": 1.3331663608551025,
+        "neighbor": 24
+      },
+      {
+        "length": 54,
+        "neighborAngle": 1.6951513290405273,
+        "referenceAngle": 5.245233058929443,
+        "neighbor": 72
+      },
+      {
+        "length": 67,
+        "neighborAngle": 4.606899261474609,
+        "referenceAngle": 5.405995845794678,
+        "neighbor": 21
+      },
+      {
+        "length": 73,
+        "neighborAngle": 4.477795600891113,
+        "referenceAngle": 0.298250675201416,
+        "neighbor": 52
+      },
+      {
+        "length": 82,
+        "neighborAngle": 3.275913953781128,
+        "referenceAngle": 5.953859329223633,
+        "neighbor": 20
+      },
+      {
+        "length": 87,
+        "neighborAngle": 2.874333620071411,
+        "referenceAngle": 6.085122585296631,
+        "neighbor": 1
+      },
+      {
+        "length": 92,
+        "neighborAngle": 4.524361610412598,
+        "referenceAngle": 5.078479290008545,
+        "neighbor": 0
+      },
+      {
+        "length": 97,
+        "neighborAngle": 0.1928396224975586,
+        "referenceAngle": 1.3312283754348755,
+        "neighbor": 27
+      },
+      {
+        "length": 110,
+        "neighborAngle": 4.868990898132324,
+        "referenceAngle": 0.532844066619873,
+        "neighbor": 75
+      }
+    ],
+    [
+      {
+        "length": 20,
+        "neighborAngle": 1.8473103046417236,
+        "referenceAngle": 3.334094524383545,
+        "neighbor": 4
+      },
+      {
+        "length": 45,
+        "neighborAngle": 1.4778683185577393,
+        "referenceAngle": 4.2357659339904785,
+        "neighbor": 3
+      },
+      {
+        "length": 79,
+        "neighborAngle": 4.765032768249512,
+        "referenceAngle": 4.329758167266846,
+        "neighbor": 74
+      },
+      {
+        "length": 81,
+        "neighborAngle": 1.3873565196990967,
+        "referenceAngle": 4.093674659729004,
+        "neighbor": 2
+      },
+      {
+        "length": 98,
+        "neighborAngle": 5.250583171844482,
+        "referenceAngle": 2.1611170768737793,
+        "neighbor": 8
+      },
+      {
+        "length": 104,
+        "neighborAngle": 3.9876749515533447,
+        "referenceAngle": 1.3079183101654053,
+        "neighbor": 7
+      },
+      {
+        "length": 108,
+        "neighborAngle": 4.790118217468262,
+        "referenceAngle": 2.2092928886413574,
+        "neighbor": 69
+      },
+      {
+        "length": 108,
+        "neighborAngle": 0.8830080032348633,
+        "referenceAngle": 3.3218541145324707,
+        "neighbor": 78
+      },
+      {
+        "length": 109,
+        "neighborAngle": 2.0493311882019043,
+        "referenceAngle": 5.044815540313721,
+        "neighbor": 71
+      }
+    ],
+    [
+      {
+        "length": 69,
+        "neighborAngle": 1.1511456966400146,
+        "referenceAngle": 4.280393600463867,
+        "neighbor": 26
+      },
+      {
+        "length": 73,
+        "neighborAngle": 5.514761924743652,
+        "referenceAngle": 5.833813667297363,
+        "neighbor": 53
+      },
+      {
+        "length": 75,
+        "neighborAngle": 2.9133424758911133,
+        "referenceAngle": 0.039222002029418945,
+        "neighbor": 2
+      },
+      {
+        "length": 76,
+        "neighborAngle": 1.7089638710021973,
+        "referenceAngle": 5.156549453735352,
+        "neighbor": 23
+      },
+      {
+        "length": 88,
+        "neighborAngle": 3.286189079284668,
+        "referenceAngle": 0.46364760398864746,
+        "neighbor": 3
+      },
+      {
+        "length": 88,
+        "neighborAngle": 4.973927021026611,
+        "referenceAngle": 0.880272388458252,
+        "neighbor": 4
+      },
+      {
+        "length": 94,
+        "neighborAngle": 6.107160568237305,
+        "referenceAngle": 0.09144735336303711,
+        "neighbor": 74
+      },
+      {
+        "length": 98,
+        "neighborAngle": 3.137502908706665,
+        "referenceAngle": 3.807474374771118,
+        "neighbor": 79
+      },
+      {
+        "length": 100,
+        "neighborAngle": 5.417860984802246,
+        "referenceAngle": 5.700956344604492,
+        "neighbor": 51
+      }
+    ],
+    [
+      {
+        "length": 48,
+        "neighborAngle": 3.1062541007995605,
+        "referenceAngle": 2.4239373207092285,
+        "neighbor": 26
+      },
+      {
+        "length": 72,
+        "neighborAngle": 3.678877592086792,
+        "referenceAngle": 5.7882981300354,
+        "neighbor": 28
+      },
+      {
+        "length": 97,
+        "neighborAngle": 0.2698493003845215,
+        "referenceAngle": 5.736396789550781,
+        "neighbor": 82
+      },
+      {
+        "length": 98,
+        "neighborAngle": 3.807474374771118,
+        "referenceAngle": 3.137502908706665,
+        "neighbor": 78
+      },
+      {
+        "length": 98,
+        "neighborAngle": 5.993681907653809,
+        "referenceAngle": 5.066386699676514,
+        "neighbor": 83
+      },
+      {
+        "length": 110,
+        "neighborAngle": 2.7613871097564697,
+        "referenceAngle": 2.3974084854125977,
+        "neighbor": 23
+      },
+      {
+        "length": 139,
+        "neighborAngle": 3.968602418899536,
+        "referenceAngle": 6.03400993347168,
+        "neighbor": 18
+      },
+      {
+        "length": 140,
+        "neighborAngle": 6.239011764526367,
+        "referenceAngle": 4.676690101623535,
+        "neighbor": 58
+      },
+      {
+        "length": 141,
+        "neighborAngle": 0.526235818862915,
+        "referenceAngle": 5.3417067527771,
+        "neighbor": 29
+      }
+    ],
+    [
+      {
+        "length": 8,
+        "neighborAngle": 2.1896109580993652,
+        "referenceAngle": 2.4704489707946777,
+        "neighbor": 45
+      },
+      {
+        "length": 76,
+        "neighborAngle": 2.883701801300049,
+        "referenceAngle": 0.4592902660369873,
+        "neighbor": 6
+      },
+      {
+        "length": 105,
+        "neighborAngle": 0.13983917236328125,
+        "referenceAngle": 0.6692357063293457,
+        "neighbor": 25
+      },
+      {
+        "length": 108,
+        "neighborAngle": 2.6738126277923584,
+        "referenceAngle": 0.8400216102600098,
+        "neighbor": 5
+      },
+      {
+        "length": 153,
+        "neighborAngle": 0.5870518684387207,
+        "referenceAngle": 3.666776657104492,
+        "neighbor": 87
+      },
+      {
+        "length": 197,
+        "neighborAngle": 3.258269786834717,
+        "referenceAngle": 1.0219790935516357,
+        "neighbor": 54
+      },
+      {
+        "length": 198,
+        "neighborAngle": 1.8108038902282715,
+        "referenceAngle": 2.0424203872680664,
+        "neighbor": 18
+      },
+      {
+        "length": 244,
+        "neighborAngle": 5.410302639007568,
+        "referenceAngle": 2.378269672393799,
+        "neighbor": 86
+      },
+      {
+        "length": 248,
+        "neighborAngle": 4.60173225402832,
+        "referenceAngle": 1.9513026475906372,
+        "neighbor": 82
+      }
+    ],
+    [
+      {
+        "length": 42,
+        "neighborAngle": 0.8686776161193848,
+        "referenceAngle": 3.7629165649414062,
+        "neighbor": 69
+      },
+      {
+        "length": 48,
+        "neighborAngle": 1.5998060703277588,
+        "referenceAngle": 3.9854040145874023,
+        "neighbor": 8
+      },
+      {
+        "length": 53,
+        "neighborAngle": 5.223743438720703,
+        "referenceAngle": 2.3875980377197266,
+        "neighbor": 97
+      },
+      {
+        "length": 70,
+        "neighborAngle": 5.7467498779296875,
+        "referenceAngle": 5.840811252593994,
+        "neighbor": 56
+      },
+      {
+        "length": 84,
+        "neighborAngle": 4.444737434387207,
+        "referenceAngle": 1.3972058296203613,
+        "neighbor": 13
+      },
+      {
+        "length": 90,
+        "neighborAngle": 2.363187074661255,
+        "referenceAngle": 5.158494472503662,
+        "neighbor": 7
+      },
+      {
+        "length": 104,
+        "neighborAngle": 1.4410936832427979,
+        "referenceAngle": 2.350846767425537,
+        "neighbor": 12
+      },
+      {
+        "length": 113,
+        "neighborAngle": 3.224806785583496,
+        "referenceAngle": 0.034708261489868164,
+        "neighbor": 57
+      },
+      {
+        "length": 126,
+        "neighborAngle": 1.131091594696045,
+        "referenceAngle": 2.1138854026794434,
+        "neighbor": 70
+      }
+    ],
+    [
+      {
+        "length": 26,
+        "neighborAngle": 0.3404216766357422,
+        "referenceAngle": 0.12488770484924316,
+        "neighbor": 28
+      },
+      {
+        "length": 54,
+        "neighborAngle": 4.521986484527588,
+        "referenceAngle": 4.262439727783203,
+        "neighbor": 18
+      },
+      {
+        "length": 54,
+        "neighborAngle": 3.7265372276306152,
+        "referenceAngle": 2.8627288341522217,
+        "neighbor": 98
+      },
+      {
+        "length": 64,
+        "neighborAngle": 6.183248519897461,
+        "referenceAngle": 2.3905789852142334,
+        "neighbor": 29
+      },
+      {
+        "length": 64,
+        "neighborAngle": 4.774807929992676,
+        "referenceAngle": 1.5225579738616943,
+        "neighbor": 83
+      },
+      {
+        "length": 97,
+        "neighborAngle": 5.736396312713623,
+        "referenceAngle": 0.2698490619659424,
+        "neighbor": 79
+      },
+      {
+        "length": 104,
+        "neighborAngle": 0.522902250289917,
+        "referenceAngle": 3.282891035079956,
+        "neighbor": 86
+      },
+      {
+        "length": 125,
+        "neighborAngle": 5.499459266662598,
+        "referenceAngle": 1.6121824979782104,
+        "neighbor": 58
+      },
+      {
+        "length": 135,
+        "neighborAngle": 5.207634925842285,
+        "referenceAngle": 1.8310304880142212,
+        "neighbor": 85
+      }
+    ],
+    [
+      {
+        "length": 54,
+        "neighborAngle": 1.0457098484039307,
+        "referenceAngle": 3.646883249282837,
+        "neighbor": 29
+      },
+      {
+        "length": 62,
+        "neighborAngle": 5.5923943519592285,
+        "referenceAngle": 1.8157750368118286,
+        "neighbor": 58
+      },
+      {
+        "length": 64,
+        "neighborAngle": 1.5225582122802734,
+        "referenceAngle": 4.774807929992676,
+        "neighbor": 82
+      },
+      {
+        "length": 65,
+        "neighborAngle": 5.280913352966309,
+        "referenceAngle": 5.176036834716797,
+        "neighbor": 28
+      },
+      {
+        "length": 74,
+        "neighborAngle": 4.7377705574035645,
+        "referenceAngle": 3.984619379043579,
+        "neighbor": 98
+      },
+      {
+        "length": 77,
+        "neighborAngle": 5.464580535888672,
+        "referenceAngle": 2.1986329555511475,
+        "neighbor": 85
+      },
+      {
+        "length": 88,
+        "neighborAngle": 5.164673805236816,
+        "referenceAngle": 1.5594332218170166,
+        "neighbor": 12
+      },
+      {
+        "length": 94,
+        "neighborAngle": 5.1736860275268555,
+        "referenceAngle": 2.1972415447235107,
+        "neighbor": 59
+      },
+      {
+        "length": 95,
+        "neighborAngle": 5.46790885925293,
+        "referenceAngle": 1.9357094764709473,
+        "neighbor": 70
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 6.002009391784668,
+        "referenceAngle": 2.999695301055908,
+        "neighbor": 30
+      },
+      {
+        "length": 21,
+        "neighborAngle": 4.319972991943359,
+        "referenceAngle": 4.0726189613342285,
+        "neighbor": 46
+      },
+      {
+        "length": 90,
+        "neighborAngle": 4.734440803527832,
+        "referenceAngle": 3.911559581756592,
+        "neighbor": 48
+      },
+      {
+        "length": 90,
+        "neighborAngle": 5.358508110046387,
+        "referenceAngle": 4.963716506958008,
+        "neighbor": 99
+      },
+      {
+        "length": 108,
+        "neighborAngle": 5.506584644317627,
+        "referenceAngle": 5.359147071838379,
+        "neighbor": 47
+      },
+      {
+        "length": 112,
+        "neighborAngle": 1.9959158897399902,
+        "referenceAngle": 1.418013572692871,
+        "neighbor": 68
+      },
+      {
+        "length": 113,
+        "neighborAngle": 1.0316343307495117,
+        "referenceAngle": 3.2491893768310547,
+        "neighbor": 88
+      },
+      {
+        "length": 119,
+        "neighborAngle": 5.473918914794922,
+        "referenceAngle": 3.242079257965088,
+        "neighbor": 89
+      },
+      {
+        "length": 130,
+        "neighborAngle": 6.057523727416992,
+        "referenceAngle": 6.0090179443359375,
+        "neighbor": 57
+      }
+    ],
+    [
+      {
+        "length": 17,
+        "neighborAngle": 5.167490005493164,
+        "referenceAngle": 2.3154006004333496,
+        "neighbor": 59
+      },
+      {
+        "length": 29,
+        "neighborAngle": 4.716119766235352,
+        "referenceAngle": 1.3082754611968994,
+        "neighbor": 70
+      },
+      {
+        "length": 30,
+        "neighborAngle": 3.7100512981414795,
+        "referenceAngle": 0.05778670310974121,
+        "neighbor": 58
+      },
+      {
+        "length": 53,
+        "neighborAngle": 4.119691848754883,
+        "referenceAngle": 0.6388061046600342,
+        "neighbor": 12
+      },
+      {
+        "length": 72,
+        "neighborAngle": 4.641953468322754,
+        "referenceAngle": 3.6983554363250732,
+        "neighbor": 33
+      },
+      {
+        "length": 77,
+        "neighborAngle": 2.1986331939697266,
+        "referenceAngle": 5.464580535888672,
+        "neighbor": 83
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.0884926319122314,
+        "referenceAngle": 4.814021110534668,
+        "neighbor": 29
+      },
+      {
+        "length": 101,
+        "neighborAngle": 1.7904973030090332,
+        "referenceAngle": 0.8468987941741943,
+        "neighbor": 97
+      },
+      {
+        "length": 112,
+        "neighborAngle": 2.6702826023101807,
+        "referenceAngle": 1.5152976512908936,
+        "neighbor": 13
+      }
+    ],
+    [
+      {
+        "length": 54,
+        "neighborAngle": 4.5834784507751465,
+        "referenceAngle": 2.640127658843994,
+        "neighbor": 34
+      },
+      {
+        "length": 59,
+        "neighborAngle": 1.3831853866577148,
+        "referenceAngle": 0.9009807109832764,
+        "neighbor": 98
+      },
+      {
+        "length": 81,
+        "neighborAngle": 4.589605331420898,
+        "referenceAngle": 1.1785402297973633,
+        "neighbor": 29
+      },
+      {
+        "length": 87,
+        "neighborAngle": 6.1395134925842285,
+        "referenceAngle": 6.261570453643799,
+        "neighbor": 18
+      },
+      {
+        "length": 104,
+        "neighborAngle": 3.282891035079956,
+        "referenceAngle": 0.5229020118713379,
+        "neighbor": 82
+      },
+      {
+        "length": 107,
+        "neighborAngle": 5.486143112182617,
+        "referenceAngle": 2.726154327392578,
+        "neighbor": 60
+      },
+      {
+        "length": 122,
+        "neighborAngle": 2.199064254760742,
+        "referenceAngle": 3.3797643184661865,
+        "neighbor": 90
+      },
+      {
+        "length": 123,
+        "neighborAngle": 2.744906425476074,
+        "referenceAngle": 1.9478999376296997,
+        "neighbor": 33
+      },
+      {
+        "length": 130,
+        "neighborAngle": 0.35358715057373047,
+        "referenceAngle": 0.5196566581726074,
+        "neighbor": 28
+      }
+    ],
+    [
+      {
+        "length": 143,
+        "neighborAngle": 5.383854866027832,
+        "referenceAngle": 2.6846365928649902,
+        "neighbor": 61
+      },
+      {
+        "length": 150,
+        "neighborAngle": 0.2944464683532715,
+        "referenceAngle": 0.6371519565582275,
+        "neighbor": 45
+      },
+      {
+        "length": 153,
+        "neighborAngle": 3.666776657104492,
+        "referenceAngle": 0.5870516300201416,
+        "neighbor": 80
+      },
+      {
+        "length": 229,
+        "neighborAngle": 2.927645683288574,
+        "referenceAngle": 0.5651023387908936,
+        "neighbor": 6
+      },
+      {
+        "length": 249,
+        "neighborAngle": 2.1915740966796875,
+        "referenceAngle": 2.775845527648926,
+        "neighbor": 41
+      },
+      {
+        "length": 249,
+        "neighborAngle": 4.781216144561768,
+        "referenceAngle": 1.8110506534576416,
+        "neighbor": 86
+      },
+      {
+        "length": 256,
+        "neighborAngle": 1.1739120483398438,
+        "referenceAngle": 1.4673964977264404,
+        "neighbor": 18
+      },
+      {
+        "length": 257,
+        "neighborAngle": 0.05460309982299805,
+        "referenceAngle": 0.6458673477172852,
+        "neighbor": 25
+      },
+      {
+        "length": 258,
+        "neighborAngle": 2.489398717880249,
+        "referenceAngle": 0.7174756526947021,
+        "neighbor": 5
+      }
+    ],
+    [
+      {
+        "length": 6,
+        "neighborAngle": 5.341185569763184,
+        "referenceAngle": 4.033383369445801,
+        "neighbor": 89
+      },
+      {
+        "length": 29,
+        "neighborAngle": 3.0606884956359863,
+        "referenceAngle": 3.589935064315796,
+        "neighbor": 32
+      },
+      {
+        "length": 70,
+        "neighborAngle": 0.013582944869995117,
+        "referenceAngle": 0.11473989486694336,
+        "neighbor": 48
+      },
+      {
+        "length": 96,
+        "neighborAngle": 3.156362771987915,
+        "referenceAngle": 1.0780868530273438,
+        "neighbor": 30
+      },
+      {
+        "length": 98,
+        "neighborAngle": 2.6184911727905273,
+        "referenceAngle": 2.5227150917053223,
+        "neighbor": 10
+      },
+      {
+        "length": 100,
+        "neighborAngle": 0.20033001899719238,
+        "referenceAngle": 0.8770136833190918,
+        "neighbor": 46
+      },
+      {
+        "length": 107,
+        "neighborAngle": 2.4382448196411133,
+        "referenceAngle": 2.828211784362793,
+        "neighbor": 11
+      },
+      {
+        "length": 113,
+        "neighborAngle": 3.2491891384124756,
+        "referenceAngle": 1.0316343307495117,
+        "neighbor": 84
+      },
+      {
+        "length": 153,
+        "neighborAngle": 5.630106449127197,
+        "referenceAngle": 2.7727813720703125,
+        "neighbor": 9
+      }
+    ],
+    [
+      {
+        "length": 6,
+        "neighborAngle": 4.033383369445801,
+        "referenceAngle": 5.341185569763184,
+        "neighbor": 88
+      },
+      {
+        "length": 24,
+        "neighborAngle": 2.950669288635254,
+        "referenceAngle": 1.646125316619873,
+        "neighbor": 32
+      },
+      {
+        "length": 74,
+        "neighborAngle": 0.07117772102355957,
+        "referenceAngle": 4.621729373931885,
+        "neighbor": 48
+      },
+      {
+        "length": 98,
+        "neighborAngle": 2.5566911697387695,
+        "referenceAngle": 0.6271240711212158,
+        "neighbor": 10
+      },
+      {
+        "length": 102,
+        "neighborAngle": 3.1452996730804443,
+        "referenceAngle": 5.51641845703125,
+        "neighbor": 30
+      },
+      {
+        "length": 105,
+        "neighborAngle": 2.383938789367676,
+        "referenceAngle": 0.9401149749755859,
+        "neighbor": 11
+      },
+      {
+        "length": 106,
+        "neighborAngle": 0.20117592811584473,
+        "referenceAngle": 5.327254295349121,
+        "neighbor": 46
+      },
+      {
+        "length": 119,
+        "neighborAngle": 3.242079019546509,
+        "referenceAngle": 5.473918914794922,
+        "neighbor": 84
+      },
+      {
+        "length": 151,
+        "neighborAngle": 5.591789722442627,
+        "referenceAngle": 0.9006743431091309,
+        "neighbor": 9
+      }
+    ],
+    [
+      {
+        "length": 13,
+        "neighborAngle": 5.50853967666626,
+        "referenceAngle": 5.526081562042236,
+        "neighbor": 91
+      },
+      {
+        "length": 38,
+        "neighborAngle": 5.715242862701416,
+        "referenceAngle": 4.456718444824219,
+        "neighbor": 38
+      },
+      {
+        "length": 38,
+        "neighborAngle": 6.178308486938477,
+        "referenceAngle": 5.268555164337158,
+        "neighbor": 92
+      },
+      {
+        "length": 75,
+        "neighborAngle": 4.054448127746582,
+        "referenceAngle": 3.2553515434265137,
+        "neighbor": 60
+      },
+      {
+        "length": 90,
+        "neighborAngle": 2.6030852794647217,
+        "referenceAngle": 2.6206271648406982,
+        "neighbor": 34
+      },
+      {
+        "length": 100,
+        "neighborAngle": 1.9944648742675781,
+        "referenceAngle": 5.33345365524292,
+        "neighbor": 42
+      },
+      {
+        "length": 102,
+        "neighborAngle": 2.46597957611084,
+        "referenceAngle": 4.769126892089844,
+        "neighbor": 62
+      },
+      {
+        "length": 104,
+        "neighborAngle": 1.3375751972198486,
+        "referenceAngle": 5.498981952667236,
+        "neighbor": 19
+      },
+      {
+        "length": 113,
+        "neighborAngle": 1.6933705806732178,
+        "referenceAngle": 5.391129493713379,
+        "neighbor": 94
+      }
+    ],
+    [
+      {
+        "length": 13,
+        "neighborAngle": 5.526081562042236,
+        "referenceAngle": 5.50853967666626,
+        "neighbor": 90
+      },
+      {
+        "length": 26,
+        "neighborAngle": 6.047640800476074,
+        "referenceAngle": 1.978752613067627,
+        "neighbor": 92
+      },
+      {
+        "length": 34,
+        "neighborAngle": 5.364045143127441,
+        "referenceAngle": 0.9463860988616943,
+        "neighbor": 38
+      },
+      {
+        "length": 84,
+        "neighborAngle": 3.9344260692596436,
+        "referenceAngle": 6.259380340576172,
+        "neighbor": 60
+      },
+      {
+        "length": 87,
+        "neighborAngle": 1.9655871391296387,
+        "referenceAngle": 2.1454410552978516,
+        "neighbor": 42
+      },
+      {
+        "length": 91,
+        "neighborAngle": 1.3336446285247803,
+        "referenceAngle": 2.335916757583618,
+        "neighbor": 19
+      },
+      {
+        "length": 93,
+        "neighborAngle": 2.3686599731445312,
+        "referenceAngle": 1.5126723051071167,
+        "neighbor": 62
+      },
+      {
+        "length": 100,
+        "neighborAngle": 1.675673246383667,
+        "referenceAngle": 2.2142975330352783,
+        "neighbor": 94
+      },
+      {
+        "length": 103,
+        "neighborAngle": 2.573068380355835,
+        "referenceAngle": 5.71466064453125,
+        "neighbor": 34
+      }
+    ],
+    [
+      {
+        "length": 26,
+        "neighborAngle": 1.978752613067627,
+        "referenceAngle": 6.047640800476074,
+        "neighbor": 91
+      },
+      {
+        "length": 30,
+        "neighborAngle": 4.537881851196289,
+        "referenceAngle": 1.047518014907837,
+        "neighbor": 38
+      },
+      {
+        "length": 38,
+        "neighborAngle": 5.268555164337158,
+        "referenceAngle": 6.178308486938477,
+        "neighbor": 90
+      },
+      {
+        "length": 62,
+        "neighborAngle": 2.0344436168670654,
+        "referenceAngle": 3.1415927410125732,
+        "neighbor": 42
+      },
+      {
+        "length": 67,
+        "neighborAngle": 1.467834234237671,
+        "referenceAngle": 3.3974015712738037,
+        "neighbor": 19
+      },
+      {
+        "length": 71,
+        "neighborAngle": 2.205057144165039,
+        "referenceAngle": 2.27636456489563,
+        "neighbor": 62
+      },
+      {
+        "length": 75,
+        "neighborAngle": 1.7555034160614014,
+        "referenceAngle": 3.2214229106903076,
+        "neighbor": 94
+      },
+      {
+        "length": 95,
+        "neighborAngle": 3.8595826625823975,
+        "referenceAngle": 4.0014801025390625,
+        "neighbor": 41
+      },
+      {
+        "length": 95,
+        "neighborAngle": 3.5573601722717285,
+        "referenceAngle": 2.243887186050415,
+        "neighbor": 93
+      }
+    ],
+    [
+      {
+        "length": 24,
+        "neighborAngle": 5.217456817626953,
+        "referenceAngle": 3.460644245147705,
+        "neighbor": 62
+      },
+      {
+        "length": 58,
+        "neighborAngle": 4.791625022888184,
+        "referenceAngle": 4.957155704498291,
+        "neighbor": 15
+      },
+      {
+        "length": 74,
+        "neighborAngle": 3.5647218227386475,
+        "referenceAngle": 2.8437509536743164,
+        "neighbor": 42
+      },
+      {
+        "length": 82,
+        "neighborAngle": 3.049074411392212,
+        "referenceAngle": 2.6868739128112793,
+        "neighbor": 94
+      },
+      {
+        "length": 88,
+        "neighborAngle": 2.9149389266967773,
+        "referenceAngle": 3.879640579223633,
+        "neighbor": 38
+      },
+      {
+        "length": 91,
+        "neighborAngle": 2.7169830799102783,
+        "referenceAngle": 2.8184304237365723,
+        "neighbor": 19
+      },
+      {
+        "length": 95,
+        "neighborAngle": 2.243887424468994,
+        "referenceAngle": 3.5573601722717285,
+        "neighbor": 92
+      },
+      {
+        "length": 116,
+        "neighborAngle": 1.453284740447998,
+        "referenceAngle": 3.6940526962280273,
+        "neighbor": 91
+      },
+      {
+        "length": 124,
+        "neighborAngle": 4.696181774139404,
+        "referenceAngle": 3.7778148651123047,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 14,
+        "neighborAngle": 5.6084442138671875,
+        "referenceAngle": 2.108081102371216,
+        "neighbor": 42
+      },
+      {
+        "length": 15,
+        "neighborAngle": 3.520636796951294,
+        "referenceAngle": 0.8426918983459473,
+        "neighbor": 19
+      },
+      {
+        "length": 67,
+        "neighborAngle": 4.764971733093262,
+        "referenceAngle": 0.29935693740844727,
+        "neighbor": 41
+      },
+      {
+        "length": 67,
+        "neighborAngle": 1.0492630004882812,
+        "referenceAngle": 2.7962441444396973,
+        "neighbor": 62
+      },
+      {
+        "length": 75,
+        "neighborAngle": 3.2214224338531494,
+        "referenceAngle": 1.7555031776428223,
+        "neighbor": 92
+      },
+      {
+        "length": 82,
+        "neighborAngle": 2.686873435974121,
+        "referenceAngle": 3.049074172973633,
+        "neighbor": 93
+      },
+      {
+        "length": 96,
+        "neighborAngle": 3.8319787979125977,
+        "referenceAngle": 2.0172886848449707,
+        "neighbor": 38
+      },
+      {
+        "length": 100,
+        "neighborAngle": 2.2142975330352783,
+        "referenceAngle": 1.675673246383667,
+        "neighbor": 91
+      },
+      {
+        "length": 113,
+        "neighborAngle": 5.391129493713379,
+        "referenceAngle": 1.6933705806732178,
+        "neighbor": 90
+      }
+    ],
+    [
+      {
+        "length": 18,
+        "neighborAngle": 4.145659923553467,
+        "referenceAngle": 0.8621702194213867,
+        "neighbor": 65
+      },
+      {
+        "length": 33,
+        "neighborAngle": 2.758352279663086,
+        "referenceAngle": 2.0074234008789062,
+        "neighbor": 16
+      },
+      {
+        "length": 71,
+        "neighborAngle": 0.3944511413574219,
+        "referenceAngle": 4.210784912109375,
+        "neighbor": 64
+      },
+      {
+        "length": 74,
+        "neighborAngle": 3.386571168899536,
+        "referenceAngle": 3.3865714073181152,
+        "neighbor": 63
+      },
+      {
+        "length": 87,
+        "neighborAngle": 4.8956193923950195,
+        "referenceAngle": 4.528445720672607,
+        "neighbor": 17
+      },
+      {
+        "length": 101,
+        "neighborAngle": 2.1519811153411865,
+        "referenceAngle": 1.8736815452575684,
+        "neighbor": 44
+      },
+      {
+        "length": 158,
+        "neighborAngle": 2.4678919315338135,
+        "referenceAngle": 4.699731826782227,
+        "neighbor": 66
+      },
+      {
+        "length": 187,
+        "neighborAngle": 4.6740217208862305,
+        "referenceAngle": 3.5260791778564453,
+        "neighbor": 39
+      },
+      {
+        "length": 220,
+        "neighborAngle": 6.2139892578125,
+        "referenceAngle": 2.498091697692871,
+        "neighbor": 37
+      }
+    ],
+    [
+      {
+        "length": 34,
+        "neighborAngle": 5.510846138000488,
+        "referenceAngle": 5.655938148498535,
+        "neighbor": 23
+      },
+      {
+        "length": 35,
+        "neighborAngle": 0.6551060676574707,
+        "referenceAngle": 3.918893814086914,
+        "neighbor": 51
+      },
+      {
+        "length": 52,
+        "neighborAngle": 1.1880426406860352,
+        "referenceAngle": 4.487786769866943,
+        "neighbor": 53
+      },
+      {
+        "length": 88,
+        "neighborAngle": 4.302033424377441,
+        "referenceAngle": 4.408605098724365,
+        "neighbor": 2
+      },
+      {
+        "length": 94,
+        "neighborAngle": 6.070111274719238,
+        "referenceAngle": 5.896865367889404,
+        "neighbor": 26
+      },
+      {
+        "length": 97,
+        "neighborAngle": 0.9842233657836914,
+        "referenceAngle": 4.232387542724609,
+        "neighbor": 74
+      },
+      {
+        "length": 105,
+        "neighborAngle": 5.355598449707031,
+        "referenceAngle": 5.194697856903076,
+        "neighbor": 78
+      },
+      {
+        "length": 124,
+        "neighborAngle": 4.265368938446045,
+        "referenceAngle": 4.423519611358643,
+        "neighbor": 3
+      },
+      {
+        "length": 142,
+        "neighborAngle": 2.306236505508423,
+        "referenceAngle": 5.956900119781494,
+        "neighbor": 79
+      }
+    ],
+    [
+      {
+        "length": 51,
+        "neighborAngle": 1.4027535915374756,
+        "referenceAngle": 2.007059097290039,
+        "neighbor": 12
+      },
+      {
+        "length": 53,
+        "neighborAngle": 2.3875975608825684,
+        "referenceAngle": 5.223742961883545,
+        "neighbor": 81
+      },
+      {
+        "length": 61,
+        "neighborAngle": 1.8855724334716797,
+        "referenceAngle": 4.474363327026367,
+        "neighbor": 69
+      },
+      {
+        "length": 71,
+        "neighborAngle": 3.7661001682281494,
+        "referenceAngle": 0.4131210446357727,
+        "neighbor": 13
+      },
+      {
+        "length": 72,
+        "neighborAngle": 2.4248368740081787,
+        "referenceAngle": 4.504986763000488,
+        "neighbor": 8
+      },
+      {
+        "length": 76,
+        "neighborAngle": 0.9422621726989746,
+        "referenceAngle": 1.6196084022521973,
+        "neighbor": 70
+      },
+      {
+        "length": 83,
+        "neighborAngle": 1.6178205013275146,
+        "referenceAngle": 2.0507469177246094,
+        "neighbor": 58
+      },
+      {
+        "length": 101,
+        "neighborAngle": 0.38715505599975586,
+        "referenceAngle": 1.6202569007873535,
+        "neighbor": 59
+      },
+      {
+        "length": 101,
+        "neighborAngle": 0.8468990325927734,
+        "referenceAngle": 1.7904973030090332,
+        "neighbor": 85
+      }
+    ],
+    [
+      {
+        "length": 29,
+        "neighborAngle": 5.1839518547058105,
+        "referenceAngle": 5.396683692932129,
+        "neighbor": 29
+      },
+      {
+        "length": 54,
+        "neighborAngle": 2.8627288341522217,
+        "referenceAngle": 3.7265372276306152,
+        "neighbor": 82
+      },
+      {
+        "length": 59,
+        "neighborAngle": 0.9009807109832764,
+        "referenceAngle": 1.3831853866577148,
+        "neighbor": 86
+      },
+      {
+        "length": 69,
+        "neighborAngle": 5.389353275299072,
+        "referenceAngle": 2.852022171020508,
+        "neighbor": 18
+      },
+      {
+        "length": 74,
+        "neighborAngle": 3.984619379043579,
+        "referenceAngle": 4.7377705574035645,
+        "neighbor": 83
+      },
+      {
+        "length": 78,
+        "neighborAngle": 0.06643432378768921,
+        "referenceAngle": 3.8563013076782227,
+        "neighbor": 28
+      },
+      {
+        "length": 87,
+        "neighborAngle": 5.321421146392822,
+        "referenceAngle": 0.7186821699142456,
+        "neighbor": 34
+      },
+      {
+        "length": 106,
+        "neighborAngle": 3.250246524810791,
+        "referenceAngle": 6.077037334442139,
+        "neighbor": 33
+      },
+      {
+        "length": 117,
+        "neighborAngle": 4.802569389343262,
+        "referenceAngle": 5.431365966796875,
+        "neighbor": 85
+      }
+    ],
+    [
+      {
+        "length": 43,
+        "neighborAngle": 0.16113507747650146,
+        "referenceAngle": 3.550081729888916,
+        "neighbor": 47
+      },
+      {
+        "length": 55,
+        "neighborAngle": 0.6466970443725586,
+        "referenceAngle": 2.0439977645874023,
+        "neighbor": 14
+      },
+      {
+        "length": 65,
+        "neighborAngle": 2.933676242828369,
+        "referenceAngle": 1.4076259136199951,
+        "neighbor": 36
+      },
+      {
+        "length": 78,
+        "neighborAngle": 2.2795610427856445,
+        "referenceAngle": 5.5685906410217285,
+        "neighbor": 46
+      },
+      {
+        "length": 90,
+        "neighborAngle": 3.6894564628601074,
+        "referenceAngle": 0.11977410316467285,
+        "neighbor": 48
+      },
+      {
+        "length": 90,
+        "neighborAngle": 4.963716506958008,
+        "referenceAngle": 5.358508110046387,
+        "neighbor": 84
+      },
+      {
+        "length": 98,
+        "neighborAngle": 4.99478006362915,
+        "referenceAngle": 5.528850555419922,
+        "neighbor": 30
+      },
+      {
+        "length": 115,
+        "neighborAngle": 0.513672947883606,
+        "referenceAngle": 4.001551151275635,
+        "neighbor": 57
+      },
+      {
+        "length": 154,
+        "neighborAngle": 0.41718578338623047,
+        "referenceAngle": 6.1711249351501465,
+        "neighbor": 88
+      }
+    ]
+  ]
+]
