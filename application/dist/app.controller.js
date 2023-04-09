@@ -12,156 +12,145 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.res_render = exports.AppController = void 0;
+exports.AppController = void 0;
 const common_1 = require("@nestjs/common");
+const app_zkt_fingerprint_service_1 = require("./Services/app.zkt_fingerprint.service");
+const jade_function_1 = require("./FileAction/jade_function");
 const fs = require("graceful-fs");
-const jade = require("jade");
-const zktfingerprint_service_1 = require("./zktfingerprint.service");
-const constSetting_1 = require("./fileInterface/constSetting");
-const fingerprint_read_file_data_1 = require("./fileAction/fingerprint_read_file_data");
-var Jimp = require("jimp");
-const java = require('java');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/commons-io-2.11.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fastutil-8.5.6.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fingerprintio-1.3.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/gson-2.8.9.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-annotations-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-core-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-databind-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-dataformat-cbor-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jnbis-2.1.1.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/noexception-1.8.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/slf4j-api-1.7.32.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/SourceAfis-3.17.1.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
-const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
-const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
-const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
+const path = require("path");
+var java = require("java");
+const axios_1 = require("axios");
 let count = 1;
+let fpCount = 0;
+let fpNumber = 0;
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
     }
-    async testMatch(imageData, req) {
-        const probeTemplate = fs.readFileSync('images/image_1.jpeg');
-        const probebuffer = Buffer.from(probeTemplate.toString('base64'), 'base64');
-        let buffer2 = new Uint8Array(probebuffer);
+    test() {
+        java.classpath.push(path.join(__dirname, '../SourceAfis/commons-io-2.11.0.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/fastutil-8.5.6.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/fingerprintio-1.3.0.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/gson-2.8.9.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-annotations-2.13.3.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-core-2.13.3.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-databind-2.13.3.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-dataformat-cbor-2.13.3.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/jnbis-2.1.1.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/noexception-1.8.0.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/slf4j-api-1.7.32.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/slf4j-simple-1.6.1.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/sourceafis-3.17.1.jar'));
+        java.classpath.push(path.join(__dirname, '../SourceAfis/stagean-1.2.0.jar'));
+        const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
+        const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
+        const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
+        const file = java.import('java.nio.file.Files');
+        const javapaths = java.import('java.nio.file.Paths');
+        console.log('test');
+        let longstring = "v2pkaXJlY3Rpb25zmB36QCd5mvpAoZHu+j/V0cz6QGQf5fo/wqrR+j87mcX6P7YBB/pAc9Uc+kCH\n9bD6P+hrUfpAZV+3+j91xyz6P5Lvx/pAg0DT+kDCvsr6QBGeXPpABLaD+kB9DoX6P5Lvx/pAUpdE\n+kCtVxv6P8Kq0fo/mFts+j+2AQf6P423Dfo/VoXw+j+D42P6QIWAxvpAhrSZZmhlaWdodBkBd2pw\nb3NpdGlvbnNYmB0YQhg/GFoYhRhoGIgYbhisGMYYaBh4GKcYgBjIGFEYQRhYGKgYoBh4GDoYWhh2\nGHYYiBisGMQY4RjbanBvc2l0aW9uc1mYHRg4GM4Y4BhSGPQYfBkBSBg8GQFIGMoYuhhsGQFCGHoY\nexh2GLAYeBkBCBiDGKoZATIYyhjqGMYYRhiWGNQZAQhldHlwZXN4HUJCRUJCRUJCQkJFQkJFQkJF\nQkJCRUVFRUJFRUVFZ3ZlcnNpb254GlNvdXJjZUFGSVMgZm9yIEphdmEgMy4xNy4xZXdpZHRoGQEs\n/w==\n";
+        let buffer2 = Buffer.from(longstring, 'base64');
+        let filedata = fs.readFileSync('localStorage/images/ed6eb89b-c7b9-4d4b-ae6b-6eb7042a84cd.jpeg');
+        let buffer = Buffer.from(filedata.toString('utf-8'));
+        console.log('buffer length is ', buffer.length);
+        console.log('filedata length is ', filedata.length);
+        var byte = java.newArray("byte", buffer.toString('utf-8')
+            .split('')
+            .map(function (c) {
+            return java.newByte(String.prototype.charCodeAt(c));
+        }));
+        console.log('byte is ', byte.length);
+        var b = java.newByte(buffer.length);
+        b = buffer;
+        console.log('b is ', b);
+        console.log('b length is ', b.length);
+        let image = FingerprintTemplate(b);
+        let image2 = FingerprintTemplate(b);
+        let matcher = FingerprintMatcher(image);
+        matcher.match(image2);
+        console.log('matcher is ', matcher);
+    }
+    testrelation() {
+        return this.appService.testrelation();
     }
     registerFingerprint(fingerprintData) {
         return this.appService.registerFingerprint(fingerprintData);
     }
-    verifyFingerprint() {
-        return this.appService.verifyFingerprint();
+    async fptemplate() {
+        return await this.appService.fingerprintTemplate();
     }
-    verifyFpMessage(status) {
-        let result = status;
-        return this.appService.verifyFingerprintMessage(result);
+    getStatus(req, res) {
+        return (0, jade_function_1.jadeTrigger)(res, req);
     }
-    fingerprintData() {
-        return this.appService.fingerprintData();
-    }
-    async postErrorMessage(req, res) {
-        const jadeargument = {};
-        let data = await (0, fingerprint_read_file_data_1.readFileData)(constSetting_1.ERROR_MESSAGE_FOLDER_PATH);
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = ('0' + (now.getMonth() + 1)).slice(-2);
-        const day = ('0' + now.getDate()).slice(-2);
-        const hours = ('0' + now.getHours()).slice(-2);
-        const minutes = ('0' + now.getMinutes()).slice(-2);
-        const seconds = ('0' + now.getSeconds()).slice(-2);
-        const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-        switch (req.body['fpid']) {
-            case '0':
-                console.log('Identify success');
-                let verSuccData = { "time": formattedDateTime, "message": 'Identify success' };
-                data.push(verSuccData);
-                fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-                break;
-            case '1':
-                console.log('Identify fail');
-                let verFailData = { "time": formattedDateTime, "message": 'Identify fail' };
-                data.push(verFailData);
-                fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-                break;
-            case '2':
-                console.log('Register success');
-                let regSuccData = { "time": formattedDateTime, "message": 'Register success' };
-                data.push(regSuccData);
-                fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-                break;
-            case '3':
-                console.log('Register fail');
-                let regFailData = { "time": formattedDateTime, "message": 'Register fail' };
-                data.push(regFailData);
-                fs.writeFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-                break;
-        }
-        jadeargument['errMessage'] = data;
-        return res.send(res_render('errorMessage', res, jadeargument));
-    }
-    getErrorMessage(res) {
-        const jadeargument = {};
-        let data = fs.readFileSync(constSetting_1.ERROR_MESSAGE_FOLDER_PATH, {
-            encoding: 'utf8',
-        });
-        console.log("Message Page reload");
-        if (data.length != 0) {
-            let errMessage = JSON.parse(data);
-            jadeargument['errMessage'] = errMessage;
-            return res.send(res_render('errorMessage', res, jadeargument));
-        }
-        else {
-            jadeargument['errMessage'] = {};
-            return res.send(res_render('errorMessage', res, jadeargument));
-        }
-    }
-    getStatus(res) {
-        const jadeargument = {};
-        let data = fs.readFileSync(constSetting_1.MESSAGE_FOLDER_PATH, {
-            encoding: 'utf-8'
-        });
-        console.log("Status Page reload");
-        if (data.length != 0) {
-            let fpdata = JSON.parse(data);
-            jadeargument['dataSet1'] = fpdata;
-            return res.send(res_render('statuspage', res, jadeargument));
-        }
-        else {
-            jadeargument['dataSet1'] = {};
-            return res.send(res_render('statuspage', res, jadeargument));
-        }
-    }
-    postStatus(req, res) {
-        let sendMessage = "";
+    async postStatus(req, res, imageData) {
         console.log("message post: ", req.body['submitValue']);
-        switch (req.body['submitValue']) {
-            case "INITIALIZE_DEVICE":
-                sendMessage = "INITIALIZE_DEVICE";
-                console.log('INITIALIZE_DEVICE');
-                break;
-            case "ENROLL_FINGERPRINT":
-                console.log('ENROLL_FINGERPRINT');
-                break;
-            case "VERIFY_FINGERPRINT":
-                console.log('VERIFY_FINGERPRINT');
-                break;
-            case "CLOSE_DEVICE":
-                sendMessage = "IDENTIFY_FINGERPRINT";
-                console.log('CLOSE_DEVICE');
-                break;
+        await (0, jade_function_1.jadeButton)(req, imageData, res);
+        return await (0, jade_function_1.jadeTrigger)(res, req);
+    }
+    async testMatch(imageData, req) {
+        console.log("message post: ", req.body['submitValue']);
+        await axios_1.default.post('http://192.168.242.46:8080', req.body['submitValue'])
+            .then(res => { console.log('message from java: ', res.data); })
+            .catch(err => { console.log('error is ', err); });
+    }
+    async showScore(imageData, req) {
+        await console.log('fingerprint ', count++, ': ', imageData['fpid']);
+        if (count > 10) {
+            count = 1;
         }
-        const jadeargument = {};
-        let data = fs.readFileSync(constSetting_1.FINGERPRINT_FOLDER_PATH, {
-            encoding: 'utf8',
-        });
-        let fpdata = JSON.parse(data);
-        jadeargument['dataSet1'] = fpdata;
-        return res.send(res_render('statuspage', res, jadeargument));
+    }
+    async regMessage(imageData) {
+        await console.log(imageData['fpid']);
+    }
+    async changeColor(imageData, res, req) {
+        let num = imageData['fpid'].length;
+        return await (0, jade_function_1.triggerColor)(res);
     }
 };
 __decorate([
-    (0, common_1.Get)('testing'),
+    (0, common_1.Get)('test'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "test", null);
+__decorate([
+    (0, common_1.Get)('testrelation'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "testrelation", null);
+__decorate([
+    (0, common_1.Post)('registerfp'),
+    __param(0, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "registerFingerprint", null);
+__decorate([
+    (0, common_1.Get)('fptemplate'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", []),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "fptemplate", null);
+__decorate([
+    (0, common_1.Get)('status'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Object, Object]),
+    __metadata("design:returntype", void 0)
+], AppController.prototype, "getStatus", null);
+__decorate([
+    (0, common_1.Post)('status'),
+    __param(0, (0, common_1.Req)()),
+    __param(1, (0, common_1.Res)()),
+    __param(2, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Request, Object, String]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "postStatus", null);
+__decorate([
+    (0, common_1.Post)('testing'),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
@@ -169,73 +158,32 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "testMatch", null);
 __decorate([
-    (0, common_1.Post)('registerfp'),
+    (0, common_1.Post)('score'),
     __param(0, (0, common_1.Body)()),
+    __param(1, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "registerFingerprint", null);
-__decorate([
-    (0, common_1.Get)('verifyfp'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "verifyFingerprint", null);
-__decorate([
-    (0, common_1.Post)('verify'),
-    __param(0, (0, common_1.Body)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "verifyFpMessage", null);
-__decorate([
-    (0, common_1.Get)('fingerprintData'),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
-], AppController.prototype, "fingerprintData", null);
-__decorate([
-    (0, common_1.Post)('error'),
-    __param(0, (0, common_1.Req)()),
-    __param(1, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Request, Object]),
+    __metadata("design:paramtypes", [String, Request]),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "postErrorMessage", null);
+], AppController.prototype, "showScore", null);
 __decorate([
-    (0, common_1.Get)('error'),
-    __param(0, (0, common_1.Res)()),
+    (0, common_1.Post)('display'),
+    __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getErrorMessage", null);
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "regMessage", null);
 __decorate([
-    (0, common_1.Get)('status'),
-    __param(0, (0, common_1.Res)()),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", String)
-], AppController.prototype, "getStatus", null);
-__decorate([
-    (0, common_1.Post)('status'),
-    __param(0, (0, common_1.Req)()),
+    (0, common_1.Post)('color'),
+    __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Res)()),
+    __param(2, (0, common_1.Req)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [Request, Object]),
-    __metadata("design:returntype", String)
-], AppController.prototype, "postStatus", null);
+    __metadata("design:paramtypes", [String, Object, Request]),
+    __metadata("design:returntype", Promise)
+], AppController.prototype, "changeColor", null);
 AppController = __decorate([
     (0, common_1.Controller)(),
-    __metadata("design:paramtypes", [zktfingerprint_service_1.ZKTFingerprintService])
+    __metadata("design:paramtypes", [app_zkt_fingerprint_service_1.ZKTFingerprintService])
 ], AppController);
 exports.AppController = AppController;
-function res_render(jadefile, res, jadeargument) {
-    let data = fs.readFileSync('views/' + jadefile + '.jade', {
-        encoding: 'utf8',
-    });
-    let renderer = jade.compile(data);
-    let html = renderer({ jadeargument });
-    return html;
-}
-exports.res_render = res_render;
 //# sourceMappingURL=app.controller.js.map

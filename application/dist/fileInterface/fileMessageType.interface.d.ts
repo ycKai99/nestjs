@@ -4,6 +4,7 @@ export interface fingerprintDataInterface {
     operation: string;
     vendor: string;
     header_messageId: string;
+    image_name: string;
 }
 export interface messageNotificationInterface {
     message: string;

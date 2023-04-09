@@ -1,18 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.generateMessage = exports.handleResponseMessages = exports.zktecoFpMessage = exports.appMessage = void 0;
+exports.generateMessage = exports.handleResponseMessage = exports.zktecoFpMessage = exports.appMessage = void 0;
 function appMessage(fileNum, operation, uuid) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const day = ('0' + now.getDate()).slice(-2);
-    const hours = ('0' + now.getHours()).slice(-2);
-    const minutes = ('0' + now.getMinutes()).slice(-2);
-    const seconds = ('0' + now.getSeconds()).slice(-2);
-    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         message: "Fingerprint data",
-        ReceivedDate: formattedDateTime,
+        ReceivedDate: generateDate(),
         InstanceID: "FP_" + (fileNum + 1),
         EntityTypeID: "FP_" + (fileNum + 1),
         EntityTypeName: "Fingerprint",
@@ -24,54 +16,31 @@ function appMessage(fileNum, operation, uuid) {
     return messageDetails;
 }
 exports.appMessage = appMessage;
-function zktecoFpMessage(fingerprintData, uuid) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const day = ('0' + now.getDate()).slice(-2);
-    const hours = ('0' + now.getHours()).slice(-2);
-    const minutes = ('0' + now.getMinutes()).slice(-2);
-    const seconds = ('0' + now.getSeconds()).slice(-2);
-    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+function zktecoFpMessage(fingerprintData, fileName, uuid) {
     let messageDetails = {
-        fpid: fingerprintData['fpid'],
-        registeredDate: formattedDateTime,
+        fpid: fingerprintData,
+        registeredDate: generateDate(),
         operation: 'Register fingerprint',
         vendor: 'ZKTeco',
-        header_messageId: "FP_" + uuid
+        header_messageId: "FP_" + uuid,
+        image_name: fileName
     };
     return messageDetails;
 }
 exports.zktecoFpMessage = zktecoFpMessage;
-function handleResponseMessages(data, uuid) {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const day = ('0' + now.getDate()).slice(-2);
-    const hours = ('0' + now.getHours()).slice(-2);
-    const minutes = ('0' + now.getMinutes()).slice(-2);
-    const seconds = ('0' + now.getSeconds()).slice(-2);
-    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+function handleResponseMessage(data, uuid) {
     let messageDetails = {
-        time: formattedDateTime,
+        time: generateDate(),
         message: data,
         header_messageId: "FP_" + uuid
     };
     return messageDetails;
 }
-exports.handleResponseMessages = handleResponseMessages;
+exports.handleResponseMessage = handleResponseMessage;
 function generateMessage() {
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const day = ('0' + now.getDate()).slice(-2);
-    const hours = ('0' + now.getHours()).slice(-2);
-    const minutes = ('0' + now.getMinutes()).slice(-2);
-    const seconds = ('0' + now.getSeconds()).slice(-2);
-    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     let messageDetails = {
         message: "Fingerprint data to central server",
-        ReceivedDate: formattedDateTime,
+        ReceivedDate: generateDate(),
         InstanceID: "FP_testing",
         EntityTypeID: "FP_testing",
         EntityTypeName: "Fingerprint",
@@ -83,4 +52,17 @@ function generateMessage() {
     return messageDetails;
 }
 exports.generateMessage = generateMessage;
+function generateDate() {
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = (date.getMonth() + 1).toString().padStart(2, '0');
+    let day = date.getDate().toString().padStart(2, '0');
+    let hour = date.getHours().toString().padStart(2, '0');
+    let minute = date.getMinutes().toString().padStart(2, '0');
+    let second = date.getSeconds().toString().padStart(2, '0');
+    let fullDate = year + month + day + hour + minute + second;
+    let timezone = "Asia/Singapore";
+    let formattedDate = new Intl.DateTimeFormat("en-US", { timeZone: timezone }).format(date);
+    return formattedDate;
+}
 //# sourceMappingURL=fingerprint_app_message.js.map

@@ -8,15 +8,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
+const platform_express_1 = require("@nestjs/platform-express");
 const app_controller_1 = require("./app.controller");
-const zktfingerprint_service_1 = require("./zktfingerprint.service");
+const app_zkt_fingerprint_service_1 = require("./Services/app.zkt_fingerprint.service");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [],
+        imports: [
+            platform_express_1.MulterModule.register({
+                dest: './uploads'
+            })
+        ],
         controllers: [app_controller_1.AppController],
-        providers: [zktfingerprint_service_1.ZKTFingerprintService],
+        providers: [app_zkt_fingerprint_service_1.ZKTFingerprintService],
     })
 ], AppModule);
 exports.AppModule = AppModule;

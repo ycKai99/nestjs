@@ -6,7 +6,7 @@ function fingerprintWriteMessage(filePath, data) {
     let returnMessage = true;
     fs.stat(filePath, (err, stat) => {
         if (err === null) {
-            fs.appendFileSync(filePath, JSON.stringify(data, null, 4));
+            fs.writeFileSync(filePath, JSON.stringify(data, null, 4));
             console.log('Data is append into file...');
         }
         else if (err.code === 'ENOENT') {

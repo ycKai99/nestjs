@@ -21,7 +21,7 @@ function readFileData(fileName) {
             (0, fingerprint_create_directory_1.makeDirectory)(constSetting_1.DIRECTORY);
             fs.writeFile(fileName, '', (err) => {
                 if (err) {
-                    console.log('writefile error is ', err);
+                    console.log('write file error is ', err);
                 }
                 else {
                     console.log('success created');

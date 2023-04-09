@@ -1,15 +1,15 @@
-import { ZKTFingerprintService } from './zktfingerprint.service';
+import { ZKTFingerprintService } from './Services/app.zkt_fingerprint.service';
 export declare class AppController {
     private readonly appService;
     constructor(appService: ZKTFingerprintService);
+    test(): void;
+    testrelation(): void;
+    registerFingerprint(fingerprintData: any): void;
+    fptemplate(): Promise<string>;
+    getStatus(req: any, res: any): any;
+    postStatus(req: Request, res: any, imageData: string): Promise<any>;
     testMatch(imageData: string, req: Request): Promise<void>;
-    registerFingerprint(fingerprintData: string): import("./fileInterface/constSetting").SUCCESS_MESSAGE | import("./fileInterface/constSetting").ERROR_MESSAGE.FAILED_SAVE_IMAGE;
-    verifyFingerprint(): Promise<string | false>;
-    verifyFpMessage(status: string): void;
-    fingerprintData(): string;
-    postErrorMessage(req: Request, res: any): Promise<string>;
-    getErrorMessage(res: any): string;
-    getStatus(res: any): string;
-    postStatus(req: Request, res: any): string;
+    showScore(imageData: string, req: Request): Promise<void>;
+    regMessage(imageData: string): Promise<void>;
+    changeColor(imageData: string, res: any, req: Request): Promise<any>;
 }
-export declare function res_render(jadefile: any, res: any, jadeargument: any): any;

@@ -1,290 +1,139 @@
 import { Controller, Get, Post, Body, Res, Req } from '@nestjs/common';
+import { ZKTFingerprintService } from './Services/app.zkt_fingerprint.service';
+import { jadeButton, jadeTrigger, triggerColor } from './FileAction/jade_function';
 import fs = require('graceful-fs')
-import jade = require('jade')
-import { ZKTFingerprintService } from './zktfingerprint.service';
-import { FINGERPRINT_FOLDER_PATH, ERROR_MESSAGE_FOLDER_PATH, SUBMIT_VALUE, MESSAGE_FOLDER_PATH } from './fileInterface/constSetting';
+import path = require('path');
+var java = require("java");
 import axios from 'axios';
-import { readFileData } from './fileAction/fingerprint_read_file_data';
-var Jimp = require("jimp");
-// const path = require('path');
-const java = require('java');
-
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/commons-io-2.11.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fastutil-8.5.6.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/fingerprintio-1.3.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/gson-2.8.9.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-annotations-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-core-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-databind-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jackson-dataformat-cbor-2.13.3.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/jnbis-2.1.1.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/noexception-1.8.0.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/slf4j-api-1.7.32.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/SourceAfis-3.17.1.jar');
-java.classpath.push('C:/Users/User/Desktop/fingerprint_Project/github/zkfinger_nestjs_master_branch/JavaScript/application/SourceAfis/stagean-1.2.0.jar');
-const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
-const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
-const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
-
+// import mongoose from 'mongoose'
+// import catNames from 'cat-names';
 let count = 1;
+let fpCount = 0;
+let fpNumber = 0;
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: ZKTFingerprintService) { }
 
-  //testing using SourceAfis
-  @Get('testing')
-  async testMatch(@Body() imageData: string, @Req() req: Request) {
-    //count fp score
-    // await console.log('fingerprint ', count++, ': ', imageData['fpid']);
-    // if (count > 10) {
-    //   count = 1;
-    // }
+  @Get('test')
+  test() {
+    java.classpath.push(path.join(__dirname, '../SourceAfis/commons-io-2.11.0.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/fastutil-8.5.6.jar'))
+    java.classpath.push(path.join(__dirname, '../SourceAfis/fingerprintio-1.3.0.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/gson-2.8.9.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-annotations-2.13.3.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-core-2.13.3.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-databind-2.13.3.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/jackson-dataformat-cbor-2.13.3.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/jnbis-2.1.1.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/noexception-1.8.0.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/slf4j-api-1.7.32.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/slf4j-simple-1.6.1.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/sourceafis-3.17.1.jar'));
+    java.classpath.push(path.join(__dirname, '../SourceAfis/stagean-1.2.0.jar'));
+    const FingerprintTemplate = java.import('com.machinezoo.sourceafis.FingerprintTemplate');
+    const FingerprintMatcher = java.import('com.machinezoo.sourceafis.FingerprintMatcher');
+    const FingerprintImage = java.import('com.machinezoo.sourceafis.FingerprintImage');
+    const file = java.import('java.nio.file.Files');
+    const javapaths = java.import('java.nio.file.Paths');
+    console.log('test')
 
-    //convert CBOR to json
-    // console.log('fingerprint ', imageData['fpid']);
-    // let buffer = Buffer.from(imageData['fpid'], 'base64');
-    // const cbor = require('cbor');
-    // cbor.decodeAll(buffer, (error, decoded) => {
-    //   if (error) {
-    //     console.error(error);
-    //   } else {
-    //     console.log('decoded data: ', decoded);
-    //     // let jsontable = JSON.parse(decoded);
-    //     let edgeString = JSON.stringify(decoded)
-    //     fs.writeFileSync('shuffled-minutiae.json', edgeString)
-    //   }
-    // });
+    let longstring = "v2pkaXJlY3Rpb25zmB36QCd5mvpAoZHu+j/V0cz6QGQf5fo/wqrR+j87mcX6P7YBB/pAc9Uc+kCH\n9bD6P+hrUfpAZV+3+j91xyz6P5Lvx/pAg0DT+kDCvsr6QBGeXPpABLaD+kB9DoX6P5Lvx/pAUpdE\n+kCtVxv6P8Kq0fo/mFts+j+2AQf6P423Dfo/VoXw+j+D42P6QIWAxvpAhrSZZmhlaWdodBkBd2pw\nb3NpdGlvbnNYmB0YQhg/GFoYhRhoGIgYbhisGMYYaBh4GKcYgBjIGFEYQRhYGKgYoBh4GDoYWhh2\nGHYYiBisGMQY4RjbanBvc2l0aW9uc1mYHRg4GM4Y4BhSGPQYfBkBSBg8GQFIGMoYuhhsGQFCGHoY\nexh2GLAYeBkBCBiDGKoZATIYyhjqGMYYRhiWGNQZAQhldHlwZXN4HUJCRUJCRUJCQkJFQkJFQkJF\nQkJCRUVFRUJFRUVFZ3ZlcnNpb254GlNvdXJjZUFGSVMgZm9yIEphdmEgMy4xNy4xZXdpZHRoGQEs\n/w==\n"
+    let buffer2 = Buffer.from(longstring, 'base64')
+    let filedata = fs.readFileSync('localStorage/images/ed6eb89b-c7b9-4d4b-ae6b-6eb7042a84cd.jpeg')
+    let buffer = Buffer.from(filedata.toString('utf-8'))
+    console.log('buffer length is ', buffer.length)
+    console.log('filedata length is ', filedata.length)
+    var byte = java.newArray(
+      "byte",
+      buffer.toString('utf-8')
+        .split('')
+        .map(function (c: any) {
+          return java.newByte(String.prototype.charCodeAt(c));
+        }));
+    console.log('byte is ', byte.length)
+    // console.log('buffer is ',buffer)
+    var b = java.newByte(buffer.length)
+    b = buffer;
+    // console.log('javapaths is ',javapaths.Paths.get('/localStorage/images/ed6eb89b-c7b9-4d4b-ae6b-6eb7042a84cd.jpeg'))
+    console.log('b is ', b)
+    console.log('b length is ', b.length)
+    let image = FingerprintTemplate(b)
+    let image2 = FingerprintTemplate(b)
+    let matcher = FingerprintMatcher(image)
+    matcher.match(image2)
+    console.log('matcher is ', matcher)
+  }
 
-
-
-    const probeTemplate = fs.readFileSync('images/image_1.jpeg'); // Probe fingerprint template
-    // const candidateTemplate = fs.readFileSync('images/image_2.jpeg'); // Candidate fingerprint template
-    const probebuffer = Buffer.from(probeTemplate.toString('base64'), 'base64');
-    let buffer2 = new Uint8Array(probebuffer);
-    // const probebuffer1 = Buffer.from(candidateTemplate.toString('base64'), 'base64');
-    // let buffer21 = new Uint8Array(probebuffer1);
-
-    // console.log("probe :", buffer2);
-    // console.log("candidate :", buffer21);
-    // const byteArr = new ArrayBuffer(probeTemplate.length);
-    // const view = new Uint8Array(byteArr);
-    // for (let i = 0; i < probeTemplate.length; i++) {
-    //   view[i] = probeTemplate[i];
-    // }
-    // const buffer = Buffer.from(imageData['fpid'].replace(/\n/g, ""), 'base64');
-    // let buffer2 = new Uint8Array(buffer);
-
-    // let probeArray = new Uint8Array(probeTemplate);
-
-
-    // Create a Java ByteArray object
-    // let byteArray = java.newArray('byte', [buffer2.length]);
-    // for (let i = 0; i < probeArray.length; i++) {
-    //   byteArray[i] = probeArray[i];
-    // }
-    // console.log('length: ', byteArray.length)
-    // var charArray = java.newArray("char", "hello world\n".split(''));
-    // console.log(charArray)
-    // let byteArray = java.newArray(
-    //   "byte",
-    //   buffer.toString('base64')
-    //     .split('')
-    //     .map(function (c) { return java.newByte(String.prototype.charCodeAt(0)); }));
-    // let probe = new FingerprintImage(buffer2);
-
-    // let probe = new FingerprintTemplate(probeImage);
-    // const candidate = new FingerprintTemplate(new FingerprintImage(candidateTemplate));
-
-    // probe.toByteArray();
-    // candidate.toByteArray();
-    // const matcher = new FingerprintMatcher(probeTemplate);
-    // const similarity = matcher.match(candidate);
-    // console.log(`similarity is ${similarity}`);
-    // if (similarity > 100) {
-    // } else {
-    // }
-
+  @Get('testrelation')
+  testrelation() {
+    return this.appService.testrelation();
   }
 
 
   // register fingerprint data
   @Post('registerfp')
-  registerFingerprint(@Body() fingerprintData: string) {
-    // console.log(fingerprintData);
+  registerFingerprint(@Body() fingerprintData) {
+    // fingerprintData['fpid'] = dataDecryption(fingerprintData['fpid'])
+    // fingerprintData['fptemplate'] = dataDecryption(fingerprintData['fptemplate'])
     return this.appService.registerFingerprint(fingerprintData);
   }
 
-  // verify fingerprint 1 to 1
-  @Get('verifyfp')
-  verifyFingerprint() {
-    return this.appService.verifyFingerprint();
+  // retrieve fingerprint template
+  @Get('fptemplate')
+  async fptemplate() {
+    return await this.appService.fingerprintTemplate();
   }
 
-  @Post('verify')
-  verifyFpMessage(@Body() status: string) {
-    let result = status;
-    return this.appService.verifyFingerprintMessage(result);
-  }
-
-  @Get('fingerprintData')
-  fingerprintData() {
-    return this.appService.fingerprintData();
-  }
-
-
-  // display error message
-  @Post('error')
-  async postErrorMessage(@Req() req: Request, @Res() res): Promise<string> {
-    const jadeargument: any = {};
-    // console.log("Message from java server: ", JSON.stringify(req.body, null, 2));
-    let data = await readFileData(ERROR_MESSAGE_FOLDER_PATH);
-
-    //generate time and date
-    const now = new Date();
-    const year = now.getFullYear();
-    const month = ('0' + (now.getMonth() + 1)).slice(-2);
-    const day = ('0' + now.getDate()).slice(-2);
-    const hours = ('0' + now.getHours()).slice(-2);
-    const minutes = ('0' + now.getMinutes()).slice(-2);
-    const seconds = ('0' + now.getSeconds()).slice(-2);
-    const formattedDateTime = `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
-
-    switch (req.body['fpid']) {
-      case '0':
-        console.log('Identify success');
-        let verSuccData = { "time": formattedDateTime, "message": 'Identify success' };
-        data.push(verSuccData);
-        fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-        break;
-      case '1':
-        console.log('Identify fail');
-        let verFailData = { "time": formattedDateTime, "message": 'Identify fail' };
-        data.push(verFailData);
-        fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-        break;
-      case '2':
-        console.log('Register success');
-        let regSuccData = { "time": formattedDateTime, "message": 'Register success' };
-        data.push(regSuccData);
-        fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-        break;
-      case '3':
-        console.log('Register fail');
-        let regFailData = { "time": formattedDateTime, "message": 'Register fail' };
-        data.push(regFailData);
-        fs.writeFileSync(ERROR_MESSAGE_FOLDER_PATH, JSON.stringify(data));
-        break;
-    }
-
-    // if (data.length !== 0) {
-    //   data.push(errMessage);
-    // }
-    // else {
-    //   jsonObj.push(errMessage);
-    //   data = jsonObj;
-    // }
-    // await fingerprintWriteMessage(ERROR_MESSAGE_FOLDER_PATH, data)
-    jadeargument['errMessage'] = data
-    return res.send(res_render('errorMessage', res, jadeargument));
-  }
-
-
-
-  // get error message
-  @Get('error')
-  getErrorMessage(@Res() res): string {
-    const jadeargument: any = {};
-    let data = fs.readFileSync(ERROR_MESSAGE_FOLDER_PATH, {
-      encoding: 'utf8',
-    });
-    console.log("Message Page reload");
-    if (data.length != 0) {
-      let errMessage = JSON.parse(data);
-      jadeargument['errMessage'] = errMessage;
-      return res.send(res_render('errorMessage', res, jadeargument));
-    }
-    else {
-      jadeargument['errMessage'] = {};
-      return res.send(res_render('errorMessage', res, jadeargument));
-
-    }
-  }
-
-  // GET
-  // /status 
   @Get('status')
-  getStatus(@Res() res): string {
-    //get fingerprint data
-    const jadeargument: any = {};
-    let data = fs.readFileSync(MESSAGE_FOLDER_PATH, {
-      encoding: 'utf-8'
-    });
-    console.log("Status Page reload");
-    if (data.length != 0) {
-      let fpdata = JSON.parse(data);
-      jadeargument['dataSet1'] = fpdata;
-      return res.send(res_render('statuspage', res, jadeargument));
-    }
-    else {
-      jadeargument['dataSet1'] = {};
-      return res.send(res_render('statuspage', res, jadeargument));
-    }
-
-
+  getStatus(@Req() req, @Res() res) {
+    return jadeTrigger(res, req);
+    // return triggerColor(res, req);
   }
 
   // POST
   // /status 
   @Post('status')
-  postStatus(@Req() req: Request, @Res() res): string {
-    let sendMessage = "";
+  async postStatus(@Req() req: Request, @Res() res, @Body() imageData: string) {
     console.log("message post: ", req.body['submitValue']);
-    switch (req.body['submitValue']) {
-      case SUBMIT_VALUE.INITIALIZE_DEVICE:
-        sendMessage = SUBMIT_VALUE.INITIALIZE_DEVICE
-        console.log('INITIALIZE_DEVICE')
-        break;
-      case SUBMIT_VALUE.ENROLL_FINGERPRINT:
-        // sendMessage = SUBMIT_VALUE.ENROLL_FINGERPRINT
-        console.log('ENROLL_FINGERPRINT')
-        break;
-      case SUBMIT_VALUE.VERIFY_FINGERPRINT:
-        // sendMessage = SUBMIT_VALUE.VERIFY_FINGEPRRINT
-        console.log('VERIFY_FINGERPRINT')
-        break;
-      case SUBMIT_VALUE.CLOSE_DEVICE:
-        sendMessage = SUBMIT_VALUE.IDENTIFY_FINGERPRINT
-        console.log('CLOSE_DEVICE')
-        break;
-    }
-    // if (sendMessage) {
-    //   console.log('sendMessage')
-    //   axios.post('http://localhost:8080', sendMessage)
-    //     .then(res => { console.log('res is ', res.data); })
-    //     .catch(err => { console.log('error is ', err) })
+    await jadeButton(req, imageData, res);
+    return await jadeTrigger(res, req);
+
+    // fpCount++;
+    // if ((fpCount - 1) == fpNumber) {
+    //   console.log('All finger finish scan first time.');
+    //   fpCount = 0;
+    //   fpNumber = 0;
     // }
 
-    const jadeargument: any = {};
-    let data = fs.readFileSync(FINGERPRINT_FOLDER_PATH, {
-      encoding: 'utf8',
-    });
-    let fpdata = JSON.parse(data);
-    jadeargument['dataSet1'] = fpdata
-
-    return res.send(res_render('statuspage', res, jadeargument));
   }
-}
 
-export function res_render(jadefile: any, res: any, jadeargument: any) {
-  // Compile a function
-  let data = fs.readFileSync('views/' + jadefile + '.jade', {
-    encoding: 'utf8',
-  });
-  let renderer = jade.compile(data);
+  @Post('testing')
+  async testMatch(@Body() imageData: string, @Req() req: Request) {
+    console.log("message post: ", req.body['submitValue']);
+    await axios.post('http://192.168.242.46:8080', req.body['submitValue'])
+      .then(res => { console.log('message from java: ', res.data); })
+      .catch(err => { console.log('error is ', err) })
+  }
 
-  // Render the function
-  let html = renderer({ jadeargument });
+  @Post('score')
+  async showScore(@Body() imageData: string, @Req() req: Request) {
+    //count fp score
+    await console.log('fingerprint ', count++, ': ', imageData['fpid']);
+    if (count > 10) {
+      count = 1;
+    }
+  }
 
-  return html;
+  @Post('display')
+  async regMessage(@Body() imageData: string) {
+    await console.log(imageData['fpid']);
+  }
+
+  @Post('color')
+  async changeColor(@Body() imageData: string, @Res() res, @Req() req: Request) {
+    // let fpArray = new Array(8);
+    let num = imageData['fpid'].length;
+    return await triggerColor(res);
+  }
 }
