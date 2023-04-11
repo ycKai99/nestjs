@@ -8,8 +8,8 @@ export declare class AppController {
     fptemplate(): Promise<string>;
     getStatus(req: any, res: any): any;
     postStatus(req: Request, res: any, imageData: string): Promise<any>;
-    testMatch(imageData: string, req: Request): Promise<void>;
+    testMatch(imageData: string, req: Request, res: Response): Promise<void>;
     showScore(imageData: string, req: Request): Promise<void>;
     regMessage(imageData: string): Promise<void>;
-    changeColor(imageData: string, res: any, req: Request): Promise<any>;
+    changeColor(imageData: string, res: any, req: Request): Promise<void>;
 }

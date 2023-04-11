@@ -15,9 +15,8 @@ async function fingerprintRegister(fingerprintData, fingerprintTemplateData, mes
     let result = await Jimp.read(buffer)
         .then((data) => {
         data
-            .resize(300, 300)
-            .quality(30)
-            .write(fileName);
+            .resize(300, 400)
+            .quality(50);
         let messageNotification = (0, generate_message_1.appMessage)(fileCount, "Registered fingerprint", uuid);
         let responseMessage = (0, generate_message_1.handleResponseMessage)("Save image successful.", uuid);
         let fingerprintTemplateMessage = (0, generate_message_1.zktecoFpMessage)(fingerprintData['fptemplate'], fileName, uuid);

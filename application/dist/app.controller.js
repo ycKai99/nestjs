@@ -19,7 +19,6 @@ const jade_function_1 = require("./FileAction/jade_function");
 const fs = require("graceful-fs");
 const path = require("path");
 var java = require("java");
-const axios_1 = require("axios");
 let count = 1;
 let fpCount = 0;
 let fpNumber = 0;
@@ -84,14 +83,12 @@ let AppController = class AppController {
     }
     async postStatus(req, res, imageData) {
         console.log("message post: ", req.body['submitValue']);
-        await (0, jade_function_1.jadeButton)(req, imageData, res);
+        await (0, jade_function_1.jadeButton)(req, res);
         return await (0, jade_function_1.jadeTrigger)(res, req);
     }
-    async testMatch(imageData, req) {
+    async testMatch(imageData, req, res) {
         console.log("message post: ", req.body['submitValue']);
-        await axios_1.default.post('http://192.168.242.46:8080', req.body['submitValue'])
-            .then(res => { console.log('message from java: ', res.data); })
-            .catch(err => { console.log('error is ', err); });
+        await (0, jade_function_1.changeColor)(res, req);
     }
     async showScore(imageData, req) {
         await console.log('fingerprint ', count++, ': ', imageData['fpid']);
@@ -104,7 +101,6 @@ let AppController = class AppController {
     }
     async changeColor(imageData, res, req) {
         let num = imageData['fpid'].length;
-        return await (0, jade_function_1.triggerColor)(res);
     }
 };
 __decorate([
@@ -153,8 +149,9 @@ __decorate([
     (0, common_1.Post)('testing'),
     __param(0, (0, common_1.Body)()),
     __param(1, (0, common_1.Req)()),
+    __param(2, (0, common_1.Res)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, Request]),
+    __metadata("design:paramtypes", [String, Request, Response]),
     __metadata("design:returntype", Promise)
 ], AppController.prototype, "testMatch", null);
 __decorate([

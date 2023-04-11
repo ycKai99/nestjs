@@ -17,7 +17,7 @@ export async function fingerprintRegister(fingerprintData, fingerprintTemplateDa
       data
         .resize(300, 400) // resize
         .quality(50) // set JPEG quality
-        .write(fileName); // save
+      // .write(fileName); // save
 
       let messageNotification = appMessage(fileCount, "Registered fingerprint", uuid); // create a notification message
       let responseMessage = handleResponseMessage(SUCCESS_MESSAGE.SUCCESS_SAVE_IMAGE, uuid); // create a successful message

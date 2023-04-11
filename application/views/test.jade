@@ -1,0 +1,333 @@
+doctype html
+html
+    head
+        title Fingerprint
+        style.
+            form{
+                text-align: center;
+            }
+            button{
+                padding: 8px 20px;
+                width:225px;
+                font-size:14px;
+                border-radius:6px;
+                background: #DCDCDC
+            }
+            
+            input:hover,
+            input:focus { 
+                background-color: #16437E;
+                color: #ffffff;
+            }
+
+            input:active {
+                background: #09223b;
+                color: rgb(255, 255, 255, .7);
+            }
+
+            input:disabled { 
+                cursor: not-allowed;
+                background: rgba(0, 0, 0, .08);
+                color: rgba(0, 0, 0, .3);
+            }
+            
+            table{
+                border-collapse: collapse;
+                table-layout: fixed;
+                width: 100%;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+            th,td{
+                text-align: left;
+                padding: 8px;
+                word-wrap: break-word;
+            }
+            tr:nth-child(even) {
+                background-color:#D6EEEE;
+            }
+            thead { background-color:#D6EEEE; }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+                position: fixed;
+                top: 0;
+                width: 100%;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #111;
+            }
+            .active {
+                background-color: #04AA6D;
+            }
+            .hidden {
+                display: none;
+            }
+            .text-center {
+                text-align: center;
+            }
+            .button-container {
+                display: flex;
+                align-items: center;
+                flex-direction:column;
+            }
+            .input-button{
+                padding: 8px 15px;
+                border: 2px solid rgba(0,0,0,0.5);
+                border-radius: 3px;
+                color: #444;
+                background-color:#f1f1f1;
+                cursor: pointer;
+                transition: 0.3s ease;
+                margin-right:10px;
+                text-transform: uppercase;
+                margin-bottom:10px;
+                font-family: monospace;
+            }
+            .input-button:hover{
+                color: #f1f1f1;
+                background-color:#444;
+                border-color:#f1f1f1;
+            }
+
+            #modal-popup {
+                color: rgb(255, 240, 0);
+                position: absolute;
+                display: none;
+                align-items: center;
+                justify-content: center;
+                background-color: rgba(0,0,0,0.6);
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                overflow: auto;
+                z-index: 999;
+            }
+            .modal-open{
+                display:flex !important;
+            }
+            #close-modal {
+                position:absolute;
+                z-index:1000;
+                top:20px;
+                right:20px;
+                color:#fff;
+            }
+
+    body
+         
+        //- nav
+        //-     ul(style="")
+        //-         li
+        //-             a(class="active", href="./status") Fingerprint Data
+        //- br
+        //- br
+        div(style="display: flex;flex-wrap: wrap;")
+            form(method='post')
+                input(type='submit', value='Initialize scanner' class="input-button")
+                input(type='hidden', name='submitValue', value='INITIALIZE_DEVICE')  
+            form(method='post')
+                input(type='submit',value='Register fingerprint' class="input-button")
+                input(type='hidden',name='submitValue', value='ENROLL_FINGERPRINT')
+            form(method='post')
+                input(type='submit', value='Close scanner' class="input-button")
+                input(type='hidden', name='submitValue', value='CLOSE_FINGERPRINT')    
+            form(method='post')
+                input(type='button', value='Modal popup' class="input-button" id="modaltrigger")
+                input(type='hidden', name='submitValue', value='MODAL_POPUP')
+            form(method='post')
+                input(type='submit', value='fptemplate' class="input-button")
+                input(type='hidden', name='submitValue', value='fptemplate')
+            form(method='post')
+                input(type='submit', value='response' class="input-button")
+                input(type='hidden', name='submitValue', value='response')
+            form(method='post')
+                input(type='submit', value='tag' class="input-button")
+                input(type='hidden', name='submitValue', value='tag')
+            form(method='post')
+                input(type='submit', value='relation' class="input-button")
+                input(type='hidden', name='submitValue', value='relation')
+            form(method='POST')
+                input(type='submit', value='true' class="input-button")
+                input(type='hidden', name='fpid', value='true')
+        //- //- form(method='post')
+        //- //-     input(type='submit',value='Verify fingerprint', style="display:none" class="input-button")
+        //- //-     input(type='hidden',name='submitValue', value='VERIFY_FINGEPRRINT')
+        div=jadeargument["status"]
+        table(border="1") 
+            thead 
+                tr 
+                    th(style="text-align:left") No 
+                    th Registered Date
+                    th status
+            each value, index in jadeargument["dataSet1"]
+                tr 
+                    td=index+1
+                    td=jadeargument["dataSet1"][index]["time"]
+                    td=jadeargument["dataSet1"][index]["message"]
+        br
+        br
+
+        div(id="modal-popup" class=(jadeargument["status"]?'modal-open':''))
+            div(id="close-modal") X
+            div hello world
+        
+        //- form(action="http://localhost:4000/status" method="POST")
+        //- div(class="text-center")
+        //-     button(id="openDeviceBtn") Open Device
+        //- br    
+        //- div(class="button-container")
+        //-     button(id="registerBtn" style="display:none;" class="text-center") Register Fingerprint
+        //-     //- br
+        //-     //- button(id="verifyBtn" style="display:none;" class="text-center") Verify Fingerprint
+        //-     br
+        //-     button(id="closeBtn" style="display:none;" class="text-center") Close Device
+
+            
+
+        script.
+            let close = document.getElementById('close-modal')
+            setTimeout(()=> {
+                document.getElementById('modal-popup').classList.remove("modal-open")
+            },2000)
+            //- setInterval(() => {location.reload()},5000)
+            let click = document.getElementById('modaltrigger')
+            click.addEventListener('click', function() {
+                
+                document.getElementById('modal-popup').style.display = "flex"
+            })
+            close.addEventListener('click', function() {
+                document.getElementById('modal-popup').classList.remove("modal-open")
+            })
+
+            
+        //-     // get references to buttons
+        //-     const openDeviceBtn = document.getElementById('openDeviceBtn');
+        //-     const registerBtn = document.getElementById('registerBtn');
+        //-     const verifyBtn = document.getElementById('verifyBtn');
+        //-     const closeBtn = document.getElementById('closeBtn');
+        //-     let localUrl = "http://localhost:4000/status"
+        //-     let remoteUrl = "http://192.168.100.46:4000/status"
+
+        //-     // show and hide buttons on click events
+        //-     openDeviceBtn.addEventListener('click', function() {
+        //-         // show register and verify buttons
+        //-         registerBtn.style.display = 'block';
+        //-         verifyBtn.style.display = 'block';
+        //-         // hide open device button
+        //-         openDeviceBtn.style.display = 'none';
+        //-         // show close button
+        //-         closeBtn.style.display = 'block';
+        //-     });
+
+        //-     closeBtn.addEventListener('click', function() {
+        //-         // hide register and verify buttons
+        //-         registerBtn.style.display = 'none';
+        //-         verifyBtn.style.display = 'none';
+        //-         // hide close button
+        //-         closeBtn.style.display = 'none';
+        //-         // show open device button
+        //-         openDeviceBtn.style.display = 'inline';
+        //-     });
+
+            
+        //-     //- registerBtn.addEventListener("click", () => {
+        //-     //-     const xhr = new XMLHttpRequest();
+        //-     //-     xhr.open('GET', 'http://localhost:4000/fileNum', true);
+        //-     //-     //- xhr.setRequestHeader('Content-Type', 'application/json');
+        //-     //-     xhr.onload = function() {
+        //-     //-         if (xhr.status === 200) {
+        //-     //-         // Handle response
+        //-     //-         console.log(xhr.responseText);
+        //-     //-         } else {
+        //-     //-         // Handle error
+        //-     //-         console.error(xhr.statusText);
+        //-     //-         }
+        //-     //-     };
+        //-     //-     xhr.send();
+        //-     //- });
+        //-     document.querySelector('#openDeviceBtn').addEventListener('click', () => {
+        //-         //- event.preventDefault();
+        //-         const xhr = new XMLHttpRequest();
+        //-         xhr.open('POST', localUrl);
+        //-         xhr.setRequestHeader('Content-Type', 'application/json');
+        //-         xhr.onload = function() {
+        //-             if (xhr.status === 200) {
+        //-             // Handle response
+        //-             console.log(xhr.responseText);
+        //-             } else {
+        //-             // Handle error
+        //-             console.error(xhr.statusText);
+        //-             }
+        //-         };
+        //-         xhr.send(JSON.stringify({submitValue: 'INITIALIZE_DEVICE'}));
+        //-     });
+        //-     document.querySelector('#registerBtn').addEventListener('click', () => {
+        //-         verifyBtn.disabled = true;
+        //-         alert("Start Verify");
+        //-         const xhr = new XMLHttpRequest();
+        //-         xhr.open('POST', localUrl);
+        //-         xhr.setRequestHeader('Content-Type', 'application/json');
+        //-         xhr.onload = function() {
+        //-             if (xhr.status === 200) {
+        //-             // Handle response
+        //-             console.log(xhr.responseText);
+        //-             } else {
+        //-             // Handle error
+        //-             console.error(xhr.statusText);
+        //-             }
+        //-         };
+        //-         xhr.send(JSON.stringify({submitValue: 'ENROLL_FINGERPRINT'}));
+        //-     });
+        //-     document.querySelector('#verifyBtn').addEventListener('click', () => {
+        //-         alert("Start Verify");
+        //-         //- event.preventDefault();
+        //-         const xhr = new XMLHttpRequest();
+        //-         xhr.open('POST', localUrl);
+        //-         xhr.setRequestHeader('Content-Type', 'application/json');
+        //-         xhr.onload = function() {
+        //-             if (xhr.status === 200) {
+        //-             // Handle response
+        //-             console.log(xhr.responseText);
+        //-             } else {
+        //-             // Handle error
+        //-             console.error(xhr.statusText);
+        //-             }
+        //-         };
+        //-         xhr.send(JSON.stringify({submitValue: 'VERIFY_FINGERPRINT'}));
+        //-     });
+        //-     document.querySelector('#closeBtn').addEventListener('click', () => {
+        //-         verifyBtn.disabled = false;
+        //-         const xhr = new XMLHttpRequest();
+        //-         xhr.open('POST', localUrl);
+        //-         xhr.setRequestHeader('Content-Type', 'application/json');
+        //-         xhr.onload = function() {
+        //-             if (xhr.status === 200) {
+        //-             // Handle response
+        //-             console.log(xhr.responseText);
+        //-             } else {
+        //-             // Handle error
+        //-             console.error(xhr.statusText);
+        //-             }
+        //-         };
+        //-         xhr.send(JSON.stringify({submitValue: 'CLOSE_DEVICE'}));
+        //-     });
+
+

@@ -1,10 +1,12 @@
 import { Controller, Get, Post, Body, Res, Req } from '@nestjs/common';
 import { ZKTFingerprintService } from './Services/app.zkt_fingerprint.service';
-import { jadeButton, jadeTrigger, triggerColor } from './FileAction/jade_function';
+import { changeColor, jadeButton, jadeTrigger } from './FileAction/jade_function';
 import fs = require('graceful-fs')
 import path = require('path');
 var java = require("java");
 import axios from 'axios';
+import { readFileData } from './FileAction/read_file_data';
+import { RESPONSE_MESSAGE_FILE_PATH, SUBMIT_VALUE } from 'src/FileInterface/const_setting';
 // import mongoose from 'mongoose'
 // import catNames from 'cat-names';
 let count = 1;
@@ -87,8 +89,8 @@ export class AppController {
 
   @Get('status')
   getStatus(@Req() req, @Res() res) {
+
     return jadeTrigger(res, req);
-    // return triggerColor(res, req);
   }
 
   // POST
@@ -96,24 +98,18 @@ export class AppController {
   @Post('status')
   async postStatus(@Req() req: Request, @Res() res, @Body() imageData: string) {
     console.log("message post: ", req.body['submitValue']);
-    await jadeButton(req, imageData, res);
+    await jadeButton(req, res);
     return await jadeTrigger(res, req);
-
-    // fpCount++;
-    // if ((fpCount - 1) == fpNumber) {
-    //   console.log('All finger finish scan first time.');
-    //   fpCount = 0;
-    //   fpNumber = 0;
-    // }
 
   }
 
   @Post('testing')
-  async testMatch(@Body() imageData: string, @Req() req: Request) {
+  async testMatch(@Body() imageData: string, @Req() req: Request, @Res() res: Response) {
     console.log("message post: ", req.body['submitValue']);
-    await axios.post('http://192.168.242.46:8080', req.body['submitValue'])
-      .then(res => { console.log('message from java: ', res.data); })
-      .catch(err => { console.log('error is ', err) })
+    await changeColor(res, req);
+    // await axios.post('http://192.168.242.46:8080', req.body['submitValue'])
+    //   .then(res => { console.log('message from java: ', res.data); })
+    //   .catch(err => { console.log('error is ', err) })
   }
 
   @Post('score')
@@ -134,6 +130,6 @@ export class AppController {
   async changeColor(@Body() imageData: string, @Res() res, @Req() req: Request) {
     // let fpArray = new Array(8);
     let num = imageData['fpid'].length;
-    return await triggerColor(res);
+
   }
 }

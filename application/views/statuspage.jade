@@ -30,6 +30,7 @@ html
             }
             button{
                 margin-top: 10px;
+                margin-left:10px;
                 padding: 8px 15px;
                 border-radius: 3px;
                 cursor: pointer;
@@ -100,6 +101,9 @@ html
                 align-content: flex-start;
                 align-items: baseline;
             }
+            .change-color{
+                background-color: #6fd649;
+            }
     body(style="margin:0px")
         div(style="display: flex;flex-wrap: wrap;justify-content: center;")
             form(method='post')
@@ -113,7 +117,7 @@ html
                 input(type='hidden', name='submitValue', value='CLOSE_FINGERPRINT')
         div(style="text-align:center; margin-top:10px")
             img(src="public/fingers.png" alt="Fingerprint" style="max-width: 100%;")
-        div(class="popup" id="popup")
+        div(id="popup" class="popup")
             div(style="top:50%; left:50%; transform:translate(-50%, -50%); position:absolute; background:honeydew; border-radius:30px; width:50%; height: 50%;" id="popup-container") 
                 img(src="public/tick.jpeg", alt="tick" style="width:80px; height:80px")
                 h2 Thank You! 
@@ -123,7 +127,14 @@ html
             label(for="myInput" style="margin-right: 10px;") Enter number of fingers
             input(type="number", id="myInput", min="1", max="20" style="margin-right: 10px;")
             button(type="button" id="fpnum" style="height: 33px;") Send
-
+        div(id="div-input-fp")
+            label(for="code") Choose your person code:
+            select(name="code" id="person-code")
+                option(value="Person_code_01") Person_code_01
+                option(value="Person_code_02") Person_code_02
+                option(value="Person_code_03") Person_code_03
+                option(value="Person_code_04") Person_code_04
+            button(type="button" id="codeBtn") Send
         form(class="rating-form" style='margin-top: 8px; max-width: 100%; height: auto;' method="post" id="selectFinger")
             table(border="1" style='border-collapse: collapse; table-layout: fixed; width: 100%; max-width: 100%; overflow-x: auto;') 
                 thead 
@@ -134,20 +145,27 @@ html
                         th Middle
                         th Ring
                         th Pinky
-                        th Unknown
+                        th Unknow
+                    
                     tr 
                         td Left
-                        td(id="0" style=`background-color: ${registerStatus['registerSuccess'][0]['registrationSuccess'] ? '#68f77a' : 'white'}`)
+                        - var color = (jadeargument["fingerprintColor"] ? '#68f77a' : 'white')
+                        td(id="0" style="background-color: #{color}")
                             input(type="radio" name="finger" id="left_thumb" value="0")
-                        td(id="1") 
+                        - var color1 = (jadeargument["fingerprintColor_1"] ? '#68f77a' : 'white')              
+                        td(id="1" style="background-color: #{color1}") 
                             input(type="radio" name="finger" id="left_index" value="1")
-                        td(id="2") 
+                        - var color2 = (jadeargument["fingerprintColor_2"] ? '#68f77a' : 'white')
+                        td(id="2" style="background-color: #{color2}") 
                             input(type="radio" name="finger" id="left_middle" value="2")
-                        td(id="3") 
+                        - var color3 = (jadeargument["fingerprintColor_3"] ? '#68f77a' : 'white')
+                        td(id="3" style="background-color: #{color3}") 
                             input(type="radio" name="finger" id="left_ring" value="3")
-                        td(id="4") 
+                        - var color4 = (jadeargument["fingerprintColor_4"] ? '#68f77a' : 'white')
+                        td(id="4" style="background-color: #{color4}") 
                             input(type="radio" name="finger" id="left_pinky" value="4")
-                        td(id="10") 
+                        - var color10 = (jadeargument["fingerprintColor_10"] ? '#68f77a' : 'white')
+                        td(id="10" style="background-color: #{color10}") 
                             input(type="radio" name="finger" id="left_unknown" value="10")
                     tr
                         td Right
@@ -173,71 +191,96 @@ html
                     th No 
                     th Date
                     th Status 
-            each value, index in jadeargument["data"]
+            each value, index in jadeargument["fingerprintTemplateData"]
                 tr 
                     td=index+1
-                    td=jadeargument["data"][index]["time"]
-                    td=jadeargument["data"][index]["message"]
+                    td=jadeargument["fingerprintTemplateData"][index]["registeredDate"]
+                    td=jadeargument["fingerprintTemplateData"][index]["status"]
         br
         br
         script.
             let remoteUrl = "http://192.168.242.77:4000/status";
             let localUrl = "http://localhost:4000/status";
-
+            //send the radio button value
             $("input[type='radio']").click(function() {
                 var selectedValue = $("input[type='radio']:checked").val();
-                var selectedValue = document.querySelector('input[type="radio"]:checked').value;
-                var td = document.getElementById(selectedValue);
-                td.style.backgroundColor = "#68f77a";
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/testing');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({submitValue: selectedValue}));
             });
             
+            //close the popup message
             let close = document.getElementById('close-modal')
             close.addEventListener('click', function() {
-                document.getElementById('popup').style.display = "none"
-                var selectedValue = document.querySelector('input[type="radio"]:checked').value;
-                var td = document.getElementById(selectedValue);
-                td.style.backgroundColor = "#68f77a";
-                var radio = document.querySelector('input[type="radio"]:checked');
-                radio.disabled = true;
-            }); 
+                    document.getElementById('popup').style.display = "none"
+                    var selectedValue = document.querySelector('input[type="radio"]:checked').value;
+                    var td = document.getElementById(selectedValue);
+                    td.style.backgroundColor = "#68f77a";
+                    var radio = document.querySelector('input[type="radio"]:checked');
+                    radio.disabled = true;
+            });
+            //register fingerprint
             document.getElementById('registerBtn').addEventListener('click', () => {
-                //- document.getElementById('popup').style.display = "block"
+                document.getElementById('popup').style.display = "block"
                 var selectedValue = document.querySelector('input[type="radio"]:checked').value;
                 var td = document.getElementById(selectedValue);
                 td.style.backgroundColor = "#68f77a";
                 var radio = document.querySelector('input[type="radio"]:checked');
                 radio.disabled = true;
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', remoteUrl);
+                xhr.open('POST', localUrl);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({submitValue: 'ENROLL_FINGERPRINT'}));
             });
+            //init the scanner
             document.getElementById('initBtn').addEventListener('click', () => {
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', remoteUrl);
+                xhr.open('POST', localUrl);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({submitValue: 'INITIALIZE_DEVICE'}));
             });
+            //begin the scanner
             document.getElementById('beginBtn').addEventListener('click', () => {
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', remoteUrl);
+                xhr.open('POST', localUrl);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({submitValue: 'BEGIN_DEVICE'}));
             });
+            //close the scanner
             document.getElementById('closeBtn').addEventListener('click', () => {
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', remoteUrl);
+                xhr.open('POST', localUrl);
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({submitValue: 'CLOSE_FINGERPRINT'}));
             });
+            //send the fingers number
             document.getElementById('fpnum').addEventListener('click', () => {
                 let userInput = document.getElementById('myInput').value
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', 'http://192.168.242.77:4000/testing');
+                xhr.open('POST', 'http://localhost:4000/testing');
                 xhr.setRequestHeader('Content-Type', 'application/json');
                 xhr.send(JSON.stringify({submitValue: userInput}));
             });
-            //- setInterval(function() {
-            //-     location.reload();
-            //- }, 2000)
+            //send the person code
+            document.getElementById('codeBtn').addEventListener('click', () =>{
+                let personCodeValue = document.getElementById('person-code').value;
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({submitValue: personCodeValue}));
+            });
+            
+            //auto refresh
+            //jadeargument['fingerprintColor'] value still false
+            setInterval(function() {
+                let status = #{jadeargument['fingerprintColor']};
+                if(!status){
+                    document.getElementById('0').style.backgroundColor = "#68f77a";
+                }
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'http://localhost:4000/status');
+                xhr.setRequestHeader('Content-Type', 'application/json');
+                xhr.send(JSON.stringify({submitValue: status}));
+            }, 5000);
 
